@@ -20,19 +20,17 @@ DEFAULT_WATCHLIST = [
 # LẤY DỮ LIỆU GIÁ TRỰC TIẾP QUA API PUBLIC
 # ==========================================
 def get_stock_data_direct(symbol):
-    """Lấy dữ liệu lịch sử giá OHLCV trực tiếp từ API chứng khoán (Không cần thư viện ngoài)"""
+    """Lấy dữ liệu lịch sử giá OHLCV trực tiếp từ API chứng khoán"""
     try:
-        # Thời gian 100 ngày gần nhất
         end_date = datetime.now()
         start_date = end_date - timedelta(days=120)
         
         start_timestamp = int(start_date.timestamp())
         end_timestamp = int(end_date.timestamp())
         
-        # Gọi API public
         url = f"https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol={symbol.upper()}&from={start_timestamp}&to={end_timestamp}"
         headers = {
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
         }
         
         res = requests.get(url, headers=headers, timeout=10)
@@ -53,12 +51,11 @@ def get_stock_data_direct(symbol):
     return None
 
 def analyze_stock(symbol):
-    """Phân tích kỹ thuật (Breakout & Squeeze)"""
+    """Tính toán chỉ báo kỹ thuật (Breakout & Squeeze)"""
     df = get_stock_data_direct(symbol)
     if df is None or len(df) < 20:
         return None
     
-    # Tính MA20 và Volume MA20
     df['MA20'] = df['close'].rolling(window=20).mean()
     df['Volume_MA20'] = df['volume'].rolling(window=20).mean()
     
@@ -141,15 +138,15 @@ if len(sys.argv) > 1 and sys.argv[1] == "--auto":
     msg += "🚀 *1. Nhóm Breakout (Nổ Vol & Vượt MA20):*\n"
     if breakouts:
         for b in breakouts:
-            # Giá API VNDirect tính bằng VNĐ chuẩn (ví dụ 30,000)
-            msg += f"• `{b['symbol']}` - Giá: {b['close']:,.0f} | Vol: {b['volume']:,.0f}\n"
+            # Hiển thị giá chính xác đến hàng đơn vị và Volume đầy đủ
+            msg += f"• `{b['symbol']}` - Giá: {b['close']:,.2f} | Vol: {b['volume']:,.0f}\n"
     else:
         msg += "• Không có mã nào đạt tiêu chí hôm nay.\n"
         
     msg += "\n📦 *2. Nhóm Squeeze (Cạn cung / Tích lũy hẹp):*\n"
     if squeezes:
         for s in squeezes:
-            msg += f"• `{s['symbol']}` - Giá: {s['close']:,.0f}\n"
+            msg += f"• `{s['symbol']}` - Giá: {s['close']:,.2f} | Vol: {s['volume']:,.0f}\n"
     else:
         msg += "• Không có mã nào đạt tiêu chí hôm nay.\n"
         
@@ -171,32 +168,32 @@ watchlist_input = st.sidebar.text_area(
     height=150
 )
 
-if st.sidebar.button("🚀 Chạy Quét Tất Cả Chiến Lược", type="primary"):
-    custom_watchlist = [s.strip() for s in watchlist_input.split(",") if s.strip()]
-    
-    with st.spinner("Đang tải dữ liệu và phân tích thị trường..."):
-        breakouts, squeezes = run_screening(custom_watchlist)
+# Tự động quét luôn khi mở trang web hoặc bấm nút
+custom_watchlist = [s.strip() for s in watchlist_input.split(",") if s.strip()]
+
+with st.spinner("⏳ Đang tải dữ liệu thị trường và phân tích..."):
+    breakouts, squeezes = run_screening(custom_watchlist)
+
+st.success("✅ Quét thị trường hoàn tất!")
+
+col1, col2 = st.columns(2)
+with col1:
+    st.subheader("🚀 Nhóm Breakout")
+    if breakouts:
+        df_b = pd.DataFrame(breakouts)
+        st.dataframe(df_b[['symbol', 'close', 'volume']], use_container_width=True)
+    else:
+        st.info("Không tìm thấy mã Breakout nào.")
         
-    st.success("Quét hoàn tất!")
-    
-    col1, col2 = st.columns(2)
-    with col1:
-        st.subheader("🚀 Nhóm Breakout")
-        if breakouts:
-            df_b = pd.DataFrame(breakouts)
-            st.dataframe(df_b[['symbol', 'close', 'volume']], use_container_width=True)
-        else:
-            st.info("Không tìm thấy mã Breakout nào.")
-            
-    with col2:
-        st.subheader("📦 Nhóm Squeeze (Cạn cung)")
-        if squeezes:
-            df_s = pd.DataFrame(squeezes)
-            st.dataframe(df_s[['symbol', 'close', 'volume']], use_container_width=True)
-        else:
-            st.info("Không tìm thấy mã Squeeze nào.")
-            
-    if st.button("📤 Gửi báo cáo này về Telegram"):
-        msg = f"📊 *BÁO CÁO TỪ WEB*\nBreakout: {len(breakouts)} mã | Squeeze: {len(squeezes)} mã"
-        send_telegram_message(msg)
-        st.toast("Đã gửi thông báo!", icon="✅")
+with col2:
+    st.subheader("📦 Nhóm Squeeze (Cạn cung)")
+    if squeezes:
+        df_s = pd.DataFrame(squeezes)
+        st.dataframe(df_s[['symbol', 'close', 'volume']], use_container_width=True)
+    else:
+        st.info("Không tìm thấy mã Squeeze nào.")
+        
+if st.button("📤 Gửi báo cáo kết quả này về Telegram", type="primary"):
+    msg = f"📊 *BÁO CÁO THỦ CÔNG TỪ WEB*\nBreakout: {len(breakouts)} mã | Squeeze: {len(squeezes)} mã"
+    send_telegram_message(msg)
+    st.toast("Đã gửi thông báo về Telegram!", icon="✅")
