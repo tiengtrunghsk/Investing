@@ -2,8 +2,9 @@ name: Pro Quant Auto Bot
 
 on:
   schedule:
+    # 08:30 UTC = 15:30 giờ VN (Thị trường đã đóng cửa)
     - cron: '30 8 * * 1-5'
-  workflow_dispatch:
+  workflow_dispatch: # Cho phép chạy thủ công bằng tay
 
 jobs:
   run-screener:
@@ -21,11 +22,20 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install streamlit pandas requests
+          # Cài đặt vnstock từ kho lưu trữ chính thức
           pip install vnstock --extra-index-url https://vnstocks.com/api/packages
-          
+
+      - name: Register vnstock Device
+        env:
+          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }}
+        run: |
+          # Sử dụng CLI để đăng ký thiết bị ảo của GitHub Actions
+          # printf giúp tránh lưu key vào log hệ thống
+          printf '%s' "$VNSTOCK_API_KEY" | vnstock register --stdin
+
       - name: Run Auto Bot Mode
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }} # Truyền API Key vào đây
+          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }}
         run: python app.py --auto
