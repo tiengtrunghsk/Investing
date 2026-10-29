@@ -6,9 +6,11 @@
         "pe": 7.9,
         "pb": 1.2,
         "roe": 0.2,
-        "bctc": "ACB duy trì tỷ lệ an toàn vốn (CAR) trên 13%, ROE ổn định ~18–20%, nợ xấu kiểm soát tốt (~1.2%), thanh khoản dồi dào và tăng trưởng lợi nhuận thuần vững nhờ thu nhập từ lãi và dịch vụ ngân hàng.",
-        "outlook": "Ngắn hạn: chịu áp lực từ chính sách tiền tệ thắt chặt và cạnh tranh lãi suất; dài hạn: hưởng lợi từ chuyển đổi số, mở rộng tín dụng xanh và tăng trưởng kinh tế Việt Nam, tiềm năng tăng giá cổ phiếu tích cực.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn rất kém; P/B 1.2 và P/E 7.9 không phản ánh sức khỏe thực sự do ROE âm hoặc gần bằng 0.",
+        "outlook": "Cần cải thiện mạnh ROE và chất lượng tài sản; triển vọng phụ thuộc vào tái cơ cấu, kiểm soát rủi ro tín dụng và tăng trưởng thu nhập phi lãi.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận ROE cải thiện bền vững trên 10% và P/B về dưới 0.9 để bắt đầu gom."
     },
     "ANV": {
         "symbol": "ANV",
@@ -17,9 +19,11 @@
         "pe": 6.2,
         "pb": 1.2,
         "roe": 0.2,
-        "bctc": "ANV ghi nhận lỗ lũy kế lớn, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.5, dòng tiền hoạt động âm liên tục, và ROE âm trong nhiều năm gần đây, phản ánh áp lực tài chính nghiêm trọng.",
-        "outlook": "Ngắn hạn: rủi ro tiếp tục lỗ và cảnh báo kiểm soát đặc biệt. Dài hạn: phụ thuộc vào tái cơ cấu thành công, cải thiện giá cá ngừ và thị trường xuất khẩu, nhưng triển vọng phục hồi vẫn rất mong manh do áp lực chi phí và cạnh tranh.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.2 và P/E 6.2 không phản ánh sức mạnh tài chính thực sự.",
+        "outlook": "Ngành thủy sản phụ thuộc xuất khẩu, biến động giá nguyên liệu và tỷ giá; ANV chưa có dấu hiệu cải thiện lợi nhuận bền vững trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 5 hoặc ROE cải thiện rõ rệt trên 8% trước khi gom; hiện tại định giá chưa phản ánh tiềm năng sinh lời thực chất."
     },
     "BAF": {
         "symbol": "BAF",
@@ -28,9 +32,11 @@
         "pe": 130.6,
         "pb": 2.8,
         "roe": 0.0,
-        "bctc": "BAF không công bố báo cáo tài chính gần nhất, không có giao dịch trên HOSE/HNX từ năm 2021, vốn điều lệ âm, nợ quá hạn lớn, rủi ro hủy niêm yết cao và thiếu minh bạch thông tin.",
-        "outlook": "Ngắn hạn: Không khả thi do không thanh khoản, không dữ liệu. Dài hạn: Triển vọng tiêu cực trừ khi tái cơ cấu thành công và phục hồi minh bạch — hiện chưa có dấu hiệu khả quan.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/E cực cao phản ánh định giá phi thực tế, P/B 2.8 không hợp lý khi không có lợi nhuận.",
+        "outlook": "Thiếu lợi nhuận khiến triển vọng tăng trưởng và khả năng cải thiện ROE trong 1-3 năm rất mờ nhạt, rủi ro tiếp tục thua lỗ.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "P/E 130.6 quá cao so với ROE 0, không có vùng giá hấp dẫn; tránh gom, ưu tiên thanh lý nếu đang nắm giữ."
     },
     "BCM": {
         "symbol": "BCM",
@@ -39,9 +45,11 @@
         "pe": 21.2,
         "pb": 1.9,
         "roe": 0.1,
-        "bctc": "BCM có lợi nhuận âm liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền kinh doanh âm, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), thanh khoản và khả năng thanh toán yếu.",
-        "outlook": "Ngắn hạn rủi ro cao do mất khả năng thanh toán và nguy cơ bị hủy niêm yết; dài hạn phụ thuộc vào tái cơ cấu thành công và cải thiện dòng tiền từ dự án mới hoặc thoái vốn.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.9 và P/E 21.2 cao so với chất lượng lợi nhuận.",
+        "outlook": "Triển vọng yếu nếu không cải thiện ROE và tăng trưởng lợi nhuận; phụ thuộc vào tiến độ cho thuê KCN và chi phí đầu tư hạ tầng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 12x hoặc ROE cải thiện lên trên 8% trước khi gom; hiện giá chưa phản ánh giá trị nội tại thực sự."
     },
     "BHN": {
         "symbol": "BHN",
@@ -50,9 +58,11 @@
         "pe": 10.6,
         "pb": 1.5,
         "roe": 0.1,
-        "bctc": "BHN niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng giao dịch từ năm 2022 sau khi bị hủy niêm yết; báo cáo tài chính thiếu minh bạch, không công bố đầy đủ từ 2021, có dấu hiệu mất khả năng thanh toán và kiểm soát nội bộ yếu kém.",
-        "outlook": "Không có triển vọng đầu tư ngắn hạn do không giao dịch và thiếu thông tin; dài hạn phụ thuộc hoàn toàn vào khả năng khôi phục niêm yết và cải thiện minh bạch tài chính — hiện được đánh giá là rủi ro rất cao, không phù hợp với nhà đầu tư thông thường.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.5 và P/E 10.6 thiếu thuyết phục nếu không có cải thiện lợi nhuận.",
+        "outlook": "Triển vọng mờ nhạt trong 1-3 năm nếu không có cải cách quản trị, tăng trưởng doanh thu hoặc nâng cao ROE rõ ràng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E < 8 hoặc ROE cải thiện lên >8% mới xem xét gom; hiện chưa có tín hiệu định giá hấp dẫn cho nhà đầu tư giá trị."
     },
     "BID": {
         "symbol": "BID",
@@ -61,9 +71,11 @@
         "pe": 8.1,
         "pb": 1.4,
         "roe": 0.2,
-        "bctc": "BID có lợi nhuận ổn định, ROE cao (~18-20%), tỷ lệ an toàn vốn (CAR) vượt chuẩn (~15-16%), nợ xấu kiểm soát tốt (~1,3-1,5%), thanh khoản dồi dào và tăng trưởng tín dụng bền vững nhờ mạng lưới rộng và thị phần lớn.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số, mở rộng dịch vụ phi tín dụng và vị thế dẫn đầu ngành với khả năng sinh lời và quản trị rủi ro vượt trội.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không, P/B 1.4 và P/E 8.1 chưa phản ánh rủi ro tiềm ẩn.",
+        "outlook": "Triển vọng cải thiện ROE còn mơ hồ; áp lực lãi suất, nợ xấu và tăng trưởng tín dụng chậm có thể kéo dài.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 6.5 hoặc P/B dưới 1.0 kèm cải thiện rõ ràng ROE >10% trước khi gom. Không mua hiện tại."
     },
     "BSI": {
         "symbol": "BSI",
@@ -72,9 +84,11 @@
         "pe": 15.9,
         "pb": 1.3,
         "roe": 0.1,
-        "bctc": "BSI có vốn chủ sở hữu dương, thanh khoản tốt, nhưng lợi nhuận ròng sụt giảm mạnh do chi phí hoạt động tăng và thị trường chứng khoán trầm lắng; ROE và biên lợi nhuận gộp suy giảm liên tục trong 2 năm gần đây.",
-        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và cạnh tranh khốc liệt; dài hạn phụ thuộc vào cải thiện hiệu quả kinh doanh, chuyển đổi số và phục hồi khối lượng giao dịch toàn ngành.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.3 hợp lý nhưng P/E 15.9 cao so với ngành và lợi nhuận yếu.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào thị trường chứng khoán và chính sách tiền tệ; chưa có dấu hiệu cải thiện ROE rõ ràng trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 10 hoặc ROE cải thiện lên trên 5% mới xem xét gom; hiện giá chưa phản ánh giá trị nội tại thực sự."
     },
     "BSR": {
         "symbol": "BSR",
@@ -83,9 +97,11 @@
         "pe": 7.2,
         "pb": 2.0,
         "roe": 0.3,
-        "bctc": "BSR có lợi nhuận ròng âm trong quý gần nhất do giá dầu giảm mạnh và chi phí đầu vào tăng; nợ ngắn hạn vượt tài sản ngắn hạn, thanh khoản yếu; ROE âm, hệ số thanh toán hiện hành dưới 1.",
-        "outlook": "Ngắn hạn áp lực do biến động giá dầu và chi phí vận hành; dài hạn phụ thuộc vào cải thiện hiệu quả sản xuất và chuyển đổi năng lượng xanh của Tập đoàn Dầu khí Việt Nam.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.3%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E 7.2 và P/B 2.0 không phản ánh sức mạnh nội tại do lợi nhuận yếu.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào giá dầu và chính sách giá xăng dầu; rủi ro biên lợi nhuận thu hẹp nếu chi phí đầu vào tăng hoặc giá bán bị kiểm soát.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 5 hoặc ROE cải thiện rõ rệt trên 5% để gom; hiện tại định giá chưa hấp dẫn thực chất do lợi nhuận không bền vững."
     },
     "C4G": {
         "symbol": "C4G",
@@ -94,9 +110,11 @@
         "pe": 22.1,
         "pb": 0.4,
         "roe": 0.0,
-        "bctc": "C4G có báo cáo tài chính không đầy đủ, không công bố BCTC kiểm toán gần nhất, tồn tại rủi ro thanh khoản cao, âm vốn chủ sở hữu và nợ quá hạn lớn, khả năng thanh toán và hoạt động kinh doanh bị nghi vấn nghiêm trọng.",
-        "outlook": "Ngắn hạn: rủi ro rất cao do nguy cơ hủy niêm yết và mất thanh khoản. Dài hạn: thiếu cơ sở để đánh giá tích cực nếu không có cải thiện căn bản về quản trị, minh bạch và kết quả kinh doanh.",
-        "ai_updated_at": null
+        "bctc": "P/B rất thấp (0.4) cho thấy tài sản ghi sổ cao hơn giá thị trường, nhưng ROE = 0% phản ánh lợi nhuận không sinh lời, P/E 22.1 vô nghĩa do lợi nhuận bằng 0.",
+        "outlook": "Triển vọng mờ nhạt ngắn hạn do thiếu lợi nhuận; cần cải thiện vận hành hoặc tái cơ cấu để khai thác tài sản hiệu quả.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận hồi phục lợi nhuận; chỉ gom khi ROE dương ổn định và P/E có ý nghĩa."
     },
     "CEO": {
         "symbol": "CEO",
@@ -105,9 +123,11 @@
         "pe": 35.2,
         "pb": 1.1,
         "roe": 0.0,
-        "bctc": "CEO đang trong tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, lỗ lũy kế lớn, dòng tiền hoạt động âm kéo dài và nợ ngắn hạn vượt xa tài sản ngắn hạn; báo cáo tài chính bị kiểm toán với ý kiến ngoại trừ.",
-        "outlook": "Ngắn hạn rủi ro rất cao do nguy cơ hủy niêm yết và phá sản; dài hạn phụ thuộc hoàn toàn vào tái cơ cấu thành công và giải quyết nợ xấu, nhưng triển vọng phục hồi gần như bằng không trong bối cảnh thị trường bất động sản suy yếu và thiếu thông tin minh bạch.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/E cao bất thường do lợi nhuận âm hoặc rất thấp, P/B 1.1 phản ánh giá gần bằng giá trị sổ sách.",
+        "outlook": "Cần cải thiện lợi nhuận và vận hành dự án; triển vọng phụ thuộc vào thanh khoản thị trường và khả năng tái cơ cấu tài chính.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và lợi nhuận dương ổn định; chỉ gom khi P/E < 15 và ROE > 8%."
     },
     "CTD": {
         "symbol": "CTD",
@@ -116,9 +136,11 @@
         "pe": 9.6,
         "pb": 0.8,
         "roe": 0.1,
-        "bctc": "CTD ghi nhận lỗ liên tục nhiều năm, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.5, dòng tiền kinh doanh âm kéo dài, vốn chủ sở hữu suy giảm mạnh, rủi ro mất khả năng thanh toán cao.",
-        "outlook": "Ngắn hạn: rủi ro rất cao do giá về 0, nguy cơ hủy niêm yết. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công và cải thiện lợi nhuận bền vững, nhưng triển vọng hiện tại cực kỳ mờ nhạt.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, P/E thấp nhưng ROE rất yếu (0.1%), phản ánh hiệu quả sử dụng vốn kém.",
+        "outlook": "Triển vọng phụ thuộc vào đơn hàng mới và thanh khoản ngành xây dựng; rủi ro chậm thanh toán và áp lực lợi nhuận vẫn cao.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "ROE quá thấp làm giảm độ tin cậy của P/E và P/B; chờ cải thiện ROE >8% và dòng tiền dương rõ ràng trước khi gom."
     },
     "CTG": {
         "symbol": "CTG",
@@ -127,9 +149,11 @@
         "pe": 5.9,
         "pb": 1.2,
         "roe": 0.2,
-        "bctc": "CTG duy trì tỷ lệ an toàn vốn (CAR) cao (~14,5%), lợi nhuận ổn định nhờ thu nhập lãi ròng lớn và chi phí quản lý kiểm soát tốt; nợ xấu ở mức thấp (~1,2%) và dự phòng đầy đủ, thanh khoản dồi dào.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất giảm và cạnh tranh khốc liệt; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ phi lãi, và vị thế dẫn đầu trong hệ sinh thái tài chính số tại Việt Nam.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không, dù P/E và P/B ở mức hấp dẫn.",
+        "outlook": "Triển vọng cải thiện ROE phụ thuộc vào tăng trưởng tín dụng và kiểm soát chi phí; rủi ro lãi suất và nợ xấu vẫn tồn tại.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ ROE cải thiện rõ ràng trên 10% hoặc P/B giảm về dưới 0.9 để gom với tỷ trọng cao hơn."
     },
     "CTS": {
         "symbol": "CTS",
@@ -138,9 +162,11 @@
         "pe": 53.0,
         "pb": 2.1,
         "roe": 0.0,
-        "bctc": "CTS có vốn chủ sở hữu dương, thanh khoản tốt, tỷ lệ an toàn tài chính cao, nhưng lợi nhuận ròng suy giảm mạnh do thị trường chứng khoán trầm lắng và chi phí hoạt động tăng; ROE và biên lợi nhuận gộp đều thấp hơn trung bình ngành.",
-        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và cạnh tranh khốc liệt; dài hạn có tiềm năng phục hồi nếu cải thiện hiệu quả kinh doanh và tận dụng được xu hướng số hóa, nhưng rủi ro từ biến động thị trường và chính sách vẫn cao.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/E cao bất thường do lợi nhuận âm hoặc biến động, P/B 2.1 chưa phản ánh rủi ro tiềm tàng.",
+        "outlook": "Triển vọng phụ thuộc vào thị trường chứng khoán và cải thiện hiệu quả kinh doanh; cần theo dõi báo cáo quý tới để xác nhận phục hồi lợi nhuận.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận ROE dương và P/E hợp lý hơn. Không gom khi chưa có tín hiệu cải thiện lợi nhuận bền vững."
     },
     "DAB": {
         "symbol": "DAB",
@@ -149,9 +175,11 @@
         "pe": null,
         "pb": null,
         "roe": null,
-        "bctc": "",
-        "outlook": "",
-        "ai_updated_at": null
+        "bctc": "Không có dữ liệu P/E, P/B, ROE nên không thể đánh giá sức khỏe tài chính — thiếu cơ sở định giá và hiệu quả sử dụng vốn.",
+        "outlook": "Chưa xác định triển vọng do thiếu báo cáo tài chính cập nhật, không thể dự báo tăng trưởng lợi nhuận hay thị phần ngành nông nghiệp.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chưa có giá và chỉ số định giá, cần chờ công bố BCTC đầy đủ và xác nhận giá giao dịch thực tế trước khi xem xét gom."
     },
     "DCM": {
         "symbol": "DCM",
@@ -160,9 +188,11 @@
         "pe": 7.0,
         "pb": 1.8,
         "roe": 0.2,
-        "bctc": "DCM đang đối mặt với thua lỗ liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền hoạt động âm và tỷ lệ nợ/vốn chủ sở hữu cao, phản ánh áp lực tài chính nghiêm trọng và rủi ro thanh khoản.",
-        "outlook": "Ngắn hạn tiêu cực do mất khả năng sinh lời và biến động giá mạnh; dài hạn phụ thuộc vào cải thiện giá phân bón toàn cầu, tái cơ cấu nợ và hiệu quả đầu tư dự án mới, nhưng vẫn tiềm ẩn rủi ro cao.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không, P/B 1.8 và P/E 7 chưa phản ánh sức mạnh tài chính thực sự.",
+        "outlook": "Ngành phân bón phụ thuộc mạnh vào giá nguyên liệu và chính sách hỗ trợ nông nghiệp; triển vọng tăng trưởng lợi nhuận hạn chế trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 5 hoặc ROE cải thiện rõ rệt trên 8% trước khi gom. Hiện chưa có vùng định giá hấp dẫn cho đầu tư giá trị."
     },
     "DGC": {
         "symbol": "DGC",
@@ -171,9 +201,11 @@
         "pe": 5.9,
         "pb": 1.0,
         "roe": 0.1,
-        "bctc": "DGC có tài sản lớn nhưng thanh khoản yếu, nợ ngắn hạn cao hơn tiền + tương đương tiền, ROE suy giảm liên tục 3 năm gần nhất, biên lợi nhuận gộp và ròng đều giảm do chi phí đầu vào tăng và giá bán áp lực.",
-        "outlook": "Ngắn hạn chịu áp lực từ biến động giá nguyên vật liệu và cạnh tranh khốc liệt; dài hạn phụ thuộc vào hiệu quả tái cơ cấu sản xuất và chuyển dịch sang sản phẩm giá trị gia tăng, nhưng triển vọng chưa rõ ràng do thiếu đột phá chiến lược.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B=1.0 phản ánh tài sản được định giá sát giá trị sổ sách, nhưng P/E=5.9 thiếu ý nghĩa do lợi nhuận âm hoặc rất thấp.",
+        "outlook": "Ngành hóa chất chịu áp lực chi phí đầu vào và cạnh tranh khốc liệt; DGC chưa có dấu hiệu cải thiện sinh lời trong ngắn hạn, triển vọng tăng trưởng mờ nhạt.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chưa có điểm hấp dẫn rõ ràng do ROE gần 0 và lợi nhuận không bền vững; chờ báo cáo quý tiếp theo xác nhận cải thiện ROE >10% và biên lợi nhuận ổn định trước khi xem xét gom."
     },
     "DGW": {
         "symbol": "DGW",
@@ -182,9 +214,11 @@
         "pe": 9.9,
         "pb": 3.0,
         "roe": 0.3,
-        "bctc": "DGW báo lỗ liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền kinh doanh âm, tỷ lệ thanh toán hiện hành dưới 0.7, vốn chủ sở hữu suy giảm mạnh do âm lợi nhuận giữ lại.",
-        "outlook": "Ngắn hạn rủi ro hủy niêm yết cao do giá về 0 và vi phạm điều kiện duy trì niêm yết; dài hạn thiếu tín hiệu phục hồi khi mô hình kinh doanh yếu, thị phần sụt giảm và không có kế hoạch tái cơ cấu rõ ràng.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.3%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B cao (3.0) trong khi P/E thấp (9.9) phản ánh rủi ro lợi nhuận bền vững.",
+        "outlook": "Triển vọng yếu do áp lực cạnh tranh khốc liệt, biên lợi nhuận mỏng và tăng trưởng doanh thu chậm; khó cải thiện ROE trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "ROE gần bằng 0 khiến P/E 9.9 thiếu cơ sở định giá; cần giảm tỷ trọng do rủi ro sinh lời dài hạn cao."
     },
     "DIG": {
         "symbol": "DIG",
@@ -193,9 +227,11 @@
         "pe": 10.8,
         "pb": 0.8,
         "roe": 0.1,
-        "bctc": "DIG ghi nhận doanh thu và lợi nhuận suy giảm mạnh năm 2023, nợ dài hạn tăng cao, thanh khoản yếu, dòng tiền từ hoạt động kinh doanh âm, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%, cảnh báo rủi ro tài chính nghiêm trọng.",
-        "outlook": "Ngắn hạn: áp lực bán mạnh, thanh khoản gần như đóng băng, không có tín hiệu phục hồi. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu dự án và hỗ trợ từ cổ đông lớn, triển vọng đầu tư rất kém do thiếu minh bạch và khả năng sinh lời thấp.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, nhưng ROE rất thấp (0.1%) phản ánh hiệu quả sử dụng vốn kém.",
+        "outlook": "Triển vọng phụ thuộc vào thanh khoản dự án và chính sách hỗ trợ BĐS; khả năng cải thiện ROE chậm trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E giảm sâu hơn hoặc ROE cải thiện rõ ràng; không gom khi ROE gần bằng 0 dù P/B hấp dẫn."
     },
     "DPM": {
         "symbol": "DPM",
@@ -204,9 +240,11 @@
         "pe": 8.2,
         "pb": 1.4,
         "roe": 0.2,
-        "bctc": "DPM có tài sản lớn, nợ ngắn hạn cao hơn tiền & tương đương tiền, ROE ổn định quanh 15–20%, biên lợi nhuận gộp dao động 10–15% do phụ thuộc giá nguyên liệu và chính sách giá phân bón của Nhà nước.",
-        "outlook": "Ngắn hạn chịu áp lực từ biến động giá phân bón và chi phí đầu vào; dài hạn tích cực nhờ vị thế dẫn đầu ngành, chuyển đổi xanh và nhu cầu phân bón ổn định trong bối cảnh an ninh lương thực.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.4 và P/E 8.2 không phản ánh sức mạnh tài chính thực sự.",
+        "outlook": "Triển vọng yếu do chi phí đầu vào biến động, cạnh tranh khốc liệt, giá phân bón phụ thuộc mạnh vào chính sách xuất khẩu và giá nguyên liệu toàn cầu.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "ROE âm hiệu chỉnh tiềm ẩn, định giá P/E 8.2 không hấp dẫn khi lợi nhuận không bền vững; tránh gom, ưu tiên tái cơ cấu danh mục."
     },
     "DXG": {
         "symbol": "DXG",
@@ -215,9 +253,11 @@
         "pe": 65.9,
         "pb": 0.9,
         "roe": 0.0,
-        "bctc": "DXG ghi nhận lỗ lớn liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), dòng tiền hoạt động âm kéo dài, thanh khoản yếu và có dấu hiệu vi phạm nghĩa vụ công bố thông tin.",
-        "outlook": "Ngắn hạn rủi ro rất cao do áp lực thanh toán nợ và thiếu thanh khoản; dài hạn phụ thuộc hoàn toàn vào khả năng tái cơ cấu nợ, bán dự án và phục hồi thị trường bất động sản – triển vọng tiêu cực nếu không có cải thiện rõ ràng.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/B < 1 phản ánh tài sản bị định giá thấp, nhưng P/E cao bất thường do lợi nhuận âm hoặc rất thấp.",
+        "outlook": "Triển vọng phụ thuộc vào khả năng tái cơ cấu dự án, thanh khoản và cải thiện lợi nhuận. Rủi ro pháp lý và thị trường vẫn cao trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và lợi nhuận dương ổn định. Không gom khi ROE = 0 và P/E phi thực tế."
     },
     "EIB": {
         "symbol": "EIB",
@@ -226,9 +266,11 @@
         "pe": 63.1,
         "pb": 1.2,
         "roe": 0.0,
-        "bctc": "EIB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), lợi nhuận ròng tăng trưởng ổn định, nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và ROE duy trì trên 15%, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh khốc liệt; dài hạn tích cực nhờ chuyển đổi số, mở rộng dịch vụ ngân hàng số và tăng trưởng tín dụng bền vững trong bối cảnh kinh tế phục hồi và chính sách tiền tệ linh hoạt.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/E cao bất thường do lợi nhuận âm hoặc biến động, P/B 1.2 ở mức hợp lý nhưng thiếu nền tảng lợi nhuận.",
+        "outlook": "Cần làm rõ nguyên nhân ROE = 0; nếu do xử lý rủi ro tạm thời và có kế hoạch cải thiện lợi nhuận, triển vọng phục hồi khả thi trong 1-3 năm.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận phục hồi ROE và lợi nhuận; chỉ gom khi P/E về dưới 15 và ROE > 10% trong 2 quý liên tiếp."
     },
     "FPT": {
         "symbol": "FPT",
@@ -237,9 +279,11 @@
         "pe": 10.2,
         "pb": 2.6,
         "roe": 0.2,
-        "bctc": "FPT có tài chính vững mạnh với dòng tiền hoạt động dương liên tục, tỷ lệ nợ trên vốn chủ sở hữu dưới 40%, ROE ổn định ~18–20%, và thanh khoản tốt nhờ tiền mặt & tương đương tiền chiếm hơn 30% tổng tài sản.",
-        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu tư AI và cạnh tranh giá; dài hạn tích cực nhờ chuyển đổi số quốc gia, mở rộng mảng FPT Software & FPT IS, và tăng trưởng doanh thu công nghệ dự kiến 15–20%/năm.",
-        "ai_updated_at": null
+        "bctc": "ROE rất thấp (20%), cho thấy hiệu quả sử dụng vốn kém; P/E 10.2 và P/B 2.6 ở mức trung bình nhưng thiếu hỗ trợ từ lợi nhuận.",
+        "outlook": "Triển vọng cải thiện nhờ chuyển dịch sang cloud, AI, outsourcing toàn cầu, nhưng cần thời gian chứng minh tăng trưởng lợi nhuận bền vững.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 8 hoặc ROE cải thiện rõ rệt trên 15% trước khi gom; hiện định giá chưa phản ánh tiềm năng tăng trưởng thực chất."
     },
     "FRT": {
         "symbol": "FRT",
@@ -248,9 +292,11 @@
         "pe": 23.1,
         "pb": 5.5,
         "roe": 0.2,
-        "bctc": "FRT có tài sản dồi dào, nợ ngắn hạn thấp, dòng tiền kinh doanh ổn định; lợi nhuận ròng tăng đều 3 năm gần đây, ROE duy trì trên 20%, nhưng tồn kho tăng nhẹ và biên lợi nhuận gộp chịu áp lực từ cạnh tranh giá.",
-        "outlook": "Ngắn hạn chịu ảnh hưởng bởi sức mua tiêu dùng suy giảm và chi phí vận hành tăng; dài hạn tích cực nhờ mở rộng chuỗi, chuyển đổi số và tiềm năng tăng thị phần trong ngành bán lẻ điện máy – điện gia dụng.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B cao (5.5) phản ánh định giá quá cao so với tài sản ròng.",
+        "outlook": "Triển vọng yếu do áp lực cạnh tranh khốc liệt, biên lợi nhuận mỏng và tăng trưởng doanh thu chậm trong ngành bán lẻ bão hòa.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "P/E 23.1 cao so với ngành và ROE gần 0%, cần giảm tỷ trọng ngay để tái phân bổ vào cổ phiếu có ROE >15% và P/E hợp lý hơn."
     },
     "FTS": {
         "symbol": "FTS",
@@ -259,9 +305,11 @@
         "pe": 18.0,
         "pb": 1.6,
         "roe": 0.1,
-        "bctc": "FTS báo lỗ liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.8, vốn chủ sở hữu âm từ 2023, dòng tiền hoạt động âm và suy giảm mạnh.",
-        "outlook": "Ngắn hạn: rủi ro hủy niêm yết cao do giá về 0 và vi phạm điều kiện duy trì niêm yết. Dài hạn: cần tái cơ cấu sâu, cải thiện lợi nhuận và phục hồi niềm tin thị trường trước khi có triển vọng tích cực.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.6 và P/E 18 cao so với ngành, phản ánh định giá thiếu cơ sở lợi nhuận.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào thanh khoản thị trường và chính sách tiền tệ; nếu thanh khoản cải thiện và lãi suất giảm, FTS có thể phục hồi doanh thu môi giới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 12 và ROE cải thiện rõ rệt trên 5%; gom chỉ khi giá giảm sâu về vùng P/B < 1.0 hoặc ROE bật tăng bền vững."
     },
     "GAS": {
         "symbol": "GAS",
@@ -270,9 +318,11 @@
         "pe": 14.7,
         "pb": 2.7,
         "roe": 0.2,
-        "bctc": "GAS có tài chính vững mạnh với lợi nhuận ổn định, dòng tiền hoạt động dồi dào, tỷ lệ nợ trên vốn chủ sở hữu thấp (~20%), ROE duy trì trên 15%, và dự trữ tiền mặt lớn, phản ánh khả năng thanh toán và đầu tư cao.",
-        "outlook": "Ngắn hạn chịu áp lực từ giá khí nhập khẩu và điều chỉnh giá bán lẻ; dài hạn tích cực nhờ nhu cầu khí tăng, chuyển dịch năng lượng xanh và vai trò chủ lực trong hệ thống điện quốc gia.",
-        "ai_updated_at": null
+        "bctc": "ROE rất thấp (0.2%), cho thấy hiệu quả sử dụng vốn kém; P/B 2.7 cao so với ROE, P/E 14.7 trung bình nhưng thiếu hỗ trợ từ lợi nhuận.",
+        "outlook": "Triển vọng phụ thuộc vào giá khí và chính sách phân bổ lợi nhuận; tăng trưởng lợi nhuận hạn chế nếu không cải thiện ROE và hiệu suất vận hành.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 10 hoặc ROE cải thiện rõ rệt trên 10% trước khi gom; hiện định giá chưa hấp dẫn so với chất lượng lợi nhuận."
     },
     "GEG": {
         "symbol": "GEG",
@@ -281,9 +331,11 @@
         "pe": 12.9,
         "pb": 1.0,
         "roe": 0.1,
-        "bctc": "GEG đang bị đình chỉ giao dịch, không công bố BCTC đầy đủ trong nhiều kỳ gần đây; báo cáo kiểm toán bị từ chối ý kiến, tồn tại rủi ro kiểm soát nội bộ và khả năng thanh toán nghiêm trọng.",
-        "outlook": "Ngắn hạn: Không khả thi do ngừng giao dịch và thiếu minh bạch. Dài hạn: Phụ thuộc hoàn toàn vào việc khắc phục vi phạm, tái cấu trúc thành công và được cơ quan có thẩm quyền cho phép giao dịch trở lại.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B=1.0 phản ánh tài sản được định giá sát giá trị sổ sách, nhưng P/E=12.9 thiếu cơ sở lợi nhuận.",
+        "outlook": "Triển vọng yếu nếu không cải thiện ROE và lợi nhuận; ngành điện gió phụ thuộc chính sách, chi phí đầu tư lớn, chưa có dấu hiệu phục hồi lợi nhuận rõ ràng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E giảm về dưới 8 hoặc ROE cải thiện lên trên 5% mới xem xét gom; hiện tại định giá thiếu nền tảng lợi nhuận thực chất."
     },
     "GMD": {
         "symbol": "GMD",
@@ -292,9 +344,11 @@
         "pe": 13.7,
         "pb": 2.6,
         "roe": 0.2,
-        "bctc": "GMD có tài chính vững mạnh: nợ ngắn hạn thấp, dòng tiền HĐKD dương ổn định, ROE duy trì trên 15%, thanh khoản tốt và không có rủi ro thanh toán. Tỷ lệ nợ/vốn chủ sở hữu dưới 0.5, đảm bảo an toàn tài chính trong dài hạn.",
-        "outlook": "Ngắn hạn chịu áp lực từ suy giảm vận tải biển toàn cầu và cạnh tranh giá; dài hạn tích cực nhờ đầu tư cảng mới, chuyển đổi số và tăng trưởng logistics Việt Nam, hỗ trợ tăng trưởng doanh thu và lợi nhuận bền vững.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn rất kém; P/B 2.6 cao so với ROE, P/E 13.7 không hấp dẫn nếu không có tăng trưởng.",
+        "outlook": "Ngành cảng biển phụ thuộc vào xuất khẩu và chu kỳ kinh tế toàn cầu; chưa thấy tín hiệu cải thiện ROE rõ ràng trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 10 hoặc ROE cải thiện bền vững trên 10% mới xem xét gom; hiện định giá chưa phản ánh giá trị nội tại."
     },
     "HAH": {
         "symbol": "HAH",
@@ -303,9 +357,11 @@
         "pe": 7.4,
         "pb": 1.8,
         "roe": 0.2,
-        "bctc": "HAH báo lỗ liên tục 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.7, dòng tiền kinh doanh âm, vốn chủ sở hữu suy giảm mạnh do thua lỗ và trích lập dự phòng.",
-        "outlook": "Ngắn hạn rủi ro cao do mất khả năng thanh toán và nguy cơ bị hủy niêm yết; dài hạn phụ thuộc vào tái cơ cấu thành công và cải thiện hiệu quả khai thác cảng, nhưng thiếu tín hiệu tích cực rõ ràng.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không, dù P/E và P/B ở mức hợp lý.",
+        "outlook": "Triển vọng yếu nếu không cải thiện vận hành và lợi nhuận; phụ thuộc vào tăng trưởng cảng biển và chính sách đầu tư hạ tầng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ ROE cải thiện rõ rệt trên 8% và P/E dưới 6x với lợi nhuận bền vững trước khi gom."
     },
     "HBC": {
         "symbol": "HBC",
@@ -314,9 +370,11 @@
         "pe": 4.3,
         "pb": 0.5,
         "roe": 0.1,
-        "bctc": "HBC ghi nhận lỗ lũy kế lớn, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền hoạt động âm liên tục, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), thanh khoản và khả năng thanh toán bị suy giảm nghiêm trọng.",
-        "outlook": "Ngắn hạn: rủi ro hủy niêm yết, áp lực bán mạnh do mất thanh khoản. Dài hạn: phụ thuộc vào tái cơ cấu thành công, giải ngân dự án mới và cải thiện lợi nhuận – triển vọng rất hạn chế nếu không có biến chuyển đột phá.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, P/E thấp nhưng ROE rất yếu, phản ánh hiệu quả sử dụng vốn kém.",
+        "outlook": "Triển vọng phụ thuộc vào giải ngân dự án và cải thiện lợi nhuận; rủi ro thanh khoản và áp lực nợ vẫn cao trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 3.5 hoặc P/B dưới 0.4 kèm dấu hiệu cải thiện ROE > 5% trước khi gom. Theo dõi báo cáo quý gần nhất."
     },
     "HCM": {
         "symbol": "HCM",
@@ -325,9 +383,11 @@
         "pe": 27.3,
         "pb": 2.2,
         "roe": 0.1,
-        "bctc": "HCM không còn niêm yết trên HOSE từ 15/03/2024, bị hủy niêm yết do vi phạm nghiêm trọng nghĩa vụ công bố thông tin và không khắc phục trong thời hạn quy định, dẫn đến mất khả năng cung cấp báo cáo tài chính kiểm toán đầy đủ, minh bạch.",
-        "outlook": "Không có triển vọng đầu tư ngắn hay dài hạn do cổ phiếu đã bị hủy niêm yết, không giao dịch trên thị trường chính thức, thiếu minh bạch tài chính và rủi ro pháp lý cao, nhà đầu tư nên tránh hoàn toàn.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E cao và P/B trên mức trung bình ngành phản ánh định giá thiếu cơ sở.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào thị trường chứng khoán và thanh khoản; nếu thị trường phục hồi, doanh thu môi giới có thể cải thiện nhưng chưa rõ tính bền vững.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 15 và ROE cải thiện lên trên 8% mới bắt đầu gom; hiện tại định giá quá cao so với lợi nhuận thực tế."
     },
     "HDB": {
         "symbol": "HDB",
@@ -336,9 +396,11 @@
         "pe": 7.8,
         "pb": 1.7,
         "roe": 0.2,
-        "bctc": "HDBank duy trì tỷ lệ an toàn vốn (CAR) trên 13%, ROE ổn định ~15–17%, nợ xấu kiểm soát dưới 2%, thanh khoản tốt và tăng trưởng tín dụng bền vững nhờ mở rộng mạng lưới và số hóa dịch vụ.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số thành công, mở rộng phân phối bảo hiểm – chứng khoán và lợi thế thị phần trong nhóm ngân hàng TMCP lớn.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn rất kém, P/B 1.7 cao so với ROE, P/E 7.8 chưa phản ánh rủi ro cơ bản.",
+        "outlook": "Triển vọng yếu nếu không cải thiện ROE và chất lượng tài sản; áp lực từ nợ xấu và margin lãi thuần trong bối cảnh lãi suất biến động.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/B về dưới 1.2 hoặc ROE cải thiện rõ ràng trên 10%, kết hợp theo dõi báo cáo quý tiếp theo về tăng trưởng tín dụng và chi phí dự phòng."
     },
     "HDG": {
         "symbol": "HDG",
@@ -347,9 +409,11 @@
         "pe": 6.6,
         "pb": 0.9,
         "roe": 0.1,
-        "bctc": "HDG không có báo cáo tài chính gần nhất, không niêm yết trên HOSE/HNX, không công bố thông tin định kỳ theo chuẩn VSA, thiếu minh bạch tài chính và không có dữ liệu khả dụng để đánh giá sức khỏe tài chính.",
-        "outlook": "Cổ phiếu HDG không tồn tại trên thị trường chứng khoán Việt Nam chính thức; không có cơ sở để đánh giá triển vọng đầu tư ngắn hoặc dài hạn do thiếu mã chứng khoán hợp lệ và thông tin pháp lý minh bạch.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, P/E thấp nhưng ROE rất yếu (0.1%), phản ánh hiệu quả sử dụng vốn kém.",
+        "outlook": "Triển vọng hạn chế do thị trường BĐS vẫn trầm lắng, thanh khoản thấp và khả năng cải thiện ROE chưa rõ ràng trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 5 hoặc P/B dưới 0.7 kèm dấu hiệu cải thiện ROE rõ ràng trước khi gom; hiện chưa đủ hấp dẫn về định giá và chất lượng lợi nhuận."
     },
     "HHV": {
         "symbol": "HHV",
@@ -358,9 +422,11 @@
         "pe": 8.8,
         "pb": 0.5,
         "roe": 0.1,
-        "bctc": "HHV có vốn chủ sở hữu âm, nợ phải trả vượt tài sản, lợi nhuận âm liên tục nhiều năm, dòng tiền hoạt động âm, thanh khoản yếu và rủi ro hủy niêm yết cao do không công bố BCTC đầy đủ.",
-        "outlook": "Ngắn hạn: Rủi ro rất cao do tình trạng phá sản tiềm tàng và thiếu minh bạch. Dài hạn: Không khả thi nếu không tái cơ cấu thành công và phục hồi kinh doanh thực chất.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, nhưng ROE cực thấp (0.1%) phản ánh hiệu quả sử dụng vốn gần như bằng không.",
+        "outlook": "Triển vọng yếu do ROE thấp, khả năng sinh lời kém; phụ thuộc mạnh vào chu kỳ xây dựng và thanh khoản dự án.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 6 hoặc P/B dưới 0.4 kèm cải thiện ROE >5% trước khi xem xét gom."
     },
     "HPG": {
         "symbol": "HPG",
@@ -369,9 +435,11 @@
         "pe": 7.5,
         "pb": 1.2,
         "roe": 0.2,
-        "bctc": "HPG có tài sản ròng mạnh, nợ ngắn hạn kiểm soát tốt, dòng tiền hoạt động ổn định; tuy nhiên biên lợi nhuận gộp và ROE suy giảm do giá thép giảm, chi phí đầu vào biến động và áp lực cạnh tranh gia tăng trong bối cảnh cung vượt cầu.",
-        "outlook": "Ngắn hạn chịu áp lực từ dư cung thép và chi phí nguyên vật liệu; dài hạn tích cực nhờ chuyển đổi xanh, mở rộng sản xuất thép điện và tiềm năng xuất khẩu sang thị trường mới khi nhu cầu cơ sở hạ tầng phục hồi.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn rất kém; P/B 1.2 và P/E 7.5 không phản ánh sức mạnh thực sự do lợi nhuận suy giảm nghiêm trọng.",
+        "outlook": "Ngành thép đối mặt áp lực giá bán, chi phí đầu vào cao và dư cung; triển vọng ROE cải thiện chậm trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 5 hoặc ROE phục hồi trên 8% mới bắt đầu gom; hiện chưa có tín hiệu định giá hấp dẫn cho dài hạn."
     },
     "HSG": {
         "symbol": "HSG",
@@ -380,9 +448,11 @@
         "pe": 13.7,
         "pb": 0.8,
         "roe": 0.1,
-        "bctc": "HSG ghi nhận lỗ ròng 2023, nợ dài hạn tăng mạnh, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%, dòng tiền hoạt động âm kéo dài, thanh khoản yếu và tồn kho cao do giá thép giảm sâu và cạnh tranh khốc liệt.",
-        "outlook": "Ngắn hạn tiêu cực do áp lực giá thép, chi phí đầu vào và tồn kho; dài hạn phụ thuộc vào tái cơ cấu, mở rộng thị trường xuất khẩu và hiệu quả chuyển đổi sản xuất xanh, nhưng rủi ro vẫn cao.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, nhưng ROE cực thấp (0.1%) phản ánh hiệu quả sử dụng vốn rất kém.",
+        "outlook": "Triển vọng yếu do áp lực giá thép toàn cầu giảm, chi phí đầu vào biến động và nhu cầu xây dựng trong nước chưa phục hồi rõ rệt.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "ROE gần bằng 0 và P/E không phản ánh lợi nhuận bền vững; chờ cải thiện ROE >8% và P/B ổn định trên 0.9 trước khi gom."
     },
     "HVN": {
         "symbol": "HVN",
@@ -391,9 +461,11 @@
         "pe": 14.3,
         "pb": 6.9,
         "roe": 0.7,
-        "bctc": "HVN đang trong tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, lỗ lũy kế lớn, dòng tiền hoạt động âm kéo dài và phụ thuộc nặng vào hỗ trợ tài chính từ nhà nước và cổ đông lớn.",
-        "outlook": "Ngắn hạn rủi ro cao do áp lực tái cơ cấu nợ và thiếu thanh khoản; dài hạn phụ thuộc hoàn toàn vào hiệu quả cổ phần hóa, cải tổ quản trị và phục hồi nhu cầu vận tải hàng không sau đại dịch.",
-        "ai_updated_at": null
+        "bctc": "ROE rất thấp (0.7%), P/B cao (6.9) cho thấy tài sản không sinh lời, P/E 14.3 không hấp dẫn với hiệu quả kinh doanh yếu.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào phục hồi nhu cầu hàng không và kiểm soát chi phí nhiên liệu; rủi ro biến động giá vé và cạnh tranh cao.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 8 và ROE cải thiện trên 5% trước khi gom; hiện định giá chưa phản ánh giá trị nội tại."
     },
     "IDC": {
         "symbol": "IDC",
@@ -402,9 +474,11 @@
         "pe": 6.9,
         "pb": 2.4,
         "roe": 0.3,
-        "bctc": "IDC có tài sản lớn chủ yếu từ đất KCN, nợ dài hạn cao, dòng tiền kinh doanh âm trong 2 năm gần nhất, lợi nhuận sụt giảm mạnh do chậm thanh toán từ khách thuê và chi phí lãi vay tăng.",
-        "outlook": "Ngắn hạn áp lực giá do thanh khoản thấp và chưa phục hồi lợi nhuận; dài hạn phụ thuộc vào tiến độ thu hồi công nợ, mở rộng thuê đất và chính sách hỗ trợ KCN của Chính phủ.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.3%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E 6.9 và P/B 2.4 thiếu thuyết phục nếu không cải thiện lợi nhuận.",
+        "outlook": "Triển vọng phụ thuộc vào tiến độ cho thuê KCN, giải ngân dự án mới và cải thiện biên lợi nhuận; rủi ro thanh khoản và chi phí đầu tư cao.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E < 5 hoặc ROE cải thiện rõ rệt trên 5% trong 2 quý liên tiếp; không gom khi ROE vẫn dưới 1%."
     },
     "KBC": {
         "symbol": "KBC",
@@ -413,9 +487,11 @@
         "pe": 14.5,
         "pb": 1.0,
         "roe": 0.1,
-        "bctc": "KBC có tài sản lớn chủ yếu từ đất KCN, nợ dài hạn cao, dòng tiền kinh doanh suy giảm do chậm thanh toán từ khách thuê và khó khăn trong bán nền; lợi nhuận sụt mạnh, biên lợi nhuận gộp và ròng co hẹp đáng kể.",
-        "outlook": "Ngắn hạn áp lực do thị trường KCN trầm lắng, thanh khoản thấp và rủi ro tái cơ cấu nợ; dài hạn phụ thuộc vào tiến độ chuyển đổi mô hình kinh doanh và phục hồi nhu cầu thuê đất công nghiệp sau 2025.",
-        "ai_updated_at": null
+        "bctc": "ROE rất thấp (0.1%), cho thấy hiệu quả sử dụng vốn kém; P/B=1.0 cho thấy thị trường định giá sát giá trị sổ sách, nhưng P/E=14.5 cao so với ROE yếu.",
+        "outlook": "Triển vọng phụ thuộc vào tiến độ chuyển đổi đất KCN sang đô thị và thanh khoản bất động sản; rủi ro pháp lý và thanh khoản vẫn cao trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 10 hoặc P/B dưới 0.7 kèm cải thiện ROE rõ ràng trước khi gom. Theo dõi sát tiến độ chuyển đổi quỹ đất và báo cáo quý tới."
     },
     "KDC": {
         "symbol": "KDC",
@@ -424,9 +500,11 @@
         "pe": 24.8,
         "pb": 2.4,
         "roe": 0.1,
-        "bctc": "KDC có tài sản ngắn hạn chiếm tỷ trọng cao, thanh khoản tốt nhưng lợi nhuận ròng suy giảm liên tục 3 năm gần đây do chi phí lãi vay tăng và biên lợi nhuận gộp thu hẹp; ROE giảm mạnh về dưới 5%, nợ dài hạn tăng nhanh.",
-        "outlook": "Ngắn hạn áp lực từ lãi suất và cạnh tranh khốc liệt trong ngành phân bón; dài hạn phụ thuộc vào hiệu quả tái cơ cấu và chuyển đổi sang nông nghiệp công nghệ cao, tiềm năng phục hồi còn hạn chế.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E 24.8 và P/B 2.4 cao so với mức độ sinh lời yếu kém.",
+        "outlook": "Triển vọng tăng trưởng lợi nhuận mờ nhạt trong 1-3 năm nếu không cải thiện ROE và vận hành kinh doanh rõ ràng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "ROE gần bằng 0 khiến định giá hiện tại (P/E 24.8, P/B 2.4) là quá cao; cần hạ tỷ trọng để chờ cải thiện cơ bản hoặc điều chỉnh giá sâu hơn."
     },
     "KDH": {
         "symbol": "KDH",
@@ -435,9 +513,11 @@
         "pe": 10.0,
         "pb": 0.9,
         "roe": 0.1,
-        "bctc": "KDH có tài sản lớn nhưng thanh khoản yếu, nợ ngắn hạn cao hơn tiền + tương đương tiền, biên lợi nhuận gộp và ròng suy giảm do áp lực chi phí và giá bán; dòng tiền hoạt động âm trong nhiều quý gần đây.",
-        "outlook": "Ngắn hạn chịu áp lực từ thị trường BĐS trầm lắng và thanh khoản kém; dài hạn phụ thuộc vào khả năng triển khai dự án mới, cải thiện dòng tiền và tái cơ cấu nợ thành công.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, P/E 10 hợp lý nhưng ROE 10% thấp, phản ánh hiệu quả sử dụng vốn yếu.",
+        "outlook": "Triển vọng phụ thuộc vào thanh khoản thị trường và tiến độ dự án. Chính sách hỗ trợ BĐS có thể cải thiện doanh thu 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "P/B 0.9 cho thấy định giá hấp dẫn so với giá trị nội tại, gom 40% vị thế. Chia 4 đợt nếu giá giảm về vùng 12.0–13.0, giữ dài hạn 3 năm."
     },
     "LPB": {
         "symbol": "LPB",
@@ -446,9 +526,11 @@
         "pe": 9.4,
         "pb": 2.4,
         "roe": 0.3,
-        "bctc": "LPB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~16-18%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng tín dụng bền vững, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và tăng thị phần trong bối cảnh ngành ngân hàng Việt Nam tiếp tục cơ cấu lại và tăng trưởng tín dụng lành mạnh.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.3%) cho thấy hiệu quả sử dụng vốn rất kém; P/B 2.4 cao so với ROE, P/E 9.4 chưa phản ánh rủi ro lợi nhuận.",
+        "outlook": "Cần cải thiện mạnh lợi nhuận và chất lượng tài sản; triển vọng phụ thuộc vào tăng trưởng tín dụng bền vững và kiểm soát nợ xấu.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 7 hoặc ROE cải thiện rõ rệt trên 10% trước khi gom; hiện giá chưa hấp dẫn về định giá giá trị."
     },
     "MBB": {
         "symbol": "MBB",
@@ -457,9 +539,11 @@
         "pe": 6.6,
         "pb": 1.3,
         "roe": 0.2,
-        "bctc": "MBB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~20%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng lợi nhuận 2023 đạt ~18%, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất giảm và cạnh tranh khốc liệt; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và thị phần tăng trong bối cảnh hệ thống ngân hàng tập trung hóa, hỗ trợ tăng trưởng bền vững.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn rất kém, P/B 1.3 và P/E 6.6 không phản ánh sức khỏe thực sự do lợi nhuận gần như bằng 0.",
+        "outlook": "Cần cải thiện mạnh ROE và chất lượng tài sản; triển vọng phụ thuộc vào tái cơ cấu, kiểm soát rủi ro tín dụng và tăng trưởng thu nhập phi lãi.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận phục hồi ROE và lợi nhuận bền vững; không gom khi ROE chưa vượt 10% và lợi nhuận chưa rõ ràng."
     },
     "MBS": {
         "symbol": "MBS",
@@ -468,9 +552,11 @@
         "pe": 12.6,
         "pb": 1.4,
         "roe": 0.1,
-        "bctc": "MBS có vốn chủ sở hữu mạnh, tỷ lệ an toàn tài chính cao, lợi nhuận ổn định nhờ thu nhập từ môi giới và tự doanh, nhưng biên lợi nhuận bị ảnh hưởng bởi biến động thị trường và chi phí dự phòng tăng.",
-        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và lãi suất; dài hạn tích cực nhờ vị thế dẫn đầu trong môi giới và chuyển đổi số, cùng tiềm năng mở rộng dịch vụ tài chính tổng hợp.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.4 và P/E 12.6 thiếu thuyết phục nếu không cải thiện lợi nhuận.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào thanh khoản thị trường và chính sách tiền tệ; chưa có dấu hiệu cải thiện ROE rõ ràng trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 8 hoặc ROE cải thiện bền vững trên 5% để bắt đáy an toàn; hiện chưa đủ hấp dẫn định giá."
     },
     "MSB": {
         "symbol": "MSB",
@@ -479,9 +565,11 @@
         "pe": 10.2,
         "pb": 1.3,
         "roe": 0.1,
-        "bctc": "MSB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), lợi nhuận tăng trưởng ổn định, NIM cải thiện, nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và chi phí hoạt động hiệu quả.",
-        "outlook": "Ngắn hạn hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng; dài hạn được hỗ trợ bởi chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và thị phần bán lẻ tăng dần.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không, P/B 1.3 và P/E 10.2 thiếu thuyết phục nếu không cải thiện lợi nhuận.",
+        "outlook": "Cần cải thiện ROE và tăng trưởng lợi nhuận rõ ràng; triển vọng phụ thuộc vào tái cơ cấu hoạt động và kiểm soát chi phí hiệu quả.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và tăng trưởng lợi nhuận bền vững trước khi gom; hiện chưa có tín hiệu định giá hấp dẫn."
     },
     "MSN": {
         "symbol": "MSN",
@@ -490,9 +578,11 @@
         "pe": 12.0,
         "pb": 2.6,
         "roe": 0.2,
-        "bctc": "MSN có tài chính vững mạnh với tỷ lệ nợ trên vốn chủ sở hữu dưới 30%, dòng tiền từ hoạt động kinh doanh ổn định, lợi nhuận sau thuế tăng trưởng đều 10–15%/năm, và thanh khoản tốt nhờ danh mục đầu tư đa ngành chất lượng.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh ngành tiêu dùng; dài hạn tích cực nhờ chuyển đổi số, mở rộng mảng thực phẩm – đồ uống và tiềm năng tăng trưởng từ các công ty con niêm yết.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn rất kém; P/E 12 và P/B 2.6 không hấp dẫn nếu không có cải thiện ROE.",
+        "outlook": "Cần cải thiện lợi nhuận cốt lõi và ROE rõ ràng; chưa thấy tín hiệu phục hồi mạnh trong 1-3 năm tới từ dữ liệu hiện tại.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E < 9 hoặc ROE > 10% và cải thiện dòng tiền, sau đó gom dần theo vùng giá hỗ trợ kỹ thuật."
     },
     "MWG": {
         "symbol": "MWG",
@@ -501,9 +591,11 @@
         "pe": 11.4,
         "pb": 2.5,
         "roe": 0.3,
-        "bctc": "MWG ghi nhận doanh thu tăng trưởng ổn định nhưng lợi nhuận ròng sụt giảm mạnh do chi phí lãi vay cao, biên lợi nhuận gộp và ròng suy giảm, dòng tiền từ HĐKD âm trong quý gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, áp lực thanh khoản gia tăng.",
-        "outlook": "Ngắn hạn chịu áp lực từ cạnh tranh khốc liệt và chi phí vốn; dài hạn phụ thuộc vào khả năng tái cơ cấu chuỗi, tối ưu chi phí và phục hồi biên lợi nhuận sau khi hoàn tất chuyển đổi số và tích hợp hệ sinh thái.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.3%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E 11.4 và P/B 2.5 thiếu thuyết phục nếu không cải thiện sinh lời.",
+        "outlook": "Áp lực cạnh tranh, margin thu hẹp, tăng trưởng doanh thu chậm; cần thấy cải thiện ROE rõ ràng trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 8 và ROE cải thiện trên 8% để bắt đáy an toàn; hiện chưa có điểm vào hấp dẫn theo nguyên tắc đầu tư giá trị."
     },
     "NKG": {
         "symbol": "NKG",
@@ -512,9 +604,11 @@
         "pe": 35.9,
         "pb": 0.8,
         "roe": 0.0,
-        "bctc": "NKG báo lỗ liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ nợ trên vốn chủ sở hữu trên 300%, dòng tiền hoạt động âm, thanh khoản và khả năng thanh toán yếu.",
-        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu vào tăng và giá thép giảm; dài hạn phụ thuộc vào tái cơ cấu, cải thiện hiệu quả sản xuất và phục hồi nhu cầu xây dựng – rủi ro cao, chưa có tín hiệu phục hồi rõ ràng.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/B < 1 phản ánh tài sản bị định giá thấp, P/E cao bất thường do lợi nhuận âm hoặc biến động.",
+        "outlook": "Triển vọng phụ thuộc vào phục hồi giá thép và giải quyết vấn đề sinh lời; rủi ro cao nếu không cải thiện ROE trong 1-2 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và lợi nhuận dương ổn định; chỉ gom khi P/E về dưới 15 và ROE > 5%."
     },
     "NLG": {
         "symbol": "NLG",
@@ -523,9 +617,11 @@
         "pe": 18.1,
         "pb": 0.9,
         "roe": 0.0,
-        "bctc": "NLG có nợ ngắn hạn cao hơn tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 1, lợi nhuận ròng âm trong 2 năm gần nhất, dòng tiền hoạt động suy giảm, và tỷ lệ nợ trên vốn chủ sở hữu tăng mạnh, phản ánh áp lực tài chính nghiêm trọng.",
-        "outlook": "Ngắn hạn: rủi ro thanh khoản và điều chỉnh giá mạnh do mất niềm tin nhà đầu tư. Dài hạn: phụ thuộc vào khả năng tái cơ cấu nợ, bán dự án và cải thiện dòng tiền – triển vọng tiêu cực nếu không có chuyển biến thực chất từ quản trị và thị trường.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, nhưng ROE = 0% phản ánh lợi nhuận không khả thi, rủi ro thanh khoản và vận hành.",
+        "outlook": "Triển vọng yếu trong 1-3 năm do thị trường BĐS trầm lắng, khó cải thiện ROE nếu không có dự án mới hoặc tái cơ cấu hiệu quả.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "ROE bằng 0 và P/E 18.1 là quá cao so với hiệu quả kinh doanh; chờ báo cáo quý tiếp theo có dấu hiệu cải thiện ROE và dòng tiền trước khi gom."
     },
     "NT2": {
         "symbol": "NT2",
@@ -534,9 +630,11 @@
         "pe": 4.7,
         "pb": 1.3,
         "roe": 0.3,
-        "bctc": "NT2 có lợi nhuận ổn định nhờ hợp đồng mua bán điện dài hạn với EVN, tỷ lệ nợ trên vốn chủ sở hữu ở mức an toàn (~0.5x), dòng tiền hoạt động mạnh và thanh khoản tốt, nhưng chi phí nhiên liệu biến động ảnh hưởng đến biên lợi nhuận.",
-        "outlook": "Ngắn hạn: Giá cổ phiếu chịu áp lực từ lãi suất và tâm lý thị trường chung. Dài hạn: Triển vọng tích cực nhờ nhu cầu điện tăng, chuyển đổi năng lượng và tiềm năng mở rộng công suất, hỗ trợ tăng trưởng lợi nhuận và cổ tức ổn định.",
-        "ai_updated_at": null
+        "bctc": "P/E và P/B thấp cho thấy định giá rẻ, nhưng ROE cực thấp (0.3%) phản ánh hiệu quả sử dụng vốn rất kém, rủi ro về sinh lời dài hạn.",
+        "outlook": "Triển vọng phụ thuộc vào giá điện, chi phí nhiên liệu và chính sách điều chỉnh giá; khả năng cải thiện ROE trong ngắn hạn là hạn chế.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 4 hoặc ROE cải thiện rõ ràng trên 5% trước khi gom; hiện chưa đủ hấp dẫn về chất lượng lợi nhuận."
     },
     "NVL": {
         "symbol": "NVL",
@@ -545,9 +643,11 @@
         "pe": 8.0,
         "pb": 0.6,
         "roe": 0.1,
-        "bctc": "NVL ghi nhận lỗ ròng liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), dòng tiền hoạt động âm, thanh khoản yếu và tồn kho bất động sản tăng mạnh.",
-        "outlook": "Ngắn hạn: áp lực bán và rủi ro delisting cao do giá về 0 đồng và vi phạm quy định niêm yết. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công, thoái vốn dự án và cải thiện dòng tiền – triển vọng rất mờ nhạt.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy tài sản ghi sổ cao hơn giá thị trường, nhưng ROE rất thấp (0.1%) phản ánh hiệu quả sử dụng vốn kém.",
+        "outlook": "Triển vọng phụ thuộc vào thanh khoản dự án và chính sách hỗ trợ BĐS; khả năng phục hồi chậm do áp lực nợ và tâm lý thị trường yếu.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/B về 0.4–0.5 hoặc P/E dưới 6 kèm cải thiện ROE > 5% trước khi gom; hiện chưa rõ tín hiệu hồi phục lợi nhuận bền vững."
     },
     "OCB": {
         "symbol": "OCB",
@@ -556,9 +656,11 @@
         "pe": 7.2,
         "pb": 0.9,
         "roe": 0.1,
-        "bctc": "OCB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~18-20%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng tín dụng bền vững nhờ mở rộng bán lẻ và số hóa.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số thành công, tăng thị phần bán lẻ và lợi thế chi phí thấp trong nhóm ngân hàng tư nhân.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy thị giá thấp hơn giá trị sổ sách, P/E thấp nhưng ROE rất thấp (10%), phản ánh hiệu quả sử dụng vốn yếu.",
+        "outlook": "Ngân hàng đang tái cơ cấu, cải thiện chất lượng tài sản và tăng thu nhập ngoài lãi; triển vọng phục hồi ROE trong 2-3 năm nếu kiểm soát rủi ro tốt.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "P/B dưới 1 và P/E thấp cho thấy định giá hấp dẫn; gom 25% vị thế ban đầu, chia 4 đợt khi giá giảm thêm 5–10% mỗi lần. Giữ dài hạn 3 năm."
     },
     "ORS": {
         "symbol": "ORS",
@@ -567,9 +669,11 @@
         "pe": 27.5,
         "pb": 1.2,
         "roe": 0.0,
-        "bctc": "ORS niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng giao dịch từ 2022 sau khi bị hủy niêm yết; báo cáo tài chính thiếu minh bạch, không công bố BCTC kiểm toán đầy đủ trong nhiều năm, vốn chủ sở hữu âm, rủi ro thanh khoản và pháp lý cao.",
-        "outlook": "Ngắn hạn: Không khả thi đầu tư do không giao dịch, thiếu thông tin và rủi ro pháp lý. Dài hạn: Chỉ khả thi nếu tái cấu trúc thành công, được cấp phép hoạt động lại và phục hồi minh bạch tài chính – xác suất rất thấp.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/E cao bất thường so với hiệu quả hoạt động, P/B 1.2 phản ánh tài sản chưa được khai thác hiệu quả.",
+        "outlook": "Triển vọng phụ thuộc vào cải thiện lợi nhuận và tái cơ cấu hoạt động; ngành chứng khoán biến động mạnh, rủi ro thanh khoản và quản trị cao.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về mức hợp lý (<15) hoặc ROE dương ổn định; không gom khi chưa có dấu hiệu cải thiện lợi nhuận thực chất."
     },
     "PAN": {
         "symbol": "PAN",
@@ -578,9 +682,11 @@
         "pe": 3.8,
         "pb": 0.8,
         "roe": 0.1,
-        "bctc": "PAN đang đối mặt với tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, nợ quá hạn lớn và báo cáo tài chính bị từ chối ý kiến kiểm toán do thiếu bằng chứng kiểm toán đầy đủ.",
-        "outlook": "Ngắn hạn rủi ro rất cao do nguy cơ hủy niêm yết và phá sản; dài hạn phụ thuộc hoàn toàn vào tái cơ cấu thành công và phục hồi dòng tiền, nhưng triển vọng hiện cực kỳ mờ mịt.",
-        "ai_updated_at": null
+        "bctc": "P/E và P/B thấp cho thấy thị trường định giá thấp, nhưng ROE cực thấp (0.1%) phản ánh hiệu quả sử dụng vốn gần như bằng không.",
+        "outlook": "Cần cải thiện mạnh ROE và lợi nhuận; nếu không có chuyển biến tích cực từ hoạt động kinh doanh, triển vọng tăng trưởng hạn chế.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và biên lợi nhuận; chỉ gom khi P/E dưới 3.5 và ROE vượt 3% trong 2 quý liên tiếp."
     },
     "PC1": {
         "symbol": "PC1",
@@ -589,9 +695,11 @@
         "pe": 6.9,
         "pb": 1.2,
         "roe": 0.1,
-        "bctc": "PC1 có vốn chủ sở hữu âm, lỗ lũy kế lớn, dòng tiền hoạt động âm liên tục, tỷ lệ nợ trên vốn chủ sở hữu cao, thanh khoản yếu và không công bố BCTC đầy đủ trong nhiều năm gần đây.",
-        "outlook": "Ngắn hạn: rủi ro rất cao do nguy cơ hủy niêm yết, không khả thi để đầu tư. Dài hạn: chỉ khả thi nếu có tái cấu trúc sâu, chuyển đổi ngành hoặc hỗ trợ từ cổ đông lớn — hiện chưa thấy dấu hiệu rõ ràng.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E 6.9 và P/B 1.2 không phản ánh sức mạnh tài chính thực sự.",
+        "outlook": "Triển vọng yếu do ROE âm tiềm ẩn, ngành năng lượng cạnh tranh cao, chưa thấy dấu hiệu cải thiện lợi nhuận bền vững trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 5 hoặc ROE cải thiện rõ ràng trên 8% trước khi xem xét gom. Hiện chưa có vùng giá hấp dẫn dựa trên cơ sở giá trị."
     },
     "PDR": {
         "symbol": "PDR",
@@ -600,9 +708,11 @@
         "pe": 18.8,
         "pb": 0.9,
         "roe": 0.0,
-        "bctc": "PDR ghi nhận lỗ lũy kế lớn, nợ ngắn hạn vượt tài sản ngắn hạn, thanh khoản yếu, dòng tiền kinh doanh âm kéo dài và tỷ lệ nợ trên vốn chủ sở hữu cao, phản ánh áp lực tài chính nghiêm trọng và rủi ro mất khả năng thanh toán.",
-        "outlook": "Ngắn hạn: rủi ro rất cao do giá về 0, nguy cơ hủy niêm yết. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công, xử lý nợ và phục hồi dự án, nhưng triển vọng hiện cực kỳ mờ nhạt và thiếu tín hiệu tích cực.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/B < 1 phản ánh tài sản bị định giá thấp, P/E cao bất thường do lợi nhuận âm hoặc tạm thời.",
+        "outlook": "Triển vọng phụ thuộc vào khả năng tái cơ cấu dự án và cải thiện dòng tiền; thị trường BĐS vẫn khó khăn trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và lợi nhuận dương ổn định; chỉ gom khi P/E hợp lý và P/B duy trì dưới 0.8 với thanh khoản tốt."
     },
     "PET": {
         "symbol": "PET",
@@ -611,9 +721,11 @@
         "pe": 24.9,
         "pb": 3.2,
         "roe": 0.1,
-        "bctc": "PET đang báo lỗ liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền hoạt động âm, tỷ lệ thanh toán hiện hành dưới 1, cho thấy áp lực thanh khoản và rủi ro tài chính cao trong bối cảnh ngành dầu khí suy giảm.",
-        "outlook": "Ngắn hạn tiêu cực do khó khăn kinh doanh và biến động giá dầu; dài hạn phụ thuộc vào tái cơ cấu thành công và phục hồi nhu cầu xăng dầu, nhưng tiềm năng tăng trưởng hạn chế do cạnh tranh khốc liệt và chuyển dịch năng lượng.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E 24.9 và P/B 3.2 cao so với ngành, phản ánh định giá thiếu cơ sở lợi nhuận.",
+        "outlook": "Triển vọng yếu trong 1-3 năm do lợi nhuận trì trệ, áp lực chi phí đầu vào và cạnh tranh khốc liệt trong ngành nhựa bao bì.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "P/E quá cao so với ROE gần 0%, không có vùng hấp dẫn để gom; nên giảm tỷ trọng và tái cân bằng sang cổ phiếu có ROE >15% và P/E hợp lý."
     },
     "PHR": {
         "symbol": "PHR",
@@ -622,9 +734,11 @@
         "pe": 8.4,
         "pb": 1.7,
         "roe": 0.2,
-        "bctc": "PHR có tài sản lớn nhưng thanh khoản yếu, nợ dài hạn cao, lợi nhuận sụt giảm mạnh do chậm thanh toán từ khách hàng và chi phí lãi vay tăng; dòng tiền kinh doanh âm liên tục, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%.",
-        "outlook": "Ngắn hạn tiêu cực do áp lực thanh khoản và khó khăn trong thu hồi công nợ; dài hạn phụ thuộc vào tiến độ chuyển đổi đất công nghiệp và khả năng tái cơ cấu nợ, tiềm năng phục hồi còn hạn chế.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.7 và P/E 8.4 chưa phản ánh sức mạnh nội tại.",
+        "outlook": "Triển vọng phụ thuộc vào tiến độ triển khai hạ tầng KCN mới và khả năng cải thiện lợi nhuận từ thuê đất, nhưng chưa có tín hiệu bật tăng rõ ràng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 6 hoặc ROE cải thiện lên trên 5% trước khi gom; hiện giá chưa hấp dẫn về định giá nội tại."
     },
     "PNJ": {
         "symbol": "PNJ",
@@ -633,9 +747,11 @@
         "pe": 3.6,
         "pb": 0.7,
         "roe": 0.2,
-        "bctc": "PNJ duy trì lợi nhuận ròng tăng trưởng ổn định, ROE trên 20%, dòng tiền HĐKD dương mạnh, nợ ngắn hạn kiểm soát tốt, nhưng tỷ lệ nợ/vốn chủ sở hữu tăng nhẹ do mở rộng chuỗi cửa hàng và đầu tư vào công nghệ.",
-        "outlook": "Ngắn hạn chịu áp lực từ chi phí vận hành và cạnh tranh giá; dài hạn tích cực nhờ vị thế dẫn đầu ngành trang sức, chuyển đổi số thành công và mở rộng mảng vàng miếng, dịch vụ tài chính.",
-        "ai_updated_at": null
+        "bctc": "P/E và P/B thấp cho thấy thị trường định giá thấp, nhưng ROE cực thấp (0.2%) phản ánh hiệu quả sử dụng vốn rất kém, tiềm ẩn rủi ro về sinh lời.",
+        "outlook": "Triển vọng phụ thuộc vào cải thiện ROE và chuyển đổi mô hình bán lẻ; nếu không có đột phá, tăng trưởng lợi nhuận hạn chế trong 1-3 năm.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và biên lợi nhuận; chỉ gom khi P/E dưới 3.0 và ROE vượt 5% trong 2 quý liên tiếp."
     },
     "POW": {
         "symbol": "POW",
@@ -644,9 +760,11 @@
         "pe": 6.5,
         "pb": 0.9,
         "roe": 0.2,
-        "bctc": "POW có tài chính ổn định với tỷ lệ nợ/vốn chủ sở hữu ~0.5, dòng tiền hoạt động dương liên tục, lợi nhuận sau thuế tăng đều 10–15%/năm nhờ vận hành hiệu quả nhà máy thủy điện và mở rộng năng lượng tái tạo.",
-        "outlook": "Ngắn hạn chịu áp lực từ giá điện điều tiết và biến động thủy văn; dài hạn tích cực nhờ lộ trình chuyển đổi năng lượng, đầu tư mạnh vào điện gió – mặt trời và tiềm năng tăng giá bán điện thị trường.",
-        "ai_updated_at": null
+        "bctc": "P/E thấp, P/B <1 cho thấy thị giá thấp hơn giá trị sổ sách, nhưng ROE rất thấp (0.2%) phản ánh hiệu quả sử dụng vốn kém.",
+        "outlook": "Triển vọng cải thiện chậm do phụ thuộc vào giá điện điều tiết, chi phí nhiên liệu biến động và áp lực chuyển đổi năng lượng xanh.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 5 hoặc ROE cải thiện rõ rệt trên 5%, kết hợp theo dõi kế hoạch cổ tức và lộ trình tái cơ cấu tài sản."
     },
     "PVD": {
         "symbol": "PVD",
@@ -655,9 +773,11 @@
         "pe": 15.7,
         "pb": 1.0,
         "roe": 0.1,
-        "bctc": "PVD duy trì vị thế dẫn đầu trong khoan và dịch vụ dầu khí, có dòng tiền hoạt động ổn định, nợ ngắn hạn kiểm soát tốt, nhưng lợi nhuận sụt giảm do giá dầu biến động và chi phí vận hành tăng.",
-        "outlook": "Ngắn hạn chịu áp lực từ giá dầu và tiến độ dự án chậm; dài hạn tích cực nhờ chuyển đổi năng lượng, mở rộng dịch vụ xanh và tiềm năng tái cơ cấu ngành dầu khí Việt Nam.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B=1.0 phản ánh tài sản được định giá sát giá sổ sách, nhưng P/E=15.7 cao so với lợi nhuận yếu.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào giá dầu và khối lượng khoan dịch vụ; nếu giá dầu ổn định và PVD giành thêm hợp đồng từ PVN, lợi nhuận có thể cải thiện chậm.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "P/E cao bất thường so với ROE gần 0%, chưa phản ánh giá trị nội tại thực sự; chờ P/E < 10 hoặc ROE cải thiện rõ rệt trên 5% trước khi gom."
     },
     "PVS": {
         "symbol": "PVS",
@@ -666,9 +786,11 @@
         "pe": 9.3,
         "pb": 1.3,
         "roe": 0.1,
-        "bctc": "PVS có tài sản lớn, nợ phải trả ở mức trung bình, lợi nhuận ròng ổn định nhờ hoạt động khai thác và dịch vụ dầu khí, dòng tiền từ hoạt động kinh doanh tích cực, tỷ lệ an toàn tài chính tốt và ROE duy trì trên 10% trong 3 năm gần nhất.",
-        "outlook": "Ngắn hạn chịu ảnh hưởng bởi biến động giá dầu và tiến độ dự án; dài hạn được hỗ trợ bởi chuyển dịch năng lượng, đầu tư vào LNG và vai trò chủ lực trong ngành dầu khí quốc gia, tiềm năng tăng trưởng EPS 8–10%/năm.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không, P/B 1.3 và P/E 9.3 chưa phản ánh sức mạnh thực sự do lợi nhuận yếu.",
+        "outlook": "Triển vọng phụ thuộc vào giá dầu và tiến độ chuyển đổi sang năng lượng sạch; tăng trưởng lợi nhuận ngắn hạn hạn chế nếu không cải thiện vận hành.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 7 hoặc ROE cải thiện rõ rệt trên 5% trong 2 quý liên tiếp, sau đó gom dần với trọng lượng tối đa 20% danh mục."
     },
     "PVT": {
         "symbol": "PVT",
@@ -677,9 +799,11 @@
         "pe": 8.3,
         "pb": 1.2,
         "roe": 0.1,
-        "bctc": "PVT đang trong tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, lỗ lũy kế lớn, dòng tiền hoạt động âm kéo dài và nợ ngắn hạn vượt xa tài sản ngắn hạn; báo cáo tài chính bị từ chối đưa ra ý kiến kiểm toán.",
-        "outlook": "Ngắn hạn: rủi ro hủy niêm yết cao do vi phạm nghiêm trọng điều kiện duy trì niêm yết; dài hạn: phụ thuộc hoàn toàn vào khả năng tái cơ cấu thành công và phục hồi thị trường vận tải biển, triển vọng rất mờ nhạt.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không, P/B 1.2 và P/E 8.3 không phản ánh sức mạnh tài chính thực sự.",
+        "outlook": "Ngành vận tải biển biến động mạnh theo chu kỳ; PVT thiếu lợi thế cạnh tranh rõ ràng và chưa có dấu hiệu cải thiện ROE trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 6 hoặc ROE cải thiện bền vững trên 5% mới xem xét gom. Hiện chưa có vùng giá hấp dẫn về mặt giá trị."
     },
     "REE": {
         "symbol": "REE",
@@ -688,9 +812,11 @@
         "pe": 10.9,
         "pb": 1.3,
         "roe": 0.1,
-        "bctc": "REE có tài sản lớn, nợ ngắn hạn thấp, dòng tiền kinh doanh ổn định, lợi nhuận ròng tăng đều 3 năm gần đây, ROE duy trì trên 15%, thanh khoản và khả năng thanh toán tốt.",
-        "outlook": "Ngắn hạn chịu áp lực từ điều chỉnh giá điện và chi phí đầu tư hạ tầng; dài hạn tích cực nhờ chuyển đổi năng lượng, mở rộng mảng điện mặt trời và dịch vụ tiện ích thông minh.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.3 và P/E 10.9 không phản ánh giá trị thực do lợi nhuận yếu.",
+        "outlook": "Triển vọng hạn chế ngắn hạn do lợi nhuận suy giảm mạnh; cần theo dõi cải thiện vận hành và chuyển đổi sang năng lượng tái tạo.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 8 hoặc ROE cải thiện rõ rệt trên 5% trước khi gom; hiện định giá chưa hấp dẫn so với chất lượng lợi nhuận."
     },
     "SAB": {
         "symbol": "SAB",
@@ -699,9 +825,11 @@
         "pe": 11.5,
         "pb": 3.5,
         "roe": 0.2,
-        "bctc": "SAB có sức khỏe tài chính vững mạnh: ROE ổn định trên 30%, nợ trên vốn chủ sở hữu dưới 10%, dòng tiền HĐKD dương mạnh, biên lợi nhuận gộp và ròng duy trì cao nhờ vị thế dẫn đầu ngành bia và hiệu quả quản trị chi phí.",
-        "outlook": "Ngắn hạn chịu áp lực từ thuế tiêu thụ đặc biệt và cạnh tranh giá; dài hạn tích cực nhờ thị phần dẫn đầu, mở rộng sang nước giải khát và thương hiệu mạnh, hỗ trợ tăng trưởng EPS ổn định 8–10%/năm.",
-        "ai_updated_at": null
+        "bctc": "ROE rất thấp (20%), cho thấy hiệu quả sử dụng vốn kém; P/B cao (3.5) trong khi P/E trung bình (11.5) không phản ánh giá trị nội tại vững chắc.",
+        "outlook": "Triển vọng tăng trưởng chậm do cạnh tranh khốc liệt, chi phí đầu vào tăng và áp lực duy trì thị phần trong ngành bia.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "ROE yếu và P/B cao cho thấy định giá chưa hấp dẫn; chờ P/E < 10 hoặc ROE cải thiện rõ rệt trước khi gom."
     },
     "SHB": {
         "symbol": "SHB",
@@ -710,9 +838,11 @@
         "pe": 4.3,
         "pb": 0.7,
         "roe": 0.2,
-        "bctc": "SHB có vốn chủ sở hữu tăng mạnh, tỷ lệ an toàn vốn (CAR) đạt 13,9% (Q1/2024), nợ xấu giảm còn 1,57%, lợi nhuận tăng 22% YoY nhờ thu nhập lãi ròng và phí dịch vụ cải thiện, thanh khoản ổn định.",
-        "outlook": "Ngắn hạn: hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng. Dài hạn: tiềm năng tăng trưởng bền vững nhờ mở rộng mảng ngân hàng số và phân phối bảo hiểm, nhưng cần theo dõi áp lực cạnh tranh và rủi ro lãi suất.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy thị giá thấp hơn giá trị sổ sách, nhưng ROE cực thấp (0.2%) phản ánh hiệu quả sử dụng vốn rất kém.",
+        "outlook": "Triển vọng cải thiện ROE còn chậm; phụ thuộc vào tái cơ cấu tín dụng và kiểm soát chi phí trong bối cảnh lãi suất ổn định.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/B phục hồi về 0.8–0.9 hoặc ROE cải thiện rõ rệt trên 5% trước khi gom. Không gom vội ở mức hiện tại."
     },
     "SJS": {
         "symbol": "SJS",
@@ -721,9 +851,11 @@
         "pe": 10.0,
         "pb": 3.3,
         "roe": 0.4,
-        "bctc": "SJS không công bố báo cáo tài chính gần nhất, không có giao dịch trên HOSE từ năm 2022, bị hủy niêm yết do vi phạm quy định về công bố thông tin và không đáp ứng điều kiện duy trì niêm yết.",
-        "outlook": "Không khả thi để đầu tư ngắn hạn do không giao dịch; dài hạn phụ thuộc vào khả năng tái niêm yết hoặc chuyển sang UPCoM, nhưng hiện thiếu minh bạch thông tin và tín hiệu phục hồi rõ ràng.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.4%) cho thấy hiệu quả sử dụng vốn rất kém; P/B cao (3.3) trong khi P/E bình thường (10.0) phản ánh định giá không hợp lý với lợi nhuận.",
+        "outlook": "Triển vọng yếu nếu ROE không cải thiện; ngành xây dựng vật liệu chịu áp lực chi phí và cạnh tranh, tăng trưởng lợi nhuận khó khả thi ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "ROE gần bằng 0 khiến P/E 10.0 là quá cao; cần giảm tỷ trọng ngay, chỉ xem xét lại nếu ROE >12% và P/B <1.5."
     },
     "SSB": {
         "symbol": "SSB",
@@ -732,9 +864,11 @@
         "pe": 18.4,
         "pb": 1.3,
         "roe": 0.1,
-        "bctc": "SSB niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng hoạt động từ năm 2015 sau sáp nhập vào Techcombank; báo cáo tài chính không còn được công bố, không có số liệu khả dụng về vốn chủ sở hữu, lợi nhuận hay thanh khoản.",
-        "outlook": "Không có triển vọng đầu tư ngắn hoặc dài hạn vì SSB đã chấm dứt hoạt động độc lập và không còn là cổ phiếu giao dịch; nhà đầu tư nên chuyển sự chú ý sang cổ phiếu Techcombank (TCB) nếu quan tâm đến ngân hàng này.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.3 cao so với ROE, P/E 18.4 đắt so với ngành ngân hàng.",
+        "outlook": "Cần cải thiện mạnh lợi nhuận và chất lượng tài sản; chưa có tín hiệu phục hồi rõ ràng trong 1-3 năm tới nếu không có thay đổi chiến lược căn bản.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "ROE gần bằng 0 khiến định giá P/B và P/E mất cơ sở; chỉ xem xét gom nếu P/B < 0.8 và ROE cải thiện bền vững trên 5%."
     },
     "SSI": {
         "symbol": "SSI",
@@ -743,9 +877,11 @@
         "pe": 12.3,
         "pb": 1.6,
         "roe": 0.1,
-        "bctc": "SSI duy trì vị thế dẫn đầu với vốn chủ sở hữu mạnh (trên 17.000 tỷ đồng), tỷ lệ an toàn tài chính cao, lợi nhuận ổn định nhờ đa dạng hóa dịch vụ và thị phần môi giới lớn, dòng tiền hoạt động tích cực.",
-        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và lãi suất; dài hạn tích cực nhờ chuyển đổi số, mở rộng dịch vụ ngân hàng đầu tư và tăng trưởng tài chính cá nhân tại Việt Nam.",
-        "ai_updated_at": null
+        "bctc": "ROE rất thấp (10%), cho thấy hiệu quả sử dụng vốn yếu; P/B 1.6 và P/E 12.3 ở mức trung bình ngành, nhưng thiếu sức mạnh sinh lời cốt lõi.",
+        "outlook": "Triển vọng phụ thuộc vào thanh khoản thị trường và chính sách tiền tệ; nếu thanh khoản cải thiện và lãi suất giảm, SSI có thể phục hồi lợi nhuận.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 10 hoặc ROE cải thiện rõ rệt trên 12% trước khi gom; hiện chưa đủ hấp dẫn về định giá và chất lượng lợi nhuận."
     },
     "STB": {
         "symbol": "STB",
@@ -754,9 +890,11 @@
         "pe": 84.0,
         "pb": 2.0,
         "roe": 0.0,
-        "bctc": "STB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), lợi nhuận ròng tăng trưởng ổn định, NIM cải thiện, nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và hệ số thanh toán ngắn hạn trên 1,5.",
-        "outlook": "Ngắn hạn: hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng. Dài hạn: tiềm năng tăng trưởng bền vững nhờ chuyển đổi số, mở rộng dịch vụ ngân hàng số và thị phần bán lẻ tăng mạnh.",
-        "ai_updated_at": null
+        "bctc": "ROE = 0% cho thấy không sinh lời, P/E cao bất thường do lợi nhuận âm hoặc điều chỉnh kế toán, P/B = 2.0 chưa phản ánh rủi ro tiềm ẩn.",
+        "outlook": "Cần làm rõ nguyên nhân ROE bằng 0; nếu do dự phòng lớn hoặc tái cơ cấu, triển vọng phục hồi phụ thuộc vào chất lượng tín dụng và lãi suất.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận lợi nhuận dương và ROE cải thiện; chỉ gom khi P/E về dưới 15 và ROE >10% trong 2 quý liên tiếp."
     },
     "SZC": {
         "symbol": "SZC",
@@ -765,9 +903,11 @@
         "pe": 22.6,
         "pb": 1.2,
         "roe": 0.1,
-        "bctc": "SZC đang bị hủy niêm yết, không công bố BCTC từ 2022, nợ quá hạn lớn, âm vốn chủ sở hữu, thanh khoản gần như bằng 0, không có hoạt động kinh doanh minh bạch và kiểm toán độc lập.",
-        "outlook": "Ngắn hạn: rủi ro mất toàn bộ vốn do không giao dịch được và thiếu thông tin. Dài hạn: không có triển vọng phục hồi nếu không tái cấu trúc thành công và khôi phục niêm yết với minh bạch tài chính.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.2 hợp lý nhưng P/E 22.6 cao so với ngành, phản ánh định giá thiếu cơ sở lợi nhuận.",
+        "outlook": "Triển vọng yếu trong 1-3 năm do ROE trì trệ, khó cải thiện nhanh nếu không có đột phá về vận hành hoặc chuyển đổi dự án.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "P/E cao bất chấp ROE gần 0%, định giá thiếu nền tảng lợi nhuận; không phù hợp gom dài hạn ở mức hiện tại."
     },
     "TCB": {
         "symbol": "TCB",
@@ -776,9 +916,11 @@
         "pe": 8.3,
         "pb": 1.3,
         "roe": 0.2,
-        "bctc": "TCB duy trì tỷ lệ an toàn vốn (CAR) trên 15%, ROE ổn định ~20%, nợ xấu dưới 1,5%, thanh khoản tốt và tăng trưởng lợi nhuận kép 15% trong 3 năm gần nhất nhờ quản trị hiệu quả và mở rộng tín dụng chất lượng.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số mạnh, thị phần tăng và lợi thế quy mô, dự báo EPS tăng 12–14%/năm trong 3 năm tới.",
-        "ai_updated_at": null
+        "bctc": "ROE 0.2% cực thấp, phản ánh hiệu quả sử dụng vốn gần như bằng 0; P/B 1.3 và P/E 8.3 không còn hấp dẫn nếu không cải thiện ROE.",
+        "outlook": "Cần cải thiện mạnh ROE qua tăng thu nhập lãi thuần và kiểm soát chi phí; triển vọng phụ thuộc vào chính sách tiền tệ và chất lượng tín dụng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ ROE cải thiện rõ ràng trên 10% và P/B về dưới 1.0 hoặc P/E dưới 6.5 để gom với tỷ trọng cao hơn."
     },
     "TCH": {
         "symbol": "TCH",
@@ -787,9 +929,11 @@
         "pe": 40.7,
         "pb": 1.0,
         "roe": 0.0,
-        "bctc": "TCH đang bị hủy niêm yết, không công bố BCTC đầy đủ từ 2022, nợ quá hạn lớn, âm vốn chủ sở hữu, thanh khoản gần như bằng 0, không có hoạt động kinh doanh minh bạch.",
-        "outlook": "Ngắn hạn: rủi ro cao do không giao dịch, thiếu thông tin; dài hạn: triển vọng tiêu cực trừ khi tái cơ cấu thành công và phục hồi niêm yết – khả năng rất thấp trong 2–3 năm tới.",
-        "ai_updated_at": null
+        "bctc": "ROE bằng 0 cho thấy không sinh lời, P/E cao bất thường so với hiệu quả kinh doanh, P/B = 1.0 phản ánh tài sản được định giá sát giá sổ sách.",
+        "outlook": "Triển vọng mờ nhạt nếu không cải thiện lợi nhuận; phụ thuộc vào thanh lý dự án, chuyển đổi mô hình hoặc tái cơ cấu sâu.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và dòng tiền; chỉ gom khi P/E < 15 và ROE > 8% trong 2 quý liên tiếp."
     },
     "TPB": {
         "symbol": "TPB",
@@ -798,9 +942,11 @@
         "pe": 5.5,
         "pb": 0.9,
         "roe": 0.2,
-        "bctc": "TPB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~20%), nợ xấu thấp (~1,3%), thanh khoản tốt và tăng trưởng lợi nhuận 20% năm gần nhất nhờ mở rộng tín dụng và thu nhập ngoài lãi mạnh.",
-        "outlook": "Ngắn hạn: hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng. Dài hạn: tiềm năng tăng trưởng bền vững nhờ chuyển đổi số, mở rộng mảng ngân hàng số và quản trị hiệu quả, nhưng chịu rủi ro từ áp lực lãi suất và cạnh tranh khốc liệt.",
-        "ai_updated_at": null
+        "bctc": "P/B < 1 cho thấy thị giá thấp hơn giá trị sổ sách; P/E thấp nhưng ROE rất thấp (20%), phản ánh hiệu quả sử dụng vốn yếu.",
+        "outlook": "Ngân hàng có thể cải thiện ROE nhờ tăng trưởng tín dụng và kiểm soát chi phí, nhưng áp lực lãi suất và nợ xấu vẫn tồn tại.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "ROE quá thấp làm giảm độ tin cậy của định giá; chờ báo cáo quý tiếp theo chứng minh cải thiện bền vững ROE trên 15% trước khi gom."
     },
     "VCB": {
         "symbol": "VCB",
@@ -809,9 +955,11 @@
         "pe": 11.5,
         "pb": 2.0,
         "roe": 0.2,
-        "bctc": "VCB duy trì tỷ lệ an toàn vốn (CAR) trên 15%, ROE ổn định ~18–20%, nợ xấu dưới 1%, thanh khoản dồi dào và tăng trưởng lợi nhuận kép 10–12%/năm nhờ quản trị rủi ro xuất sắc và chi phí vận hành hiệu quả.",
-        "outlook": "Ngắn hạn: chịu áp lực từ lãi suất và cạnh tranh số hóa; dài hạn: dẫn đầu ngành nhờ thương hiệu, mạng lưới và chuyển đổi số thành công, có tiềm năng tăng giá 12–15%/năm cùng cổ tức ổn định 0.8–1.0 đồng/cp.",
-        "ai_updated_at": null
+        "bctc": "ROE 20% rất tốt, P/E 11.5 và P/B 2.0 hợp lý cho ngân hàng dẫn đầu, thanh khoản và an toàn cao.",
+        "outlook": "Duy trì vị thế số 1, tăng trưởng lợi nhuận ổn định nhờ quản trị rủi ro tốt và thị phần tín dụng bền vững.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "P/E đang thấp so với lịch sử và ngành, gom 30% vị thế. Chia 3 đợt gom nếu giá về vùng 52–54 nghìn đồng. Giữ 2-3 năm."
     },
     "VCG": {
         "symbol": "VCG",
@@ -820,9 +968,11 @@
         "pe": 2.7,
         "pb": 1.0,
         "roe": 0.3,
-        "bctc": "VCG ghi nhận lỗ lớn liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.5, dòng tiền kinh doanh âm kéo dài, vốn chủ sở hữu âm từ năm 2022, rủi ro mất khả năng thanh toán cao.",
-        "outlook": "Ngắn hạn: rủi ro hủy niêm yết, áp lực giải trình với Ủy ban Chứng khoán. Dài hạn: phụ thuộc vào tái cơ cấu thành công và chuyển đổi sang dự án mới, nhưng triển vọng phục hồi rất hạn chế do vị thế thị trường yếu và nợ xấu tích tụ.",
-        "ai_updated_at": null
+        "bctc": "P/E và P/B cực thấp cho thấy thị trường định giá rất thấp, nhưng ROE gần bằng 0 phản ánh hiệu quả sử dụng vốn yếu, tiềm ẩn rủi ro lợi nhuận.",
+        "outlook": "Triển vọng phụ thuộc vào giải ngân dự án, thanh khoản bất động sản và khả năng tái cơ cấu. Chưa rõ tín hiệu cải thiện bền vững trong 1-3 năm.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "P/E 2.7 chưa phản ánh rủi ro ROE 0.3; chờ báo cáo quý tiếp theo chứng minh cải thiện ROE và dòng tiền, sau đó mới xem xét gom."
     },
     "VCI": {
         "symbol": "VCI",
@@ -831,9 +981,11 @@
         "pe": 15.6,
         "pb": 1.3,
         "roe": 0.1,
-        "bctc": "VCI có vốn chủ sở hữu mạnh, tỷ lệ an toàn tài chính cao, thanh khoản tốt và lợi nhuận ổn định nhờ đa dạng hóa dịch vụ; tuy nhiên, biên lợi nhuận bị ảnh hưởng bởi biến động thị trường và chi phí đầu tư công nghệ tăng.",
-        "outlook": "Ngắn hạn phụ thuộc vào thanh khoản thị trường và chính sách tiền tệ; dài hạn tích cực nhờ vị thế dẫn đầu, mở rộng fintech và chuyển đổi số, nhưng cần theo dõi rủi ro cạnh tranh và điều chỉnh quy định.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.3 hợp lý nhưng P/E 15.6 cao so với ngành, phản ánh rủi ro sinh lời.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào thanh khoản thị trường và chính sách tiền tệ; nếu thanh khoản cải thiện, VCI có thể phục hồi nhờ quy mô và vị thế dẫn đầu.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 10 hoặc ROE cải thiện rõ ràng trên 8%; gom chỉ khi giá giảm sâu về vùng P/B < 0.9 hoặc thanh khoản thị trường tăng bền vững."
     },
     "VHC": {
         "symbol": "VHC",
@@ -842,9 +994,11 @@
         "pe": 7.4,
         "pb": 1.2,
         "roe": 0.1,
-        "bctc": "VHC có tài sản dồi dào, nợ ngắn hạn cao hơn tiền & tương đương tiền, biên lợi nhuận gộp ổn định quanh 15–18%, nhưng ROE suy giảm do tăng vốn chủ sở hữu và chi phí lãi vay tăng.",
-        "outlook": "Ngắn hạn chịu áp lực từ giá nguyên liệu và cạnh tranh xuất khẩu; dài hạn tích cực nhờ đa dạng hóa sản phẩm, mở rộng thị trường EU và chuyển đổi xanh, nhưng cần theo dõi hiệu quả triển khai ESG.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.2 và P/E 7.4 không phản ánh sức mạnh tài chính thực sự.",
+        "outlook": "Ngành thủy sản phụ thuộc xuất khẩu, biến động giá nguyên liệu và tỷ giá; chưa thấy dấu hiệu cải thiện ROE rõ ràng trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 5 hoặc ROE cải thiện bền vững trên 8% mới xem xét gom; hiện tại định giá chưa phản ánh giá trị nội tại thực sự."
     },
     "VHM": {
         "symbol": "VHM",
@@ -853,9 +1007,11 @@
         "pe": 6.5,
         "pb": 2.0,
         "roe": 0.3,
-        "bctc": "VHM có tài sản lớn, nợ dài hạn cao nhưng thanh khoản tốt; lợi nhuận ròng giảm mạnh do điều chỉnh giá đất và chậm bàn giao dự án; dòng tiền hoạt động âm trong quý gần nhất, tỷ lệ nợ/vốn chủ sở hữu ~1.2x.",
-        "outlook": "Ngắn hạn áp lực từ thị trường bất động sản trầm lắng và chính sách tín dụng siết chặt; dài hạn tích cực nhờ danh mục dự án quy mô, vị trí chiến lược và tiềm năng tăng trưởng khi thanh khoản cải thiện.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.3%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E 6.5 và P/B 2.0 chưa phản ánh rủi ro lợi nhuận thực chất.",
+        "outlook": "Triển vọng yếu do áp lực thanh khoản, chính sách tín dụng siết chặt và dư thừa cung bất động sản cao cấp trong ngắn hạn.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E < 5 hoặc P/B < 1.5 kèm cải thiện ROE > 5% trước khi gom; hiện định giá chưa hấp dẫn so với rủi ro lợi nhuận."
     },
     "VIB": {
         "symbol": "VIB",
@@ -864,9 +1020,11 @@
         "pe": 7.1,
         "pb": 1.1,
         "roe": 0.2,
-        "bctc": "VIB duy trì tỷ lệ an toàn vốn (CAR) trên 15%, ROE ổn định ~20%, nợ xấu dưới 1.5%, thanh khoản tốt và tăng trưởng tín dụng bền vững nhờ quản trị rủi ro hiệu quả và cơ cấu tài sản lành mạnh.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh, dài hạn tích cực nhờ chuyển đổi số thành công, mở rộng dịch vụ ngân hàng số và lợi thế thị phần trong phân khúc khách hàng cá nhân và SME.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B 1.1 và P/E 7.1 không phản ánh sức khỏe thực sự do lợi nhuận suy giảm nghiêm trọng.",
+        "outlook": "Cần cải thiện mạnh ROE và chất lượng tài sản; triển vọng phụ thuộc vào tái cơ cấu, kiểm soát chi phí và phục hồi tín dụng trong bối cảnh lãi suất ổn định.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận cải thiện ROE và tăng trưởng lợi nhuận bền vững; không gom khi ROE chưa vượt 10% và P/B chưa phản ánh giá trị nội tại."
     },
     "VIC": {
         "symbol": "VIC",
@@ -875,9 +1033,11 @@
         "pe": 87.2,
         "pb": 10.9,
         "roe": 0.1,
-        "bctc": "VIC có tài sản lớn nhưng nợ dài hạn cao, thanh khoản yếu do hàng tồn kho bất động sản lớn và dòng tiền từ hoạt động kinh doanh âm trong 2 năm gần nhất; lợi nhuận sụt giảm mạnh do điều chỉnh giá trị tài sản và chi phí lãi vay tăng.",
-        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và chính sách tín dụng siết chặt; dài hạn phụ thuộc vào khả năng tái cơ cấu danh mục, bán dự án và phục hồi nhu cầu nhà ở trung – cao cấp khi chính sách hỗ trợ được triển khai hiệu quả.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%), P/E và P/B cao bất thường, phản ánh lợi nhuận suy giảm nghiêm trọng và định giá không hợp lý so với hiệu quả hoạt động.",
+        "outlook": "Triển vọng yếu trong 1-3 năm do áp lực thanh khoản, điều chỉnh chính sách, và khả năng sinh lời chưa cải thiện rõ ràng.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "P/E 87.2 và ROE 0.1% cho thấy định giá phi thực tế; cần chờ P/E về dưới 15 và ROE cải thiện trên 10% mới xem xét gom."
     },
     "VIX": {
         "symbol": "VIX",
@@ -886,9 +1046,11 @@
         "pe": 19.1,
         "pb": 1.0,
         "roe": 0.1,
-        "bctc": "VIX niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng hoạt động, không công bố BCTC gần nhất; vốn chủ sở hữu âm, lỗ lũy kế lớn, thanh khoản bằng 0 và không có thông tin kiểm toán đáng tin cậy.",
-        "outlook": "Ngắn hạn: không khả thi giao dịch do ngừng niêm yết và không có thanh khoản. Dài hạn: triển vọng tiêu cực trừ khi có tái cơ cấu sâu, phục hồi tài chính và được cấp phép hoạt động trở lại bởi Ủy ban Chứng khoán Nhà nước.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B=1.0 phản ánh tài sản được định giá sát giá sổ sách, nhưng P/E=19.1 cao bất thường so với ROE.",
+        "outlook": "Triển vọng phụ thuộc mạnh vào thanh khoản thị trường và chính sách tiền tệ; nếu thanh khoản cải thiện và lãi suất giảm, doanh thu môi giới có thể phục hồi nhẹ.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 12 hoặc ROE cải thiện rõ rệt lên trên 5% mới xem xét gom; hiện tại định giá chưa hợp lý với hiệu quả sinh lời."
     },
     "VJC": {
         "symbol": "VJC",
@@ -897,9 +1059,11 @@
         "pe": 46.5,
         "pb": 3.8,
         "roe": 0.1,
-        "bctc": "VJC ghi nhận lợi nhuận âm trong quý gần nhất do chi phí nhiên liệu tăng mạnh và áp lực lãi vay; nợ dài hạn chiếm tỷ trọng cao, thanh khoản ngắn hạn yếu, nhưng vốn chủ sở hữu vẫn dương và đang được hỗ trợ bởi các gói tái cơ cấu nợ.",
-        "outlook": "Ngắn hạn chịu áp lực từ giá dầu và cạnh tranh giá vé; dài hạn tích cực nhờ phục hồi nhu cầu du lịch quốc tế, mở rộng đội bay và thị phần dẫn đầu ngành, song phụ thuộc vào hiệu quả kiểm soát chi phí và chính sách hỗ trợ của nhà nước.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/E cao (46.5) và P/B cao (3.8) phản ánh định giá quá cao so với lợi nhuận và tài sản.",
+        "outlook": "Triển vọng phục hồi hành khách nội địa tốt, nhưng chi phí nhiên liệu và nợ vay lớn gây áp lực lợi nhuận; tăng trưởng ROE chậm trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "P/E đang cao bất thường so với ngành và lịch sử; chờ P/E về dưới 20 hoặc ROE cải thiện rõ rệt mới xem xét gom."
     },
     "VLB": {
         "symbol": "VLB",
@@ -908,9 +1072,11 @@
         "pe": 3.8,
         "pb": 2.1,
         "roe": 0.7,
-        "bctc": "VLB đang bị hủy niêm yết, không công bố BCTC gần nhất; nợ phải trả vượt tài sản, âm vốn chủ sở hữu, thanh khoản cực kỳ yếu, rủi ro phá sản cao.",
-        "outlook": "Ngắn hạn: không khả thi giao dịch do hủy niêm yết và giá 0 đồng. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công hoặc mua bán sáp nhập, triển vọng rất mù mờ.",
-        "ai_updated_at": null
+        "bctc": "P/E và P/B thấp cho thấy thị trường định giá thấp, nhưng ROE cực kỳ yếu (0.7%), phản ánh hiệu quả sử dụng vốn kém và rủi ro sinh lời.",
+        "outlook": "Triển vọng phụ thuộc vào phục hồi xây dựng và giá thép; áp lực chi phí đầu vào và cạnh tranh khốc liệt có thể kéo dài.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E dưới 3 hoặc ROE cải thiện rõ ràng trên 5% trong 2 quý liên tiếp trước khi gom. Không gom hiện tại."
     },
     "VNM": {
         "symbol": "VNM",
@@ -919,9 +1085,11 @@
         "pe": 11.1,
         "pb": 3.8,
         "roe": 0.3,
-        "bctc": "VNM duy trì sức khỏe tài chính vững vàng với tỷ lệ nợ trên vốn chủ sở hữu dưới 20%, dòng tiền hoạt động mạnh, biên lợi nhuận gộp ổn định trên 45% và ROE trung bình 5 năm đạt ~25%, phản ánh hiệu quả quản trị và vị thế dẫn đầu ngành.",
-        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu vào và cạnh tranh giá; dài hạn tích cực nhờ thương hiệu mạnh, mạng lưới phân phối rộng, chuyển đổi số và tiềm năng tăng trưởng thị phần trong bối cảnh tiêu dùng nội địa phục hồi và nâng cấp.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.3%) cho thấy hiệu quả sử dụng vốn rất kém, P/B cao (3.8) không tương xứng với ROE, P/E 11.1 trung bình nhưng thiếu nền tảng lợi nhuận.",
+        "outlook": "Triển vọng tăng trưởng doanh thu và lợi nhuận hạn chế nếu không cải thiện ROE; áp lực cạnh tranh và chi phí đầu vào có thể kéo dài.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E về dưới 9 hoặc ROE cải thiện rõ rệt trên 15% trước khi gom. Hiện định giá chưa hấp dẫn so với chất lượng lợi nhuận."
     },
     "VPB": {
         "symbol": "VPB",
@@ -930,9 +1098,11 @@
         "pe": 7.5,
         "pb": 1.3,
         "roe": 0.2,
-        "bctc": "VPB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~20%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng lợi nhuận 2023 đạt ~22%, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
-        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và thị phần tăng trong bối cảnh ngành ngân hàng Việt Nam tiếp tục cơ cấu lại và tăng trưởng tín dụng bền vững.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không, P/B 1.3 và P/E 7.5 không phản ánh sức khỏe thực sự do lợi nhuận bị méo mó.",
+        "outlook": "Cần cải thiện mạnh ROE và chất lượng tài sản; triển vọng phụ thuộc vào tái cơ cấu tín dụng và kiểm soát chi phí trong bối cảnh lãi suất ổn định.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ báo cáo quý tiếp theo xác nhận phục hồi ROE >10% và tăng trưởng lợi nhuận bền vững trước khi gom."
     },
     "VRE": {
         "symbol": "VRE",
@@ -941,9 +1111,11 @@
         "pe": 7.6,
         "pb": 1.1,
         "roe": 0.2,
-        "bctc": "VRE ghi nhận lỗ ròng liên tiếp 3 năm gần nhất, nợ dài hạn tăng mạnh, dòng tiền hoạt động âm, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%, thanh khoản yếu và dự phòng giảm giá tài sản lớn.",
-        "outlook": "Ngắn hạn: áp lực bán và thiếu tín hiệu phục hồi; dài hạn: phụ thuộc vào tiến độ xử lý nợ, tái cơ cấu dự án và cải thiện dòng tiền từ cho thuê và phát triển mới.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.2%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B=1.1 và P/E=7.6 không phản ánh sức mạnh tài chính thực sự.",
+        "outlook": "Triển vọng yếu do áp lực thanh khoản, suy giảm nhu cầu thuê văn phòng/trung tâm thương mại và cạnh tranh khốc liệt trong ngành.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "HẠ TỶ TRỌNG",
+        "price_zone": "P/E thấp nhưng ROE âm tiềm ẩn, không phải định giá hấp dẫn mà là tín hiệu rủi ro cơ bản; tránh gom, ưu tiên tái cơ cấu danh mục."
     },
     "VSC": {
         "symbol": "VSC",
@@ -952,8 +1124,10 @@
         "pe": 15.8,
         "pb": 1.0,
         "roe": 0.1,
-        "bctc": "VSC có lợi nhuận ròng tăng trưởng ổn định, ROE duy trì trên 20%, nợ ngắn hạn chiếm ưu thế nhưng thanh khoản tốt, dòng tiền hoạt động dương mạnh, tỷ lệ nợ/vốn chủ sở hữu dưới 40%, phản ánh cơ cấu tài chính lành mạnh và khả năng sinh lời cao.",
-        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu vào và cạnh tranh giá; dài hạn tích cực nhờ mở rộng thị phần bao bì xanh, chuyển đổi số và hợp tác chiến lược với khách hàng lớn trong & ngoài nước, hỗ trợ tăng trưởng doanh thu bền vững.",
-        "ai_updated_at": null
+        "bctc": "ROE cực thấp (0.1%) cho thấy hiệu quả sử dụng vốn gần như bằng không; P/B=1.0 phản ánh tài sản được định giá sát giá trị sổ sách, nhưng thiếu sinh lời.",
+        "outlook": "Triển vọng yếu nếu không cải thiện ROE và lợi nhuận; ngành xây dựng chịu áp lực chi phí và thanh khoản, khó tăng trưởng mạnh trong 1-3 năm tới.",
+        "ai_updated_at": "2026-10-29 16:36:10 UTC",
+        "recommendation": "CHỜ ĐỢI",
+        "price_zone": "Chờ P/E giảm về dưới 10 hoặc ROE cải thiện rõ ràng trên 5% trước khi gom; hiện chưa có tín hiệu định giá hấp dẫn cho nhà đầu tư giá trị."
     }
 }
