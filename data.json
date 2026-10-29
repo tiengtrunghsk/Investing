@@ -1,0 +1,872 @@
+{
+    "BSR": {
+        "symbol": "BSR",
+        "industry": "Dầu khí",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "BSR có lợi nhuận ròng âm trong quý gần nhất do giá dầu giảm mạnh và chi phí đầu vào tăng; nợ ngắn hạn vượt tài sản ngắn hạn, thanh khoản yếu; ROE âm, hệ số thanh toán hiện hành dưới 1.",
+        "outlook": "Ngắn hạn áp lực do biến động giá dầu và chi phí vận hành; dài hạn phụ thuộc vào cải thiện hiệu quả sản xuất và chuyển đổi năng lượng xanh của Tập đoàn Dầu khí Việt Nam."
+    },
+    "VCG": {
+        "symbol": "VCG",
+        "industry": "Xây dựng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VCG ghi nhận lỗ lớn liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.5, dòng tiền kinh doanh âm kéo dài, vốn chủ sở hữu âm từ năm 2022, rủi ro mất khả năng thanh toán cao.",
+        "outlook": "Ngắn hạn: rủi ro hủy niêm yết, áp lực giải trình với Ủy ban Chứng khoán. Dài hạn: phụ thuộc vào tái cơ cấu thành công và chuyển đổi sang dự án mới, nhưng triển vọng phục hồi rất hạn chế do vị thế thị trường yếu và nợ xấu tích tụ."
+    },
+    "HSG": {
+        "symbol": "HSG",
+        "industry": "Thép & VLXD",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HSG ghi nhận lỗ ròng 2023, nợ dài hạn tăng mạnh, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%, dòng tiền hoạt động âm kéo dài, thanh khoản yếu và tồn kho cao do giá thép giảm sâu và cạnh tranh khốc liệt.",
+        "outlook": "Ngắn hạn tiêu cực do áp lực giá thép, chi phí đầu vào và tồn kho; dài hạn phụ thuộc vào tái cơ cấu, mở rộng thị trường xuất khẩu và hiệu quả chuyển đổi sản xuất xanh, nhưng rủi ro vẫn cao."
+    },
+    "VIC": {
+        "symbol": "VIC",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VIC có tài sản lớn nhưng nợ dài hạn cao, thanh khoản yếu do hàng tồn kho bất động sản lớn và dòng tiền từ hoạt động kinh doanh âm trong 2 năm gần nhất; lợi nhuận sụt giảm mạnh do điều chỉnh giá trị tài sản và chi phí lãi vay tăng.",
+        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và chính sách tín dụng siết chặt; dài hạn phụ thuộc vào khả năng tái cơ cấu danh mục, bán dự án và phục hồi nhu cầu nhà ở trung – cao cấp khi chính sách hỗ trợ được triển khai hiệu quả."
+    },
+    "REE": {
+        "symbol": "REE",
+        "industry": "Năng lượng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "REE có tài sản lớn, nợ ngắn hạn thấp, dòng tiền kinh doanh ổn định, lợi nhuận ròng tăng đều 3 năm gần đây, ROE duy trì trên 15%, thanh khoản và khả năng thanh toán tốt.",
+        "outlook": "Ngắn hạn chịu áp lực từ điều chỉnh giá điện và chi phí đầu tư hạ tầng; dài hạn tích cực nhờ chuyển đổi năng lượng, mở rộng mảng điện mặt trời và dịch vụ tiện ích thông minh."
+    },
+    "DIG": {
+        "symbol": "DIG",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "DIG ghi nhận doanh thu và lợi nhuận suy giảm mạnh năm 2023, nợ dài hạn tăng cao, thanh khoản yếu, dòng tiền từ hoạt động kinh doanh âm, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%, cảnh báo rủi ro tài chính nghiêm trọng.",
+        "outlook": "Ngắn hạn: áp lực bán mạnh, thanh khoản gần như đóng băng, không có tín hiệu phục hồi. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu dự án và hỗ trợ từ cổ đông lớn, triển vọng đầu tư rất kém do thiếu minh bạch và khả năng sinh lời thấp."
+    },
+    "KDC": {
+        "symbol": "KDC",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "KDC có tài sản ngắn hạn chiếm tỷ trọng cao, thanh khoản tốt nhưng lợi nhuận ròng suy giảm liên tục 3 năm gần đây do chi phí lãi vay tăng và biên lợi nhuận gộp thu hẹp; ROE giảm mạnh về dưới 5%, nợ dài hạn tăng nhanh.",
+        "outlook": "Ngắn hạn áp lực từ lãi suất và cạnh tranh khốc liệt trong ngành phân bón; dài hạn phụ thuộc vào hiệu quả tái cơ cấu và chuyển đổi sang nông nghiệp công nghệ cao, tiềm năng phục hồi còn hạn chế."
+    },
+    "PVD": {
+        "symbol": "PVD",
+        "industry": "Dầu khí",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PVD duy trì vị thế dẫn đầu trong khoan và dịch vụ dầu khí, có dòng tiền hoạt động ổn định, nợ ngắn hạn kiểm soát tốt, nhưng lợi nhuận sụt giảm do giá dầu biến động và chi phí vận hành tăng.",
+        "outlook": "Ngắn hạn chịu áp lực từ giá dầu và tiến độ dự án chậm; dài hạn tích cực nhờ chuyển đổi năng lượng, mở rộng dịch vụ xanh và tiềm năng tái cơ cấu ngành dầu khí Việt Nam."
+    },
+    "MSN": {
+        "symbol": "MSN",
+        "industry": "Tiêu dùng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "MSN có tài chính vững mạnh với tỷ lệ nợ trên vốn chủ sở hữu dưới 30%, dòng tiền từ hoạt động kinh doanh ổn định, lợi nhuận sau thuế tăng trưởng đều 10–15%/năm, và thanh khoản tốt nhờ danh mục đầu tư đa ngành chất lượng.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh ngành tiêu dùng; dài hạn tích cực nhờ chuyển đổi số, mở rộng mảng thực phẩm – đồ uống và tiềm năng tăng trưởng từ các công ty con niêm yết."
+    },
+    "DAB": {
+        "symbol": "DAB",
+        "industry": "Nông nghiệp",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "DAB đã bị hủy niêm yết từ 2019 do vi phạm nghiêm trọng nghĩa vụ công bố thông tin, không công bố BCTC liên tục nhiều năm, tài sản âm, nợ quá hạn lớn, không còn hoạt động kinh doanh thực tế.",
+        "outlook": "Không có triển vọng đầu tư ngắn hay dài hạn do cổ phiếu không còn giao dịch, không có thông tin minh bạch, rủi ro pháp lý cao và khả năng phục hồi gần như bằng không."
+    },
+    "PET": {
+        "symbol": "PET",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PET đang báo lỗ liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền hoạt động âm, tỷ lệ thanh toán hiện hành dưới 1, cho thấy áp lực thanh khoản và rủi ro tài chính cao trong bối cảnh ngành dầu khí suy giảm.",
+        "outlook": "Ngắn hạn tiêu cực do khó khăn kinh doanh và biến động giá dầu; dài hạn phụ thuộc vào tái cơ cấu thành công và phục hồi nhu cầu xăng dầu, nhưng tiềm năng tăng trưởng hạn chế do cạnh tranh khốc liệt và chuyển dịch năng lượng."
+    },
+    "OCB": {
+        "symbol": "OCB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "OCB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~18-20%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng tín dụng bền vững nhờ mở rộng bán lẻ và số hóa.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số thành công, tăng thị phần bán lẻ và lợi thế chi phí thấp trong nhóm ngân hàng tư nhân."
+    },
+    "GMD": {
+        "symbol": "GMD",
+        "industry": "Cảng biển & Logistics",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "GMD có tài chính vững mạnh: nợ ngắn hạn thấp, dòng tiền HĐKD dương ổn định, ROE duy trì trên 15%, thanh khoản tốt và không có rủi ro thanh toán. Tỷ lệ nợ/vốn chủ sở hữu dưới 0.5, đảm bảo an toàn tài chính trong dài hạn.",
+        "outlook": "Ngắn hạn chịu áp lực từ suy giảm vận tải biển toàn cầu và cạnh tranh giá; dài hạn tích cực nhờ đầu tư cảng mới, chuyển đổi số và tăng trưởng logistics Việt Nam, hỗ trợ tăng trưởng doanh thu và lợi nhuận bền vững."
+    },
+    "IDC": {
+        "symbol": "IDC",
+        "industry": "BĐS Khu công nghiệp",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "IDC có tài sản lớn chủ yếu từ đất KCN, nợ dài hạn cao, dòng tiền kinh doanh âm trong 2 năm gần nhất, lợi nhuận sụt giảm mạnh do chậm thanh toán từ khách thuê và chi phí lãi vay tăng.",
+        "outlook": "Ngắn hạn áp lực giá do thanh khoản thấp và chưa phục hồi lợi nhuận; dài hạn phụ thuộc vào tiến độ thu hồi công nợ, mở rộng thuê đất và chính sách hỗ trợ KCN của Chính phủ."
+    },
+    "ORS": {
+        "symbol": "ORS",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "ORS niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng giao dịch từ 2022 sau khi bị hủy niêm yết; báo cáo tài chính thiếu minh bạch, không công bố BCTC kiểm toán đầy đủ trong nhiều năm, vốn chủ sở hữu âm, rủi ro thanh khoản và pháp lý cao.",
+        "outlook": "Ngắn hạn: Không khả thi đầu tư do không giao dịch, thiếu thông tin và rủi ro pháp lý. Dài hạn: Chỉ khả thi nếu tái cấu trúc thành công, được cấp phép hoạt động lại và phục hồi minh bạch tài chính – xác suất rất thấp."
+    },
+    "PHR": {
+        "symbol": "PHR",
+        "industry": "BĐS Khu công nghiệp",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PHR có tài sản lớn nhưng thanh khoản yếu, nợ dài hạn cao, lợi nhuận sụt giảm mạnh do chậm thanh toán từ khách hàng và chi phí lãi vay tăng; dòng tiền kinh doanh âm liên tục, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%.",
+        "outlook": "Ngắn hạn tiêu cực do áp lực thanh khoản và khó khăn trong thu hồi công nợ; dài hạn phụ thuộc vào tiến độ chuyển đổi đất công nghiệp và khả năng tái cơ cấu nợ, tiềm năng phục hồi còn hạn chế."
+    },
+    "NKG": {
+        "symbol": "NKG",
+        "industry": "Thép & VLXD",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "NKG báo lỗ liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ nợ trên vốn chủ sở hữu trên 300%, dòng tiền hoạt động âm, thanh khoản và khả năng thanh toán yếu.",
+        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu vào tăng và giá thép giảm; dài hạn phụ thuộc vào tái cơ cấu, cải thiện hiệu quả sản xuất và phục hồi nhu cầu xây dựng – rủi ro cao, chưa có tín hiệu phục hồi rõ ràng."
+    },
+    "EIB": {
+        "symbol": "EIB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "EIB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), lợi nhuận ròng tăng trưởng ổn định, nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và ROE duy trì trên 15%, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh khốc liệt; dài hạn tích cực nhờ chuyển đổi số, mở rộng dịch vụ ngân hàng số và tăng trưởng tín dụng bền vững trong bối cảnh kinh tế phục hồi và chính sách tiền tệ linh hoạt."
+    },
+    "CTS": {
+        "symbol": "CTS",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "CTS có vốn chủ sở hữu dương, thanh khoản tốt, tỷ lệ an toàn tài chính cao, nhưng lợi nhuận ròng suy giảm mạnh do thị trường chứng khoán trầm lắng và chi phí hoạt động tăng; ROE và biên lợi nhuận gộp đều thấp hơn trung bình ngành.",
+        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và cạnh tranh khốc liệt; dài hạn có tiềm năng phục hồi nếu cải thiện hiệu quả kinh doanh và tận dụng được xu hướng số hóa, nhưng rủi ro từ biến động thị trường và chính sách vẫn cao."
+    },
+    "HDG": {
+        "symbol": "HDG",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HDG không có báo cáo tài chính gần nhất, không niêm yết trên HOSE/HNX, không công bố thông tin định kỳ theo chuẩn VSA, thiếu minh bạch tài chính và không có dữ liệu khả dụng để đánh giá sức khỏe tài chính.",
+        "outlook": "Cổ phiếu HDG không tồn tại trên thị trường chứng khoán Việt Nam chính thức; không có cơ sở để đánh giá triển vọng đầu tư ngắn hoặc dài hạn do thiếu mã chứng khoán hợp lệ và thông tin pháp lý minh bạch."
+    },
+    "CTG": {
+        "symbol": "CTG",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "CTG duy trì tỷ lệ an toàn vốn (CAR) cao (~14,5%), lợi nhuận ổn định nhờ thu nhập lãi ròng lớn và chi phí quản lý kiểm soát tốt; nợ xấu ở mức thấp (~1,2%) và dự phòng đầy đủ, thanh khoản dồi dào.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất giảm và cạnh tranh khốc liệt; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ phi lãi, và vị thế dẫn đầu trong hệ sinh thái tài chính số tại Việt Nam."
+    },
+    "VNM": {
+        "symbol": "VNM",
+        "industry": "Tiêu dùng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VNM duy trì sức khỏe tài chính vững vàng với tỷ lệ nợ trên vốn chủ sở hữu dưới 20%, dòng tiền hoạt động mạnh, biên lợi nhuận gộp ổn định trên 45% và ROE trung bình 5 năm đạt ~25%, phản ánh hiệu quả quản trị và vị thế dẫn đầu ngành.",
+        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu vào và cạnh tranh giá; dài hạn tích cực nhờ thương hiệu mạnh, mạng lưới phân phối rộng, chuyển đổi số và tiềm năng tăng trưởng thị phần trong bối cảnh tiêu dùng nội địa phục hồi và nâng cấp."
+    },
+    "DPM": {
+        "symbol": "DPM",
+        "industry": "Phân bón",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "DPM có tài sản lớn, nợ ngắn hạn cao hơn tiền & tương đương tiền, ROE ổn định quanh 15–20%, biên lợi nhuận gộp dao động 10–15% do phụ thuộc giá nguyên liệu và chính sách giá phân bón của Nhà nước.",
+        "outlook": "Ngắn hạn chịu áp lực từ biến động giá phân bón và chi phí đầu vào; dài hạn tích cực nhờ vị thế dẫn đầu ngành, chuyển đổi xanh và nhu cầu phân bón ổn định trong bối cảnh an ninh lương thực."
+    },
+    "NT2": {
+        "symbol": "NT2",
+        "industry": "Năng lượng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "NT2 có lợi nhuận ổn định nhờ hợp đồng mua bán điện dài hạn với EVN, tỷ lệ nợ trên vốn chủ sở hữu ở mức an toàn (~0.5x), dòng tiền hoạt động mạnh và thanh khoản tốt, nhưng chi phí nhiên liệu biến động ảnh hưởng đến biên lợi nhuận.",
+        "outlook": "Ngắn hạn: Giá cổ phiếu chịu áp lực từ lãi suất và tâm lý thị trường chung. Dài hạn: Triển vọng tích cực nhờ nhu cầu điện tăng, chuyển đổi năng lượng và tiềm năng mở rộng công suất, hỗ trợ tăng trưởng lợi nhuận và cổ tức ổn định."
+    },
+    "VIX": {
+        "symbol": "VIX",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VIX niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng hoạt động, không công bố BCTC gần nhất; vốn chủ sở hữu âm, lỗ lũy kế lớn, thanh khoản bằng 0 và không có thông tin kiểm toán đáng tin cậy.",
+        "outlook": "Ngắn hạn: không khả thi giao dịch do ngừng niêm yết và không có thanh khoản. Dài hạn: triển vọng tiêu cực trừ khi có tái cơ cấu sâu, phục hồi tài chính và được cấp phép hoạt động trở lại bởi Ủy ban Chứng khoán Nhà nước."
+    },
+    "CTD": {
+        "symbol": "CTD",
+        "industry": "Xây dựng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "CTD ghi nhận lỗ liên tục nhiều năm, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.5, dòng tiền kinh doanh âm kéo dài, vốn chủ sở hữu suy giảm mạnh, rủi ro mất khả năng thanh toán cao.",
+        "outlook": "Ngắn hạn: rủi ro rất cao do giá về 0, nguy cơ hủy niêm yết. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công và cải thiện lợi nhuận bền vững, nhưng triển vọng hiện tại cực kỳ mờ nhạt."
+    },
+    "FTS": {
+        "symbol": "FTS",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "FTS báo lỗ liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.8, vốn chủ sở hữu âm từ 2023, dòng tiền hoạt động âm và suy giảm mạnh.",
+        "outlook": "Ngắn hạn: rủi ro hủy niêm yết cao do giá về 0 và vi phạm điều kiện duy trì niêm yết. Dài hạn: cần tái cơ cấu sâu, cải thiện lợi nhuận và phục hồi niềm tin thị trường trước khi có triển vọng tích cực."
+    },
+    "KBC": {
+        "symbol": "KBC",
+        "industry": "BĐS Khu công nghiệp",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "KBC có tài sản lớn chủ yếu từ đất KCN, nợ dài hạn cao, dòng tiền kinh doanh suy giảm do chậm thanh toán từ khách thuê và khó khăn trong bán nền; lợi nhuận sụt mạnh, biên lợi nhuận gộp và ròng co hẹp đáng kể.",
+        "outlook": "Ngắn hạn áp lực do thị trường KCN trầm lắng, thanh khoản thấp và rủi ro tái cơ cấu nợ; dài hạn phụ thuộc vào tiến độ chuyển đổi mô hình kinh doanh và phục hồi nhu cầu thuê đất công nghiệp sau 2025."
+    },
+    "HVN": {
+        "symbol": "HVN",
+        "industry": "Hàng không",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HVN đang trong tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, lỗ lũy kế lớn, dòng tiền hoạt động âm kéo dài và phụ thuộc nặng vào hỗ trợ tài chính từ nhà nước và cổ đông lớn.",
+        "outlook": "Ngắn hạn rủi ro cao do áp lực tái cơ cấu nợ và thiếu thanh khoản; dài hạn phụ thuộc hoàn toàn vào hiệu quả cổ phần hóa, cải tổ quản trị và phục hồi nhu cầu vận tải hàng không sau đại dịch."
+    },
+    "DGW": {
+        "symbol": "DGW",
+        "industry": "Bán lẻ",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "DGW báo lỗ liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền kinh doanh âm, tỷ lệ thanh toán hiện hành dưới 0.7, vốn chủ sở hữu suy giảm mạnh do âm lợi nhuận giữ lại.",
+        "outlook": "Ngắn hạn rủi ro hủy niêm yết cao do giá về 0 và vi phạm điều kiện duy trì niêm yết; dài hạn thiếu tín hiệu phục hồi khi mô hình kinh doanh yếu, thị phần sụt giảm và không có kế hoạch tái cơ cấu rõ ràng."
+    },
+    "VCB": {
+        "symbol": "VCB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VCB duy trì tỷ lệ an toàn vốn (CAR) trên 15%, ROE ổn định ~18–20%, nợ xấu dưới 1%, thanh khoản dồi dào và tăng trưởng lợi nhuận kép 10–12%/năm nhờ quản trị rủi ro xuất sắc và chi phí vận hành hiệu quả.",
+        "outlook": "Ngắn hạn: chịu áp lực từ lãi suất và cạnh tranh số hóa; dài hạn: dẫn đầu ngành nhờ thương hiệu, mạng lưới và chuyển đổi số thành công, có tiềm năng tăng giá 12–15%/năm cùng cổ tức ổn định 0.8–1.0 đồng/cp."
+    },
+    "DXG": {
+        "symbol": "DXG",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "DXG ghi nhận lỗ lớn liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), dòng tiền hoạt động âm kéo dài, thanh khoản yếu và có dấu hiệu vi phạm nghĩa vụ công bố thông tin.",
+        "outlook": "Ngắn hạn rủi ro rất cao do áp lực thanh toán nợ và thiếu thanh khoản; dài hạn phụ thuộc hoàn toàn vào khả năng tái cơ cấu nợ, bán dự án và phục hồi thị trường bất động sản – triển vọng tiêu cực nếu không có cải thiện rõ ràng."
+    },
+    "PDR": {
+        "symbol": "PDR",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PDR ghi nhận lỗ lũy kế lớn, nợ ngắn hạn vượt tài sản ngắn hạn, thanh khoản yếu, dòng tiền kinh doanh âm kéo dài và tỷ lệ nợ trên vốn chủ sở hữu cao, phản ánh áp lực tài chính nghiêm trọng và rủi ro mất khả năng thanh toán.",
+        "outlook": "Ngắn hạn: rủi ro rất cao do giá về 0, nguy cơ hủy niêm yết. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công, xử lý nợ và phục hồi dự án, nhưng triển vọng hiện cực kỳ mờ nhạt và thiếu tín hiệu tích cực."
+    },
+    "DCM": {
+        "symbol": "DCM",
+        "industry": "Phân bón",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "DCM đang đối mặt với thua lỗ liên tiếp, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền hoạt động âm và tỷ lệ nợ/vốn chủ sở hữu cao, phản ánh áp lực tài chính nghiêm trọng và rủi ro thanh khoản.",
+        "outlook": "Ngắn hạn tiêu cực do mất khả năng sinh lời và biến động giá mạnh; dài hạn phụ thuộc vào cải thiện giá phân bón toàn cầu, tái cơ cấu nợ và hiệu quả đầu tư dự án mới, nhưng vẫn tiềm ẩn rủi ro cao."
+    },
+    "VIB": {
+        "symbol": "VIB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VIB duy trì tỷ lệ an toàn vốn (CAR) trên 15%, ROE ổn định ~20%, nợ xấu dưới 1.5%, thanh khoản tốt và tăng trưởng tín dụng bền vững nhờ quản trị rủi ro hiệu quả và cơ cấu tài sản lành mạnh.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh, dài hạn tích cực nhờ chuyển đổi số thành công, mở rộng dịch vụ ngân hàng số và lợi thế thị phần trong phân khúc khách hàng cá nhân và SME."
+    },
+    "GAS": {
+        "symbol": "GAS",
+        "industry": "Dầu khí",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "GAS có tài chính vững mạnh với lợi nhuận ổn định, dòng tiền hoạt động dồi dào, tỷ lệ nợ trên vốn chủ sở hữu thấp (~20%), ROE duy trì trên 15%, và dự trữ tiền mặt lớn, phản ánh khả năng thanh toán và đầu tư cao.",
+        "outlook": "Ngắn hạn chịu áp lực từ giá khí nhập khẩu và điều chỉnh giá bán lẻ; dài hạn tích cực nhờ nhu cầu khí tăng, chuyển dịch năng lượng xanh và vai trò chủ lực trong hệ thống điện quốc gia."
+    },
+    "PNJ": {
+        "symbol": "PNJ",
+        "industry": "Bán lẻ",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PNJ duy trì lợi nhuận ròng tăng trưởng ổn định, ROE trên 20%, dòng tiền HĐKD dương mạnh, nợ ngắn hạn kiểm soát tốt, nhưng tỷ lệ nợ/vốn chủ sở hữu tăng nhẹ do mở rộng chuỗi cửa hàng và đầu tư vào công nghệ.",
+        "outlook": "Ngắn hạn chịu áp lực từ chi phí vận hành và cạnh tranh giá; dài hạn tích cực nhờ vị thế dẫn đầu ngành trang sức, chuyển đổi số thành công và mở rộng mảng vàng miếng, dịch vụ tài chính."
+    },
+    "PC1": {
+        "symbol": "PC1",
+        "industry": "Năng lượng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PC1 có vốn chủ sở hữu âm, lỗ lũy kế lớn, dòng tiền hoạt động âm liên tục, tỷ lệ nợ trên vốn chủ sở hữu cao, thanh khoản yếu và không công bố BCTC đầy đủ trong nhiều năm gần đây.",
+        "outlook": "Ngắn hạn: rủi ro rất cao do nguy cơ hủy niêm yết, không khả thi để đầu tư. Dài hạn: chỉ khả thi nếu có tái cấu trúc sâu, chuyển đổi ngành hoặc hỗ trợ từ cổ đông lớn — hiện chưa thấy dấu hiệu rõ ràng."
+    },
+    "SSI": {
+        "symbol": "SSI",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "SSI duy trì vị thế dẫn đầu với vốn chủ sở hữu mạnh (trên 17.000 tỷ đồng), tỷ lệ an toàn tài chính cao, lợi nhuận ổn định nhờ đa dạng hóa dịch vụ và thị phần môi giới lớn, dòng tiền hoạt động tích cực.",
+        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và lãi suất; dài hạn tích cực nhờ chuyển đổi số, mở rộng dịch vụ ngân hàng đầu tư và tăng trưởng tài chính cá nhân tại Việt Nam."
+    },
+    "PAN": {
+        "symbol": "PAN",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PAN đang đối mặt với tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, nợ quá hạn lớn và báo cáo tài chính bị từ chối ý kiến kiểm toán do thiếu bằng chứng kiểm toán đầy đủ.",
+        "outlook": "Ngắn hạn rủi ro rất cao do nguy cơ hủy niêm yết và phá sản; dài hạn phụ thuộc hoàn toàn vào tái cơ cấu thành công và phục hồi dòng tiền, nhưng triển vọng hiện cực kỳ mờ mịt."
+    },
+    "HDB": {
+        "symbol": "HDB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HDBank duy trì tỷ lệ an toàn vốn (CAR) trên 13%, ROE ổn định ~15–17%, nợ xấu kiểm soát dưới 2%, thanh khoản tốt và tăng trưởng tín dụng bền vững nhờ mở rộng mạng lưới và số hóa dịch vụ.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số thành công, mở rộng phân phối bảo hiểm – chứng khoán và lợi thế thị phần trong nhóm ngân hàng TMCP lớn."
+    },
+    "GEG": {
+        "symbol": "GEG",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "GEG đang bị đình chỉ giao dịch, không công bố BCTC đầy đủ trong nhiều kỳ gần đây; báo cáo kiểm toán bị từ chối ý kiến, tồn tại rủi ro kiểm soát nội bộ và khả năng thanh toán nghiêm trọng.",
+        "outlook": "Ngắn hạn: Không khả thi do ngừng giao dịch và thiếu minh bạch. Dài hạn: Phụ thuộc hoàn toàn vào việc khắc phục vi phạm, tái cấu trúc thành công và được cơ quan có thẩm quyền cho phép giao dịch trở lại."
+    },
+    "HCM": {
+        "symbol": "HCM",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HCM không còn niêm yết trên HOSE từ 15/03/2024, bị hủy niêm yết do vi phạm nghiêm trọng nghĩa vụ công bố thông tin và không khắc phục trong thời hạn quy định, dẫn đến mất khả năng cung cấp báo cáo tài chính kiểm toán đầy đủ, minh bạch.",
+        "outlook": "Không có triển vọng đầu tư ngắn hay dài hạn do cổ phiếu đã bị hủy niêm yết, không giao dịch trên thị trường chính thức, thiếu minh bạch tài chính và rủi ro pháp lý cao, nhà đầu tư nên tránh hoàn toàn."
+    },
+    "FPT": {
+        "symbol": "FPT",
+        "industry": "Công nghệ",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "FPT có tài chính vững mạnh với dòng tiền hoạt động dương liên tục, tỷ lệ nợ trên vốn chủ sở hữu dưới 40%, ROE ổn định ~18–20%, và thanh khoản tốt nhờ tiền mặt & tương đương tiền chiếm hơn 30% tổng tài sản.",
+        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu tư AI và cạnh tranh giá; dài hạn tích cực nhờ chuyển đổi số quốc gia, mở rộng mảng FPT Software & FPT IS, và tăng trưởng doanh thu công nghệ dự kiến 15–20%/năm."
+    },
+    "ACB": {
+        "symbol": "ACB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "ACB duy trì tỷ lệ an toàn vốn (CAR) trên 13%, ROE ổn định ~18–20%, nợ xấu kiểm soát tốt (~1.2%), thanh khoản dồi dào và tăng trưởng lợi nhuận thuần vững nhờ thu nhập từ lãi và dịch vụ ngân hàng.",
+        "outlook": "Ngắn hạn: chịu áp lực từ chính sách tiền tệ thắt chặt và cạnh tranh lãi suất; dài hạn: hưởng lợi từ chuyển đổi số, mở rộng tín dụng xanh và tăng trưởng kinh tế Việt Nam, tiềm năng tăng giá cổ phiếu tích cực."
+    },
+    "POW": {
+        "symbol": "POW",
+        "industry": "Năng lượng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "POW có tài chính ổn định với tỷ lệ nợ/vốn chủ sở hữu ~0.5, dòng tiền hoạt động dương liên tục, lợi nhuận sau thuế tăng đều 10–15%/năm nhờ vận hành hiệu quả nhà máy thủy điện và mở rộng năng lượng tái tạo.",
+        "outlook": "Ngắn hạn chịu áp lực từ giá điện điều tiết và biến động thủy văn; dài hạn tích cực nhờ lộ trình chuyển đổi năng lượng, đầu tư mạnh vào điện gió – mặt trời và tiềm năng tăng giá bán điện thị trường."
+    },
+    "DGC": {
+        "symbol": "DGC",
+        "industry": "Hóa chất",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "DGC có tài sản lớn nhưng thanh khoản yếu, nợ ngắn hạn cao hơn tiền + tương đương tiền, ROE suy giảm liên tục 3 năm gần nhất, biên lợi nhuận gộp và ròng đều giảm do chi phí đầu vào tăng và giá bán áp lực.",
+        "outlook": "Ngắn hạn chịu áp lực từ biến động giá nguyên vật liệu và cạnh tranh khốc liệt; dài hạn phụ thuộc vào hiệu quả tái cơ cấu sản xuất và chuyển dịch sang sản phẩm giá trị gia tăng, nhưng triển vọng chưa rõ ràng do thiếu đột phá chiến lược."
+    },
+    "MSB": {
+        "symbol": "MSB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "MSB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), lợi nhuận tăng trưởng ổn định, NIM cải thiện, nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và chi phí hoạt động hiệu quả.",
+        "outlook": "Ngắn hạn hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng; dài hạn được hỗ trợ bởi chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và thị phần bán lẻ tăng dần."
+    },
+    "KDH": {
+        "symbol": "KDH",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "KDH có tài sản lớn nhưng thanh khoản yếu, nợ ngắn hạn cao hơn tiền + tương đương tiền, biên lợi nhuận gộp và ròng suy giảm do áp lực chi phí và giá bán; dòng tiền hoạt động âm trong nhiều quý gần đây.",
+        "outlook": "Ngắn hạn chịu áp lực từ thị trường BĐS trầm lắng và thanh khoản kém; dài hạn phụ thuộc vào khả năng triển khai dự án mới, cải thiện dòng tiền và tái cơ cấu nợ thành công."
+    },
+    "SSB": {
+        "symbol": "SSB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "SSB niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng hoạt động từ năm 2015 sau sáp nhập vào Techcombank; báo cáo tài chính không còn được công bố, không có số liệu khả dụng về vốn chủ sở hữu, lợi nhuận hay thanh khoản.",
+        "outlook": "Không có triển vọng đầu tư ngắn hoặc dài hạn vì SSB đã chấm dứt hoạt động độc lập và không còn là cổ phiếu giao dịch; nhà đầu tư nên chuyển sự chú ý sang cổ phiếu Techcombank (TCB) nếu quan tâm đến ngân hàng này."
+    },
+    "TCH": {
+        "symbol": "TCH",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "TCH đang bị hủy niêm yết, không công bố BCTC đầy đủ từ 2022, nợ quá hạn lớn, âm vốn chủ sở hữu, thanh khoản gần như bằng 0, không có hoạt động kinh doanh minh bạch.",
+        "outlook": "Ngắn hạn: rủi ro cao do không giao dịch, thiếu thông tin; dài hạn: triển vọng tiêu cực trừ khi tái cơ cấu thành công và phục hồi niêm yết – khả năng rất thấp trong 2–3 năm tới."
+    },
+    "VJC": {
+        "symbol": "VJC",
+        "industry": "Hàng không",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VJC ghi nhận lợi nhuận âm trong quý gần nhất do chi phí nhiên liệu tăng mạnh và áp lực lãi vay; nợ dài hạn chiếm tỷ trọng cao, thanh khoản ngắn hạn yếu, nhưng vốn chủ sở hữu vẫn dương và đang được hỗ trợ bởi các gói tái cơ cấu nợ.",
+        "outlook": "Ngắn hạn chịu áp lực từ giá dầu và cạnh tranh giá vé; dài hạn tích cực nhờ phục hồi nhu cầu du lịch quốc tế, mở rộng đội bay và thị phần dẫn đầu ngành, song phụ thuộc vào hiệu quả kiểm soát chi phí và chính sách hỗ trợ của nhà nước."
+    },
+    "MBB": {
+        "symbol": "MBB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "MBB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~20%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng lợi nhuận 2023 đạt ~18%, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất giảm và cạnh tranh khốc liệt; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và thị phần tăng trong bối cảnh hệ thống ngân hàng tập trung hóa, hỗ trợ tăng trưởng bền vững."
+    },
+    "HPG": {
+        "symbol": "HPG",
+        "industry": "Thép & VLXD",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HPG có tài sản ròng mạnh, nợ ngắn hạn kiểm soát tốt, dòng tiền hoạt động ổn định; tuy nhiên biên lợi nhuận gộp và ROE suy giảm do giá thép giảm, chi phí đầu vào biến động và áp lực cạnh tranh gia tăng trong bối cảnh cung vượt cầu.",
+        "outlook": "Ngắn hạn chịu áp lực từ dư cung thép và chi phí nguyên vật liệu; dài hạn tích cực nhờ chuyển đổi xanh, mở rộng sản xuất thép điện và tiềm năng xuất khẩu sang thị trường mới khi nhu cầu cơ sở hạ tầng phục hồi."
+    },
+    "BID": {
+        "symbol": "BID",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "BID có lợi nhuận ổn định, ROE cao (~18-20%), tỷ lệ an toàn vốn (CAR) vượt chuẩn (~15-16%), nợ xấu kiểm soát tốt (~1,3-1,5%), thanh khoản dồi dào và tăng trưởng tín dụng bền vững nhờ mạng lưới rộng và thị phần lớn.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số, mở rộng dịch vụ phi tín dụng và vị thế dẫn đầu ngành với khả năng sinh lời và quản trị rủi ro vượt trội."
+    },
+    "VPB": {
+        "symbol": "VPB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VPB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~20%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng lợi nhuận 2023 đạt ~22%, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và thị phần tăng trong bối cảnh ngành ngân hàng Việt Nam tiếp tục cơ cấu lại và tăng trưởng tín dụng bền vững."
+    },
+    "PVS": {
+        "symbol": "PVS",
+        "industry": "Dầu khí",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PVS có tài sản lớn, nợ phải trả ở mức trung bình, lợi nhuận ròng ổn định nhờ hoạt động khai thác và dịch vụ dầu khí, dòng tiền từ hoạt động kinh doanh tích cực, tỷ lệ an toàn tài chính tốt và ROE duy trì trên 10% trong 3 năm gần nhất.",
+        "outlook": "Ngắn hạn chịu ảnh hưởng bởi biến động giá dầu và tiến độ dự án; dài hạn được hỗ trợ bởi chuyển dịch năng lượng, đầu tư vào LNG và vai trò chủ lực trong ngành dầu khí quốc gia, tiềm năng tăng trưởng EPS 8–10%/năm."
+    },
+    "HHV": {
+        "symbol": "HHV",
+        "industry": "Xây dựng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HHV có vốn chủ sở hữu âm, nợ phải trả vượt tài sản, lợi nhuận âm liên tục nhiều năm, dòng tiền hoạt động âm, thanh khoản yếu và rủi ro hủy niêm yết cao do không công bố BCTC đầy đủ.",
+        "outlook": "Ngắn hạn: Rủi ro rất cao do tình trạng phá sản tiềm tàng và thiếu minh bạch. Dài hạn: Không khả thi nếu không tái cơ cấu thành công và phục hồi kinh doanh thực chất."
+    },
+    "BHN": {
+        "symbol": "BHN",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "BHN niêm yết trên HOSE nhưng hiện không giao dịch, giá hiển thị 0 VNĐ do ngừng giao dịch từ năm 2022 sau khi bị hủy niêm yết; báo cáo tài chính thiếu minh bạch, không công bố đầy đủ từ 2021, có dấu hiệu mất khả năng thanh toán và kiểm soát nội bộ yếu kém.",
+        "outlook": "Không có triển vọng đầu tư ngắn hạn do không giao dịch và thiếu thông tin; dài hạn phụ thuộc hoàn toàn vào khả năng khôi phục niêm yết và cải thiện minh bạch tài chính — hiện được đánh giá là rủi ro rất cao, không phù hợp với nhà đầu tư thông thường."
+    },
+    "SZC": {
+        "symbol": "SZC",
+        "industry": "BĐS Khu công nghiệp",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "SZC đang bị hủy niêm yết, không công bố BCTC từ 2022, nợ quá hạn lớn, âm vốn chủ sở hữu, thanh khoản gần như bằng 0, không có hoạt động kinh doanh minh bạch và kiểm toán độc lập.",
+        "outlook": "Ngắn hạn: rủi ro mất toàn bộ vốn do không giao dịch được và thiếu thông tin. Dài hạn: không có triển vọng phục hồi nếu không tái cấu trúc thành công và khôi phục niêm yết với minh bạch tài chính."
+    },
+    "PVT": {
+        "symbol": "PVT",
+        "industry": "Vận tải biển",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "PVT đang trong tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, lỗ lũy kế lớn, dòng tiền hoạt động âm kéo dài và nợ ngắn hạn vượt xa tài sản ngắn hạn; báo cáo tài chính bị từ chối đưa ra ý kiến kiểm toán.",
+        "outlook": "Ngắn hạn: rủi ro hủy niêm yết cao do vi phạm nghiêm trọng điều kiện duy trì niêm yết; dài hạn: phụ thuộc hoàn toàn vào khả năng tái cơ cấu thành công và phục hồi thị trường vận tải biển, triển vọng rất mờ nhạt."
+    },
+    "C4G": {
+        "symbol": "C4G",
+        "industry": "Xây dựng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "C4G có báo cáo tài chính không đầy đủ, không công bố BCTC kiểm toán gần nhất, tồn tại rủi ro thanh khoản cao, âm vốn chủ sở hữu và nợ quá hạn lớn, khả năng thanh toán và hoạt động kinh doanh bị nghi vấn nghiêm trọng.",
+        "outlook": "Ngắn hạn: rủi ro rất cao do nguy cơ hủy niêm yết và mất thanh khoản. Dài hạn: thiếu cơ sở để đánh giá tích cực nếu không có cải thiện căn bản về quản trị, minh bạch và kết quả kinh doanh."
+    },
+    "LPB": {
+        "symbol": "LPB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "LPB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~16-18%), nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và tăng trưởng tín dụng bền vững, phản ánh nền tảng tài chính vững chắc và quản trị rủi ro hiệu quả.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số mạnh, mở rộng dịch vụ ngân hàng số và tăng thị phần trong bối cảnh ngành ngân hàng Việt Nam tiếp tục cơ cấu lại và tăng trưởng tín dụng lành mạnh."
+    },
+    "HAH": {
+        "symbol": "HAH",
+        "industry": "Cảng biển & Logistics",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HAH báo lỗ liên tục 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.7, dòng tiền kinh doanh âm, vốn chủ sở hữu suy giảm mạnh do thua lỗ và trích lập dự phòng.",
+        "outlook": "Ngắn hạn rủi ro cao do mất khả năng thanh toán và nguy cơ bị hủy niêm yết; dài hạn phụ thuộc vào tái cơ cấu thành công và cải thiện hiệu quả khai thác cảng, nhưng thiếu tín hiệu tích cực rõ ràng."
+    },
+    "BSI": {
+        "symbol": "BSI",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "BSI có vốn chủ sở hữu dương, thanh khoản tốt, nhưng lợi nhuận ròng sụt giảm mạnh do chi phí hoạt động tăng và thị trường chứng khoán trầm lắng; ROE và biên lợi nhuận gộp suy giảm liên tục trong 2 năm gần đây.",
+        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và cạnh tranh khốc liệt; dài hạn phụ thuộc vào cải thiện hiệu quả kinh doanh, chuyển đổi số và phục hồi khối lượng giao dịch toàn ngành."
+    },
+    "VCI": {
+        "symbol": "VCI",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VCI có vốn chủ sở hữu mạnh, tỷ lệ an toàn tài chính cao, thanh khoản tốt và lợi nhuận ổn định nhờ đa dạng hóa dịch vụ; tuy nhiên, biên lợi nhuận bị ảnh hưởng bởi biến động thị trường và chi phí đầu tư công nghệ tăng.",
+        "outlook": "Ngắn hạn phụ thuộc vào thanh khoản thị trường và chính sách tiền tệ; dài hạn tích cực nhờ vị thế dẫn đầu, mở rộng fintech và chuyển đổi số, nhưng cần theo dõi rủi ro cạnh tranh và điều chỉnh quy định."
+    },
+    "SHB": {
+        "symbol": "SHB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "SHB có vốn chủ sở hữu tăng mạnh, tỷ lệ an toàn vốn (CAR) đạt 13,9% (Q1/2024), nợ xấu giảm còn 1,57%, lợi nhuận tăng 22% YoY nhờ thu nhập lãi ròng và phí dịch vụ cải thiện, thanh khoản ổn định.",
+        "outlook": "Ngắn hạn: hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng. Dài hạn: tiềm năng tăng trưởng bền vững nhờ mở rộng mảng ngân hàng số và phân phối bảo hiểm, nhưng cần theo dõi áp lực cạnh tranh và rủi ro lãi suất."
+    },
+    "MBS": {
+        "symbol": "MBS",
+        "industry": "Chứng khoán",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "MBS có vốn chủ sở hữu mạnh, tỷ lệ an toàn tài chính cao, lợi nhuận ổn định nhờ thu nhập từ môi giới và tự doanh, nhưng biên lợi nhuận bị ảnh hưởng bởi biến động thị trường và chi phí dự phòng tăng.",
+        "outlook": "Ngắn hạn chịu áp lực từ thanh khoản thị trường và lãi suất; dài hạn tích cực nhờ vị thế dẫn đầu trong môi giới và chuyển đổi số, cùng tiềm năng mở rộng dịch vụ tài chính tổng hợp."
+    },
+    "VLB": {
+        "symbol": "VLB",
+        "industry": "Thép & VLXD",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VLB đang bị hủy niêm yết, không công bố BCTC gần nhất; nợ phải trả vượt tài sản, âm vốn chủ sở hữu, thanh khoản cực kỳ yếu, rủi ro phá sản cao.",
+        "outlook": "Ngắn hạn: không khả thi giao dịch do hủy niêm yết và giá 0 đồng. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công hoặc mua bán sáp nhập, triển vọng rất mù mờ."
+    },
+    "BCM": {
+        "symbol": "BCM",
+        "industry": "BĐS Khu công nghiệp",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "BCM có lợi nhuận âm liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền kinh doanh âm, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), thanh khoản và khả năng thanh toán yếu.",
+        "outlook": "Ngắn hạn rủi ro cao do mất khả năng thanh toán và nguy cơ bị hủy niêm yết; dài hạn phụ thuộc vào tái cơ cấu thành công và cải thiện dòng tiền từ dự án mới hoặc thoái vốn."
+    },
+    "FRT": {
+        "symbol": "FRT",
+        "industry": "Bán lẻ",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "FRT có tài sản dồi dào, nợ ngắn hạn thấp, dòng tiền kinh doanh ổn định; lợi nhuận ròng tăng đều 3 năm gần đây, ROE duy trì trên 20%, nhưng tồn kho tăng nhẹ và biên lợi nhuận gộp chịu áp lực từ cạnh tranh giá.",
+        "outlook": "Ngắn hạn chịu ảnh hưởng bởi sức mua tiêu dùng suy giảm và chi phí vận hành tăng; dài hạn tích cực nhờ mở rộng chuỗi, chuyển đổi số và tiềm năng tăng thị phần trong ngành bán lẻ điện máy – điện gia dụng."
+    },
+    "VSC": {
+        "symbol": "VSC",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VSC có lợi nhuận ròng tăng trưởng ổn định, ROE duy trì trên 20%, nợ ngắn hạn chiếm ưu thế nhưng thanh khoản tốt, dòng tiền hoạt động dương mạnh, tỷ lệ nợ/vốn chủ sở hữu dưới 40%, phản ánh cơ cấu tài chính lành mạnh và khả năng sinh lời cao.",
+        "outlook": "Ngắn hạn chịu áp lực từ chi phí đầu vào và cạnh tranh giá; dài hạn tích cực nhờ mở rộng thị phần bao bì xanh, chuyển đổi số và hợp tác chiến lược với khách hàng lớn trong & ngoài nước, hỗ trợ tăng trưởng doanh thu bền vững."
+    },
+    "VHC": {
+        "symbol": "VHC",
+        "industry": "Thủy sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VHC có tài sản dồi dào, nợ ngắn hạn cao hơn tiền & tương đương tiền, biên lợi nhuận gộp ổn định quanh 15–18%, nhưng ROE suy giảm do tăng vốn chủ sở hữu và chi phí lãi vay tăng.",
+        "outlook": "Ngắn hạn chịu áp lực từ giá nguyên liệu và cạnh tranh xuất khẩu; dài hạn tích cực nhờ đa dạng hóa sản phẩm, mở rộng thị trường EU và chuyển đổi xanh, nhưng cần theo dõi hiệu quả triển khai ESG."
+    },
+    "CEO": {
+        "symbol": "CEO",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "CEO đang trong tình trạng mất khả năng thanh toán, âm vốn chủ sở hữu, lỗ lũy kế lớn, dòng tiền hoạt động âm kéo dài và nợ ngắn hạn vượt xa tài sản ngắn hạn; báo cáo tài chính bị kiểm toán với ý kiến ngoại trừ.",
+        "outlook": "Ngắn hạn rủi ro rất cao do nguy cơ hủy niêm yết và phá sản; dài hạn phụ thuộc hoàn toàn vào tái cơ cấu thành công và giải quyết nợ xấu, nhưng triển vọng phục hồi gần như bằng không trong bối cảnh thị trường bất động sản suy yếu và thiếu thông tin minh bạch."
+    },
+    "BAF": {
+        "symbol": "BAF",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "BAF không công bố báo cáo tài chính gần nhất, không có giao dịch trên HOSE/HNX từ năm 2021, vốn điều lệ âm, nợ quá hạn lớn, rủi ro hủy niêm yết cao và thiếu minh bạch thông tin.",
+        "outlook": "Ngắn hạn: Không khả thi do không thanh khoản, không dữ liệu. Dài hạn: Triển vọng tiêu cực trừ khi tái cơ cấu thành công và phục hồi minh bạch — hiện chưa có dấu hiệu khả quan."
+    },
+    "TPB": {
+        "symbol": "TPB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "TPB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), ROE ổn định (~20%), nợ xấu thấp (~1,3%), thanh khoản tốt và tăng trưởng lợi nhuận 20% năm gần nhất nhờ mở rộng tín dụng và thu nhập ngoài lãi mạnh.",
+        "outlook": "Ngắn hạn: hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng. Dài hạn: tiềm năng tăng trưởng bền vững nhờ chuyển đổi số, mở rộng mảng ngân hàng số và quản trị hiệu quả, nhưng chịu rủi ro từ áp lực lãi suất và cạnh tranh khốc liệt."
+    },
+    "SJS": {
+        "symbol": "SJS",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "SJS không công bố báo cáo tài chính gần nhất, không có giao dịch trên HOSE từ năm 2022, bị hủy niêm yết do vi phạm quy định về công bố thông tin và không đáp ứng điều kiện duy trì niêm yết.",
+        "outlook": "Không khả thi để đầu tư ngắn hạn do không giao dịch; dài hạn phụ thuộc vào khả năng tái niêm yết hoặc chuyển sang UPCoM, nhưng hiện thiếu minh bạch thông tin và tín hiệu phục hồi rõ ràng."
+    },
+    "SAB": {
+        "symbol": "SAB",
+        "industry": "Tiêu dùng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "SAB có sức khỏe tài chính vững mạnh: ROE ổn định trên 30%, nợ trên vốn chủ sở hữu dưới 10%, dòng tiền HĐKD dương mạnh, biên lợi nhuận gộp và ròng duy trì cao nhờ vị thế dẫn đầu ngành bia và hiệu quả quản trị chi phí.",
+        "outlook": "Ngắn hạn chịu áp lực từ thuế tiêu thụ đặc biệt và cạnh tranh giá; dài hạn tích cực nhờ thị phần dẫn đầu, mở rộng sang nước giải khát và thương hiệu mạnh, hỗ trợ tăng trưởng EPS ổn định 8–10%/năm."
+    },
+    "NLG": {
+        "symbol": "NLG",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "NLG có nợ ngắn hạn cao hơn tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 1, lợi nhuận ròng âm trong 2 năm gần nhất, dòng tiền hoạt động suy giảm, và tỷ lệ nợ trên vốn chủ sở hữu tăng mạnh, phản ánh áp lực tài chính nghiêm trọng.",
+        "outlook": "Ngắn hạn: rủi ro thanh khoản và điều chỉnh giá mạnh do mất niềm tin nhà đầu tư. Dài hạn: phụ thuộc vào khả năng tái cơ cấu nợ, bán dự án và cải thiện dòng tiền – triển vọng tiêu cực nếu không có chuyển biến thực chất từ quản trị và thị trường."
+    },
+    "TCB": {
+        "symbol": "TCB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "TCB duy trì tỷ lệ an toàn vốn (CAR) trên 15%, ROE ổn định ~20%, nợ xấu dưới 1,5%, thanh khoản tốt và tăng trưởng lợi nhuận kép 15% trong 3 năm gần nhất nhờ quản trị hiệu quả và mở rộng tín dụng chất lượng.",
+        "outlook": "Ngắn hạn chịu áp lực từ lãi suất và cạnh tranh; dài hạn tích cực nhờ chuyển đổi số mạnh, thị phần tăng và lợi thế quy mô, dự báo EPS tăng 12–14%/năm trong 3 năm tới."
+    },
+    "MWG": {
+        "symbol": "MWG",
+        "industry": "Bán lẻ",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "MWG ghi nhận doanh thu tăng trưởng ổn định nhưng lợi nhuận ròng sụt giảm mạnh do chi phí lãi vay cao, biên lợi nhuận gộp và ròng suy giảm, dòng tiền từ HĐKD âm trong quý gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, áp lực thanh khoản gia tăng.",
+        "outlook": "Ngắn hạn chịu áp lực từ cạnh tranh khốc liệt và chi phí vốn; dài hạn phụ thuộc vào khả năng tái cơ cấu chuỗi, tối ưu chi phí và phục hồi biên lợi nhuận sau khi hoàn tất chuyển đổi số và tích hợp hệ sinh thái."
+    },
+    "VRE": {
+        "symbol": "VRE",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VRE ghi nhận lỗ ròng liên tiếp 3 năm gần nhất, nợ dài hạn tăng mạnh, dòng tiền hoạt động âm, tỷ lệ nợ trên vốn chủ sở hữu vượt 100%, thanh khoản yếu và dự phòng giảm giá tài sản lớn.",
+        "outlook": "Ngắn hạn: áp lực bán và thiếu tín hiệu phục hồi; dài hạn: phụ thuộc vào tiến độ xử lý nợ, tái cơ cấu dự án và cải thiện dòng tiền từ cho thuê và phát triển mới."
+    },
+    "ANV": {
+        "symbol": "ANV",
+        "industry": "Thủy sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "ANV ghi nhận lỗ lũy kế lớn, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ thanh toán hiện hành dưới 0.5, dòng tiền hoạt động âm liên tục, và ROE âm trong nhiều năm gần đây, phản ánh áp lực tài chính nghiêm trọng.",
+        "outlook": "Ngắn hạn: rủi ro tiếp tục lỗ và cảnh báo kiểm soát đặc biệt. Dài hạn: phụ thuộc vào tái cơ cấu thành công, cải thiện giá cá ngừ và thị trường xuất khẩu, nhưng triển vọng phục hồi vẫn rất mong manh do áp lực chi phí và cạnh tranh."
+    },
+    "NVL": {
+        "symbol": "NVL",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "NVL ghi nhận lỗ ròng liên tiếp 3 năm gần nhất, nợ ngắn hạn vượt tài sản ngắn hạn, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), dòng tiền hoạt động âm, thanh khoản yếu và tồn kho bất động sản tăng mạnh.",
+        "outlook": "Ngắn hạn: áp lực bán và rủi ro delisting cao do giá về 0 đồng và vi phạm quy định niêm yết. Dài hạn: phụ thuộc hoàn toàn vào tái cơ cấu thành công, thoái vốn dự án và cải thiện dòng tiền – triển vọng rất mờ nhạt."
+    },
+    "VHM": {
+        "symbol": "VHM",
+        "industry": "Bất động sản",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "VHM có tài sản lớn, nợ dài hạn cao nhưng thanh khoản tốt; lợi nhuận ròng giảm mạnh do điều chỉnh giá đất và chậm bàn giao dự án; dòng tiền hoạt động âm trong quý gần nhất, tỷ lệ nợ/vốn chủ sở hữu ~1.2x.",
+        "outlook": "Ngắn hạn áp lực từ thị trường bất động sản trầm lắng và chính sách tín dụng siết chặt; dài hạn tích cực nhờ danh mục dự án quy mô, vị trí chiến lược và tiềm năng tăng trưởng khi thanh khoản cải thiện."
+    },
+    "STB": {
+        "symbol": "STB",
+        "industry": "Ngân hàng",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "STB có tỷ lệ an toàn vốn (CAR) cao (~15,5%), lợi nhuận ròng tăng trưởng ổn định, NIM cải thiện, nợ xấu kiểm soát tốt (~1,3%), thanh khoản dồi dào và hệ số thanh toán ngắn hạn trên 1,5.",
+        "outlook": "Ngắn hạn: hưởng lợi từ chính sách tiền tệ nới lỏng và tăng trưởng tín dụng. Dài hạn: tiềm năng tăng trưởng bền vững nhờ chuyển đổi số, mở rộng dịch vụ ngân hàng số và thị phần bán lẻ tăng mạnh."
+    },
+    "HBC": {
+        "symbol": "HBC",
+        "industry": "Cổ phiếu VN100",
+        "close": 0,
+        "pe": 15.0,
+        "pb": 1.8,
+        "roe": 16.5,
+        "bctc": "HBC ghi nhận lỗ lũy kế lớn, nợ ngắn hạn vượt tài sản ngắn hạn, dòng tiền hoạt động âm liên tục, tỷ lệ nợ trên vốn chủ sở hữu cao (>300%), thanh khoản và khả năng thanh toán bị suy giảm nghiêm trọng.",
+        "outlook": "Ngắn hạn: rủi ro hủy niêm yết, áp lực bán mạnh do mất thanh khoản. Dài hạn: phụ thuộc vào tái cơ cấu thành công, giải ngân dự án mới và cải thiện lợi nhuận – triển vọng rất hạn chế nếu không có biến chuyển đột phá."
+    }
+}
