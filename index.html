@@ -25,7 +25,7 @@
                     <h1 class="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
                         Pro Quant Screener Pro
                     </h1>
-                    <p class="text-xs text-slate-400">Kỹ thuật & Cơ bản chuyên nghiệp</p>
+                    <p class="text-xs text-slate-400">Bấm vào mã CP để xem chi tiết & báo cáo</p>
                 </div>
             </div>
 
@@ -69,7 +69,7 @@
                     <table class="w-full text-left text-sm whitespace-nowrap">
                         <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
                             <tr>
-                                <th class="py-3 px-2">Mã</th>
+                                <th class="py-3 px-2">Mã (Bấm xem)</th>
                                 <th class="py-3 px-2">Giá / Ngành</th>
                                 <th class="py-3 px-2 text-center">P/E</th>
                                 <th class="py-3 px-2 text-center">P/B</th>
@@ -101,7 +101,7 @@
                     <table class="w-full text-left text-sm whitespace-nowrap">
                         <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
                             <tr>
-                                <th class="py-3 px-2">Mã</th>
+                                <th class="py-3 px-2">Mã (Bấm xem)</th>
                                 <th class="py-3 px-2">Giá / Ngành</th>
                                 <th class="py-3 px-2 text-center">P/E</th>
                                 <th class="py-3 px-2 text-center">P/B</th>
@@ -119,6 +119,69 @@
 
         </div>
     </main>
+
+    <!-- STOCK DETAIL MODAL -->
+    <div id="stockModal" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-lg p-6 space-y-6 shadow-2xl relative animate-in fade-in zoom-in duration-200">
+            <!-- Close Button -->
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-700/50 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Modal Header -->
+            <div class="flex items-center gap-3">
+                <div id="modalSymbolBadge" class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 font-bold text-lg flex items-center justify-center">
+                    --
+                </div>
+                <div>
+                    <h3 id="modalTitle" class="text-xl font-bold text-white">--</h3>
+                    <p id="modalIndustry" class="text-xs text-slate-400">--</p>
+                </div>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-3 gap-3 bg-slate-900/50 p-4 rounded-xl border border-slate-700/50">
+                <div class="text-center">
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">Giá Hiện Tại</span>
+                    <span id="modalPrice" class="font-mono text-sm font-bold text-white">--</span>
+                </div>
+                <div class="text-center border-x border-slate-700">
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">P/E | P/B</span>
+                    <span id="modalValuation" class="font-mono text-sm font-bold text-blue-300">--</span>
+                </div>
+                <div class="text-center">
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">ROE</span>
+                    <span id="modalRoe" class="font-mono text-sm font-bold text-purple-300">--</span>
+                </div>
+            </div>
+
+            <!-- Quick Links / Reports Section -->
+            <div class="space-y-3">
+                <h4 class="text-xs font-semibold text-slate-300 uppercase tracking-wider">Tra cứu Báo cáo & Tin tức chuyên sâu:</h4>
+                <div class="grid grid-cols-2 gap-3">
+                    <a id="linkCafeF" href="#" target="_blank" class="px-4 py-2.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 rounded-xl text-xs font-medium text-slate-200 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-newspaper text-emerald-400"></i> CafeF (Tin tức)
+                    </a>
+                    <a id="linkVietstock" href="#" target="_blank" class="px-4 py-2.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 rounded-xl text-xs font-medium text-slate-200 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-chart-pie text-blue-400"></i> Vietstock (BCTC)
+                    </a>
+                    <a id="linkVndirect" href="#" target="_blank" class="px-4 py-2.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 rounded-xl text-xs font-medium text-slate-200 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-arrow-trend-up text-amber-400"></i> VNDirect iBoard
+                    </a>
+                    <a id="linkFireant" href="#" target="_blank" class="px-4 py-2.5 bg-slate-700/50 hover:bg-slate-700 border border-slate-600 rounded-xl text-xs font-medium text-slate-200 flex items-center justify-center gap-2 transition-all">
+                        <i class="fa-solid fa-fire text-orange-400"></i> Fireant (Cộng đồng)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Action -->
+            <div class="pt-2">
+                <button onclick="closeModal()" class="w-full py-2.5 bg-slate-700 hover:bg-slate-600 text-white text-sm font-medium rounded-xl transition-all">
+                    Đóng cửa sổ
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- JavaScript Application Logic -->
     <script>
@@ -160,6 +223,9 @@
             "BSR": { industry: "Năng lượng", pe: 11.0, pb: 1.0, roe: 10.0 },
             "DGC": { industry: "Hóa chất", pe: 12.5, pb: 2.8, roe: 25.0 }
         };
+
+        // Lưu trữ kết quả quét để truyền dữ liệu vào Modal khi click
+        let scannedDataCache = {};
 
         async function fetchStockHistory(symbol) {
             const end = Math.floor(Date.now() / 1000);
@@ -255,6 +321,7 @@
 
             const breakouts = [];
             const squeezes = [];
+            scannedDataCache = {}; // reset cache
 
             const BATCH_SIZE = 5;
             for (let i = 0; i < total; i += BATCH_SIZE) {
@@ -265,6 +332,7 @@
                     if (history) {
                         const res = analyzeData(symbol, info, history);
                         if (res) {
+                            scannedDataCache[symbol] = res; // lưu vào cache
                             if (res.isBreakout) breakouts.push(res);
                             if (res.isSqueeze) squeezes.push(res);
                         }
@@ -277,11 +345,14 @@
                 }));
             }
 
-            // Gộp Giá và Ngành làm 1 cột thông minh để hiển thị gọn trên mobile
             const renderRows = (items) => {
                 return items.map(item => `
                     <tr class="hover:bg-slate-800/60 transition-colors">
-                        <td class="py-3 px-2 font-bold text-amber-400">${item.symbol}</td>
+                        <td class="py-3 px-2">
+                            <button onclick="showStockDetail('${item.symbol}')" class="font-bold text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20">
+                                <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> ${item.symbol}
+                            </button>
+                        </td>
                         <td class="py-3 px-2">
                             <div class="font-mono text-slate-100">${item.close.toLocaleString('vi-VN')}</div>
                             <div class="text-[10px] text-slate-400">${item.industry}</div>
@@ -297,11 +368,50 @@
             breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="5" class="py-6 text-center text-slate-500 text-xs">Không có mã nào.</td></tr>`;
 
             document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
-            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="5" class="py-6 text-center text-slate-500 text-xs">Không có mã nào.</td></tr>`;
+            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="5" class="py-6 text-6 py-6 text-center text-slate-500 text-xs">Không có mã nào.</td></tr>`;
 
             statusText.innerText = "Hoàn tất!";
             scanBtn.disabled = false;
             scanBtn.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+
+        // Hiển thị Modal chi tiết mã cổ phiếu
+        function showStockDetail(symbol) {
+            const data = scannedDataCache[symbol] || {
+                symbol: symbol,
+                industry: CURATED_STOCKS[symbol]?.industry || "Khác",
+                close: 0,
+                pe: CURATED_STOCKS[symbol]?.pe || "--",
+                pb: CURATED_STOCKS[symbol]?.pb || "--",
+                roe: CURATED_STOCKS[symbol]?.roe || "--"
+            };
+
+            document.getElementById("modalSymbolBadge").innerText = data.symbol;
+            document.getElementById("modalTitle").innerText = `Cổ phiếu ${data.symbol}`;
+            document.getElementById("modalIndustry").innerText = `Ngành: ${data.industry}`;
+            document.getElementById("modalPrice").innerText = data.close > 0 ? data.close.toLocaleString('vi-VN') : "Đang cập nhật";
+            document.getElementById("modalValuation",).innerText = `P/E: ${data.pe} | P/B: ${data.pb}`;
+            document.getElementById("modalRoe").innerText = `${data.roe}%`;
+
+            // Gắn link tra cứu nhanh bên ngoài
+            document.getElementById("linkCafeF").href = `https://s.cafef.vn/hose/${symbol.toLowerCase()}-${symbol.chn}`;
+            document.getElementById("linkVietstock").href = `https://finance.vietstock.vn/${symbol.toUpperCase()}-chi-tiet-tai-chinh.htm`;
+            document.getElementById("linkVndirect").href = `https://iboard.ssi.com.vn/ho-tro?symbol=${symbol.toUpperCase()}` || `https://www.vndirect.com.vn/`;
+            document.getElementById("linkFireant").href = `https://fireant.vn/ma-chung-khoan/${symbol.toUpperCase()}`;
+
+            document.getElementById("stockModal").classList.remove("hidden");
+        }
+
+        function closeModal() {
+            document.getElementById("stockModal").classList.add("hidden");
+        }
+
+        // Đóng modal khi click ra ngoài khung popup
+        window.onclick = function(event) {
+            const modal = document.getElementById("stockModal");
+            if (event.target == modal) {
+                closeModal();
+            }
         }
 
         window.addEventListener("DOMContentLoaded", () => {
