@@ -2,9 +2,9 @@ name: Pro Quant Auto Bot
 
 on:
   schedule:
-    # 08:30 UTC = 15:30 giờ VN (Thị trường đã đóng cửa)
+    # 08:30 UTC = 15:30 giờ VN (Sau giờ đóng cửa)
     - cron: '30 8 * * 1-5'
-  workflow_dispatch: # Cho phép kích hoạt thủ công bằng tay từ web GitHub
+  workflow_dispatch:
 
 jobs:
   run-screener:
@@ -20,14 +20,10 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          python -m pip install --upgrade pip setuptools wheel
           pip install streamlit pandas requests
-          # Cập nhật và cài đặt phiên bản vnstock mới nhất từ kho lưu trữ
-          pip install -U vnstock --extra-index-url https://vnstocks.com/api/packages
 
       - name: Run Auto Bot Mode
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
-          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }}
         run: python app.py --auto
