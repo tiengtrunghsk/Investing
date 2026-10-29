@@ -23,7 +23,7 @@
                     <h1 class="text-base sm:text-lg font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
                         Pro Quant Screener Pro
                     </h1>
-                    <p class="text-[11px] text-slate-400">Chỉ số thực tế từ VNDIRECT · AI Qwen đánh giá định tính</p>
+                    <p class="text-[11px] text-slate-400">Dữ liệu Real-time từ VNDIRECT · AI Qwen</p>
                 </div>
             </div>
             <div class="flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 w-full sm:w-auto">
@@ -45,10 +45,15 @@
                     <h2 class="text-sm font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-layer-group text-blue-400"></i> Danh Sách Cổ Phiếu VN100
                     </h2>
-                    <p class="text-xs text-slate-400 mt-0.5">Click vào mã để xem chi tiết. P/E, P/B, ROE thực tế từ VNDIRECT.</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Click vào mã để xem chi tiết. Chỉ số lấy thực tế từ VNDIRECT.</p>
                 </div>
-                <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-xl">
-                    Tổng: <span id="totalUniverseCount">0</span> mã
+                <div class="flex items-center gap-2">
+                    <button onclick="loadUniverse()" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-white text-xs rounded-xl transition-all flex items-center gap-1.5">
+                        <i class="fa-solid fa-rotate"></i> Refresh
+                    </button>
+                    <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-xl">
+                        Tổng: <span id="totalUniverseCount">0</span> mã
+                    </div>
                 </div>
             </div>
 
@@ -190,8 +195,40 @@
     </div>
 
     <script>
-        let aiDatabase = {};
-        let liveDataMap = {};
+        // Cấu hình danh sách VN100
+        const VN100 = [
+            "VCB", "BID", "CTG", "TCB", "MBB", "ACB", "STB", "VPB", "HDB", "VIB", "TPB", "SHB", "SSB", "LPB", "MSB", "OCB", "EIB",
+            "SSI", "VCI", "HCM", "VIX", "MBS", "FTS", "BSI", "CTS", "ORS",
+            "VHM", "VIC", "VRE", "NVL", "PDR", "DIG", "NLG", "KDH", "CEO", "DXG", "TCH", "SJS", "HDG", "KBC", "IDC", "SZC", "BCM", "PHR",
+            "HPG", "HSG", "NKG", "VLB", "CTD", "HBC", "VCG", "HHV", "C4G",
+            "FPT", "MWG", "PNJ", "FRT", "VNM", "MSN", "DGW", "SAB", "BHN", "KDC", "PET",
+            "GAS", "POW", "BSR", "PVD", "PVS", "DGC", "DCM", "DPM", "GEG", "REE", "PC1", "NT2",
+            "GMD", "HAH", "VJC", "HVN", "PVT", "VSC",
+            "VHC", "ANV", "DAB", "PAN", "BAF"
+        ];
+
+        const INDUSTRY_MAP = {
+            "VCB": "Ngân hàng", "BID": "Ngân hàng", "CTG": "Ngân hàng", "TCB": "Ngân hàng", "MBB": "Ngân hàng",
+            "ACB": "Ngân hàng", "STB": "Ngân hàng", "VPB": "Ngân hàng", "HDB": "Ngân hàng", "VIB": "Ngân hàng",
+            "TPB": "Ngân hàng", "SHB": "Ngân hàng", "SSB": "Ngân hàng", "LPB": "Ngân hàng", "MSB": "Ngân hàng",
+            "OCB": "Ngân hàng", "EIB": "Ngân hàng", "SSI": "Chứng khoán", "VCI": "Chứng khoán", "HCM": "Chứng khoán",
+            "VIX": "Chứng khoán", "MBS": "Chứng khoán", "FTS": "Chứng khoán", "BSI": "Chứng khoán", "CTS": "Chứng khoán", "ORS": "Chứng khoán",
+            "VHM": "Bất động sản", "VIC": "Bất động sản", "VRE": "Bất động sản", "NVL": "Bất động sản",
+            "PDR": "Bất động sản", "DIG": "Bất động sản", "NLG": "Bất động sản", "KDH": "Bất động sản",
+            "CEO": "Bất động sản", "DXG": "Bất động sản", "TCH": "Bất động sản", "HDG": "Bất động sản",
+            "KBC": "BĐS Khu công nghiệp", "IDC": "BĐS Khu công nghiệp", "SZC": "BĐS Khu công nghiệp",
+            "BCM": "BĐS Khu công nghiệp", "PHR": "BĐS Khu công nghiệp", "HPG": "Thép & VLXD", "HSG": "Thép & VLXD",
+            "NKG": "Thép & VLXD", "VLB": "Thép & VLXD", "CTD": "Xây dựng", "VCG": "Xây dựng", "HHV": "Xây dựng", "C4G": "Xây dựng",
+            "FPT": "Công nghệ", "MWG": "Bán lẻ", "PNJ": "Bán lẻ", "FRT": "Bán lẻ", "DGW": "Bán lẻ",
+            "VNM": "Tiêu dùng", "MSN": "Tiêu dùng", "SAB": "Tiêu dùng", "GAS": "Dầu khí", "PVD": "Dầu khí",
+            "PVS": "Dầu khí", "BSR": "Dầu khí", "POW": "Năng lượng", "REE": "Năng lượng", "PC1": "Năng lượng",
+            "NT2": "Năng lượng", "DGC": "Hóa chất", "DCM": "Phân bón", "DPM": "Phân bón",
+            "GMD": "Cảng biển & Logistics", "HAH": "Cảng biển & Logistics", "PVT": "Vận tải biển",
+            "VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", "DAB": "Nông nghiệp"
+        };
+
+        let aiDatabase = {}; // Chứa dữ liệu AI từ data.json
+        let liveDataMap = {}; // Chứa dữ liệu realtime (Giá, P/E, P/B)
         let historyCache = {};
         let universeLoading = false;
 
@@ -214,28 +251,59 @@
             }
         }
 
+        // Hàm gọi API VNDIRECT (Frontend không bị chặn IP)
+        async function fetchVND(url, params) {
+            const query = new URLSearchParams(params).toString();
+            const fullUrl = `${url}?${query}`;
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 8000);
+            try {
+                const res = await fetch(fullUrl, { signal: controller.signal });
+                if (!res.ok) return null;
+                return await res.json();
+            } catch (e) {
+                return null;
+            } finally {
+                clearTimeout(timer);
+            }
+        }
+
         async function fetchHistory(symbol) {
             if (historyCache[symbol]) return historyCache[symbol];
             const end = Math.floor(Date.now() / 1000);
             const start = end - (120 * 86400);
-            const url = `https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol=${symbol}&from=${start}&to=${end}`;
-            const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), 8000);
-            try {
-                const r = await fetch(url, { signal: controller.signal });
-                if (!r.ok) return null;
-                const data = await r.json();
-                if (data.s === "ok" && data.c && data.c.length >= 21 && data.h && data.l && data.v
-                    && data.h.length === data.c.length && data.v.length === data.c.length) {
-                    historyCache[symbol] = data;
-                    return data;
-                }
-            } catch (_) {} finally { clearTimeout(timer); }
+            const data = await fetchVND("https://dchart-api.vndirect.com.vn/dchart/history", {
+                resolution: "D", symbol: symbol, from: start, to: end
+            });
+            if (data && data.s === "ok" && data.c && data.c.length >= 21 && data.h && data.l && data.v) {
+                historyCache[symbol] = data;
+                return data;
+            }
             return null;
         }
 
+        async function fetchRatio(symbol, ratioCode) {
+            const data = await fetchVND("https://api-finfo.vndirect.com.vn/v4/ratios", {
+                q: `code:${symbol}~ratioCode:${ratioCode}`, size: 1, sort: "reportDate:desc"
+            });
+            if (data && data.data && data.data.length > 0) {
+                const val = data.data[0].value;
+                return val !== null ? parseFloat(val) : null;
+            }
+            return null;
+        }
+
+        async function fetchFundamentals(symbol) {
+            const [pe, pb, roe] = await Promise.all([
+                fetchRatio(symbol, "PRICE_TO_EARNINGS"),
+                fetchRatio(symbol, "PRICE_TO_BOOK"),
+                fetchRatio(symbol, "ROAE_TR_AVG5Q")
+            ]);
+            return { pe, pb, roe };
+        }
+
         function fmtRatio(val) {
-            if (val === null || val === undefined || val === 0) return '—';
+            if (val === null || val === undefined || isNaN(val) || val === 0) return '—';
             return val.toFixed(1);
         }
 
@@ -247,38 +315,54 @@
         async function loadUniverse() {
             universeLoading = true;
             const tbody = document.getElementById("universeBody");
+            tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải dữ liệu từ VNDIRECT & AI...</td></tr>`;
 
+            // 1. Tải data.json (chứa đánh giá AI)
             try {
                 const res = await fetch('data.json');
-                if (!res.ok) throw new Error(`HTTP ${res.status}`);
-                aiDatabase = await res.json();
+                if (res.ok) aiDatabase = await res.json();
             } catch (e) {
-                tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-red-400">Lỗi tải data.json: ${e.message}</td></tr>`;
-                universeLoading = false;
-                return;
+                console.warn("Chưa có data.json, sẽ chỉ hiển thị dữ liệu VNDIRECT.");
             }
 
-            const entries = Object.entries(aiDatabase);
+            const entries = VN100;
             document.getElementById("totalUniverseCount").innerText = entries.length;
 
+            // 2. Fetch dữ liệu VNDIRECT theo batch (5 mã 1 lúc để tránh nghẽn)
             const BATCH = 5;
             for (let i = 0; i < entries.length; i += BATCH) {
-                await Promise.all(entries.slice(i, i + BATCH).map(async ([symbol, info]) => {
+                await Promise.all(entries.slice(i, i + BATCH).map(async (symbol) => {
                     const history = await fetchHistory(symbol);
-                    let close = info.close || 0;
+                    let close = 0;
                     if (history && history.c.length > 0) {
                         close = history.c[history.c.length - 1];
                     }
-                    liveDataMap[symbol] = { ...info, close };
+                    
+                    const ratios = await fetchFundamentals(symbol);
+                    
+                    liveDataMap[symbol] = {
+                        symbol,
+                        industry: INDUSTRY_MAP[symbol] || "VN100",
+                        close: close,
+                        pe: ratios.pe,
+                        pb: ratios.pb,
+                        roe: ratios.roe,
+                        bctc: aiDatabase[symbol]?.bctc || "Chưa có đánh giá AI",
+                        outlook: aiDatabase[symbol]?.outlook || "Chưa có đánh giá AI"
+                    };
                 }));
             }
 
+            // 3. Render bảng
             let html = "";
-            for (const [symbol, info] of entries) {
-                const d = liveDataMap[symbol] || info;
+            for (const symbol of entries) {
+                const d = liveDataMap[symbol];
+                if (!d) continue;
+                
                 const pe = fmtRatio(d.pe);
                 const pb = fmtRatio(d.pb);
                 const roe = fmtRatio(d.roe);
+                
                 html += `
                     <tr onclick="showStockDetail('${symbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
                         <td class="py-3 px-4 font-bold text-blue-400">
@@ -286,7 +370,7 @@
                                 <i class="fa-solid fa-circle-info text-[10px]"></i> ${symbol}
                             </span>
                         </td>
-                        <td class="py-3 px-4 text-slate-300">${d.industry || info.industry}</td>
+                        <td class="py-3 px-4 text-slate-300">${d.industry}</td>
                         <td class="py-3 px-4 text-right font-mono text-white">${fmtPrice(d.close)}</td>
                         <td class="py-3 px-4 text-center font-mono text-blue-300">${pe !== '—' ? pe + 'x' : '—'}</td>
                         <td class="py-3 px-4 text-center font-mono text-amber-300">${pb !== '—' ? pb + 'x' : '—'}</td>
@@ -314,14 +398,14 @@
             breakoutBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
             squeezeBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
 
-            const entries = Object.entries(aiDatabase);
+            const entries = VN100;
             const total = entries.length;
             let processed = 0;
             const breakouts = [], squeezes = [];
 
             const BATCH = 5;
             for (let i = 0; i < total; i += BATCH) {
-                await Promise.all(entries.slice(i, i + BATCH).map(async ([symbol, info]) => {
+                await Promise.all(entries.slice(i, i + BATCH).map(async (symbol) => {
                     const history = await fetchHistory(symbol);
                     if (history && history.c.length >= 21) {
                         const c = history.c, h = history.h, l = history.l, v = history.v;
@@ -349,8 +433,8 @@
                             const avgRange5 = sumRange5 / 5;
                             const isSqueeze = (avgClose5 > 0) && (avgRange5 / avgClose5 < 0.02) && (currVol < 0.8 * volMa20);
 
-                            const d = liveDataMap[symbol] || info;
-                            const item = { symbol, industry: info.industry, close: currClose, volume: currVol, pe: d.pe, pb: d.pb };
+                            const d = liveDataMap[symbol];
+                            const item = { symbol, industry: d.industry, close: currClose, volume: currVol, pe: d.pe, pb: d.pb };
                             
                             if (isBreakout) breakouts.push(item);
                             if (isSqueeze) squeezes.push(item);
@@ -390,7 +474,7 @@
         }
 
         function showStockDetail(symbol) {
-            const data = liveDataMap[symbol] || aiDatabase[symbol];
+            const data = liveDataMap[symbol];
             if (!data) return;
 
             const pe = fmtRatio(data.pe), pb = fmtRatio(data.pb), roe = fmtRatio(data.roe);
@@ -400,8 +484,8 @@
             document.getElementById("modalPrice").innerText = fmtPrice(data.close) + " đ";
             document.getElementById("modalValuation").innerText = `P/E: ${pe !== '—' ? pe + 'x' : '—'} | P/B: ${pb !== '—' ? pb + 'x' : '—'}`;
             document.getElementById("modalRoe").innerText = roe !== '—' ? roe + '%' : '—';
-            document.getElementById("modalBctc").innerText = data.bctc || "Đang cập nhật...";
-            document.getElementById("modalOutlook").innerText = data.outlook || "Đang cập nhật...";
+            document.getElementById("modalBctc").innerText = data.bctc;
+            document.getElementById("modalOutlook").innerText = data.outlook;
             document.getElementById("stockModal").classList.remove("hidden");
         }
 
