@@ -4,7 +4,7 @@ on:
   schedule:
     # 08:30 UTC = 15:30 giờ VN (Thị trường đã đóng cửa)
     - cron: '30 8 * * 1-5'
-  workflow_dispatch: # Cho phép chạy thủ công bằng tay
+  workflow_dispatch: # Cho phép kích hoạt thủ công bằng tay từ web GitHub
 
 jobs:
   run-screener:
@@ -22,13 +22,8 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install streamlit pandas requests
-          pip install vnstock==5.0.1 --extra-index-url https://vnstocks.com/api/packages
-
-      - name: Register vnstock Device
-        env:
-          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }}
-        run: |
-          printf '%s' "$VNSTOCK_API_KEY" | vnstock register --stdin
+          # Cập nhật và cài đặt phiên bản vnstock mới nhất từ kho lưu trữ
+          pip install -U vnstock --extra-index-url https://vnstocks.com/api/packages
 
       - name: Run Auto Bot Mode
         env:
