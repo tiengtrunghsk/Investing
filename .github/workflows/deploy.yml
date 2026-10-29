@@ -21,7 +21,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install streamlit pandas requests
-          pip install --index-url https://pypi.org/simple/ vnstock
+          pip install vnstock --extra-index-url https://pypi.org/simple/
 
       - name: Run Auto Bot Mode
         env:
