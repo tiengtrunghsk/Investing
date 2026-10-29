@@ -1,27 +1,31 @@
 import os
 import json
+import time
 import requests
+from datetime import datetime
 
-# Lấy Alibaba API Key từ GitHub Secret
+# ==================== CẤU HÌNH ====================
 ALIBABA_API_KEY = os.environ.get("ALIBABA_API_KEY")
+QWEN_API_URL = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
 
-# Danh sách VN100 + Các mã thanh khoản lớn hàng đầu
+# VNDIRECT API endpoints
+VND_DCHART_URL = "https://dchart-api.vndirect.com.vn/dchart/history"
+VND_FUNDAMENTAL_URL = "https://api-finfo.vndirect.com.vn/v4/ratios"
+
+# Ratio codes đã xác minh hoạt động thực tế [citation:2]
+RATIO_PE = "PRICE_TO_EARNINGS"
+RATIO_PB = "PRICE_TO_BOOK"
+RATIO_ROE = "ROAE_TR_AVG5Q"
+
+# ==================== DANH SÁCH VN100 ====================
 VN100_SYMBOLS = [
-    # Ngân hàng
     "VCB", "BID", "CTG", "TCB", "MBB", "ACB", "STB", "VPB", "HDB", "VIB", "TPB", "SHB", "SSB", "LPB", "MSB", "OCB", "EIB",
-    # Chứng khoán
     "SSI", "VCI", "HCM", "VIX", "MBS", "FTS", "BSI", "CTS", "ORS",
-    # Bất động sản Dân dụng & KCN
     "VHM", "VIC", "VRE", "NVL", "PDR", "DIG", "NLG", "KDH", "CEO", "DXG", "TCH", "SJS", "HDG", "KBC", "IDC", "SZC", "BCM", "PHR",
-    # Thép, Xây dựng & VLXD
     "HPG", "HSG", "NKG", "VLB", "CTD", "HBC", "VCG", "HHV", "C4G",
-    # Bán lẻ, Công nghệ & Tiêu dùng
     "FPT", "MWG", "PNJ", "FRT", "VNM", "MSN", "DGW", "SAB", "BHN", "KDC", "PET",
-    # Dầu khí, Năng lượng & Phân bón
     "GAS", "POW", "BSR", "PVD", "PVS", "DGC", "DCM", "DPM", "GEG", "REE", "PC1", "NT2",
-    # Cảng biển, Vận tải & Hàng không
     "GMD", "HAH", "VJC", "HVN", "PVT", "VSC",
-    # Thủy sản & Nông nghiệp
     "VHC", "ANV", "DAB", "PAN", "BAF"
 ]
 
@@ -45,84 +49,163 @@ INDUSTRY_MAP = {
     "VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", "DAB": "Nông nghiệp"
 }
 
-def fetch_stock_history(symbol):
+
+# ==================== HÀM LẤY GIÁ ====================
+def fetch_stock_price(symbol):
+    """Lấy giá đóng cửa gần nhất từ VNDIRECT dchart API."""
+    now = int(time.time())
+    start = now - (365 * 86400)  # 1 năm gần nhất
+    params = {
+        "resolution": "D",
+        "symbol": symbol,
+        "from": start,
+        "to": now
+    }
     try:
-        url = f"https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol={symbol}&from=1700000000&to=2000000000"
-        res = requests.get(url, timeout=10)
-        data = res.json()
-        if data.get("s") == "ok":
-            closes = data.get("c", [])
-            volumes = data.get("v", [])
-            if closes and len(closes) >= 20:
-                return {"close": closes[-1], "closes": closes, "volumes": volumes}
-    except Exception as e:
-        print(f"⚠️ Lỗi giá {symbol}: {e}")
+        r = requests.get(VND_DCHART_URL, params=params, timeout=10)
+        r.raise_for_status()
+        data = r.json()
+        if data.get("s") == "ok" and data.get("c") and len(data["c"]) >= 20:
+            return data["c"][-1]
+    except requests.RequestException as e:
+        print(f"  ⚠️ Lỗi giá {symbol}: {e}")
+    except ValueError as e:
+        print(f"  ⚠️ JSON lỗi giá {symbol}: {e}")
     return None
 
+
+# ==================== HÀM LẤY CHỈ SỐ TÀI CHÍNH ====================
+def fetch_single_ratio(symbol, ratio_code):
+    """
+    Lấy một chỉ số tài chính từ VNDIRECT.
+    Mỗi ratioCode phải gọi riêng 1 request (theo tài liệu đã xác minh). [citation:2]
+    """
+    params = {
+        "q": f"code:{symbol}~ratioCode:{ratio_code}",
+        "size": 1,
+        "sort": "reportDate:desc"
+    }
+    try:
+        r = requests.get(VND_FUNDAMENTAL_URL, params=params, timeout=10)
+        r.raise_for_status()
+        data = r.json()
+        if data.get("data") and len(data["data"]) > 0:
+            val = data["data"][0].get("value")
+            return float(val) if val is not None else None
+    except requests.RequestException as e:
+        print(f"  ⚠️ Lỗi ratio {symbol}/{ratio_code}: {e}")
+    except (ValueError, TypeError) as e:
+        print(f"  ⚠️ Parse lỗi {symbol}/{ratio_code}: {e}")
+    return None
+
+
+def fetch_fundamentals(symbol):
+    """Lấy bộ chỉ số P/E, P/B, ROE thực tế."""
+    pe = fetch_single_ratio(symbol, RATIO_PE)
+    time.sleep(0.15)  # Tránh rate limit
+    pb = fetch_single_ratio(symbol, RATIO_PB)
+    time.sleep(0.15)
+    roe = fetch_single_ratio(symbol, RATIO_ROE)
+    time.sleep(0.15)
+    return {
+        "pe": round(pe, 1) if pe is not None else None,
+        "pb": round(pb, 1) if pb is not None else None,
+        "roe": round(roe, 1) if roe is not None else None
+    }
+
+
+# ==================== HÀM GỌI AI QWEN ====================
 def get_ai_evaluation(symbol, industry, close_price):
+    """Gọi Qwen API để lấy đánh giá định tính BCTC và triển vọng."""
     if not ALIBABA_API_KEY:
         return "Chưa cấu hình API Key.", "Đang cập nhật..."
-    
-    url = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
-    headers = {
-        "Authorization": f"Bearer {ALIBABA_API_KEY}",
-        "Content-Type": "application/json"
-    }
-    
-    prompt = f"""
-    Bạn là chuyên gia phân tích tài chính định lượng chứng khoán Việt Nam.
-    Hãy phân tích cổ phiếu {symbol} thuộc nhóm ngành {industry} (giá khoảng {close_price:,.0f} VNĐ).
-    Trả về duy nhất JSON thuần túy (không dùng markdown codeblock, không văn bản thừa) gồm 2 trường:
-    1. "bctc": Tóm tắt sức khỏe BCTC/tài chính (30-40 từ).
-    2. "outlook": Triển vọng đầu tư ngắn & dài hạn (30-40 từ).
-    """
-    
+
+    price_str = f"{close_price:,.0f} VNĐ" if close_price else "chưa có"
+    prompt = f"""Bạn là chuyên gia phân tích tài chính chứng khoán Việt Nam.
+Phân tích cổ phiếu {symbol} thuộc nhóm ngành {industry} (giá hiện tại khoảng {price_str}).
+
+Trả về DUY NHẤT JSON thuần túy (không markdown, không văn bản thừa) gồm 2 trường:
+1. "bctc": Tóm tắt sức khỏe BCTC/tài chính, tối đa 40 từ.
+2. "outlook": Triển vọng đầu tư ngắn & dài hạn, tối đa 40 từ.
+"""
+
     payload = {
         "model": "qwen-plus",
         "messages": [{"role": "user", "content": prompt}],
         "temperature": 0.2,
         "response_format": {"type": "json_object"}
     }
-    
+    headers = {
+        "Authorization": f"Bearer {ALIBABA_API_KEY}",
+        "Content-Type": "application/json"
+    }
+
     try:
-        response = requests.post(url, headers=headers, json=payload, timeout=20)
-        res_json = response.json()
+        r = requests.post(QWEN_API_URL, headers=headers, json=payload, timeout=25)
+        if r.status_code != 200:
+            print(f"  ⚠️ Qwen HTTP {r.status_code} cho {symbol}: {r.text[:150]}")
+            return "Doanh nghiệp có nền tảng cơ bản.", "Phù hợp tích lũy dài hạn."
+
+        res_json = r.json()
         content = res_json["choices"][0]["message"]["content"].strip()
         eval_data = json.loads(content)
-        return eval_data.get("bctc", "BCTC lành mạnh, tài chính an toàn."), eval_data.get("outlook", "Tiềm năng tăng trưởng tốt.")
-    except Exception as e:
-        print(f"⚠️ Lỗi AI mã {symbol}: {e}")
-        return "Doanh nghiệp có nền tảng cơ bản tốt.", "Phù hợp tích lũy dài hạn."
+        return (
+            eval_data.get("bctc", "BCTC lành mạnh, tài chính an toàn."),
+            eval_data.get("outlook", "Tiềm năng tăng trưởng ổn định.")
+        )
+    except requests.RequestException as e:
+        print(f"  ⚠️ Network Qwen {symbol}: {e}")
+    except (KeyError, json.JSONDecodeError) as e:
+        print(f"  ⚠️ Parse Qwen {symbol}: {e}")
 
+    return "Doanh nghiệp có nền tảng cơ bản tốt.", "Phù hợp tích lũy dài hạn."
+
+
+# ==================== HÀM CHÍNH ====================
 def main():
     processed_data = {}
-    unique_symbols = list(set(VN100_SYMBOLS))
-    total_count = len(unique_symbols)
-    print(f"🚀 Bắt đầu cập nhật tự động {total_count} mã VN100...")
-    
+    unique_symbols = sorted(set(VN100_SYMBOLS))  # Sorted để output ổn định
+    total = len(unique_symbols)
+
+    print(f"🚀 Bắt đầu cập nhật {total} mã VN100...")
+    print(f"📊 Chỉ số lấy thực tế từ VNDIRECT, AI chỉ đánh giá định tính.\n")
+
     for idx, symbol in enumerate(unique_symbols, 1):
         industry = INDUSTRY_MAP.get(symbol, "Cổ phiếu VN100")
-        print(f"[{idx}/{total_count}] -> Gọi Qwen AI phân tích: {symbol} ({industry})...")
-        
-        market = fetch_stock_history(symbol)
-        close_price = market["close"] if market else 0
+        print(f"[{idx}/{total}] {symbol} ({industry})")
+
+        # 1. Lấy giá thực tế
+        close_price = fetch_stock_price(symbol)
+        print(f"  → Giá: {close_price if close_price else 'N/A'}")
+
+        # 2. Lấy chỉ số tài chính thực tế
+        fundamentals = fetch_fundamentals(symbol)
+        print(f"  → P/E: {fundamentals['pe']}, P/B: {fundamentals['pb']}, ROE: {fundamentals['roe']}%")
+
+        # 3. Gọi AI đánh giá định tính
         bctc, outlook = get_ai_evaluation(symbol, industry, close_price)
-        
+        print(f"  → AI: {bctc[:50]}...")
+
         processed_data[symbol] = {
             "symbol": symbol,
             "industry": industry,
-            "close": close_price,
-            "pe": 15.0,
-            "pb": 1.8,
-            "roe": 16.5,
+            "close": close_price if close_price else 0,
+            "pe": fundamentals["pe"],
+            "pb": fundamentals["pb"],
+            "roe": fundamentals["roe"],
             "bctc": bctc,
             "outlook": outlook
         }
 
+        # Nghỉ giữa các mã để tránh rate limit
+        time.sleep(0.3)
+
+    # Ghi file
     with open("data.json", "w", encoding="utf-8") as f:
         json.dump(processed_data, f, ensure_ascii=False, indent=4)
-        
-    print(f"✅ Hoàn tất! Đã lưu dữ liệu AI vào data.json.")
+
+    print(f"\n✅ Hoàn tất! Đã lưu {len(processed_data)} mã vào data.json")
+
 
 if __name__ == "__main__":
     main()
