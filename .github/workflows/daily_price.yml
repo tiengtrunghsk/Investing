@@ -1,0 +1,53 @@
+name: Daily Price & Ratio Update (No AI)
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 07:00 sáng VN
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data-json   # CÙNG GROUP với workflow AI để tránh conflict
+  cancel-in-progress: false
+
+jobs:
+  update-price:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install "requests>=2.31,<3.0"
+
+      - name: Update price & ratios
+        run: python update_screener.py
+
+      - name: Validate data.json
+        run: |
+          python -c "
+          import json
+          d = json.load(open('data.json', encoding='utf-8'))
+          assert len(d) > 0, 'data.json rỗng!'
+          print(f'✅ Validate OK: {len(d)} mã')
+          "
+
+      - name: Commit and push
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          if git diff --staged --quiet; then
+            echo "Không có thay đổi."
+            exit 0
+          fi
+          git commit -m "📈 Daily price+ratio update $(date -u +'%Y-%m-%d')"
+          git pull --rebase origin main || true
+          git push
