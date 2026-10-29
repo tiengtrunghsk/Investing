@@ -224,7 +224,7 @@
                 </div>
             </div>
 
-            <!-- Bối cảnh vĩ mô (MỚI) -->
+            <!-- Bối cảnh vĩ mô -->
             <div class="space-y-1.5 bg-indigo-950/30 p-3.5 rounded-xl border border-indigo-500/30 text-xs">
                 <h4 class="font-semibold text-indigo-400 uppercase flex items-center gap-1.5">
                     <i class="fa-solid fa-globe"></i> Góc nhìn Vĩ mô & Chính sách (AI)
@@ -352,8 +352,15 @@
                 q: `code:${symbol}~ratioCode:${ratioCode}`, size: 1, sort: "reportDate:desc"
             });
             if (data && data.data && data.data.length > 0) {
-                const val = data.data[0].value;
-                return val !== null ? parseFloat(val) : null;
+                let val = data.data[0].value;
+                if (val !== null) {
+                    val = parseFloat(val);
+                    // Tự động sửa lỗi đơn vị ROE nếu API trả về số thập phân (VD: 0.2 thay vì 20)
+                    if (ratioCode === "ROAE_TR_AVG5Q" && val > 0 && val < 1) {
+                        return val * 100;
+                    }
+                    return val;
+                }
             }
             return null;
         }
@@ -538,12 +545,12 @@
                     const pct = Math.round((processed / total) * 100);
                     progressBar.style.width = `${pct}%`;
                     statusText.innerText = `Đang quét: ${symbol}`;
-                    statusCount.innerText = `${processed><}/${total}`;
+                    statusCount.innerText = `${processed}/${total}`;
                 }));
             }
 
-td            const renderRows = (items) => colspan items.map(item => `
-                <tr onclick="="showStockDetail('${item.s4ymbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
+            const renderRows = (items) => items.map(item => `
+                <tr onclick="showStockDetail('${item.symbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
                     <td class="py-2.5 px-2 font-bold text-blue-400">
                         <span class="flex items-center gap-1 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 w-fit">${item.symbol}</span>
                     </td>
@@ -560,7 +567,7 @@ td            const renderRows = (items) => colspan items.map(item => `
             breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Breakout.</td></tr>`;
 
             document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
-            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr" class="py-6 text-center text-slate-500">Không có tín hiệu Squeeze.</td></tr>`;
+            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Squeeze.</td></tr>`;
 
             statusText.innerText = "Hoàn tất!";
             scanBtn.disabled = false;
