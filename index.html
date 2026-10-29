@@ -13,7 +13,6 @@
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
 
-    <!-- Header -->
     <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row justify-between items-center gap-3">
             <div class="flex items-center gap-3">
@@ -39,7 +38,6 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-6 flex-1 w-full space-y-6">
-
         <!-- TAB 1: UNIVERSE -->
         <section id="tabUniverse" class="space-y-4">
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
@@ -227,7 +225,6 @@
                 const r = await fetch(url, { signal: controller.signal });
                 if (!r.ok) return null;
                 const data = await r.json();
-                // Guard: cần đủ c/h/l/v
                 if (data.s === "ok" && data.c && data.c.length >= 21 && data.h && data.l && data.v
                     && data.h.length === data.c.length && data.v.length === data.c.length) {
                     historyCache[symbol] = data;
@@ -264,7 +261,6 @@
             const entries = Object.entries(aiDatabase);
             document.getElementById("totalUniverseCount").innerText = entries.length;
 
-            // Batch fetch history song song
             const BATCH = 5;
             for (let i = 0; i < entries.length; i += BATCH) {
                 await Promise.all(entries.slice(i, i + BATCH).map(async ([symbol, info]) => {
@@ -277,7 +273,6 @@
                 }));
             }
 
-            // Render theo thứ tự gốc
             let html = "";
             for (const [symbol, info] of entries) {
                 const d = liveDataMap[symbol] || info;
@@ -285,8 +280,7 @@
                 const pb = fmtRatio(d.pb);
                 const roe = fmtRatio(d.roe);
                 html += `
-                    <tr onclick="showStockDetail('${symbol}')"
-                        class="hover:bg-slate-800/60 transition-colors cursor-pointer">
+                    <tr onclick="showStockDetail('${symbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
                         <td class="py-3 px-4 font-bold text-blue-400">
                             <span class="flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20 w-fit">
                                 <i class="fa-solid fa-circle-info text-[10px]"></i> ${symbol}
@@ -305,137 +299,6 @@
         }
 
         async function startScreening() {
-            if (universeLoading) {
-                alert("Đang tải dữ liệu, vui lòng đợi...");
-                return;
-            }
-            const scanBtn = document.getElementById("scanBtn");
-            const progressBar = document.getElementById("progressBar");
-            const statusText = document.getElementById("statusText");
-            const statusCount = document.getElementById("statusCount");
-            const breakoutBody = document.getElementById("breakoutBody");
-            const squeezeBody = document.getElementById("squeezeBody");
-
-            scanBtn.disabled = true;
-            scanBtn.classList.add("opacity-50", "cursor-not-allowed");
-            progressBar.style.width = "0%";
-            breakoutBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
-            squeezeBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
-
-            const entries = Object.entries(aiDatabase);
-            const total = entries.length;
-            let processed = 0;
-            const breakouts = [], squeezes = [];
-
-            const BATCH = 5;
-            for (let i = 0; i < total; i += BATCH) {
-                await Promise.all(entries.slice(i, i + BATCH).map(async ([symbol, info]) => {
-                    const history = await fetchHistory(symbol);
-                    if (history && history.c.length >= 21) {
-                        const c = history.c, h = history.h, l = history.l, v = history.v;
-                        const len = c.length;
-
-                        let sumC20 = 0, sumV20 = 0;
-                        for (let k = len - 20; k < len; k++) { sumC20 += c[k]; sumV20 += v[k]; }
-                        const ma20 = sumC20 / 20;
-                        const volMa20 = sumV20 / 20;
-
-                        // MA20 của 20 phiên TRƯỚC (không gồm hôm nay)
-                        let sumC20Prev = 0;
-                        for (let k = len - 21; k <= len - 2; k++) sumC20Prev += c[k];
-                        const prevMa20 = sumC20Prev / 20;
-
-                        const currClose = c[len - 1];
-                        const prevClose = c[len - 2];
-                        const currVol = v[len - 1];
-
-                        if (currVol >= 50000) {
-                            const isBreakout = (currClose > ma20) && (prevClose <= prevMa20) && (currVol > 1.5 * volMa20);
-
-                            let sumRange5 = 0, sumC5 = 0;
-                            for (let k = len - 5; k < len; k++) { sumRange5 += (h[k] - l[k]); sumC5 += c[k]; }
-                            const avgClose5 = sumC5 / 5;
-                            const avgRange5 = sumRange5 / 5;
-                            const isSqueeze = (avgClose5 > 0) && (avgRange5 / avgClose5 < 0.02) && (currVol < 0.8 * volMa20);
-
-                            const d = liveDataMap[symbol] || info;
-                            const item = {
-                                symbol, industry: info.industry, close: currClose, volume: currVol,
-                                pe: d.pe, pb: d.pb
-                            };
-                            if (isBreakout) breakouts.push(item);
-                            if (isSqueeze) squeezes.push(item);
-                        }
-                    }
-                    processed++;
-                    const pct = Math.round((processed / total) * 100);
-                    progressBar.style.width = `${pct}%`;
-                    statusText.innerText = `Đang quét: ${symbol}`;
-                    statusCount.innerText = `${processed}/${total}`;
-                }));
-            }
-
-            const renderRows = (items) => items.map(item => `
-                <tr onclick="showStockDetail('${item.symbol}')"
-                    class="hover:bg-slate-800/60 transition-colors cursor-pointer">
-                    <td class="py-2.5 px-2 font-bold text-blue-400">
-                        <span class="flex items-center gap-1 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 w-fit">${item.symbol}</span>
-                    </td>
-                    <td class="py-2.5 px-2">
-                        <div class="font-mono text-slate-100">${item.close.toLocaleString('vi-VN')}</div>
-                        <div class="text-[10px] text-slate-400">${item.industry}</div>
-                    </td>
-                    <td class="py-2.5 px-2 text-center font-mono text-[11px] text-slate-300">
-                        P/E: ${fmtRatio(item.pe)} | P/B: ${fmtRatio(item.pb)}
-                    </td>
-                    <td class="py-2.5 px-2 text-right font-mono text-slate-300">${item.volume.toLocaleString('vi-VN')}</td>
-                </tr>
-            `).join('');
-
-            document.getElementById("breakoutBadge").innerText = `${breakouts.length} mã`;
-            breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Breakout.</td></tr>`;
-
-            document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
-            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Squeeze.</td></tr>`;
-
-            statusText.innerText = "Hoàn tất!";
-            scanBtn.disabled = false;
-            scanBtn.classList.remove("opacity-50", "cursor-not-allowed");
-        }
-
-        function showStockDetail(symbol) {
-            const data = liveDataMap[symbol] || aiDatabase[symbol];
-            if (!data) return;
-
-            const pe = fmtRatio(data.pe);
-            const pb = fmtRatio(data.pb);
-            const roe = fmtRatio(data.roe);
-
-            document.getElementById("modalSymbolBadge").innerText = symbol;
-            document.getElementById("modalTitle").innerText = `Hồ Sơ: ${symbol}`;
-            document.getElementById("modalIndustry").innerText = `Ngành: ${data.industry}`;
-            document.getElementById("modalPrice").innerText = fmtPrice(data.close) + " đ";
-            document.getElementById("modalValuation").innerText = `P/E: ${pe !== '—' ? pe + 'x' : '—'} | P/B: ${pb !== '—' ? pb + 'x' : '—'}`;
-            document.getElementById("modalRoe").innerText = roe !== '—' ? roe + '%' : '—';
-            document.getElementById("modalBctc").innerText = data.bctc || "Đang cập nhật...";
-            document.getElementById("modalOutlook").innerText = data.outlook || "Đang cập nhật...";
-
-            document.getElementById("stockModal").classList.remove("hidden");
-        }
-
-        function closeModal() {
-            document.getElementById("stockModal").classList.add("hidden");
-        }
-
-        window.addEventListener("click", (e) => {
-            if (e.target === document.getElementById("stockModal")) closeModal();
-        });
-        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
-
-        window.addEventListener("DOMContentLoaded", async () => {
-            await loadUniverse();
-            // Không auto startScreening để tránh fetch trùng
-        });
-    </script>
-</body>
-</html>
+            if (universeLoading) { alert("Đang tải dữ liệu, vui lòng đợi..."); return; }
+            
+            const scanBtn = document.getElementById("scan
