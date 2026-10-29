@@ -3,16 +3,13 @@ import os
 import requests
 import pandas as pd
 import streamlit as st
-from vnstock import stock_board, listing_companies
 
-# ==========================================
-# CẤU HÌNH GIAO DIỆN STREAMLIT (Web Mode)
-# ==========================================
-st.set_page_config(
-    page_title="Pro Quant Screener",
-    page_icon="📈",
-    layout="wide"
-)
+# Import theo chuẩn vnstock 5.x
+try:
+    from vnstock import Market
+except ImportError:
+    # Fallback nếu chạy nhầm môi trường cũ
+    pass
 
 # ==========================================
 # DANH SÁCH MÃ THEO DÕI MẶC ĐỊNH (Watchlist)
@@ -29,14 +26,13 @@ DEFAULT_WATCHLIST = [
 # CÁC HÀM XỬ LÝ DỮ LIỆU & CHIẾN LƯỢC QUANT
 # ==========================================
 def get_stock_data(symbol):
-    """Lấy dữ liệu lịch sử giá từ vnstock"""
+    """Lấy dữ liệu lịch sử giá từ vnstock 5.x"""
     try:
         # Lấy dữ liệu 60 phiên giao dịch gần nhất
-        df = stock_board(symbol=symbol, resolution='1D', count=60)
+        df = Market().equity(symbol).ohlcv(limit=60)
+        
         if df is not None and not df.empty:
-            # Đổi tên cột chuẩn hóa nếu cần thiết
-            if 'time' in df.columns:
-                df['date'] = pd.to_datetime(df['time'])
+            df['time'] = pd.to_datetime(df['time'])
             return df
     except Exception as e:
         print(f"Lỗi khi lấy dữ liệu mã {symbol}: {e}")
@@ -48,7 +44,7 @@ def analyze_stock(symbol):
     if df is None or len(df) < 20:
         return None
     
-    # Tính MA20 và độ biến động (Volatility/Squeeze)
+    # Tính MA20 và độ biến động
     df['MA20'] = df['close'].rolling(window=20).mean()
     df['Volume_MA20'] = df['volume'].rolling(window=20).mean()
     
@@ -60,11 +56,16 @@ def analyze_stock(symbol):
     volume = latest['volume']
     vol_ma20 = latest['Volume_MA20']
     
+    # Kiểm tra NaN để tránh lỗi so sánh
+    if pd.isna(prev['MA20']) or pd.isna(ma20) or pd.isna(vol_ma20):
+        return None
+
     # Điều kiện Breakout: Giá vượt MA20 + Khối lượng bùng nổ (> 1.5 lần trung bình 20 phiên)
     is_breakout = (close_price > ma20) and (prev['close'] <= prev['MA20']) and (volume > 1.5 * vol_ma20)
     
-    # Điều kiện Squeeze (Cạn cung / Tích lũy biên độ hẹp): Biến động giá nhỏ và khối lượng thấp hơn trung bình
-    price_range = (df['high'].tail(5) - df['low'].tail(5)).mean() / close_price
+    # Điều kiện Squeeze (Cạn cung): Biến động giá 5 phiên hẹp và khối lượng thấp
+    avg_close_5 = df['close'].tail(5).mean()
+    price_range = (df['high'].tail(5) - df['low'].tail(5)).mean() / avg_close_5 if avg_close_5 > 0 else 0
     is_squeeze = (price_range < 0.02) and (volume < 0.8 * vol_ma20)
     
     return {
@@ -127,14 +128,17 @@ if len(sys.argv) > 1 and sys.argv[1] == "--auto":
     msg += "🚀 *1. Nhóm Breakout (Nổ Vol & Vượt MA20):*\n"
     if breakouts:
         for b in breakouts:
-            msg += f"• `{b['symbol']}` - Giá: {b['close']:,.0f} | Vol: {b['volume']:,.0f}\n"
+            # Giá từ vnstock 5.x thường tính bằng nghìn VNĐ, nhân 1000 để hiển thị đẹp hơn
+            price_str = f"{b['close'] * 1000:,.0f}" 
+            msg += f"• `{b['symbol']}` - Giá: {price_str} | Vol: {b['volume']:,.0f}\n"
     else:
         msg += "• Không có mã nào đạt tiêu chí hôm nay.\n"
         
     msg += "\n📦 *2. Nhóm Squeeze (Cạn cung / Tích lũy hẹp):*\n"
     if squeezes:
         for s in squeezes:
-            msg += f"• `{s['symbol']}` - Giá: {s['close']:,.0f}\n"
+            price_str = f"{s['close'] * 1000:,.0f}"
+            msg += f"• `{s['symbol']}` - Giá: {price_str}\n"
     else:
         msg += "• Không có mã nào đạt tiêu chí hôm nay.\n"
         
@@ -145,8 +149,15 @@ if len(sys.argv) > 1 and sys.argv[1] == "--auto":
 # ==========================================
 # CHẾ ĐỘ GIAO DIỆN WEB (Streamlit UI)
 # ==========================================
+# Chỉ cấu hình giao diện khi KHÔNG chạy ở chế độ --auto
+st.set_page_config(
+    page_title="Pro Quant Screener",
+    page_icon="📈",
+    layout="wide"
+)
+
 st.title("📈 Pro Quant Stock Screener")
-st.markdown("Hệ thống lọc cổ phiếu định lượng tự động (**Breakout** & **Squeeze**).")
+st.markdown("Hệ thống lọc cổ phiếu định lượng tự động (**Breakout** & **Squeeze**) sử dụng dữ liệu vnstock 5.x.")
 
 st.sidebar.header("⚙️ Cấu hình quét")
 watchlist_input = st.sidebar.text_area(
@@ -169,6 +180,8 @@ if st.sidebar.button("🚀 Chạy Quét Tất Cả Chiến Lược", type="prima
         st.subheader("🚀 Nhóm Breakout")
         if breakouts:
             df_b = pd.DataFrame(breakouts)
+            # Hiển thị giá dạng nghìn đồng cho đẹp
+            df_b['close'] = df_b['close'] * 1000
             st.dataframe(df_b[['symbol', 'close', 'volume']], use_container_width=True)
         else:
             st.info("Không tìm thấy mã Breakout nào.")
@@ -177,6 +190,7 @@ if st.sidebar.button("🚀 Chạy Quét Tất Cả Chiến Lược", type="prima
         st.subheader("📦 Nhóm Squeeze (Cạn cung)")
         if squeezes:
             df_s = pd.DataFrame(squeezes)
+            df_s['close'] = df_s['close'] * 1000
             st.dataframe(df_s[['symbol', 'close', 'volume']], use_container_width=True)
         else:
             st.info("Không tìm thấy mã Squeeze nào.")
