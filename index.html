@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Stock Screener - Định Lượng & Cơ Bản</title>
+    <title>Pro Quant Stock Screener Pro</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -25,23 +25,21 @@
                     <h1 class="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
                         Pro Quant Screener Pro
                     </h1>
-                    <p class="text-xs text-slate-400">Kết hợp Tín hiệu Kỹ thuật & Chỉ số Cơ bản Chuyên nghiệp</p>
+                    <p class="text-xs text-slate-400">Kỹ thuật & Cơ bản chuyên nghiệp</p>
                 </div>
             </div>
 
-            <div class="flex items-center gap-3 w-full md:w-auto">
-                <button id="scanBtn" onclick="startScreening()" class="w-full md:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2">
-                    <i class="fa-solid fa-bolt"></i>
-                    <span>Chạy Quét Toàn Diện</span>
-                </button>
-            </div>
+            <button id="scanBtn" onclick="startScreening()" class="w-full md:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2">
+                <i class="fa-solid fa-bolt"></i>
+                <span>Chạy Quét Toàn Diện</span>
+            </button>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+    <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
 
-        <!-- Progress / Status Bar -->
+        <!-- Status Bar -->
         <div id="statusCard" class="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-4 hidden">
             <div class="flex justify-between items-center text-sm mb-2">
                 <span id="statusText" class="text-slate-300 font-medium">Đang chuẩn bị...</span>
@@ -52,31 +50,11 @@
             </div>
         </div>
 
-        <!-- Strategy & Fundamental Info Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
-            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
-                <span class="font-semibold text-emerald-400 block mb-1 text-sm"><i class="fa-solid fa-arrow-trend-up"></i> Breakout</span>
-                Giá cắt lên MA20 + Khối lượng bùng nổ vượt 1.5x trung bình 20 phiên.
-            </div>
-            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
-                <span class="font-semibold text-amber-400 block mb-1 text-sm"><i class="fa-solid fa-compress"></i> Squeeze (Cạn Cung)</span>
-                Biên độ hẹp trong 5 phiên (&lt; 2%) đi kèm thanh khoản kiệt hút (&lt; 80%).
-            </div>
-            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
-                <span class="font-semibold text-blue-400 block mb-1 text-sm"><i class="fa-solid fa-scale-balanced"></i> Định Giá (P/E & P/B)</span>
-                Đánh giá mức định giá hợp lý theo từng nhóm ngành đặc thù.
-            </div>
-            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
-                <span class="font-semibold text-purple-400 block mb-1 text-sm"><i class="fa-solid fa-gem"></i> Hiệu Quả (ROE)</span>
-                Lọc các doanh nghiệp sinh lời tốt, nền tảng tài chính lành mạnh.
-            </div>
-        </div>
-
         <!-- Results Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             <!-- Breakout Table Card -->
-            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-4">
                 <div class="flex justify-between items-center">
                     <h2 class="text-base font-semibold text-emerald-400 flex items-center gap-2">
                         <i class="fa-solid fa-rocket"></i>
@@ -87,13 +65,12 @@
                     </span>
                 </div>
                 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm">
+                <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <table class="w-full text-left text-sm whitespace-nowrap">
                         <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
                             <tr>
                                 <th class="py-3 px-2">Mã</th>
-                                <th class="py-3 px-2">Ngành</th>
-                                <th class="py-3 px-2 text-right">Giá</th>
+                                <th class="py-3 px-2">Giá / Ngành</th>
                                 <th class="py-3 px-2 text-center">P/E</th>
                                 <th class="py-3 px-2 text-center">P/B</th>
                                 <th class="py-3 px-2 text-center">ROE</th>
@@ -101,7 +78,7 @@
                         </thead>
                         <tbody id="breakoutBody" class="divide-y divide-slate-800 text-slate-200">
                             <tr>
-                                <td colspan="6" class="py-8 text-center text-slate-500 text-xs">Bấm "Chạy Quét Toàn Diện" để bắt đầu.</td>
+                                <td colspan="5" class="py-8 text-center text-slate-500 text-xs">Bấm nút quét để bắt đầu.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -109,7 +86,7 @@
             </div>
 
             <!-- Squeeze Table Card -->
-            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 space-y-4">
+            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-4">
                 <div class="flex justify-between items-center">
                     <h2 class="text-base font-semibold text-amber-400 flex items-center gap-2">
                         <i class="fa-solid fa-box"></i>
@@ -120,13 +97,12 @@
                     </span>
                 </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full text-left text-sm">
+                <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                    <table class="w-full text-left text-sm whitespace-nowrap">
                         <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
                             <tr>
                                 <th class="py-3 px-2">Mã</th>
-                                <th class="py-3 px-2">Ngành</th>
-                                <th class="py-3 px-2 text-right">Giá</th>
+                                <th class="py-3 px-2">Giá / Ngành</th>
                                 <th class="py-3 px-2 text-center">P/E</th>
                                 <th class="py-3 px-2 text-center">P/B</th>
                                 <th class="py-3 px-2 text-center">ROE</th>
@@ -134,7 +110,7 @@
                         </thead>
                         <tbody id="squeezeBody" class="divide-y divide-slate-800 text-slate-200">
                             <tr>
-                                <td colspan="6" class="py-8 text-center text-slate-500 text-xs">Bấm "Chạy Quét Toàn Diện" để bắt đầu.</td>
+                                <td colspan="5" class="py-8 text-center text-slate-500 text-xs">Bấm nút quét để bắt đầu.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -146,7 +122,6 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Danh sách Top ~100 mã cổ phiếu kèm bộ dữ liệu cơ bản giả lập tiêu chuẩn / thực tế ngành
         const CURATED_STOCKS = {
             "VCB": { industry: "Ngân hàng", pe: 16.5, pb: 3.2, roe: 21.0 },
             "BID": { industry: "Ngân hàng", pe: 12.8, pb: 2.1, roe: 18.5 },
@@ -195,9 +170,7 @@
                 const response = await fetch(url);
                 if (!response.ok) return null;
                 const data = await response.json();
-                if (data.s === "ok" && data.c.length >= 20) {
-                    return data;
-                }
+                if (data.s === "ok" && data.c.length >= 20) return data;
             } catch (err) {
                 return null;
             }
@@ -211,8 +184,7 @@
             const low = data.l;
             const volume = data.v;
 
-            let sumClose20 = 0;
-            let sumVol20 = 0;
+            let sumClose20 = 0, sumVol20 = 0;
             for (let i = len - 20; i < len; i++) {
                 sumClose20 += close[i];
                 sumVol20 += volume[i];
@@ -232,12 +204,9 @@
 
             if (currVol < 50000) return null;
 
-            // Breakout logic
             const isBreakout = (currClose > ma20) && (prevClose <= prevMa20) && (currVol > 1.5 * volMa20);
 
-            // Squeeze logic
-            let sumRange5 = 0;
-            let sumClose5 = 0;
+            let sumRange5 = 0, sumClose5 = 0;
             for (let i = len - 5; i < len; i++) {
                 sumRange5 += (high[i] - low[i]);
                 sumClose5 += close[i];
@@ -277,8 +246,8 @@
             scanBtn.classList.add("opacity-50", "cursor-not-allowed");
             statusCard.classList.remove("hidden");
 
-            breakoutBody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500 text-xs">Đang quét toàn diện...</td></tr>`;
-            squeezeBody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500 text-xs">Đang quét toàn diện...</td></tr>`;
+            breakoutBody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-slate-500 text-xs">Đang quét dữ liệu...</td></tr>`;
+            squeezeBody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-slate-500 text-xs">Đang quét dữ liệu...</td></tr>`;
 
             const entries = Object.entries(CURATED_STOCKS);
             const total = entries.length;
@@ -301,49 +270,36 @@
                         }
                     }
                     processed++;
-                    
                     const percent = Math.round((processed / total) * 100);
                     progressBar.style.width = `${percent}%`;
-                    statusText.innerText = `Đang kiểm tra mã: ${symbol}...`;
-                    statusCount.innerText = `${processed} / ${total}`;
+                    statusText.innerText = `Quét: ${symbol}`;
+                    statusCount.innerText = `${processed}/${total}`;
                 }));
             }
 
-            // Render Breakout
-            document.getElementById("breakoutBadge").innerText = `${breakouts.length} mã`;
-            if (breakouts.length > 0) {
-                breakoutBody.innerHTML = breakouts.map(item => `
-                    <tr class="hover:bg-slate-800/60 transition-colors">
-                        <td class="py-3 px-2 font-bold text-emerald-400">${item.symbol}</td>
-                        <td class="py-3 px-2 text-slate-400 text-xs">${item.industry}</td>
-                        <td class="py-3 px-2 text-right font-mono">${item.close.toLocaleString('vi-VN')}</td>
-                        <td class="py-3 px-2 text-center font-mono text-xs text-blue-300">${item.pe}</td>
-                        <td class="py-3 px-2 text-center font-mono text-xs text-amber-300">${item.pb}</td>
-                        <td class="py-3 px-2 text-center font-mono text-xs text-purple-300">${item.roe}%</td>
-                    </tr>
-                `).join('');
-            } else {
-                breakoutBody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-slate-500 text-xs">Không có mã Breakout đạt chuẩn.</td></tr>`;
-            }
-
-            // Render Squeeze
-            document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
-            if (squeezes.length > 0) {
-                squeezeBody.innerHTML = squeezes.map(item => `
+            // Gộp Giá và Ngành làm 1 cột thông minh để hiển thị gọn trên mobile
+            const renderRows = (items) => {
+                return items.map(item => `
                     <tr class="hover:bg-slate-800/60 transition-colors">
                         <td class="py-3 px-2 font-bold text-amber-400">${item.symbol}</td>
-                        <td class="py-3 px-2 text-slate-400 text-xs">${item.industry}</td>
-                        <td class="py-3 px-2 text-right font-mono">${item.close.toLocaleString('vi-VN')}</td>
+                        <td class="py-3 px-2">
+                            <div class="font-mono text-slate-100">${item.close.toLocaleString('vi-VN')}</div>
+                            <div class="text-[10px] text-slate-400">${item.industry}</div>
+                        </td>
                         <td class="py-3 px-2 text-center font-mono text-xs text-blue-300">${item.pe}</td>
                         <td class="py-3 px-2 text-center font-mono text-xs text-amber-300">${item.pb}</td>
                         <td class="py-3 px-2 text-center font-mono text-xs text-purple-300">${item.roe}%</td>
                     </tr>
                 `).join('');
-            } else {
-                squeezeBody.innerHTML = `<tr><td colspan="6" class="py-6 text-center text-slate-500 text-xs">Không có mã Squeeze đạt chuẩn.</td></tr>`;
-            }
+            };
 
-            statusText.innerText = "Quét thị trường hoàn tất!";
+            document.getElementById("breakoutBadge").innerText = `${breakouts.length} mã`;
+            breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="5" class="py-6 text-center text-slate-500 text-xs">Không có mã nào.</td></tr>`;
+
+            document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
+            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="5" class="py-6 text-center text-slate-500 text-xs">Không có mã nào.</td></tr>`;
+
+            statusText.innerText = "Hoàn tất!";
             scanBtn.disabled = false;
             scanBtn.classList.remove("opacity-50", "cursor-not-allowed");
         }
