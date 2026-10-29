@@ -6,13 +6,24 @@ import requests
 # ==================== CẤU HÌNH ====================
 DATA_FILE = "data.json"
 VND_DCHART_URL = "https://dchart-api.vndirect.com.vn/dchart/history"
-VND_FUNDAMENTAL_URL = "https://api-finfo.vndirect.com.vn/v4/ratios"
+# Nếu api-finfo bị chặn, thử đổi thành: https://finfo-api.vndirect.com.vn/v4/ratios
+VND_FUNDAMENTAL_URL = "https://api-finfo.vndirect.com.vn/v4/ratios" 
 
 RATIO_PE = "PRICE_TO_EARNINGS"
 RATIO_PB = "PRICE_TO_BOOK"
 RATIO_ROE = "ROAE_TR_AVG5Q"
 
+# Giả lập trình duyệt để lách WAF của VNDIRECT
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+    "Accept-Language": "vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7",
+    "Origin": "https://dstock.vndirect.com.vn",
+    "Referer": "https://dstock.vndirect.com.vn/"
+}
+
 # ==================== DANH SÁCH VN100 ====================
+# (Giữ nguyên danh sách VN100 và INDUSTRY_MAP như cũ...)
 VN100_SYMBOLS = [
     "VCB", "BID", "CTG", "TCB", "MBB", "ACB", "STB", "VPB", "HDB", "VIB", "TPB", "SHB", "SSB", "LPB", "MSB", "OCB", "EIB",
     "SSI", "VCI", "HCM", "VIX", "MBS", "FTS", "BSI", "CTS", "ORS",
@@ -21,7 +32,7 @@ VN100_SYMBOLS = [
     "FPT", "MWG", "PNJ", "FRT", "VNM", "MSN", "DGW", "SAB", "BHN", "KDC", "PET",
     "GAS", "POW", "BSR", "PVD", "PVS", "DGC", "DCM", "DPM", "GEG", "REE", "PC1", "NT2",
     "GMD", "HAH", "VJC", "HVN", "PVT", "VSC",
-    "VHC", "ANV", "PAN", "BAF"
+    "VHC", "ANV", "DAB", "PAN", "BAF"
 ]
 
 INDUSTRY_MAP = {
@@ -32,18 +43,16 @@ INDUSTRY_MAP = {
     "VIX": "Chứng khoán", "MBS": "Chứng khoán", "FTS": "Chứng khoán", "BSI": "Chứng khoán", "CTS": "Chứng khoán", "ORS": "Chứng khoán",
     "VHM": "Bất động sản", "VIC": "Bất động sản", "VRE": "Bất động sản", "NVL": "Bất động sản",
     "PDR": "Bất động sản", "DIG": "Bất động sản", "NLG": "Bất động sản", "KDH": "Bất động sản",
-    "CEO": "Bất động sản", "DXG": "Bất động sản", "TCH": "Bất động sản", "HDG": "Bất động sản", "SJS": "Bất động sản",
+    "CEO": "Bất động sản", "DXG": "Bất động sản", "TCH": "Bất động sản", "HDG": "Bất động sản",
     "KBC": "BĐS Khu công nghiệp", "IDC": "BĐS Khu công nghiệp", "SZC": "BĐS Khu công nghiệp",
     "BCM": "BĐS Khu công nghiệp", "PHR": "BĐS Khu công nghiệp", "HPG": "Thép & VLXD", "HSG": "Thép & VLXD",
-    "NKG": "Thép & VLXD", "VLB": "Thép & VLXD", "CTD": "Xây dựng", "HBC": "Xây dựng", "VCG": "Xây dựng", "HHV": "Xây dựng", "C4G": "Xây dựng",
-    "FPT": "Công nghệ", "MWG": "Bán lẻ", "PNJ": "Bán lẻ", "FRT": "Bán lẻ", "DGW": "Bán lẻ", "PET": "Bán lẻ",
-    "VNM": "Tiêu dùng", "MSN": "Tiêu dùng", "SAB": "Tiêu dùng", "BHN": "Tiêu dùng", "KDC": "Tiêu dùng",
-    "GAS": "Dầu khí", "PVD": "Dầu khí", "PVS": "Dầu khí", "BSR": "Dầu khí", 
-    "POW": "Năng lượng", "REE": "Năng lượng", "PC1": "Năng lượng", "NT2": "Năng lượng", "GEG": "Năng lượng",
-    "DGC": "Hóa chất", "DCM": "Phân bón", "DPM": "Phân bón",
-    "GMD": "Cảng biển & Logistics", "HAH": "Cảng biển & Logistics", "PVT": "Vận tải biển", "VSC": "Cảng biển & Logistics",
-    "VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", 
-    "PAN": "Nông nghiệp", "BAF": "Nông nghiệp"
+    "NKG": "Thép & VLXD", "VLB": "Thép & VLXD", "CTD": "Xây dựng", "VCG": "Xây dựng", "HHV": "Xây dựng", "C4G": "Xây dựng",
+    "FPT": "Công nghệ", "MWG": "Bán lẻ", "PNJ": "Bán lẻ", "FRT": "Bán lẻ", "DGW": "Bán lẻ",
+    "VNM": "Tiêu dùng", "MSN": "Tiêu dùng", "SAB": "Tiêu dùng", "GAS": "Dầu khí", "PVD": "Dầu khí",
+    "PVS": "Dầu khí", "BSR": "Dầu khí", "POW": "Năng lượng", "REE": "Năng lượng", "PC1": "Năng lượng",
+    "NT2": "Năng lượng", "DGC": "Hóa chất", "DCM": "Phân bón", "DPM": "Phân bón",
+    "GMD": "Cảng biển & Logistics", "HAH": "Cảng biển & Logistics", "PVT": "Vận tải biển",
+    "VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", "DAB": "Nông nghiệp"
 }
 
 
@@ -52,10 +61,10 @@ def fetch_stock_price(symbol):
     now = int(time.time())
     params = {"resolution": "D", "symbol": symbol, "from": now - 365 * 86400, "to": now}
     try:
-        r = requests.get(VND_DCHART_URL, params=params, timeout=10)
+        r = requests.get(VND_DCHART_URL, params=params, headers=HEADERS, timeout=15)
         r.raise_for_status()
         data = r.json()
-        if data.get("s") == "ok" and len(data.get("c", [])) >= 20:
+        if data.get("s") == "ok" and data.get("c") and len(data["c"]) >= 20:
             return data["c"][-1]
     except requests.RequestException as e:
         print(f"  ⚠️ Lỗi giá {symbol}: {e}")
@@ -67,7 +76,7 @@ def fetch_stock_price(symbol):
 def fetch_single_ratio(symbol, ratio_code):
     params = {"q": f"code:{symbol}~ratioCode:{ratio_code}", "size": 1, "sort": "reportDate:desc"}
     try:
-        r = requests.get(VND_FUNDAMENTAL_URL, params=params, timeout=10)
+        r = requests.get(VND_FUNDAMENTAL_URL, params=params, headers=HEADERS, timeout=15)
         r.raise_for_status()
         data = r.json()
         if data.get("data") and len(data["data"]) > 0:
@@ -79,17 +88,16 @@ def fetch_single_ratio(symbol, ratio_code):
         print(f"  ⚠️ Parse lỗi {symbol}/{ratio_code}: {e}")
     return None
 
-
+# (Các hàm fetch_fundamentals, load_existing_data, main giữ nguyên như file trước)
 def fetch_fundamentals(symbol):
-    pe = fetch_single_ratio(symbol, RATIO_PE); time.sleep(0.15)
-    pb = fetch_single_ratio(symbol, RATIO_PB); time.sleep(0.15)
-    roe = fetch_single_ratio(symbol, RATIO_ROE); time.sleep(0.15)
+    pe = fetch_single_ratio(symbol, RATIO_PE); time.sleep(0.2)
+    pb = fetch_single_ratio(symbol, RATIO_PB); time.sleep(0.2)
+    roe = fetch_single_ratio(symbol, RATIO_ROE); time.sleep(0.2)
     return {
         "pe": round(pe, 1) if pe is not None else None,
         "pb": round(pb, 1) if pb is not None else None,
         "roe": round(roe, 1) if roe is not None else None
     }
-
 
 def load_existing_data():
     if os.path.exists(DATA_FILE):
@@ -100,8 +108,6 @@ def load_existing_data():
             print(f"⚠️ Không đọc được data.json cũ: {e}")
     return {}
 
-
-# ==================== MAIN ====================
 def main():
     existing = load_existing_data()
     processed = {}
@@ -121,7 +127,6 @@ def main():
 
         print(f"[{idx}/{total}] {symbol} ({industry}) -> Giá: {close_price}, P/E: {fundamentals['pe']}")
 
-        # Giữ nguyên bctc/outlook cũ
         old = existing.get(symbol, {})
         processed[symbol] = {
             "symbol": symbol,
@@ -139,13 +144,11 @@ def main():
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(processed, f, ensure_ascii=False, indent=4)
 
-    # Ghi message Telegram
     msg = f"📈 <b>Cập nhật Giá & Chỉ số hàng ngày</b>\n\n- Tổng số mã: {total}\n- Lấy được P/E, P/B, ROE: {success_ratio_count}/{total} mã\n- Trạng thái: Thành công ✅"
     with open("telegram_msg.txt", "w", encoding="utf-8") as f:
         f.write(msg)
 
     print(f"\n✅ Xong! Đã ghi {len(processed)} mã vào {DATA_FILE}")
-
 
 if __name__ == "__main__":
     main()
