@@ -166,13 +166,12 @@
             <div class="flex items-center gap-3 border-b border-slate-700/50 pb-3">
                 <div id="modalSymbolBadge" class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 font-bold text-lg flex items-center justify-center">--</div>
                 <div>
-                    <h3 id="modalTitle" class="text-lg font-bold text v-white">--</h3>
-                    <ọp id="modalIndustry" class="textng-xs text-slate-400">--</ -->
-p>
+                    <h3 id="modalTitle" class="text-lg font-bold text-white">--</h3>
+                    <p id="modalIndustry" class="text-xs text-slate-400">--</p>
                 </div>
-                       </div>
+            </div>
 
-            <!-- Chỉ số < thực tế -->
+            <!-- Chỉ số thực tế -->
             <div class="grid grid-cols-4 gap-2 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50 text-xs text-center">
                 <div>
                     <span class="text-[10px] text-slate-400 uppercase block mb-1">Giá</span>
@@ -200,7 +199,8 @@ p>
                 <p id="modalBctc" class="text-slate-300 leading-relaxed">--</p>
             </div>
 
-            <!-- Triểndiv class="space-y-1.5 bg-blue-950/30 p-3.5 rounded-xl border border-blue-500/30 text-xs">
+            <!-- Triển vọng -->
+            <div class="space-y-1.5 bg-blue-950/30 p-3.5 rounded-xl border border-blue-500/30 text-xs">
                 <h4 class="font-semibold text-emerald-400 uppercase flex items-center gap-1.5">
                     <i class="fa-solid fa-award"></i> Triển vọng 1-3 năm (AI)
                 </h4>
@@ -283,7 +283,6 @@ p>
 
         let aiDatabase = {}; 
         let liveDataMap = {}; 
-        let historyCache = {};
         let universeLoading = false;
 
         function switchTab(tabName) {
@@ -305,25 +304,29 @@ p>
             }
         }
 
-        // GỌI API TCBS TRỰC TIẾP TỪ TRÌNH DUYỆT (KHÔNG BỊ CHẶN IP)
+        // GỌI API TCBS QUA PROXY CORS (Tránh lỗi bị chặn IP / CORS trên trình duyệt)
         async function fetchTCBS(symbol) {
-            const headers = { "User-Agent": "Mozilla/5.0" };
+            const proxy = "https://api.allorigins.win/raw?url=";
             let price = 0, pe = 0, pb = 0, roe = 0;
             
-            // Lấy giá
+            // 1. Lấy giá
             try {
-                const res = await fetch(`https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=${symbol}`, { headers });
+                const priceUrl = `https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=${symbol}`;
+                const res = await fetch(proxy + encodeURIComponent(priceUrl));
                 if (res.ok) {
                     const data = await res.json();
                     if (data && data.data && data.data.length > 0) {
                         price = data.data[0].matchPrice || data.data[0].refPrice || 0;
                     }
                 }
-            } catch (e) {}
+            } catch (e) {
+                console.warn("Lỗi lấy giá TCBS:", symbol);
+            }
 
-            // Lấy chỉ số
+            // 2. Lấy chỉ số
             try {
-                const res = await fetch(`https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=${symbol}`, { headers });
+                const ratioUrl = `https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=${symbol}`;
+                const res = await fetch(proxy + encodeURIComponent(ratioUrl));
                 if (res.ok) {
                     const data = await res.json();
                     if (data && data.data && data.data.length > 0) {
@@ -334,7 +337,9 @@ p>
                         if (roe > 0 && roe < 1) roe *= 100; // Fix đơn vị ROE
                     }
                 }
-            } catch (e) {}
+            } catch (e) {
+                console.warn("Lỗi lấy chỉ số TCBS:", symbol);
+            }
 
             return { price, pe, pb, roe };
         }
@@ -352,22 +357,26 @@ p>
         async function loadUniverse() {
             universeLoading = true;
             const tbody = document.getElementById("universeBody");
-            tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải giá real-time từ TCBS & Đánh giá AI...</td></tr>`;
+            tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải giá Real-time từ TCBS & Đánh giá AI...</td></tr>`;
             
             document.getElementById("searchInput").value = "";
 
             // 1. Tải file data.json (Chứa đánh giá AI)
             try {
                 const res = await fetch('data.json');
-                if (res.ok) aiDatabase = await res.json();
+                if (res.ok) {
+                    aiDatabase = await res.json();
+                } else {
+                    console.warn("Chưa có data.json, chỉ hiển thị giá.");
+                }
             } catch (e) {
-                console.warn("Chưa có data.json, chỉ hiển thị giá.");
+                console.warn("Lỗi tải data.json.");
             }
 
             const entries = VN100;
             document.getElementById("totalUniverseCount").innerText = entries.length;
 
-            // 2. Fetch giá từ TCBS theo batch (5 mã 1 lúc)
+            // 2. Fetch dữ liệu TCBS theo batch (5 mã 1 lúc)
             const BATCH = 5;
             for (let i = 0; i < entries.length; i += BATCH) {
                 await Promise.all(entries.slice(i, i + BATCH).map(async (symbol) => {
@@ -438,6 +447,114 @@ p>
                     row.style.display = "none";
                 }
             });
+        }
+
+        // TÍNH NĂNG QUÉT TÍN HIỆU (Breakout / Squeeze)
+        async function startScreening() {
+            if (universeLoading) { alert("Đang tải dữ liệu, vui lòng đợi..."); return; }
+            
+            const scanBtn = document.getElementById("scanBtn");
+            const progressBar = document.getElementById("progressBar");
+            const statusText = document.getElementById("statusText");
+            const statusCount = document.getElementById("statusCount");
+            const breakoutBody = document.getElementById("breakoutBody");
+            const squeezeBody = document.getElementById("squeezeBody");
+
+            scanBtn.disabled = true;
+            scanBtn.classList.add("opacity-50", "cursor-not-allowed");
+            progressBar.style.width = "0%";
+            breakoutBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
+            squeezeBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
+
+            const entries = VN100;
+            const total = entries.length;
+            let processed = 0;
+            const breakouts = [], squeezes = [];
+
+            const BATCH = 5;
+            for (let i = 0; i < total; i += BATCH) {
+                await Promise.all(entries.slice(i, i + BATCH).map(async (symbol) => {
+                    const history = await fetchHistory(symbol);
+                    if (history && history.c.length >= 21) {
+                        const c = history.c, h = history.h, l = history.l, v = history.v;
+                        const len = c.length;
+
+                        let sumC20 = 0, sumV20 = 0;
+                        for (let k = len - 20; k < len; k++) { sumC20 += c[k]; sumV20 += v[k]; }
+                        const ma20 = sumC20 / 20;
+                        const volMa20 = sumV20 / 20;
+
+                        let sumC20Prev = 0;
+                        for (let k = len - 21; k <= len - 2; k++) sumC20Prev += c[k];
+                        const prevMa20 = sumC20Prev / 20;
+
+                        const currClose = c[len - 1];
+                        const prevClose = c[len - 2];
+                        const currVol = v[len - 1];
+
+                        if (currVol >= 50000) {
+                            const isBreakout = (currClose > ma20) && (prevClose <= prevMa20) && (currVol > 1.5 * volMa20);
+
+                            let sumRange5 = 0, sumC5 = 0;
+                            for (let k = len - 5; k < len; k++) { sumRange5 += (h[k] - l[k]); sumC5 += c[k]; }
+                            const avgClose5 = sumC5 / 5;
+                            const avgRange5 = sumRange5 / 5;
+                            const isSqueeze = (avgClose5 > 0) && (avgRange5 / avgClose5 < 0.02) && (currVol < 0.8 * volMa20);
+
+                            const d = liveDataMap[symbol];
+                            const item = { symbol, industry: d.industry, close: currClose, volume: currVol, pe: d.pe, pb: d.pb };
+                            
+                            if (isBreakout) breakouts.push(item);
+                            if (isSqueeze) squeezes.push(item);
+                        }
+                    }
+                    processed++;
+                    const pct = Math.round((processed / total) * 100);
+                    progressBar.style.width = `${pct}%`;
+                    statusText.innerText = `Đang quét: ${symbol}`;
+                    statusCount.innerText = `${processed}/${total}`;
+                }));
+            }
+
+            const renderRows = (items) => items.map(item => `
+                <tr onclick="showStockDetail('${item.symbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
+                    <td class="py-2.5 px-2 font-bold text-blue-400">
+                        <span class="flex items-center gap-1 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 w-fit">${item.symbol}</span>
+                    </td>
+                    <td class="py-2.5 px-2">
+                        <div class="font-mono text-slate-100">${item.close.toLocaleString('vi-VN')}</div>
+                        <div class="text-[10px] text-slate-400">${item.industry}</div>
+                    </td>
+                    <td class="py-2.5 px-2 text-center font-mono text-[11px] text-slate-300">P/E: ${fmtRatio(item.pe)} | P/B: ${fmtRatio(item.pb)}</td>
+                    <td class="py-2.5 px-2 text-right font-mono text-slate-300">${item.volume.toLocaleString('vi-VN')}</td>
+                </tr>
+            `).join('');
+
+            document.getElementById("breakoutBadge").innerText = `${breakouts.length} mã`;
+            breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Breakout.</td></tr>`;
+
+            document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
+            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Squeeze.</td></tr>`;
+
+            statusText.innerText = "Hoàn tất!";
+            scanBtn.disabled = false;
+            scanBtn.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+
+        // Hàm lấy lịch sử giá (Dùng VNDIRECT cho phần Tín hiệu kỹ thuật, nếu lỗi sẽ báo)
+        async function fetchHistory(symbol) {
+            const end = Math.floor(Date.now() / 1000);
+            const start = end - (120 * 86400);
+            const proxy = "https://api.allorigins.win/raw?url=";
+            const url = `https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol=${symbol}&from=${start}&to=${end}`;
+            try {
+                const res = await fetch(proxy + encodeURIComponent(url));
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.s === "ok" && data.c && data.c.length >= 21) return data;
+                }
+            } catch(e) {}
+            return null;
         }
 
         function showStockDetail(symbol) {
