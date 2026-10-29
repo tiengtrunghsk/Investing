@@ -1,10 +1,8 @@
-name: Pro Quant Web & Auto Bot
+name: Pro Quant Auto Bot
 
 on:
-  push:
-    branches: [ "main" ]
   schedule:
-    - cron: '30 8 * * 1-5' # Chạy tự động lúc 15:30 chiều giờ Việt Nam, từ Thứ 2 đến Thứ 6
+    - cron: '30 8 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -19,10 +17,10 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Dependencies
+      - name: Install Dependencies Directly
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install streamlit vnstock pandas pandas-ta requests
 
       - name: Run Auto Bot Mode
         env:
