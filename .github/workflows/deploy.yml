@@ -22,15 +22,12 @@ jobs:
         run: |
           python -m pip install --upgrade pip setuptools wheel
           pip install streamlit pandas requests
-          # Cài đặt vnstock từ kho lưu trữ chính thức
-          pip install vnstock --extra-index-url https://vnstocks.com/api/packages
+          pip install vnstock==5.0.1 --extra-index-url https://vnstocks.com/api/packages
 
       - name: Register vnstock Device
         env:
           VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }}
         run: |
-          # Sử dụng CLI để đăng ký thiết bị ảo của GitHub Actions
-          # printf giúp tránh lưu key vào log hệ thống
           printf '%s' "$VNSTOCK_API_KEY" | vnstock register --stdin
 
       - name: Run Auto Bot Mode
