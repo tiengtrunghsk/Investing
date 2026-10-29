@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Quant Screener Pro</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -14,7 +13,7 @@
 </head>
 <body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
 
-    <!-- Header Section -->
+    <!-- Header -->
     <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row justify-between items-center gap-3">
             <div class="flex items-center gap-3">
@@ -25,23 +24,20 @@
                     <h1 class="text-base sm:text-lg font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
                         Pro Quant Screener Pro
                     </h1>
-                    <p class="text-[11px] text-slate-400">Hệ thống Định lượng Tích hợp AI Qwen & Giá Realtime</p>
+                    <p class="text-[11px] text-slate-400">Chỉ số thực tế từ VNDIRECT · AI Qwen đánh giá định tính</p>
                 </div>
             </div>
-
-            <!-- Tab Navigation Switcher -->
             <div class="flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 w-full sm:w-auto">
                 <button onclick="switchTab('universe')" id="tabBtnUniverse" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white shadow">
-                    <i class="fa-solid fa-building-columns mr-1.5"></i> Cổ Phiếu Tiềm Năng (VN100)
+                    <i class="fa-solid fa-building-columns mr-1.5"></i> VN100
                 </button>
                 <button onclick="switchTab('signals')" id="tabBtnSignals" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-bolt mr-1.5"></i> Tín Hiệu Săn Sóng
+                    <i class="fa-solid fa-bolt mr-1.5"></i> Tín Hiệu
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 py-6 flex-1 w-full space-y-6">
 
         <!-- TAB 1: UNIVERSE -->
@@ -49,14 +45,12 @@
             <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
                 <div>
                     <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-layer-group text-blue-400"></i> Danh Sách Cổ Phiếu Tiềm Năng (VN100 Core)
+                        <i class="fa-solid fa-layer-group text-blue-400"></i> Danh Sách Cổ Phiếu VN100
                     </h2>
-                    <p class="text-xs text-slate-400 mt-0.5">Nhận định BCTC từ AI Qwen. Giá & Định giá được tính toán Realtime theo phiên.</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Click vào mã để xem chi tiết. P/E, P/B, ROE thực tế từ VNDIRECT.</p>
                 </div>
-                <div class="flex items-center gap-2">
-                    <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-xl">
-                        Tổng: <span id="totalUniverseCount">0</span> mã
-                    </div>
+                <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-xl">
+                    Tổng: <span id="totalUniverseCount">0</span> mã
                 </div>
             </div>
 
@@ -67,15 +61,14 @@
                             <tr>
                                 <th class="py-3 px-4">Mã CP</th>
                                 <th class="py-3 px-4">Nhóm Ngành</th>
-                                <th class="py-3 px-4 text-right">Giá Realtime</th>
-                                <th class="py-3 px-4 text-center">P/E Động</th>
-                                <th class="py-3 px-4 text-center">P/B Động</th>
+                                <th class="py-3 px-4 text-right">Giá</th>
+                                <th class="py-3 px-4 text-center">P/E</th>
+                                <th class="py-3 px-4 text-center">P/B</th>
                                 <th class="py-3 px-4 text-center">ROE</th>
-                                <th class="py-3 px-4 text-right">Thao Tác</th>
                             </tr>
                         </thead>
                         <tbody id="universeBody" class="divide-y divide-slate-800 text-slate-200 text-xs">
-                            <tr><td colspan="7" class="py-8 text-center text-slate-500">Đang đồng bộ Database AI & Giá thị trường...</td></tr>
+                            <tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải dữ liệu...</td></tr>
                         </tbody>
                     </table>
                 </div>
@@ -86,7 +79,7 @@
         <section id="tabSignals" class="space-y-6 hidden">
             <div id="statusCard" class="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-4">
                 <div class="flex justify-between items-center text-xs mb-2">
-                    <span id="statusText" class="text-slate-300 font-medium">Sẵn sàng quét tín hiệu kỹ thuật thời gian thực...</span>
+                    <span id="statusText" class="text-slate-300 font-medium">Sẵn sàng quét...</span>
                     <span id="statusCount" class="text-blue-400 font-mono">0 / 0</span>
                 </div>
                 <div class="w-full bg-slate-700 rounded-full h-1.5 overflow-hidden">
@@ -97,61 +90,49 @@
             <div class="flex justify-between items-center bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
                 <div>
                     <h2 class="text-sm font-bold text-white flex items-center gap-2">
-                        <i class="fa-solid fa-radar text-amber-400"></i> Bộ Lọc Tín Hiệu Săn Sóng Trực Tiếp
+                        <i class="fa-solid fa-radar text-amber-400"></i> Bộ Lọc Tín Hiệu
                     </h2>
-                    <p class="text-xs text-slate-400 mt-0.5">Quét tự động tìm điểm Breakout (Nổ Vol) và Squeeze (Cạn cung) theo giá Realtime.</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Breakout (Nổ Vol & Vượt MA20) và Squeeze (Cạn cung).</p>
                 </div>
                 <button onclick="startScreening()" id="scanBtn" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs rounded-xl shadow transition-all flex items-center gap-2">
-                    <i class="fa-solid fa-bolt"></i> Chạy Quét Lại
+                    <i class="fa-solid fa-bolt"></i> Quét Lại
                 </button>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Breakout Table -->
                 <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
-                            <i class="fa-solid fa-rocket"></i> Nhóm Breakout (Nổ Vol & Vượt MA20)
+                            <i class="fa-solid fa-rocket"></i> Breakout
                         </h3>
                         <span id="breakoutBadge" class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">0 mã</span>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-xs whitespace-nowrap">
                             <thead class="text-slate-400 border-b border-slate-700/60 uppercase">
-                                <tr>
-                                    <th class="py-2.5 px-2">Mã</th>
-                                    <th class="py-2.5 px-2">Giá / Ngành</th>
-                                    <th class="py-2.5 px-2 text-center">P/E | P/B</th>
-                                    <th class="py-2.5 px-2 text-right">Khối Lượng</th>
-                                </tr>
+                                <tr><th class="py-2.5 px-2">Mã</th><th class="py-2.5 px-2">Giá / Ngành</th><th class="py-2.5 px-2 text-center">P/E | P/B</th><th class="py-2.5 px-2 text-right">KL</th></tr>
                             </thead>
                             <tbody id="breakoutBody" class="divide-y divide-slate-800 text-slate-200">
-                               <tr><td colspan="4" class="py-6 text-center text-slate-500">Bấm chạy quét để xem tín hiệu.</td></tr>
+                                <tr><td colspan="4" class="py-6 text-center text-slate-500">Bấm quét để xem.</td></tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <!-- Squeeze Table -->
                 <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-3">
                     <div class="flex justify-between items-center">
                         <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
-                            <i class="fa-solid fa-box"></i> Nhóm Squeeze (Cạn Cung / Tích Lũy Hẹp)
+                            <i class="fa-solid fa-box"></i> Squeeze
                         </h3>
                         <span id="squeezeBadge" class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">0 mã</span>
                     </div>
                     <div class="overflow-x-auto">
                         <table class="w-full text-left text-xs whitespace-nowrap">
                             <thead class="text-slate-400 border-b border-slate-700/60 uppercase">
-                                <tr>
-                                    <th class="py-2.5 px-2">Mã</th>
-                                    <th class="py-2.5 px-2">Giá / Ngành</th>
-                                    <th class="py-2.5 px-2 text-center">P/E | P/B</th>
-                                    <th class="py-2.5 px-2 text-right">Khối Lượng</th>
-                                </tr>
+                                <tr><th class="py-2.5 px-2">Mã</th><th class="py-2.5 px-2">Giá / Ngành</th><th class="py-2.5 px-2 text-center">P/E | P/B</th><th class="py-2.5 px-2 text-right">KL</th></tr>
                             </thead>
                             <tbody id="squeezeBody" class="divide-y divide-slate-800 text-slate-200">
-                               <tr><td colspan="4" class="py-6 text-center text-slate-500">Bấm chạy quét để xem tín hiệu.</td></tr>
+                                <tr><td colspan="4" class="py-6 text-center text-slate-500">Bấm quét để xem.</td></tr>
                             </tbody>
                         </table>
                     </div>
@@ -160,7 +141,7 @@
         </section>
     </main>
 
-    <!-- STOCK DETAIL MODAL -->
+    <!-- MODAL -->
     <div id="stockModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
         <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto p-6 space-y-4 shadow-2xl relative">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-700/50 flex items-center justify-center">
@@ -177,11 +158,11 @@
 
             <div class="grid grid-cols-3 gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50 text-xs">
                 <div class="text-center">
-                    <span class="text-[10px] text-slate-400 uppercase block mb-1">Giá Realtime</span>
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">Giá</span>
                     <span id="modalPrice" class="font-mono font-bold text-white">--</span>
                 </div>
                 <div class="text-center border-x border-slate-700">
-                    <span class="text-[10px] text-slate-400 uppercase block mb-1">P/E | P/B Động</span>
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">P/E | P/B</span>
                     <span id="modalValuation" class="font-mono font-bold text-blue-300">--</span>
                 </div>
                 <div class="text-center">
@@ -192,30 +173,29 @@
 
             <div class="space-y-1.5 bg-slate-900/40 p-3.5 rounded-xl border border-slate-700/40 text-xs">
                 <h4 class="font-semibold text-blue-400 uppercase flex items-center gap-1.5">
-                    <i class="fa-solid fa-file-invoice-dollar"></i> Sức Khỏe BCTC & Tài Chính (Qwen AI):
+                    <i class="fa-solid fa-file-invoice-dollar"></i> BCTC (Qwen AI)
                 </h4>
                 <p id="modalBctc" class="text-slate-300 leading-relaxed">--</p>
             </div>
 
             <div class="space-y-1.5 bg-blue-950/30 p-3.5 rounded-xl border border-blue-500/30 text-xs">
                 <h4 class="font-semibold text-emerald-400 uppercase flex items-center gap-1.5">
-                    <i class="fa-solid fa-award"></i> Kết Luận & Triển Vọng Đầu Tư (Qwen AI):
+                    <i class="fa-solid fa-award"></i> Triển vọng (Qwen AI)
                 </h4>
                 <p id="modalOutlook" class="text-emerald-200/90 leading-relaxed font-medium">--</p>
             </div>
 
-            <div class="pt-1">
-                <button onclick="closeModal()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium rounded-xl transition-all shadow">
-                    Đóng cửa sổ
-                </button>
-            </div>
+            <button onclick="closeModal()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium rounded-xl transition-all shadow">
+                Đóng
+            </button>
         </div>
     </div>
 
-    <!-- JavaScript Logic -->
     <script>
         let aiDatabase = {};
         let liveDataMap = {};
+        let historyCache = {};
+        let universeLoading = false;
 
         function switchTab(tabName) {
             const tabUniverse = document.getElementById("tabUniverse");
@@ -236,182 +216,189 @@
             }
         }
 
-        async function fetchStockHistory(symbol) {
+        async function fetchHistory(symbol) {
+            if (historyCache[symbol]) return historyCache[symbol];
             const end = Math.floor(Date.now() / 1000);
             const start = end - (120 * 86400);
             const url = `https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol=${symbol}&from=${start}&to=${end}`;
+            const controller = new AbortController();
+            const timer = setTimeout(() => controller.abort(), 8000);
             try {
-                const response = await fetch(url);
-                if (!response.ok) return null;
-                const data = await response.json();
-                if (data.s === "ok" && data.c.length >= 20) return data;
-            } catch (err) {
-                return null;
-            }
+                const r = await fetch(url, { signal: controller.signal });
+                if (!r.ok) return null;
+                const data = await r.json();
+                // Guard: cần đủ c/h/l/v
+                if (data.s === "ok" && data.c && data.c.length >= 21 && data.h && data.l && data.v
+                    && data.h.length === data.c.length && data.v.length === data.c.length) {
+                    historyCache[symbol] = data;
+                    return data;
+                }
+            } catch (_) {} finally { clearTimeout(timer); }
             return null;
         }
 
+        function fmtRatio(val) {
+            if (val === null || val === undefined || val === 0) return '—';
+            return val.toFixed(1);
+        }
+
+        function fmtPrice(val) {
+            if (!val || val === 0) return '—';
+            return val.toLocaleString('vi-VN');
+        }
+
         async function loadUniverse() {
+            universeLoading = true;
+            const tbody = document.getElementById("universeBody");
+
             try {
                 const res = await fetch('data.json');
+                if (!res.ok) throw new Error(`HTTP ${res.status}`);
                 aiDatabase = await res.json();
             } catch (e) {
-                console.error("Lỗi load data.json:", e);
+                tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-red-400">Lỗi tải data.json: ${e.message}</td></tr>`;
+                universeLoading = false;
+                return;
             }
 
-            const tbody = document.getElementById("universeBody");
             const entries = Object.entries(aiDatabase);
             document.getElementById("totalUniverseCount").innerText = entries.length;
 
+            // Batch fetch history song song
+            const BATCH = 5;
+            for (let i = 0; i < entries.length; i += BATCH) {
+                await Promise.all(entries.slice(i, i + BATCH).map(async ([symbol, info]) => {
+                    const history = await fetchHistory(symbol);
+                    let close = info.close || 0;
+                    if (history && history.c.length > 0) {
+                        close = history.c[history.c.length - 1];
+                    }
+                    liveDataMap[symbol] = { ...info, close };
+                }));
+            }
+
+            // Render theo thứ tự gốc
             let html = "";
             for (const [symbol, info] of entries) {
-                const history = await fetchStockHistory(symbol);
-                let currentClose = info.close || 0;
-                let dynamicPe = info.pe || 15.0;
-                let dynamicPb = info.pb || 1.8;
-
-                if (history && history.c.length > 0) {
-                    currentClose = history.c[history.c.length - 1];
-                    const prevClose = history.c[history.c.length - 20];
-                    if (prevClose > 0) {
-                        const ratio = currentClose / prevClose;
-                        dynamicPe = (15.0 * ratio).toFixed(1);
-                        dynamicPb = (1.8 * ratio).toFixed(1);
-                    }
-                }
-
-                liveDataMap[symbol] = {
-                    ...info,
-                    close: currentClose,
-                    dynamicPe,
-                    dynamicPb
-                };
-
+                const d = liveDataMap[symbol] || info;
+                const pe = fmtRatio(d.pe);
+                const pb = fmtRatio(d.pb);
+                const roe = fmtRatio(d.roe);
                 html += `
-                    <tr class="hover:bg-slate-800/60 transition-colors">
+                    <tr onclick="showStockDetail('${symbol}')"
+                        class="hover:bg-slate-800/60 transition-colors cursor-pointer">
                         <td class="py-3 px-4 font-bold text-blue-400">
-                            <button onclick="showStockDetail('${symbol}')" class="hover:underline flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20">
+                            <span class="flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20 w-fit">
                                 <i class="fa-solid fa-circle-info text-[10px]"></i> ${symbol}
-                            </button>
+                            </span>
                         </td>
-                        <td class="py-3 px-4 text-slate-300">${info.industry}</td>
-                        <td class="py-3 px-4 text-right font-mono text-white">${currentClose > 0 ? currentClose.toLocaleString('vi-VN') : 'Đang cập nhật'}</td>
-                        <td class="py-3 px-4 text-center font-mono text-blue-300">${dynamicPe}x</td>
-                        <td class="py-3 px-4 text-center font-mono text-amber-300">${dynamicPb}x</td>
-                        <td class="py-3 px-4 text-center font-mono text-purple-300">${info.roe || 16.5}%</td>
-                        <td class="py-3 px-4 text-right">
-                            <button onclick="showStockDetail('${symbol}')" class="px-3 py-1 bg-slate-700 hover:bg-slate-600 text-white text-[11px] rounded-lg transition-all">
-                                Xem Đánh Giá AI
-                            </button>
-                        </td>
+                        <td class="py-3 px-4 text-slate-300">${d.industry || info.industry}</td>
+                        <td class="py-3 px-4 text-right font-mono text-white">${fmtPrice(d.close)}</td>
+                        <td class="py-3 px-4 text-center font-mono text-blue-300">${pe !== '—' ? pe + 'x' : '—'}</td>
+                        <td class="py-3 px-4 text-center font-mono text-amber-300">${pb !== '—' ? pb + 'x' : '—'}</td>
+                        <td class="py-3 px-4 text-center font-mono text-purple-300">${roe !== '—' ? roe + '%' : '—'}</td>
                     </tr>
                 `;
             }
             tbody.innerHTML = html;
+            universeLoading = false;
         }
 
         async function startScreening() {
+            if (universeLoading) {
+                alert("Đang tải dữ liệu, vui lòng đợi...");
+                return;
+            }
             const scanBtn = document.getElementById("scanBtn");
             const progressBar = document.getElementById("progressBar");
             const statusText = document.getElementById("statusText");
             const statusCount = document.getElementById("statusCount");
-            
             const breakoutBody = document.getElementById("breakoutBody");
             const squeezeBody = document.getElementById("squeezeBody");
 
             scanBtn.disabled = true;
             scanBtn.classList.add("opacity-50", "cursor-not-allowed");
-
-            breakoutBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét tín hiệu realtime...</td></tr>`;
-            squeezeBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét tín hiệu realtime...</td></tr>`;
+            progressBar.style.width = "0%";
+            breakoutBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
+            squeezeBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét...</td></tr>`;
 
             const entries = Object.entries(aiDatabase);
             const total = entries.length;
             let processed = 0;
+            const breakouts = [], squeezes = [];
 
-            const breakouts = [];
-            const squeezes = [];
-
-            const BATCH_SIZE = 5;
-            for (let i = 0; i < total; i += BATCH_SIZE) {
-                const batch = entries.slice(i, i + BATCH_SIZE);
-                await Promise.all(batch.map(async ([symbol, info]) => {
-                    const history = await fetchStockHistory(symbol);
+            const BATCH = 5;
+            for (let i = 0; i < total; i += BATCH) {
+                await Promise.all(entries.slice(i, i + BATCH).map(async ([symbol, info]) => {
+                    const history = await fetchHistory(symbol);
                     if (history && history.c.length >= 21) {
-                        const len = history.c.length;
-                        const close = history.c, high = history.h, low = history.l, volume = history.v;
+                        const c = history.c, h = history.h, l = history.l, v = history.v;
+                        const len = c.length;
 
-                        let sumClose20 = 0, sumVol20 = 0;
-                        for (let k = len - 20; k < len; k++) {
-                            sumClose20 += close[k];
-                            sumVol20 += volume[k];
-                        }
-                        const ma20 = sumClose20 / 20;
-                        const volMa20 = sumVol20 / 20;
+                        let sumC20 = 0, sumV20 = 0;
+                        for (let k = len - 20; k < len; k++) { sumC20 += c[k]; sumV20 += v[k]; }
+                        const ma20 = sumC20 / 20;
+                        const volMa20 = sumV20 / 20;
 
-                        let sumClose20Prev = 0;
-                        for (let k = len - 21; k < len - 1; k++) {
-                            sumClose20Prev += close[k];
-                        }
-                        const prevMa20 = sumClose20Prev / 20;
+                        // MA20 của 20 phiên TRƯỚC (không gồm hôm nay)
+                        let sumC20Prev = 0;
+                        for (let k = len - 21; k <= len - 2; k++) sumC20Prev += c[k];
+                        const prevMa20 = sumC20Prev / 20;
 
-                        const currClose = close[len - 1];
-                        const prevClose = close[len - 2];
-                        const currVol = volume[len - 1];
+                        const currClose = c[len - 1];
+                        const prevClose = c[len - 2];
+                        const currVol = v[len - 1];
 
                         if (currVol >= 50000) {
                             const isBreakout = (currClose > ma20) && (prevClose <= prevMa20) && (currVol > 1.5 * volMa20);
 
-                            let sumRange5 = 0, sumClose5 = 0;
-                            for (let k = len - 5; k < len; k++) {
-                                sumRange5 += (high[k] - low[k]);
-                                sumClose5 += close[k];
-                            }
-                            const avgClose5 = sumClose5 / 5;
+                            let sumRange5 = 0, sumC5 = 0;
+                            for (let k = len - 5; k < len; k++) { sumRange5 += (h[k] - l[k]); sumC5 += c[k]; }
+                            const avgClose5 = sumC5 / 5;
                             const avgRange5 = sumRange5 / 5;
                             const isSqueeze = (avgClose5 > 0) && (avgRange5 / avgClose5 < 0.02) && (currVol < 0.8 * volMa20);
 
-                            const itemData = {
+                            const d = liveDataMap[symbol] || info;
+                            const item = {
                                 symbol, industry: info.industry, close: currClose, volume: currVol,
-                                pe: liveDataMap[symbol]?.dynamicPe || 15.0,
-                                pb: liveDataMap[symbol]?.dynamicPb || 1.8
+                                pe: d.pe, pb: d.pb
                             };
-
-                            if (isBreakout) breakouts.push(itemData);
-                            if (isSqueeze) squeezes.push(itemData);
+                            if (isBreakout) breakouts.push(item);
+                            if (isSqueeze) squeezes.push(item);
                         }
                     }
                     processed++;
-                    const percent = Math.round((processed / total) * 100);
-                    progressBar.style.width = `${percent}%`;
+                    const pct = Math.round((processed / total) * 100);
+                    progressBar.style.width = `${pct}%`;
                     statusText.innerText = `Đang quét: ${symbol}`;
                     statusCount.innerText = `${processed}/${total}`;
                 }));
             }
 
             const renderRows = (items) => items.map(item => `
-                <tr class="hover:bg-slate-800/60 transition-colors">
+                <tr onclick="showStockDetail('${item.symbol}')"
+                    class="hover:bg-slate-800/60 transition-colors cursor-pointer">
                     <td class="py-2.5 px-2 font-bold text-blue-400">
-                        <button onclick="showStockDetail('${item.symbol}')" class="hover:underline flex items-center gap-1 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">
-                            ${item.symbol}
-                        </button>
+                        <span class="flex items-center gap-1 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 w-fit">${item.symbol}</span>
                     </td>
                     <td class="py-2.5 px-2">
                         <div class="font-mono text-slate-100">${item.close.toLocaleString('vi-VN')}</div>
                         <div class="text-[10px] text-slate-400">${item.industry}</div>
                     </td>
-                    <td class="py-2.5 px-2 text-center font-mono text-[11px] text-slate-300">P/E: ${item.pe} | P/B: ${item.pb}</td>
+                    <td class="py-2.5 px-2 text-center font-mono text-[11px] text-slate-300">
+                        P/E: ${fmtRatio(item.pe)} | P/B: ${fmtRatio(item.pb)}
+                    </td>
                     <td class="py-2.5 px-2 text-right font-mono text-slate-300">${item.volume.toLocaleString('vi-VN')}</td>
                 </tr>
             `).join('');
 
             document.getElementById("breakoutBadge").innerText = `${breakouts.length} mã`;
-            breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có mã nào đạt tín hiệu Breakout hôm nay.</td></tr>`;
+            breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Breakout.</td></tr>`;
 
             document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
-            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có mã nào đạt tín hiệu Squeeze hôm nay.</td></tr>`;
+            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Squeeze.</td></tr>`;
 
-            statusText.innerText = "Quét tín hiệu hoàn tất!";
+            statusText.innerText = "Hoàn tất!";
             scanBtn.disabled = false;
             scanBtn.classList.remove("opacity-50", "cursor-not-allowed");
         }
@@ -420,14 +407,18 @@
             const data = liveDataMap[symbol] || aiDatabase[symbol];
             if (!data) return;
 
+            const pe = fmtRatio(data.pe);
+            const pb = fmtRatio(data.pb);
+            const roe = fmtRatio(data.roe);
+
             document.getElementById("modalSymbolBadge").innerText = symbol;
-            document.getElementById("modalTitle").innerText = `Hồ Sơ & Định Giá: ${symbol}`;
-            document.getElementById("modalIndustry").innerText = `Nhóm Ngành: ${data.industry}`;
-            document.getElementById("modalPrice").innerText = data.close > 0 ? data.close.toLocaleString('vi-VN') + " đ" : "Đang cập nhật";
-            document.getElementById("modalValuation").innerText = `P/E: ${data.dynamicPe || data.pe}x | P/B: ${data.dynamicPb || data.pb}x`;
-            document.getElementById("modalRoe").innerText = `${data.roe || 16.5}%`;
-            document.getElementById("modalBctc").innerText = data.bctc || "Đang đồng bộ BCTC...";
-            document.getElementById("modalOutlook").innerText = data.outlook || "Đang đồng bộ triển vọng...";
+            document.getElementById("modalTitle").innerText = `Hồ Sơ: ${symbol}`;
+            document.getElementById("modalIndustry").innerText = `Ngành: ${data.industry}`;
+            document.getElementById("modalPrice").innerText = fmtPrice(data.close) + " đ";
+            document.getElementById("modalValuation").innerText = `P/E: ${pe !== '—' ? pe + 'x' : '—'} | P/B: ${pb !== '—' ? pb + 'x' : '—'}`;
+            document.getElementById("modalRoe").innerText = roe !== '—' ? roe + '%' : '—';
+            document.getElementById("modalBctc").innerText = data.bctc || "Đang cập nhật...";
+            document.getElementById("modalOutlook").innerText = data.outlook || "Đang cập nhật...";
 
             document.getElementById("stockModal").classList.remove("hidden");
         }
@@ -436,14 +427,14 @@
             document.getElementById("stockModal").classList.add("hidden");
         }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById("stockModal");
-            if (event.target == modal) closeModal();
-        }
+        window.addEventListener("click", (e) => {
+            if (e.target === document.getElementById("stockModal")) closeModal();
+        });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
         window.addEventListener("DOMContentLoaded", async () => {
             await loadUniverse();
-            startScreening();
+            // Không auto startScreening để tránh fetch trùng
         });
     </script>
 </body>
