@@ -2,16 +2,14 @@ import os
 import json
 import time
 import requests
-from urllib.parse import quote
 
 DATA_FILE = "data.json"
 ALIBABA_API_KEY = os.environ.get("ALIBABA_API_KEY")
 QWEN_API_URL = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
 
-# Sử dụng Proxy để lấy giá và chỉ số
-PROXY_PREFIX = "https://corsproxy.io/?url="
-RAW_DCHART_URL = "https://dchart-api.vndirect.com.vn/dchart/history"
-RAW_FUNDAMENTAL_URL = "https://api-finfo.vndirect.com.vn/v4/ratios"
+# API TCBS (Không chặn IP GitHub, không cần Proxy)
+TCBS_PRICE_URL = "https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker={symbol}"
+TCBS_RATIO_URL = "https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker={symbol}"
 
 VN100_SYMBOLS = [
     "VCB", "BID", "CTG", "TCB", "MBB", "ACB", "STB", "VPB", "HDB", "VIB", "TPB", "SHB", "SSB", "LPB", "MSB", "OCB", "EIB",
@@ -44,46 +42,59 @@ INDUSTRY_MAP = {
     "VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", "DAB": "Nông nghiệp"
 }
 
-def fetch_via_proxy(url, params):
-    req = requests.Request('GET', url, params=params).prepare()
-    proxy_url = PROXY_PREFIX + quote(req.url, safe='')
+def fetch_tcbs_data(symbol):
+    """Lấy Giá, P/E, P/B, ROE trực tiếp từ API TCBS"""
+    price = 0
+    pe, pb, roe = 0, 0, 0
+    
+    headers = {"User-Agent": "Mozilla/5.0"}
+    
+    # 1. Lấy Giá
     try:
-        r = requests.get(proxy_url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
-        if r.status_code == 200: return r.json()
-    except Exception: pass
-    return None
+        r_price = requests.get(TCBS_PRICE_URL.format(symbol=symbol), headers=headers, timeout=10)
+        if r_price.status_code == 200:
+            data = r_price.json().get("data", [])
+            if data:
+                # TCBS trả về matchPrice (giá khớp) hoặc refPrice (giá tham chiếu)
+                price = data[0].get("matchPrice", 0) or data[0].get("refPrice", 0)
+    except Exception as e:
+        print(f"  ⚠️ Lỗi lấy giá {symbol}: {e}")
 
-def fetch_data_for_ai(symbol):
-    now = int(time.time())
-    params_price = {"resolution": "D", "symbol": symbol, "from": now - 30 * 86400, "to": now}
-    price_data = fetch_via_proxy(RAW_DCHART_URL, params_price)
-    current_price = price_data["c"][-1] if (price_data and price_data.get("s") == "ok") else 0
-    
-    def get_ratio(code):
-        params = {"q": f"code:{symbol}~ratioCode:{code}", "size": 1, "sort": "reportDate:desc"}
-        data = fetch_via_proxy(RAW_FUNDAMENTAL_URL, params)
-        if data and data.get("data") and len(data["data"]) > 0:
-            val = data["data"][0].get("value")
-            return float(val) if val is not None else 0
-        return 0
+    # 2. Lấy P/E, P/B, ROE
+    try:
+        r_ratio = requests.get(TCBS_RATIO_URL.format(symbol=symbol), headers=headers, timeout=10)
+        if r_ratio.status_code == 200:
+            data = r_ratio.json().get("data", [])
+            if data:
+                ratio_data = data[0]
+                pe = ratio_data.get("priceToEarning", 0) or 0
+                pb = ratio_data.get("priceToBook", 0) or 0
+                roe = ratio_data.get("roe", 0) or 0
+                
+                # Sửa lỗi đơn vị ROE (nếu TCBS trả về 0.2 thì đổi thành 20%)
+                if 0 < roe < 1:
+                    roe *= 100
+    except Exception as e:
+        print(f"  ⚠️ Lỗi lấy chỉ số {symbol}: {e}")
 
-    pe = get_ratio("PRICE_TO_EARNINGS")
-    pb = get_ratio("PRICE_TO_BOOK")
-    roe = get_ratio("ROAE_TR_AVG5Q")
-    
-    return current_price, pe, pb, roe
+    return price, pe, pb, roe
 
 def get_ai_evaluation(symbol, industry, price, pe, pb, roe):
     if not ALIBABA_API_KEY:
         return None, None, None, None, None
 
+    # Xử lý hiển thị số liệu cho đẹp (nếu bằng 0 thì hiển thị N/A)
+    pe_str = f"{pe:.1f}" if pe else "N/A"
+    pb_str = f"{pb:.1f}" if pb else "N/A"
+    roe_str = f"{roe:.1f}" if roe else "N/A"
+
     prompt = f"""Bạn là một Giám đốc Đầu tư (CIO) tại Việt Nam, có tầm nhìn vĩ mô và chiến lược đầu tư giá trị dài hạn.
 Hãy phân tích cổ phiếu {symbol} thuộc nhóm ngành {industry}.
 DỮ LIỆU THỰC TẾ HIỆN TẠI:
 - Giá: {price:,.0f} VNĐ
-- P/E: {pe}
-- P/B: {pb}
-- ROE: {roe}%
+- P/E: {pe_str}
+- P/B: {pb_str}
+- ROE: {roe_str}%
 
 Dựa vào các CHỈ SỐ trên và BỐI CẢNH VĨ MÔ VIỆT NAM (lãi suất đang ở mức thấp, chính sách hỗ trợ tăng trưởng, đầu tư công...), hãy đưa ra đánh giá.
 Trả về DUY NHẤT JSON thuần túy (không markdown) gồm 5 trường:
@@ -91,7 +102,7 @@ Trả về DUY NHẤT JSON thuần túy (không markdown) gồm 5 trường:
 2. "outlook": Triển vọng 1-3 năm tới của doanh nghiệp, tối đa 40 từ.
 3. "recommendation": Chỉ chọn 1 trong các từ ("GOM TÍCH SẢN", "NẮM GIỮ CHẶT", "CHỜ ĐỢI", "HẠ TỶ TRỌNG") kèm 1 câu lý do dựa trên định giá.
 4. "buy_zone": Đưa ra VÙNG MUA CỤ THỂ dựa trên giá {price:,.0f} VNĐ. VD: "Mua tích lũy 30% vị thế ở vùng 40.000 - 42.000. Mua thêm nếu về 38.000."
-5. "macro_view": Phân tích bối cảnh VĨ MÔ ảnh hưởng đến mã này. Nên mua khi lãi suất/chính sách thế nào? (VD: "Hưởng lợi lớn khi lãi suất duy trì thấp và chính sách đẩy mạnh đầu tư công. Canh mua khi Fed hạ lãi suất.")
+5. "macro_view": Phân tích bối cảnh VĨ MÔ ảnh hưởng đến mã này. Nên mua khi lãi suất/chính sách thế nào? (VD: "Hưởng lợi lớn khi lãi suất duy trì thấp và chính sách đẩy mạnh đầu tư công.")
 """
     payload = {
         "model": "qwen-plus",
@@ -100,8 +111,9 @@ Trả về DUY NHẤT JSON thuần túy (không markdown) gồm 5 trường:
         "response_format": {"type": "json_object"}
     }
     headers = {"Authorization": f"Bearer {ALIBABA_API_KEY}", "Content-Type": "application/json"}
+    
     try:
-        r = requests.post(QWEN_API_URL, headers=headers, json=payload, timeout=25)
+        r = requests.post(QWEN_API_URL, headers=headers, json=payload, timeout=30)
         if r.status_code == 200:
             content = r.json()["choices"][0]["message"]["content"].strip()
             eval_data = json.loads(content)
@@ -112,8 +124,11 @@ Trả về DUY NHẤT JSON thuần túy (không markdown) gồm 5 trường:
                 eval_data.get("buy_zone"),
                 eval_data.get("macro_view")
             )
+        else:
+            print(f"  ⚠️ Lỗi Qwen API {symbol} (HTTP {r.status_code}): {r.text[:100]}")
     except Exception as e:
-        print(f"  ⚠️ Lỗi AI {symbol}: {e}")
+        print(f"  ⚠️ Lỗi gọi AI {symbol}: {e}")
+        
     return None, None, None, None, None
 
 def main():
@@ -123,45 +138,54 @@ def main():
     updated = 0
     now_iso = time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())
 
-    print(f"🤖 Phân tích Vĩ mô & Chỉ số cho {total} mã...\n")
+    print(f"🤖 Lấy dữ liệu từ TCBS & Phân tích AI cho {total} mã...\n")
 
     for idx, symbol in enumerate(symbols, 1):
         industry = INDUSTRY_MAP.get(symbol, "VN100")
         
-        print(f"[{idx}/{total}] Đang lấy dữ liệu {symbol}...")
-        price, pe, pb, roe = fetch_data_for_ai(symbol)
+        print(f"[{idx}/{total}] Đang xử lý {symbol}...")
+        price, pe, pb, roe = fetch_tcbs_data(symbol)
         
         if price == 0:
-            print(f"  ❌ Không lấy được dữ liệu {symbol}, bỏ qua.")
+            print(f"  ❌ Không lấy được giá {symbol}, bỏ qua.")
             continue
 
+        print(f"  -> Giá: {price:,.0f} | P/E: {pe:.1f} | P/B: {pb:.1f} | ROE: {roe:.1f}%")
+        
         bctc, outlook, recommendation, buy_zone, macro_view = get_ai_evaluation(symbol, industry, price, pe, pb, roe)
         
+        # Lưu dữ liệu (kể cả khi AI lỗi thì vẫn lưu giá & chỉ số)
+        data[symbol] = {
+            "symbol": symbol,
+            "industry": industry,
+            "close": price,
+            "pe": pe,
+            "pb": pb,
+            "roe": roe,
+            "bctc": bctc or "Chưa có đánh giá",
+            "outlook": outlook or "Chưa có triển vọng",
+            "recommendation": recommendation or "Chờ AI cập nhật",
+            "price_zone": buy_zone or "Chưa có vùng giá",
+            "macro_view": macro_view or "Chưa có phân tích vĩ mô",
+            "ai_updated_at": now_iso if (bctc and outlook) else None
+        }
+        
         if bctc and outlook:
-            data[symbol] = {
-                "symbol": symbol,
-                "industry": industry,
-                "bctc": bctc,
-                "outlook": outlook,
-                "recommendation": recommendation or "Chưa có",
-                "price_zone": buy_zone or "Chưa có vùng giá",
-                "macro_view": macro_view or "Chưa có phân tích vĩ mô",
-                "ai_updated_at": now_iso
-            }
             updated += 1
             print(f"  ✅ AI đã phân tích xong.")
         else:
-            print(f"  ⏭️ AI lỗi, bỏ qua.")
+            print(f"  ⏭️ AI lỗi, chỉ lưu dữ liệu giá.")
         
         time.sleep(1.0)
 
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-    # Ghi file gửi Telegram
-    msg = f"🤖 <b>Báo cáo Phân tích AI (Dài hạn)</b>\n\n- Tổng số mã: {total}\n- Phân tích thành công: {updated}/{total} mã\n- Thời gian: {now_iso}"
+    msg = f"🤖 <b>Báo cáo Phân tích AI (Dài hạn)</b>\n\n- Tổng số mã: {total}\n- Cập nhật dữ liệu giá: {len(data)} mã\n- Phân tích AI thành công: {updated} mã\n- Thời gian: {now_iso}"
     with open("telegram_msg.txt", "w", encoding="utf-8") as f:
         f.write(msg)
+
+    print(f"\n✅ Hoàn tất! Đã lưu {len(data)} mã vào {DATA_FILE}")
 
 if __name__ == "__main__":
     main()
