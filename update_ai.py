@@ -3,7 +3,6 @@ import json
 import time
 import requests
 
-# ==================== CẤU HÌNH ====================
 DATA_FILE = "data.json"
 ALIBABA_API_KEY = os.environ.get("ALIBABA_API_KEY")
 QWEN_API_URL = "https://dashscope-intl.aliyuncs.com/compatible-mode/v1/chat/completions"
@@ -34,10 +33,7 @@ Trả về DUY NHẤT JSON thuần túy (không markdown, không văn bản th�
         "temperature": 0.2,
         "response_format": {"type": "json_object"}
     }
-    headers = {
-        "Authorization": f"Bearer {ALIBABA_API_KEY}",
-        "Content-Type": "application/json"
-    }
+    headers = {"Authorization": f"Bearer {ALIBABA_API_KEY}", "Content-Type": "application/json"}
     try:
         r = requests.post(QWEN_API_URL, headers=headers, json=payload, timeout=25)
         if r.status_code != 200:
@@ -74,14 +70,18 @@ def main():
             updated += 1
             print(f"  ✅ AI cập nhật")
         else:
-            print(f"  ⏭️ Bỏ qua (giữ nguyên)")
-
+            print(f"  ⏭️ Bỏ qua")
         time.sleep(0.3)
 
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-    print(f"\n✅ Hoàn tất! Cập nhật AI cho {updated}/{total} mã.")
+    # Ghi message Telegram
+    msg = f"🤖 <b>Cập nhật Đánh giá AI (Qwen)</b>\n\n- Tổng số mã: {total}\n- Cập nhật thành công: {updated}/{total} mã\n- Thời gian: {now_iso}\n- Trạng thái: Thành công ✅"
+    with open("telegram_msg.txt", "w", encoding="utf-8") as f:
+        f.write(msg)
+
+    print(f"\n✅ Hoàn tất! Đã cập nhật AI cho {updated}/{total} mã.")
 
 
 if __name__ == "__main__":
