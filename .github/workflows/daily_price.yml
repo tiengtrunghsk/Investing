@@ -2,14 +2,15 @@ name: Daily Price & Ratio Update (No AI)
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # 07:00 sáng VN
+    # 23:00 UTC CN-T5 = 06:00 sáng T2-T6 (giờ VN)
+    - cron: '0 23 * * 0-4' 
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: update-data-json   # CÙNG GROUP với workflow AI để tránh conflict
+  group: update-data-json
   cancel-in-progress: false
 
 jobs:
@@ -22,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'        # Bây giờ đã OK vì có requirements.txt
+          cache: 'pip'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -51,3 +52,23 @@ jobs:
           git commit -m "📈 Daily price+ratio update $(date -u +'%Y-%m-%d')"
           git pull --rebase origin main || true
           git push
+
+      - name: Send Telegram Notification
+        if: always()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          if [ "$JOB_STATUS" != "success" ]; then
+            MSG="⚠️ <b>Cảnh báo: Workflow Giá & Chỉ số bị lỗi!</b>%0A%0A- Trạng thái: $JOB_STATUS%0A- Vui lòng kiểm tra GitHub Actions."
+          elif [ -f telegram_msg.txt ]; then
+            MSG=$(cat telegram_msg.txt | sed ':a;N;$!ba;s/\n/%0A/g')
+          else
+            MSG="⚠️ Workflow chạy xong nhưng không tìm thấy file telegram_msg.txt"
+          fi
+          
+          curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
+            -d chat_id="$TELEGRAM_CHAT_ID" \
+            -d text="$MSG" \
+            -d parse_mode="HTML"
