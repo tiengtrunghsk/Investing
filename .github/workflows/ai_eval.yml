@@ -1,16 +1,16 @@
 name: AI Evaluation Update (Qwen)
 
 on:
-  # Tách lịch riêng — ví dụ mỗi thứ Hai hàng tuần
   schedule:
-    - cron: '0 1 * * 1'   # 08:00 sáng thứ Hai VN
-  workflow_dispatch:        # Cho phép chạy tay bất cứ lúc nào
+    # 22:45 UTC Chủ Nhật = 05:45 sáng Thứ 2 (giờ VN)
+    - cron: '45 22 * * 0'
+  workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: update-data-json   # CÙNG GROUP để không đè lên daily job
+  group: update-data-json
   cancel-in-progress: false
 
 jobs:
@@ -23,7 +23,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'        # Bây giờ đã OK vì có requirements.txt
+          cache: 'pip'
 
       - name: Install dependencies
         run: pip install -r requirements.txt
@@ -55,3 +55,23 @@ jobs:
           git commit -m "🤖 AI evaluation update $(date -u +'%Y-%m-%d')"
           git pull --rebase origin main || true
           git push
+
+      - name: Send Telegram Notification
+        if: always()
+        env:
+          TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          JOB_STATUS: ${{ job.status }}
+        run: |
+          if [ "$JOB_STATUS" != "success" ]; then
+            MSG="⚠️ <b>Cảnh báo: Workflow Đánh giá AI bị lỗi!</b>%0A%0A- Trạng thái: $JOB_STATUS%0A- Vui lòng kiểm tra GitHub Actions."
+          elif [ -f telegram_msg.txt ]; then
+            MSG=$(cat telegram_msg.txt | sed ':a;N;$!ba;s/\n/%0A/g')
+          else
+            MSG="⚠️ Workflow chạy xong nhưng không tìm thấy file telegram_msg.txt"
+          fi
+          
+          curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
+            -d chat_id="$TELEGRAM_CHAT_ID" \
+            -d text="$MSG" \
+            -d parse_mode="HTML"
