@@ -4,12 +4,23 @@ import requests
 import pandas as pd
 import streamlit as st
 
-# Import theo chuẩn vnstock 5.x
-try:
-    from vnstock import Market
-except ImportError:
-    # Fallback nếu chạy nhầm môi trường cũ
-    pass
+# Import thư viện vnstock 5.x
+import vnstock
+from vnstock import Market
+
+# ==========================================
+# CẤU HÌNH XÁC THỰC VNSTOCK (QUAN TRỌNG)
+# ==========================================
+# Lấy API Key từ biến môi trường (đã cấu hình trên GitHub Secrets)
+api_key = os.environ.get("VNSTOCK_API_KEY")
+if api_key:
+    try:
+        vnstock.login(api_key)
+        print("✅ Đăng nhập vnstock thành công (đã có API Key)!")
+    except Exception as e:
+        print(f"❌ Lỗi đăng nhập vnstock: {e}")
+else:
+    print("⚠️ Không tìm thấy VNSTOCK_API_KEY. Chạy ở cấp Khách (Guest) - Có thể bị giới hạn dữ liệu!")
 
 # ==========================================
 # DANH SÁCH MÃ THEO DÕI MẶC ĐỊNH (Watchlist)
