@@ -224,6 +224,14 @@
                 </div>
             </div>
 
+            <!-- Bối cảnh vĩ mô (MỚI) -->
+            <div class="space-y-1.5 bg-indigo-950/30 p-3.5 rounded-xl border border-indigo-500/30 text-xs">
+                <h4 class="font-semibold text-indigo-400 uppercase flex items-center gap-1.5">
+                    <i class="fa-solid fa-globe"></i> Góc nhìn Vĩ mô & Chính sách (AI)
+                </h4>
+                <p id="modalMacroView" class="text-indigo-200/90 leading-relaxed">--</p>
+            </div>
+
             <button onclick="closeModal()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium rounded-xl transition-all shadow mt-2">
                 Đóng
             </button>
@@ -264,7 +272,6 @@
             "VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", "DAB": "Nông nghiệp"
         };
 
-        // Bản đồ từ khóa viết tắt cho từng nhóm ngành
         const INDUSTRY_KEYWORDS = {
             "Ngân hàng": "nh bank nganhang",
             "Chứng khoán": "ck chungkhoan securities",
@@ -412,7 +419,8 @@
                         bctc: aiDatabase[symbol]?.bctc || "Chưa có đánh giá AI",
                         outlook: aiDatabase[symbol]?.outlook || "Chưa có triển vọng AI",
                         recommendation: aiDatabase[symbol]?.recommendation || "Chưa có khuyến nghị",
-                        price_zone: aiDatabase[symbol]?.price_zone || "Chưa có vùng giá"
+                        price_zone: aiDatabase[symbol]?.price_zone || "Chưa có vùng giá",
+                        macro_view: aiDatabase[symbol]?.macro_view || "Chưa có góc nhìn vĩ mô"
                     };
                 }));
             }
@@ -450,7 +458,6 @@
             universeLoading = false;
         }
 
-        // Hàm lọc bảng khi gõ tìm kiếm
         function filterTable() {
             const input = document.getElementById("searchInput");
             const filter = input.value.toUpperCase().trim();
@@ -531,12 +538,12 @@
                     const pct = Math.round((processed / total) * 100);
                     progressBar.style.width = `${pct}%`;
                     statusText.innerText = `Đang quét: ${symbol}`;
-                    statusCount.innerText = `${processed}/${total}`;
+                    statusCount.innerText = `${processed><}/${total}`;
                 }));
             }
 
-            const renderRows = (items) => items.map(item => `
-                <tr onclick="showStockDetail('${item.symbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
+td            const renderRows = (items) => colspan items.map(item => `
+                <tr onclick="="showStockDetail('${item.s4ymbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
                     <td class="py-2.5 px-2 font-bold text-blue-400">
                         <span class="flex items-center gap-1 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20 w-fit">${item.symbol}</span>
                     </td>
@@ -553,7 +560,7 @@
             breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Breakout.</td></tr>`;
 
             document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
-            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có tín hiệu Squeeze.</td></tr>`;
+            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr" class="py-6 text-center text-slate-500">Không có tín hiệu Squeeze.</td></tr>`;
 
             statusText.innerText = "Hoàn tất!";
             scanBtn.disabled = false;
@@ -581,6 +588,9 @@
             document.getElementById("modalOutlook").innerText = data.outlook;
             document.getElementById("modalRecommendation").innerText = data.recommendation;
             document.getElementById("modalPriceZone").innerText = data.price_zone;
+            
+            // Gán dữ liệu vĩ mô vào thẻ mới
+            document.getElementById("modalMacroView").innerText = data.macro_view;
 
             document.getElementById("stockModal").classList.remove("hidden");
         }
