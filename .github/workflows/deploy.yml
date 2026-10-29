@@ -16,7 +16,6 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          # Đã xóa dòng cache: 'pip' ở đây
 
       - name: Install Dependencies
         run: |
@@ -28,4 +27,5 @@ jobs:
         env:
           TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CHAT_ID: ${{ secrets.CHAT_ID }}
+          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }} # Truyền API Key vào đây
         run: python app.py --auto
