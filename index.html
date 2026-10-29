@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Stock Screener Pro - BCTC & Triển Vọng</title>
+    <title>Pro Quant Stock Screener Pro</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -12,183 +12,201 @@
         body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-slate-900 text-slate-100 min-h-screen">
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col">
 
     <!-- Header Section -->
-    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+    <header class="border-b border-slate-800 bg-slate-900/90 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3.5 flex flex-col sm:flex-row justify-between items-center gap-3">
             <div class="flex items-center gap-3">
                 <div class="p-2.5 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-500/30">
-                    <i class="fa-solid fa-chart-line text-xl"></i>
+                    <i class="fa-solid fa-chart-line text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+                    <h1 class="text-base sm:text-lg font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
                         Pro Quant Screener Pro
                     </h1>
-                    <p class="text-xs text-slate-400">Tích hợp Báo cáo Tài chính & Triển vọng Đầu tư</p>
+                    <p class="text-[11px] text-slate-400">Hệ thống Định lượng Cơ bản & Kỹ thuật Chuyên sâu</p>
                 </div>
             </div>
 
-            <button id="scanBtn" onclick="startScreening()" class="w-full md:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2">
-                <i class="fa-solid fa-bolt"></i>
-                <span>Chạy Quét Toàn Diện</span>
-            </button>
+            <!-- Tab Navigation Switcher -->
+            <div class="flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 w-full sm:w-auto">
+                <button onclick="switchTab('universe')" id="tabBtnUniverse" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white shadow">
+                    <i class="fa-solid fa-building-columns mr-1.5"></i> Cổ Phiếu Tiềm Năng (Cơ Bản)
+                </button>
+                <button onclick="switchTab('signals')" id="tabBtnSignals" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-bolt mr-1.5"></i> Tín Hiệu Săn Sóng (Kỹ Thuật)
+                </button>
+            </div>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="max-w-7xl mx-auto px-4 py-6 space-y-6">
+    <main class="max-w-7xl mx-auto px-4 py-6 flex-1 w-full space-y-6">
 
-        <!-- Status Bar -->
-        <div id="statusCard" class="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-4 hidden">
-            <div class="flex justify-between items-center text-sm mb-2">
-                <span id="statusText" class="text-slate-300 font-medium">Đang chuẩn bị...</span>
-                <span id="statusCount" class="text-blue-400 font-mono">0 / 0</span>
-            </div>
-            <div class="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
-                <div id="progressBar" class="bg-blue-500 h-full w-0 transition-all duration-150"></div>
-            </div>
-        </div>
-
-        <!-- Results Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            
-            <!-- Breakout Table Card -->
-            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-4">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-base font-semibold text-emerald-400 flex items-center gap-2">
-                        <i class="fa-solid fa-rocket"></i>
-                        <span>Nhóm Breakout</span>
+        <!-- TAB 1: DANH MỤC CƠ BẢN TIỀM NĂNG (UNIVERSE) -->
+        <section id="tabUniverse" class="space-y-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
+                <div>
+                    <h2 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-layer-group text-blue-400"></i> Danh Sách Cổ Phiếu Tiềm Năng (Core Universe)
                     </h2>
-                    <span id="breakoutBadge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        0 mã
-                    </span>
+                    <p class="text-xs text-slate-400 mt-0.5">Tổng hợp các doanh nghiệp đầu ngành có BCTC lành mạnh, ROE cao. Bấm vào mã để xem phân tích chi tiết.</p>
                 </div>
-                
-                <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+                <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-xl">
+                    Tổng: <span id="totalUniverseCount">0</span> mã
+                </div>
+            </div>
+
+            <!-- Table Universe -->
+            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl overflow-hidden">
+                <div class="overflow-x-auto">
                     <table class="w-full text-left text-sm whitespace-nowrap">
-                        <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
+                        <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase bg-slate-900/50">
                             <tr>
-                                <th class="py-3 px-2">Mã (Xem BCTC & Triển Vọng)</th>
-                                <th class="py-3 px-2">Giá / Ngành</th>
-                                <th class="py-3 px-2 text-center">P/E</th>
-                                <th class="py-3 px-2 text-center">P/B</th>
-                                <th class="py-3 px-2 text-center">ROE</th>
+                                <th class="py-3 px-4">Mã CP</th>
+                                <th class="py-3 px-4">Nhóm Ngành</th>
+                                <th class="py-3 px-4 text-center">P/E</th>
+                                <th class="py-3 px-4 text-center">P/B</th>
+                                <th class="py-3 px-4 text-center">ROE</th>
+                                <th class="py-3 px-4 text-right">Thao Tác</th>
                             </tr>
                         </thead>
-                        <tbody id="breakoutBody" class="divide-y divide-slate-800 text-slate-200">
-                            <tr>
-                                <td colspan="5" class="py-8 text-center text-slate-500 text-xs">Bấm nút quét để bắt đầu.</td>
-                            </tr>
+                        <tbody id="universeBody" class="divide-y divide-slate-800 text-slate-200 text-xs">
+                            <tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải danh mục...</td></tr>
                         </tbody>
                     </table>
                 </div>
             </div>
+        </section>
 
-            <!-- Squeeze Table Card -->
-            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-4">
-                <div class="flex justify-between items-center">
-                    <h2 class="text-base font-semibold text-amber-400 flex items-center gap-2">
-                        <i class="fa-solid fa-box"></i>
-                        <span>Nhóm Squeeze (Cạn Cung)</span>
-                    </h2>
-                    <span id="squeezeBadge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
-                        0 mã
-                    </span>
+        <!-- TAB 2: TÍN HIỆU KỸ THUẬT (SIGNALS) -->
+        <section id="tabSignals" class="space-y-6 hidden">
+            <!-- Progress Bar Card -->
+            <div id="statusCard" class="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-4">
+                <div class="flex justify-between items-center text-xs mb-2">
+                    <span id="statusText" class="text-slate-300 font-medium">Sẵn sàng quét tín hiệu thời gian thực...</span>
+                    <span id="statusCount" class="text-blue-400 font-mono">0 / 0</span>
                 </div>
-
-                <div class="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-                    <table class="w-full text-left text-sm whitespace-nowrap">
-                        <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
-                            <tr>
-                                <th class="py-3 px-2">Mã (Xem BCTC & Triển Vọng)</th>
-                                <th class="py-3 px-2">Giá / Ngành</th>
-                                <th class="py-3 px-2 text-center">P/E</th>
-                                <th class="py-3 px-2 text-center">P/B</th>
-                                <th class="py-3 px-2 text-center">ROE</th>
-                            </tr>
-                        </thead>
-                        <tbody id="squeezeBody" class="divide-y divide-slate-800 text-slate-200">
-                            <tr>
-                                <td colspan="5" class="py-8 text-center text-slate-500 text-xs">Bấm nút quét để bắt đầu.</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                <div class="w-full bg-slate-700 rounded-full h-1.5 overflow-hidden">
+                    <div id="progressBar" class="bg-blue-500 h-full w-0 transition-all duration-150"></div>
                 </div>
             </div>
 
-        </div>
+            <div class="flex justify-between items-center bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
+                <div>
+                    <h2 class="text-sm font-bold text-white flex items-center gap-2">
+                        <i class="fa-solid fa-radar text-amber-400"></i> Bộ Lọc Tín Hiệu Săn Sóng Trực Tiếp
+                    </h2>
+                    <p class="text-xs text-slate-400 mt-0.5">Quét tự động trên danh mục cốt lõi để tìm điểm nổ Breakout và vùng tích lũy Cạn cung (Squeeze).</p>
+                </div>
+                <button onclick="startScreening()" id="scanBtn" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white font-medium text-xs rounded-xl shadow transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-bolt"></i> Chạy Quét Lại
+                </button>
+            </div>
+
+            <!-- Signal Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Breakout Table -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xs font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-rocket"></i> Nhóm Breakout (Nổ Vol & Vượt MA20)
+                        </h3>
+                        <span id="breakoutBadge" class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">0 mã</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs whitespace-nowrap">
+                            <thead class="text-slate-400 border-b border-slate-700/60 uppercase">
+                                <tr>
+                                    <th class="py-2.5 px-2">Mã</th>
+                                    <th class="py-2.5 px-2">Giá / Ngành</th>
+                                    <th class="py-2.5 px-2 text-center">P/E | P/B</th>
+                                    <th class="py-2.5 px-2 text-right">Khối Lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="breakoutBody" class="divide-y divide-slate-800 text-slate-200">
+                               <tr><td colspan="4" class="py-6 text-center text-slate-500">Bấm chạy quét để xem tín hiệu.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Squeeze Table -->
+                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4 space-y-3">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xs font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
+                            <i class="fa-solid fa-box"></i> Nhóm Squeeze (Cạn Cung / Tích Lũy Hẹp)
+                        </h3>
+                        <span id="squeezeBadge" class="px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">0 mã</span>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs whitespace-nowrap">
+                            <thead class="text-slate-400 border-b border-slate-700/60 uppercase">
+                                <tr>
+                                    <th class="py-2.5 px-2">Mã</th>
+                                    <th class="py-2.5 px-2">Giá / Ngành</th>
+                                    <th class="py-2.5 px-2 text-center">P/E | P/B</th>
+                                    <th class="py-2.5 px-2 text-right">Khối Lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="squeezeBody" class="divide-y divide-slate-800 text-slate-200">
+                               <tr><td colspan="4" class="py-6 text-center text-slate-500">Bấm chạy quét để xem tín hiệu.</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <!-- STOCK DETAIL MODAL (Tích hợp BCTC & Triển Vọng) -->
+    <!-- STOCK DETAIL MODAL (BCTC & Triển Vọng) -->
     <div id="stockModal" class="fixed inset-0 bg-black/75 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-        <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto p-6 space-y-5 shadow-2xl relative animate-in fade-in zoom-in duration-200 custom-scrollbar">
-            <!-- Close Button -->
+        <div class="bg-slate-800 border border-slate-700 rounded-2xl w-full max-w-xl max-h-[90vh] overflow-y-auto p-6 space-y-4 shadow-2xl relative">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-white text-lg w-8 h-8 rounded-full bg-slate-700/50 flex items-center justify-center">
                 <i class="fa-solid fa-xmark"></i>
             </button>
 
-            <!-- Modal Header -->
             <div class="flex items-center gap-3">
-                <div id="modalSymbolBadge" class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 font-bold text-lg flex items-center justify-center">
-                    --
-                </div>
+                <div id="modalSymbolBadge" class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/30 text-blue-400 font-bold text-lg flex items-center justify-center">--</div>
                 <div>
-                    <h3 id="modalTitle" class="text-xl font-bold text-white">--</h3>
+                    <h3 id="modalTitle" class="text-lg font-bold text-white">--</h3>
                     <p id="modalIndustry" class="text-xs text-slate-400">--</p>
                 </div>
             </div>
 
-            <!-- Key Metrics Grid -->
-            <div class="grid grid-cols-3 gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50">
+            <div class="grid grid-cols-3 gap-3 bg-slate-900/60 p-3 rounded-xl border border-slate-700/50 text-xs">
                 <div class="text-center">
-                    <span class="text-[10px] text-slate-400 uppercase block mb-1">Giá Thị Trường</span>
-                    <span id="modalPrice" class="font-mono text-sm font-bold text-white">--</span>
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">P/E</span>
+                    <span id="modalPe" class="font-mono font-bold text-blue-300">--</span>
                 </div>
                 <div class="text-center border-x border-slate-700">
-                    <span class="text-[10px] text-slate-400 uppercase block mb-1">P/E | P/B</span>
-                    <span id="modalValuation" class="font-mono text-sm font-bold text-blue-300">--</span>
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">P/B</span>
+                    <span id="modalPb" class="font-mono font-bold text-amber-300">--</span>
                 </div>
                 <div class="text-center">
-                    <span class="text-[10px] text-slate-400 uppercase block mb-1">Hiệu Suất ROE</span>
-                    <span id="modalRoe" class="font-mono text-sm font-bold text-purple-300">--</span>
+                    <span class="text-[10px] text-slate-400 uppercase block mb-1">ROE</span>
+                    <span id="modalRoe" class="font-mono font-bold text-purple-300">--</span>
                 </div>
             </div>
 
-            <!-- 1. Báo cáo tài chính & Sức khỏe doanh nghiệp -->
-            <div class="space-y-2 bg-slate-900/40 p-4 rounded-xl border border-slate-700/40">
-                <h4 class="text-xs font-semibold text-blue-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <i class="fa-solid fa-file-invoice-dollar"></i> Tổng Quan BCTC & Sức Khỏe Tài Chính:
+            <div class="space-y-1.5 bg-slate-900/40 p-3.5 rounded-xl border border-slate-700/40 text-xs">
+                <h4 class="font-semibold text-blue-400 uppercase flex items-center gap-1.5">
+                    <i class="fa-solid fa-file-invoice-dollar"></i> Sức Khỏe BCTC & Tài Chính:
                 </h4>
-                <p id="modalBctc" class="text-xs text-slate-300 leading-relaxed">
-                    --
-                </p>
+                <p id="modalBctc" class="text-slate-300 leading-relaxed">--</p>
             </div>
 
-            <!-- 2. Đánh giá Định giá & Tín hiệu kỹ thuật -->
-            <div class="space-y-2 bg-slate-900/40 p-4 rounded-xl border border-slate-700/40">
-                <h4 class="text-xs font-semibold text-amber-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <i class="fa-solid fa-scale-balanced"></i> Đánh Giá Định Giá & Dòng Tiền Kỹ Thuật:
+            <div class="space-y-1.5 bg-blue-950/30 p-3.5 rounded-xl border border-blue-500/30 text-xs">
+                <h4 class="font-semibold text-emerald-400 uppercase flex items-center gap-1.5">
+                    <i class="fa-solid fa-award"></i> Kết Luận & Triển Vọng Đầu Tư:
                 </h4>
-                <p id="modalValuationEval" class="text-xs text-slate-300 leading-relaxed">
-                    --
-                </p>
+                <p id="modalOutlook" class="text-emerald-200/90 leading-relaxed font-medium">--</p>
             </div>
 
-            <!-- 3. KẾT LUẬN TRIỂN VỌNG ĐẦU TƯ -->
-            <div class="space-y-2 bg-blue-950/30 p-4 rounded-xl border border-blue-500/30">
-                <h4 class="text-xs font-semibold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
-                    <i class="fa-solid fa-award"></i> KẾT LUẬN & TRIỂN VỌNG ĐẦU TƯ:
-                </h4>
-                <p id="modalOutlook" class="text-xs text-emerald-200/90 leading-relaxed font-medium">
-                    --
-                </p>
-            </div>
-
-            <!-- Footer Action -->
             <div class="pt-1">
-                <button onclick="closeModal()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium rounded-xl transition-all shadow-lg shadow-blue-600/20">
-                    Đã hiểu & Đóng
+                <button onclick="closeModal()" class="w-full py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium rounded-xl transition-all shadow">
+                    Đóng cửa sổ
                 </button>
             </div>
         </div>
@@ -196,67 +214,74 @@
 
     <!-- JavaScript Application Logic -->
     <script>
-        // Cơ sở dữ liệu tích hợp sâu BCTC, Định giá và Triển vọng đầu tư
         const CURATED_STOCKS = {
-            "VCB": { 
-                industry: "Ngân hàng", pe: 16.5, pb: 3.2, roe: 21.0, 
-                bctc: "Chất lượng tài sản đứng đầu hệ thống ngân hàng với tỷ lệ nợ xấu (NPL) duy trì dưới 1%, tỷ lệ bao phủ nợ xấu vượt 200%. Dòng tiền từ tiền gửi không kỳ hạn (CASA) dồi dào.",
-                outlook: "CỔ PHIẾU ĐẦU TRÀI AN TOÀN: Thích hợp cho chiến lược đầu tư dài hạn. Biên an toàn cao nhờ năng lực quản trị rủi ro xuất sắc qua mọi chu kỳ kinh tế."
-            },
-            "MBB": { 
-                industry: "Ngân hàng", pe: 8.5, pb: 1.4, roe: 20.5, 
-                bctc: "Tăng trưởng tín dụng vượt trội ngành nhờ hạn mức cấp cao từ NHNN. Tỷ lệ CASA duy trì ở mức cao giúp tối ưu hóa chi phí vốn và bảo vệ biên lãi ròng (NIM).",
-                outlook: "ĐỊNH GIÁ RẤT HẤP DẪN: Với P/E chỉ 8.5x và ROE trên 20%, MBB là lựa chọn hàng đầu cho nhóm cổ phiếu Ngân hàng có dư địa tăng trưởng định giá mạnh mẽ."
-            },
-            "ACB": { 
-                industry: "Ngân hàng", pe: 9.1, pb: 1.7, roe: 22.0, 
-                bctc: "BCTC sạch hoàn toàn, không dính nợ trái phiếu doanh nghiệp rủi ro lớn. Tỷ lệ ROE duy trì trên 20% liên tục nhiều năm.",
-                outlook: "TÍCH LŨY TỐT: Cổ phiếu tăng trưởng bền vững, phù hợp mua tích sản tại các vùng giá cạn cung (Squeeze)."
-            },
-            "SSI": { 
-                industry: "Chứng khoán", pe: 20.5, pb: 2.2, roe: 12.5, 
-                bctc: "Quy mô vốn chủ sở hữu lớn nhất ngành, danh mục tự doanh tập trung vào các tài sản an toàn và trái phiếu chính phủ. Năng lực cho vay margin đạt mức kỷ lục.",
-                outlook: "HƯỞNG LỢI SÓNG THỊ TRƯỜNG: Cổ phiếu nhạy sóng theo thanh khoản VNI. Khi xuất hiện tín hiệu Breakout, SSI thường dẫn dắt sóng nhóm Chứng khoán."
-            },
-            "VCI": { 
-                industry: "Chứng khoán", pe: 22.1, pb: 2.4, roe: 13.0, 
-                bctc: "Mảng IB (Ngân hàng đầu tư) chiếm tỷ trọng lợi nhuận lớn với các deal tư vấn M&A và niêm yết lớn. Biên lợi nhuận mảng Tự doanh cao.",
-                outlook: "TRIỂN VỌNG BÙNG NỔ: Phù hợp đánh theo sóng dòng tiền lớn, kỳ vọng bùng nổ mạnh khi các thương vụ IPO và M&A sôi động trở lại."
-            },
-            "HPG": { 
-                industry: "Thép & VLXD", pe: 13.5, pb: 1.6, roe: 13.2, 
-                bctc: "BCTC ghi nhận chu kỳ hồi phục rõ nét. Lượng tiền mặt và tiền gửi đạt hàng chục nghìn tỷ. Chi phí sản xuất thép gộp rẻ nhất khu vực nhờ đại dự án Dung Quất.",
-                outlook: "BƯỚC VÀO CHU KỲ TĂNG TRƯỞNG MỚI: Dự án Dung Quất 2 đi vào hoạt động sẽ gia tăng 50% công suất. Triển vọng tăng trưởng trung và dài hạn rất sáng."
-            },
-            "FPT": { 
-                industry: "Công nghệ", pe: 24.5, pb: 4.8, roe: 26.0, 
-                bctc: "Mô hình kinh doanh tăng trưởng đều đặn 15-20%/năm. Doanh thu ký mới từ thị trường nước ngoài (Mỹ, Nhật) liên tục vượt mốc 1 tỷ USD. Không rủi ro nợ vay.",
-                outlook: "CỔ PHIẾU TĂNG TRƯỞNG KINH ĐIỂN: P/E cao nhưng hoàn toàn tương xứng với tốc độ tăng trưởng. Các nhịp rũ bỏ hoặc tích lũy hẹp (Squeeze) là cơ hội gia tăng tỷ trọng."
-            },
-            "MWG": { 
-                industry: "Bán lẻ", pe: 25.0, pb: 3.1, roe: 15.0, 
-                bctc: "Sức khỏe tài chính phục hồi mạnh mẽ sau đợt tái cấu trúc chuỗi cửa hàng. Chuỗi Bách Hóa Xanh đã qua điểm hòa vốn và bắt đầu đóng góp lợi nhuận dương.",
-                outlook: "TRIỂN VỌNG PHỤC HỒI MẠNH: Kỳ vọng bùng nổ lợi nhuận khi sức mua tiêu dùng hồi phục. Rất phù hợp theo dõi các phiên Breakout khối lượng lớn."
-            },
-            "VNM": { 
-                industry: "Tiêu dùng", pe: 18.5, pb: 4.2, roe: 28.0, 
-                bctc: "Cỗ máy in tiền mặt, trả cổ tức bằng tiền cực kỳ đều đặn. Không có nợ vay rủi ro, cấu trúc tài chính vững như bàn thạch.",
-                outlook: "ĐẦU TƯ TRẢ CỔ TỨC & AN TOÀN: Phù hợp cho nhà đầu tư phòng thủ, yêu thích sự ổn định và nhận dòng tiền cổ tức hàng năm."
-            },
-            "DGC": { 
-                industry: "Hóa chất", pe: 12.5, pb: 2.8, roe: 25.0, 
-                bctc: "Không nợ vay tài chính ròng, lượng tiền mặt chiếm hơn 40% tổng tài sản. Biên lợi nhuận gộp duy trì ở mức mơ ước nhờ chủ động nguồn nguyên liệu phốt pho.",
-                outlook: "SIÊU CỔ PHIẾU CƠ BẢN: Động lực từ xu hướng bùng nổ công nghệ bán dẫn (Phốt pho vàng là nguyên liệu đầu vào chip). Triển vọng định giá cực sáng."
-            }
+            "VCB": { industry: "Ngân hàng", pe: 16.5, pb: 3.2, roe: 21.0, bctc: "Chất lượng tài sản đứng đầu hệ thống, nợ xấu thấp dưới 1%, dự phòng bao phủ cao.", outlook: "CỔ PHIẾU AN TOÀN: Thích hợp đầu tư tích sản dài hạn, biên an toàn cao." },
+            "BID": { industry: "Ngân hàng", pe: 12.8, pb: 2.1, roe: 18.5, bctc: "Ngân hàng quốc doanh quy mô lớn, lợi thế vốn rẻ và mạng lưới tín dụng rộng khắp.", outlook: "TĂNG TRƯỞNG ỔN ĐỊNH: Phù hợp phân bổ tỷ trọng lớn cho danh mục trung dài hạn." },
+            "CTG": { industry: "Ngân hàng", pe: 10.2, pb: 1.5, roe: 16.2, bctc: "Đà tăng trưởng tốt, bộ đệm dự phòng vững chắc, định giá P/B hấp dẫn so với trung vị ngành.", outlook: "ĐỊNH GIÁ HẤP DẪN: Tiềm năng tăng giá tương đối cao khi dòng tiền lớn vào nhóm ngân hàng quốc doanh." },
+            "TCB": { industry: "Ngân hàng", pe: 11.5, pb: 1.8, roe: 17.0, bctc: "Đầu ngành về tỷ lệ CASA, hiệu suất sinh lời cao, danh mục cho vay đa dạng.", outlook: "ĐẦU TƯ TĂNG TRƯỞNG: Doanh nghiệp tư nhân quản trị xuất sắc." },
+            "MBB": { industry: "Ngân hàng", pe: 8.5, pb: 1.4, roe: 20.5, bctc: "Tăng trưởng tín dụng vượt trội, ROE nhóm đầu ngành, hệ sinh thái quân đội vững mạnh.", outlook: "CƠ HỘI ĐẦU TƯ SÁNG GIÁ: P/E thấp hợp lý với hiệu suất sinh lời vượt trội." },
+            "ACB": { industry: "Ngân hàng", pe: 9.1, pb: 1.7, roe: 22.0, bctc: "BCTC sạch hoàn toàn, không rủi ro trái phiếu doanh nghiệp, ROE ổn định trên 20%.", outlook: "CHẤT LƯỢNG CAO: Lựa chọn hàng đầu cho nhà đầu tư thích sự an toàn, bền vững." },
+            "SSI": { industry: "Chứng khoán", pe: 20.5, pb: 2.2, roe: 12.5, bctc: "Vốn chủ sở hữu lớn nhất ngành, tự doanh an toàn, năng lực cho vay margin kỷ lục.", outlook: "ĐẦU TÀU CHỨNG KHOÁN: Nhạy sóng theo thanh khoản thị trường chung." },
+            "VCI": { industry: "Chứng khoán", pe: 22.1, pb: 2.4, roe: 13.0, bctc: "Mạnh về tư vấn IB và phát hành, biên lợi nhuận mảng tự doanh và cho vay rất cao.", outlook: "BÙNG NỔ THEO SÓNG: Hưởng lợi lớn khi thị trường tài chính sôi động trở lại." },
+            "HPG": { industry: "Thép & VLXD", pe: 13.5, pb: 1.6, roe: 13.2, bctc: "Dự án Dung Quất 2 chuẩn bị vận hành, dòng tiền mặt mạnh, chi phí sản xuất thấp nhất khu vực.", outlook: "CHU KỲ TĂNG TRƯỞNG MỚI: Tiềm năng bùng nổ lợi nhuận trung hạn." },
+            "FPT": { industry: "Công nghệ", pe: 24.5, pb: 4.8, roe: 26.0, bctc: "Tăng trưởng đều đặn 15-20%/năm, doanh thu xuất khẩu phần mềm vượt mốc lớn, không nợ vay.", outlook: "CỔ PHIẾU TĂNG TRƯỞNG KINH ĐIỂN: Nắm giữ dài hạn bất chấp biến động thị trường." },
+            "MWG": { industry: "Bán lẻ", pe: 25.0, pb: 3.1, roe: 15.0, bctc: "Tái cấu trúc thành công, Bách Hóa Xanh đã hòa vốn và bắt đầu sinh lời mạnh mẽ.", outlook: "PHỤC HỒI MẠNH MẼ: Kỳ vọng tăng trưởng biên lợi nhuận rõ nét các quý tới." },
+            "VNM": { industry: "Tiêu dùng", pe: 18.5, pb: 4.2, roe: 28.0, bctc: "Cỗ máy tiền mặt, cổ tức tiền mặt đều đặn, nền tảng tài chính không đối thủ.", outlook: "PHÒNG THỦ & CỔ TỨC: Thích hợp cho danh mục ổn định dài hạn." },
+            "DGC": { industry: "Hóa chất", pe: 12.5, pb: 2.8, roe: 25.0, bctc: "Không nợ vay, lượng tiền mặt lớn chiếm phần lớn tài sản, biên lợi nhuận gộp cực cao.", outlook: "SIÊU CỔ PHIẾU CƠ BẢN: Động lực từ chuỗi cung ứng vật liệu bán dẫn toàn cầu." }
         };
 
         let scannedDataCache = {};
+
+        // Switch Tab Logic
+        function switchTab(tabName) {
+            const tabUniverse = document.getElementById("tabUniverse");
+            const tabSignals = document.getElementById("tabSignals");
+            const tabBtnUniverse = document.getElementById("tabBtnUniverse");
+            const tabBtnSignals = document.getElementById("tabBtnSignals");
+
+            if (tabName === 'universe') {
+                tabUniverse.classList.remove("hidden");
+                tabSignals.classList.add("hidden");
+                tabBtnUniverse.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white shadow";
+                tabBtnSignals.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white";
+            } else {
+                tabUniverse.classList.add("hidden");
+                tabSignals.classList.remove("hidden");
+                tabBtnSignals.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white shadow";
+                tabBtnUniverse.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white";
+            }
+        }
+
+        // Render Tab 1: Universe Danh sách cổ phiếu tiềm năng cơ bản
+        function renderUniverse() {
+            const tbody = document.getElementById("universeBody");
+            const entries = Object.entries(CURATED_STOCKS);
+            document.getElementById("totalUniverseCount").innerText = entries.length;
+
+            tbody.innerHTML = entries.map(([symbol, info]) => `
+                <tr class="hover:bg-slate-800/60 transition-colors">
+                    <td class="py-3 px-4 font-bold text-blue-400">
+                        <button onclick="showStockDetail('${symbol}')" class="hover:underline flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20">
+                            <i class="fa-solid fa-circle-info text-[10px]"></i> ${symbol}
+                        </button>
+                    </td>
+                    <td class="py-3 px-4 text-slate-300">${info.industry}</td>
+                    <td class="py-3 px-4 text-center font-mono text-blue-300">${info.pe}</td>
+                    <td class="py-3 px-4 text-center font-mono text-amber-300">${info.pb}</td>
+                    <td class="py-3 px-4 text-center font-mono text-purple-300">${info.roe}%</td>
+                    <td class="py-3 px-4 text-right">
+                        <button onclick="showStockDetail('${symbol}')" class="px-3 py-1 bg-slate-700 hover:bg-slate-600 text-white text-[11px] rounded-lg transition-all">
+                            Xem BCTC & Triển Vọng
+                        </button>
+                    </td>
+                </tr>
+            `).join('');
+        }
 
         async function fetchStockHistory(symbol) {
             const end = Math.floor(Date.now() / 1000);
             const start = end - (120 * 86400);
             const url = `https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol=${symbol}&from=${start}&to=${end}`;
-            
             try {
                 const response = await fetch(url);
                 if (!response.ok) return null;
@@ -270,10 +295,7 @@
 
         function analyzeData(symbol, info, data) {
             const len = data.c.length;
-            const close = data.c;
-            const high = data.h;
-            const low = data.l;
-            const volume = data.v;
+            const close = data.c, high = data.h, low = data.l, volume = data.v;
 
             let sumClose20 = 0, sumVol20 = 0;
             for (let i = len - 20; i < len; i++) {
@@ -310,24 +332,17 @@
 
             if (isBreakout || isSqueeze) {
                 return {
-                    symbol,
-                    industry: info.industry,
-                    close: currClose,
-                    pe: info.pe,
-                    pb: info.pb,
-                    roe: info.roe,
-                    bctc: info.bctc,
-                    outlook: info.outlook,
-                    isBreakout,
-                    isSqueeze
+                    symbol, industry: info.industry, close: currClose, volume: currVol,
+                    pe: info.pe, pb: info.pb, roe: info.roe, bctc: info.bctc, outlook: info.outlook,
+                    isBreakout, isSqueeze
                 };
             }
             return null;
         }
 
+        // Quét Tín hiệu Kỹ thuật (Tab 2)
         async function startScreening() {
             const scanBtn = document.getElementById("scanBtn");
-            const statusCard = document.getElementById("statusCard");
             const progressBar = document.getElementById("progressBar");
             const statusText = document.getElementById("statusText");
             const statusCount = document.getElementById("statusCount");
@@ -337,10 +352,9 @@
 
             scanBtn.disabled = true;
             scanBtn.classList.add("opacity-50", "cursor-not-allowed");
-            statusCard.classList.remove("hidden");
 
-            breakoutBody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-slate-500 text-xs">Đang quét dữ liệu...</td></tr>`;
-            squeezeBody.innerHTML = `<tr><td colspan="5" class="py-8 text-center text-slate-500 text-xs">Đang quét dữ liệu...</td></tr>`;
+            breakoutBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét thời gian thực...</td></tr>`;
+            squeezeBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500">Đang quét thời gian thực...</td></tr>`;
 
             const entries = Object.entries(CURATED_STOCKS);
             const total = entries.length;
@@ -367,82 +381,53 @@
                     processed++;
                     const percent = Math.round((processed / total) * 100);
                     progressBar.style.width = `${percent}%`;
-                    statusText.innerText = `Quét: ${symbol}`;
+                    statusText.innerText = `Đang kiểm tra: ${symbol}`;
                     statusCount.innerText = `${processed}/${total}`;
                 }));
             }
 
-            const renderRows = (items) => {
+            const renderSignalRows = (items) => {
                 return items.map(item => `
                     <tr class="hover:bg-slate-800/60 transition-colors">
-                        <td class="py-3 px-2">
-                            <button onclick="showStockDetail('${item.symbol}')" class="font-bold text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20">
-                                <i class="fa-solid fa-magnifying-glass-chart text-[10px]"></i> ${item.symbol}
+                        <td class="py-2.5 px-2 font-bold text-blue-400">
+                            <button onclick="showStockDetail('${item.symbol}')" class="hover:underline flex items-center gap-1 bg-blue-500/10 px-1.5 py-0.5 rounded border border-blue-500/20">
+                                ${item.symbol}
                             </button>
                         </td>
-                        <td class="py-3 px-2">
+                        <td class="py-2.5 px-2">
                             <div class="font-mono text-slate-100">${item.close.toLocaleString('vi-VN')}</div>
                             <div class="text-[10px] text-slate-400">${item.industry}</div>
                         </td>
-                        <td class="py-3 px-2 text-center font-mono text-xs text-blue-300">${item.pe}</td>
-                        <td class="py-3 px-2 text-center font-mono text-xs text-amber-300">${item.pb}</td>
-                        <td class="py-3 px-2 text-center font-mono text-xs text-purple-300">${item.roe}%</td>
+                        <td class="py-2.5 px-2 text-center font-mono text-[11px] text-slate-300">P/E: ${item.pe} | P/B: ${item.pb}</td>
+                        <td class="py-2.5 px-2 text-right font-mono text-slate-300">${item.volume.toLocaleString('vi-VN')}</td>
                     </tr>
                 `).join('');
             };
 
             document.getElementById("breakoutBadge").innerText = `${breakouts.length} mã`;
-            breakoutBody.innerHTML = breakouts.length > 0 ? renderRows(breakouts) : `<tr><td colspan="5" class="py-6 text-center text-slate-500 text-xs">Không có mã nào.</td></tr>`;
+            breakoutBody.innerHTML = breakouts.length > 0 ? renderSignalRows(breakouts) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có mã nào đạt tín hiệu Breakout hôm nay.</td></tr>`;
 
             document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
-            squeezeBody.innerHTML = squeezes.length > 0 ? renderRows(squeezes) : `<tr><td colspan="5" class="py-6 text-center text-slate-500 text-xs">Không có mã nào.</td></tr>`;
+            squeezeBody.innerHTML = squeezes.length > 0 ? renderSignalRows(squeezes) : `<tr><td colspan="4" class="py-6 text-center text-slate-500">Không có mã nào đạt tín hiệu Squeeze hôm nay.</td></tr>`;
 
-            statusText.innerText = "Hoàn tất!";
+            statusText.innerText = "Quét tín hiệu hoàn tất!";
             scanBtn.disabled = false;
             scanBtn.classList.remove("opacity-50", "cursor-not-allowed");
         }
 
-        // Tự động phân tích & Tổng hợp Triển vọng vào Modal
+        // Modal hiển thị chi tiết
         function showStockDetail(symbol) {
-            const stockInfo = CURATED_STOCKS[symbol] || {
-                industry: "Khác", pe: "--", pb: "--", roe: "--",
-                bctc: "Doanh nghiệp trong danh sách theo dõi nền tảng tài chính ổn định.",
-                outlook: "Cần quan sát thêm sự xác nhận của dòng tiền kỹ thuật trước khi giải ngân."
-            };
+            const stockInfo = CURATED_STOCKS[symbol];
+            if (!stockInfo) return;
 
-            const data = scannedDataCache[symbol] || {
-                symbol: symbol,
-                industry: stockInfo.industry,
-                close: 0,
-                pe: stockInfo.pe,
-                pb: stockInfo.pb,
-                roe: stockInfo.roe,
-                bctc: stockInfo.bctc,
-                outlook: stockInfo.outlook,
-                isBreakout: false,
-                isSqueeze: false
-            };
-
-            // Đánh giá Định giá dựa vào chỉ số P/E, P/B & Tín hiệu vừa quét
-            let valuationEval = `Chỉ số P/E hiện tại ở mức ${data.pe}x và P/B ở mức ${data.pb}x với hiệu suất ROE đạt ${data.roe}%. `;
-            if (data.isBreakout) {
-                valuationEval += `🔥 Tín hiệu kỹ thuật xác nhận BREAKOUT (Giá vượt MA20 đi kèm thanh khoản bùng nổ), cho thấy dòng tiền mạnh của nhà đầu tư tổ chức đang tham gia.`;
-            } else if (data.isSqueeze) {
-                valuationEval += `📦 Tín hiệu kỹ thuật xác nhận SQUEEZE (Cạn cung / Tích lũy biên hẹp 5 phiên), phản ánh lực bán đã kiệt sức và cổ phiếu đang ở vùng nén giá sẵn sàng cho nhịp bùng nổ tiếp theo.`;
-            } else {
-                valuationEval += `Cổ phiếu đang trong trạng thái vận động tích lũy bình thường.`;
-            }
-
-            document.getElementById("modalSymbolBadge").innerText = data.symbol;
-            document.getElementById("modalTitle").innerText = `Phân Tích Cổ Phiếu ${data.symbol}`;
-            document.getElementById("modalIndustry").innerText = `Ngành: ${data.industry}`;
-            document.getElementById("modalPrice").innerText = data.close > 0 ? data.close.toLocaleString('vi-VN') : "Chưa cập nhật";
-            document.getElementById("modalValuation").innerText = `P/E: ${data.pe} | P/B: ${data.pb}`;
-            document.getElementById("modalRoe").innerText = `${data.roe}%`;
-            
-            document.getElementById("modalBctc").innerText = data.bctc;
-            document.getElementById("modalValuationEval").innerText = valuationEval;
-            document.getElementById("modalOutlook").innerText = data.outlook;
+            document.getElementById("modalSymbolBadge").innerText = symbol;
+            document.getElementById("modalTitle").innerText = `Hồ Sơ Cơ Bản & BCTC: ${symbol}`;
+            document.getElementById("modalIndustry").innerText = `Nhóm Ngành: ${stockInfo.industry}`;
+            document.getElementById("modalPe").innerText = `${stockInfo.pe}x`;
+            document.getElementById("modalPb").innerText = `${stockInfo.pb}x`;
+            document.getElementById("modalRoe").innerText = `${stockInfo.roe}%`;
+            document.getElementById("modalBctc").innerText = stockInfo.bctc;
+            document.getElementById("modalOutlook").innerText = stockInfo.outlook;
 
             document.getElementById("stockModal").classList.remove("hidden");
         }
@@ -453,13 +438,12 @@
 
         window.onclick = function(event) {
             const modal = document.getElementById("stockModal");
-            if (event.target == modal) {
-                closeModal();
-            }
+            if (event.target == modal) closeModal();
         }
 
         window.addEventListener("DOMContentLoaded", () => {
-            startScreening();
+            renderUniverse();
+            startScreening(); // Tự động quét ngầm tín hiệu khi mở web
         });
     </script>
 </body>
