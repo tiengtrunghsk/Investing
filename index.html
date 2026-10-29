@@ -43,18 +43,26 @@
 
         <!-- TAB 1: UNIVERSE -->
         <section id="tabUniverse" class="space-y-4">
-            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
                 <div>
                     <h2 class="text-sm font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-layer-group text-blue-400"></i> Danh Sách Cổ Phiếu VN100
                     </h2>
                     <p class="text-xs text-slate-400 mt-0.5">Click vào mã để xem chi tiết. Chỉ số lấy thực tế từ VNDIRECT.</p>
                 </div>
-                <div class="flex items-center gap-2">
-                    <button onclick="loadUniverse()" class="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 text-white text-xs rounded-xl transition-all flex items-center gap-1.5">
+                
+                <div class="flex flex-col sm:flex-row items-center gap-2 w-full md:w-auto">
+                    <div class="relative w-full sm:w-64">
+                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                            <i class="fa-solid fa-magnifying-glass text-slate-400 text-xs"></i>
+                        </div>
+                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Tìm mã, ngành (vd: NH, CK, BĐS)..." 
+                            class="bg-slate-900/60 border border-slate-700 text-slate-200 text-xs rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full pl-9 p-2 transition-all outline-none">
+                    </div>
+                    <button onclick="loadUniverse()" class="px-3 py-2 bg-slate-700 hover:bg-slate-600 text-white text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 w-full sm:w-auto">
                         <i class="fa-solid fa-rotate"></i> Refresh
                     </button>
-                    <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-1.5 rounded-xl">
+                    <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-2 rounded-xl whitespace-nowrap hidden sm:block">
                         Tổng: <span id="totalUniverseCount">0</span> mã
                     </div>
                 </div>
@@ -256,8 +264,30 @@
             "VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", "DAB": "Nông nghiệp"
         };
 
-        let aiDatabase = {}; // Chứa dữ liệu từ file data.json do AI tạo ra
-        let liveDataMap = {}; // Chứa dữ liệu realtime (Giá, P/E, P/B) + AI
+        // Bản đồ từ khóa viết tắt cho từng nhóm ngành
+        const INDUSTRY_KEYWORDS = {
+            "Ngân hàng": "nh bank nganhang",
+            "Chứng khoán": "ck chungkhoan securities",
+            "Bất động sản": "bds batdongsan realestate",
+            "BĐS Khu công nghiệp": "bds kcn khucongnghiep industrial",
+            "Thép & VLXD": "thep vlxd vatlieuxaydung steel",
+            "Xây dựng": "xd xaydung construction",
+            "Công nghệ": "cn tech technology",
+            "Bán lẻ": "bl retail",
+            "Tiêu dùng": "td consumer",
+            "Dầu khí": "dk oil gas",
+            "Năng lượng": "nl energy",
+            "Hóa chất": "hc chemical",
+            "Phân bón": "pb fertilizer",
+            "Cảng biển & Logistics": "cangbien logistics",
+            "Vận tải biển": "vtb shipping",
+            "Hàng không": "hk aviation",
+            "Thủy sản": "ts seafood",
+            "Nông nghiệp": "nn agriculture"
+        };
+
+        let aiDatabase = {}; 
+        let liveDataMap = {}; 
         let historyCache = {};
         let universeLoading = false;
 
@@ -280,7 +310,6 @@
             }
         }
 
-        // Hàm gọi API (Trình duyệt không bị chặn IP như GitHub Actions)
         async function fetchVND(url, params) {
             const query = new URLSearchParams(params).toString();
             const fullUrl = `${url}?${query}`;
@@ -345,8 +374,9 @@
             universeLoading = true;
             const tbody = document.getElementById("universeBody");
             tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải dữ liệu từ VNDIRECT & AI...</td></tr>`;
+            
+            document.getElementById("searchInput").value = "";
 
-            // 1. Tải data.json (chứa đánh giá AI)
             try {
                 const res = await fetch('data.json');
                 if (res.ok) {
@@ -361,7 +391,6 @@
             const entries = VN100;
             document.getElementById("totalUniverseCount").innerText = entries.length;
 
-            // 2. Fetch dữ liệu VNDIRECT theo batch (5 mã 1 lúc để tránh nghẽn)
             const BATCH = 5;
             for (let i = 0; i < entries.length; i += BATCH) {
                 await Promise.all(entries.slice(i, i + BATCH).map(async (symbol) => {
@@ -388,7 +417,6 @@
                 }));
             }
 
-            // 3. Render bảng
             let html = "";
             for (const symbol of entries) {
                 const d = liveDataMap[symbol];
@@ -397,9 +425,14 @@
                 const pe = fmtRatio(d.pe);
                 const pb = fmtRatio(d.pb);
                 const roe = fmtRatio(d.roe);
+                const keywords = INDUSTRY_KEYWORDS[d.industry] || "";
                 
                 html += `
-                    <tr onclick="showStockDetail('${symbol}')" class="hover:bg-slate-800/60 transition-colors cursor-pointer">
+                    <tr class="hover:bg-slate-800/60 transition-colors cursor-pointer universe-row" 
+                        data-symbol="${symbol.toUpperCase()}" 
+                        data-industry="${d.industry.toUpperCase()}"
+                        data-keywords="${keywords.toUpperCase()}"
+                        onclick="showStockDetail('${symbol}')">
                         <td class="py-3 px-4 font-bold text-blue-400">
                             <span class="flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20 w-fit">
                                 <i class="fa-solid fa-circle-info text-[10px]"></i> ${symbol}
@@ -415,6 +448,25 @@
             }
             tbody.innerHTML = html;
             universeLoading = false;
+        }
+
+        // Hàm lọc bảng khi gõ tìm kiếm
+        function filterTable() {
+            const input = document.getElementById("searchInput");
+            const filter = input.value.toUpperCase().trim();
+            const rows = document.querySelectorAll(".universe-row");
+
+            rows.forEach(row => {
+                const symbol = row.getAttribute("data-symbol");
+                const industry = row.getAttribute("data-industry");
+                const keywords = row.getAttribute("data-keywords") || "";
+                
+                if (symbol.includes(filter) || industry.includes(filter) || keywords.includes(filter)) {
+                    row.style.display = "";
+                } else {
+                    row.style.display = "none";
+                }
+            });
         }
 
         async function startScreening() {
@@ -521,12 +573,10 @@
             document.getElementById("modalIndustry").innerText = `Ngành: ${data.industry}`;
             document.getElementById("modalPrice").innerText = fmtPrice(data.close) + " đ";
             
-            // Cập nhật chỉ số
             document.getElementById("modalPe").innerText = pe !== '—' ? pe + 'x' : '—';
             document.getElementById("modalPb").innerText = pb !== '—' ? pb + 'x' : '—';
             document.getElementById("modalRoe").innerText = roe !== '—' ? roe + '%' : '—';
             
-            // Cập nhật đánh giá AI
             document.getElementById("modalBctc").innerText = data.bctc;
             document.getElementById("modalOutlook").innerText = data.outlook;
             document.getElementById("modalRecommendation").innerText = data.recommendation;
@@ -537,11 +587,9 @@
 
         function closeModal() { document.getElementById("stockModal").classList.add("hidden"); }
 
-        // Sự kiện đóng modal
         window.addEventListener("click", (e) => { if (e.target === document.getElementById("stockModal")) closeModal(); });
         document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
 
-        // Khởi chạy khi tải trang
         window.addEventListener("DOMContentLoaded", async () => { 
             await loadUniverse(); 
         });
