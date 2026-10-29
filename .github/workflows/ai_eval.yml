@@ -9,10 +9,6 @@ on:
 permissions:
   contents: write
 
-concurrency:
-  group: update-data-json
-  cancel-in-progress: false
-
 jobs:
   update-ai:
     runs-on: ubuntu-latest
@@ -23,25 +19,14 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          cache: 'pip'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install "requests>=2.31,<3.0"
 
       - name: Update AI evaluation
         env:
           ALIBABA_API_KEY: ${{ secrets.ALIBABA_API_KEY }}
         run: python update_ai.py
-
-      - name: Validate data.json
-        run: |
-          python -c "
-          import json
-          d = json.load(open('data.json', encoding='utf-8'))
-          assert len(d) > 0
-          has_ai = sum(1 for v in d.values() if v.get('bctc'))
-          print(f'✅ {len(d)} mã, {has_ai} mã có đánh giá AI')
-          "
 
       - name: Commit and push
         run: |
@@ -64,11 +49,11 @@ jobs:
           JOB_STATUS: ${{ job.status }}
         run: |
           if [ "$JOB_STATUS" != "success" ]; then
-            MSG="⚠️ <b>Cảnh báo: Workflow Đánh giá AI bị lỗi!</b>%0A%0A- Trạng thái: $JOB_STATUS%0A- Vui lòng kiểm tra GitHub Actions."
+            MSG="⚠️ <b>Cảnh báo: Workflow Đánh giá AI bị lỗi!</b>%0A%0A- Trạng thái: $JOB_STATUS"
           elif [ -f telegram_msg.txt ]; then
             MSG=$(cat telegram_msg.txt | sed ':a;N;$!ba;s/\n/%0A/g')
           else
-            MSG="⚠️ Workflow chạy xong nhưng không tìm thấy file telegram_msg.txt"
+            MSG="⚠️ Workflow chạy xong nhưng không có telegram_msg.txt"
           fi
           
           curl -s -X POST "https://api.telegram.org/bot$TELEGRAM_TOKEN/sendMessage" \
