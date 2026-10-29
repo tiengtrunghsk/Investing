@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pro Quant Stock Screener - Top 100</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+
+    <!-- Header Section -->
+    <header class="border-b border-slate-800 bg-slate-900/80 backdrop-blur sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="p-2.5 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-500/30">
+                    <i class="fa-solid me-0 fa-chart-line text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-xl font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
+                        Pro Quant Screener
+                    </h1>
+                    <p class="text-xs text-slate-400">Hệ thống lọc định lượng Top 100 Cổ phiếu Cốt lõi</p>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 w-full md:w-auto">
+                <button id="scanBtn" onclick="startScreening()" class="w-full md:w-auto px-5 py-2.5 bg-blue-600 hover:bg-blue-500 active:bg-blue-700 text-white font-medium text-sm rounded-xl shadow-lg shadow-blue-600/25 transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-bolt"></i>
+                    <span>Chạy Quét Tốc Độ Cao</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-4 py-8 space-y-8">
+
+        <!-- Progress / Status Bar -->
+        <div id="statusCard" class="bg-slate-800/50 border border-slate-700/50 rounded-2xl p-4 hidden">
+            <div class="flex justify-between items-center text-sm mb-2">
+                <span id="statusText" class="text-slate-300 font-medium">Đang chuẩn bị...</span>
+                <span id="statusCount" class="text-blue-400 font-mono">0 / 0</span>
+            </div>
+            <div class="w-full bg-slate-700 rounded-full h-2 overflow-hidden">
+                <div id="progressBar" class="bg-blue-500 h-full w-0 transition-all duration-150"></div>
+            </div>
+        </div>
+
+        <!-- Strategy Info -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-400">
+            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
+                <span class="font-semibold text-emerald-400 flex items-center gap-1.5 mb-1 text-sm">
+                    <i class="fa-solid fa-arrow-trend-up"></i> Chiến lược Breakout
+                </span>
+                Giá cắt lên MA20 phiên kết hợp Khối lượng (Volume) đột biến lớn hơn 1.5 lần trung bình 20 phiên.
+            </div>
+            <div class="bg-slate-800/40 border border-slate-800 p-4 rounded-xl">
+                <span class="font-semibold text-amber-400 flex items-center gap-1.5 mb-1 text-sm">
+                    <i class="fa-solid fa-compress"></i> Chiến lược Squeeze (Cạn Cung)
+                </span>
+                Biên độ giá dao động hẹp trong 5 phiên gần nhất (&lt; 2%) đi kèm thanh khoản kiệt hút (&lt; 80% trung bình).
+            </div>
+        </div>
+
+        <!-- Results Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            
+            <!-- Breakout Table Card -->
+            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 space-y-4">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-base font-semibold text-emerald-400 flex items-center gap-2">
+                        <i class="fa-solid fa-rocket"></i>
+                        <span>Nhóm Breakout</span>
+                    </h2>
+                    <span id="breakoutBadge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                        0 mã
+                    </span>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
+                            <tr>
+                                <th class="py-3 px-3">Mã CP</th>
+                                <th class="py-3 px-3">Nhóm Ngành</th>
+                                <th class="py-3 px-3 text-right">Giá Hiện Tại</th>
+                                <th class="py-3 px-3 text-right">Khối Lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="breakoutBody" class="divide-y divide-slate-800 text-slate-200">
+                            <tr>
+                                <td colspan="4" class="py-8 text-center text-slate-500 text-xs">Bấm "Chạy Quét Tốc Độ Cao" để tải dữ liệu.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Squeeze Table Card -->
+            <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-5 space-y-4">
+                <div class="flex justify-between items-center">
+                    <h2 class="text-base font-semibold text-amber-400 flex items-center gap-2">
+                        <i class="fa-solid fa-box"></i>
+                        <span>Nhóm Squeeze (Cạn Cung)</span>
+                    </h2>
+                    <span id="squeezeBadge" class="px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/10 text-amber-400 border border-amber-500/20">
+                        0 mã
+                    </span>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm">
+                        <thead class="text-xs text-slate-400 border-b border-slate-700/60 uppercase">
+                            <tr>
+                                <th class="py-3 px-3">Mã CP</th>
+                                <th class="py-3 px-3">Nhóm Ngành</th>
+                                <th class="py-3 px-3 text-right">Giá Hiện Tại</th>
+                                <th class="py-3 px-3 text-right">Khối Lượng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="squeezeBody" class="divide-y divide-slate-800 text-slate-200">
+                            <tr>
+                                <td colspan="4" class="py-8 text-center text-slate-500 text-xs">Bấm "Chạy Quét Tốc Độ Cao" để tải dữ liệu.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- JavaScript Application Logic -->
+    <script>
+        // Danh sách Top ~100 mã cổ phiếu thanh khoản hàng đầu thị trường
+        const CURATED_STOCKS = {
+            "VCB": "Ngân hàng", "BID": "Ngân hàng", "CTG": "Ngân hàng", "TCB": "Ngân hàng", 
+            "MBB": "Ngân hàng", "ACB": "Ngân hàng", "STB": "Ngân hàng", "SHB": "Ngân hàng", 
+            "TPB": "Ngân hàng", "VIB": "Ngân hàng", "HDB": "Ngân hàng", "LPB": "Ngân hàng", 
+            "MSB": "Ngân hàng", "SSB": "Ngân hàng", "EIB": "Ngân hàng", "OCB": "Ngân hàng",
+            "SSI": "Chứng khoán", "VCI": "Chứng khoán", "HCM": "Chứng khoán", "VIX": "Chứng khoán", 
+            "MBS": "Chứng khoán", "FTS": "Chứng khoán", "BSI": "Chứng khoán", "SHS": "Chứng khoán", 
+            "CTS": "Chứng khoán", "AGR": "Chứng khoán", "ORS": "Chứng khoán",
+            "VIC": "Bất động sản", "VHM": "Bất động sản", "VRE": "Bất động sản", "KBC": "Bất động sản", 
+            "DIG": "Bất động sản", "NVL": "Bất động sản", "PDR": "Bất động sản", "DXG": "Bất động sản", 
+            "NLG": "Bất động sản", "KDH": "Bất động sản", "HDG": "Bất động sản", "CEO": "Bất động sản",
+            "HPG": "Thép & VLXD", "NKG": "Thép & VLXD", "HSG": "Thép & VLXD", "VGS": "Thép & VLXD",
+            "FPT": "Bán lẻ & Công nghệ", "MWG": "Bán lẻ & Công nghệ", "PNJ": "Bán lẻ & Công nghệ", 
+            "FRT": "Bán lẻ & Công nghệ", "VNM": "Tiêu dùng", "MSN": "Tiêu dùng", "SAB": "Tiêu dùng",
+            "GAS": "Năng lượng", "POW": "Năng lượng", "BSR": "Năng lượng", "PLX": "Năng lượng", 
+            "PVD": "Dầu khí", "PVS": "Dầu khí", "DGC": "Hóa chất", "DCM": "Phân bón", "DPM": "Phân bón", 
+            "GEX": "Công nghiệp", "REE": "Công nghiệp", "VGC": "Khu công nghiệp", "SZC": "Khu công nghiệp"
+        };
+
+        async function fetchStockHistory(symbol) {
+            const end = Math.floor(Date.now() / 1000);
+            const start = end - (120 * 86400); // 120 ngày gần đây
+            const url = `https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol=${symbol}&from=${start}&to=${end}`;
+            
+            try {
+                const response = await fetch(url);
+                if (!response.ok) return null;
+                const data = await response.json();
+                if (data.s === "ok" && data.c.length >= 20) {
+                    return data;
+                }
+            } catch (err) {
+                return null;
+            }
+            return null;
+        }
+
+        function analyzeData(symbol, industry, data) {
+            const len = data.c.length;
+            const close = data.c;
+            const high = data.h;
+            const low = data.l;
+            const volume = data.v;
+
+            // Tính MA20 giá & MA20 Volume
+            let sumClose20 = 0;
+            let sumVol20 = 0;
+            for (let i = len - 20; i < len; i++) {
+                sumClose20 += close[i];
+                sumVol20 += volume[i];
+            }
+            const ma20 = sumClose20 / 20;
+            const volMa20 = sumVol20 / 20;
+
+            // Lấy giá trị phiên hiện tại và phiên liền trước
+            const currClose = close[len - 1];
+            const prevClose = close[len - 2];
+            const currVol = volume[len - 1];
+
+            // Lấy giá trị MA20 phiên trước
+            let sumClose20Prev = 0;
+            for (let i = len - 21; i < len - 1; i++) {
+                sumClose20Prev += close[i];
+            }
+            const prevMa20 = sumClose20Prev / 20;
+
+            // Lọc thanh khoản tối thiểu 100k cổ phiếu
+            if (currVol < 100000) return null;
+
+            // 1. Kiểm tra Điều kiện Breakout
+            const isBreakout = (currClose > ma20) && (prevClose <= prevMa20) && (currVol > 1.5 * volMa20);
+
+            // 2. Kiểm tra Điều kiện Squeeze (Biên độ 5 phiên < 2% & Vol < 80% trung bình)
+            let sumRange5 = 0;
+            let sumClose5 = 0;
+            for (let i = len - 5; i < len; i++) {
+                sumRange5 += (high[i] - low[i]);
+                sumClose5 += close[i];
+            }
+            const avgClose5 = sumClose5 / 5;
+            const avgRange5 = sumRange5 / 5;
+            const priceRangeRatio = avgClose5 > 0 ? (avgRange5 / avgClose5) : 1;
+
+            const isSqueeze = (priceRangeRatio < 0.02) && (currVol < 0.8 * volMa20);
+
+            if (isBreakout || isSqueeze) {
+                return {
+                    symbol,
+                    industry,
+                    close: currClose,
+                    volume: currVol,
+                    isBreakout,
+                    isSqueeze
+                };
+            }
+            return null;
+        }
+
+        async function startScreening() {
+            const scanBtn = document.getElementById("scanBtn");
+            const statusCard = document.getElementById("statusCard");
+            const progressBar = document.getElementById("progressBar");
+            const statusText = document.getElementById("statusText");
+            const statusCount = document.getElementById("statusCount");
+            
+            const breakoutBody = document.getElementById("breakoutBody");
+            const squeezeBody = document.getElementById("squeezeBody");
+
+            // Disable button
+            scanBtn.disabled = true;
+            scanBtn.classList.add("opacity-50", "cursor-not-allowed");
+            statusCard.classList.remove("hidden");
+
+            // Clear old data
+            breakoutBody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-slate-500 text-xs">Đang phân tích...</td></tr>`;
+            squeezeBody.innerHTML = `<tr><td colspan="4" class="py-8 text-center text-slate-500 text-xs">Đang phân tích...</td></tr>`;
+
+            const entries = Object.entries(CURATED_STOCKS);
+            const total = entries.length;
+            let processed = 0;
+
+            const breakouts = [];
+            const squeezes = [];
+
+            // Fetch song song theo lô để tối ưu tốc độ
+            const BATCH_SIZE = 5;
+            for (let i = 0; i < total; i += BATCH_SIZE) {
+                const batch = entries.slice(i, i + BATCH_SIZE);
+                
+                await Promise.all(batch.map(async ([symbol, industry]) => {
+                    const history = await fetchStockHistory(symbol);
+                    if (history) {
+                        const res = analyzeData(symbol, industry, history);
+                        if (res) {
+                            if (res.isBreakout) breakouts.push(res);
+                            if (res.isSqueeze) squeezes.push(res);
+                        }
+                    }
+                    processed++;
+                    
+                    // Cập nhật UI Thanh tiến trình
+                    const percent = Math.round((processed / total) * 100);
+                    progressBar.style.width = `${percent}%`;
+                    statusText.innerText = `Đang quét mã: ${symbol}...`;
+                    statusCount.innerText = `${processed} / ${total}`;
+                }));
+            }
+
+            // Render Kết Quả Breakout
+            document.getElementById("breakoutBadge").innerText = `${breakouts.length} mã`;
+            if (breakouts.length > 0) {
+                breakoutBody.innerHTML = breakouts.map(item => `
+                    <tr class="hover:bg-slate-800/60 transition-colors">
+                        <td class="py-3 px-3 font-bold text-emerald-400">${item.symbol}</td>
+                        <td class="py-3 px-3 text-slate-400 text-xs">${item.industry}</td>
+                        <td class="py-3 px-3 text-right font-mono">${item.close.toLocaleString('vi-VN')}</td>
+                        <td class="py-3 px-3 text-right font-mono text-slate-400">${item.volume.toLocaleString('vi-VN')}</td>
+                    </tr>
+                `).join('');
+            } else {
+                breakoutBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500 text-xs">Không tìm thấy mã Breakout nào hôm nay.</td></tr>`;
+            }
+
+            // Render Kết Quả Squeeze
+            document.getElementById("squeezeBadge").innerText = `${squeezes.length} mã`;
+            if (squeezes.length > 0) {
+                squeezeBody.innerHTML = squeezes.map(item => `
+                    <tr class="hover:bg-slate-800/60 transition-colors">
+                        <td class="py-3 px-3 font-bold text-amber-400">${item.symbol}</td>
+                        <td class="py-3 px-3 text-slate-400 text-xs">${item.industry}</td>
+                        <td class="py-3 px-3 text-right font-mono">${item.close.toLocaleString('vi-VN')}</td>
+                        <td class="py-3 px-3 text-right font-mono text-slate-400">${item.volume.toLocaleString('vi-VN')}</td>
+                    </tr>
+                `).join('');
+            } else {
+                squeezeBody.innerHTML = `<tr><td colspan="4" class="py-6 text-center text-slate-500 text-xs">Không tìm thấy mã Squeeze nào hôm nay.</td></tr>`;
+            }
+
+            // Reset UI Status
+            statusText.innerText = "Quét thị trường hoàn tất!";
+            scanBtn.disabled = false;
+            scanBtn.classList.remove("opacity-50", "cursor-not-allowed");
+        }
+
+        // Tự động chạy quét ngay khi mở web
+        window.addEventListener("DOMContentLoaded", () => {
+            startScreening();
+        });
+    </script>
+</body>
+</html>
