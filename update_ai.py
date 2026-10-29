@@ -15,17 +15,17 @@ def get_ai_evaluation(symbol, industry, price, pe, pb, roe):
     prompt = f"""Bạn là một chuyên gia đầu tư giá trị (Value Investor) tại Việt Nam.
 Hãy phân tích cổ phiếu {symbol} thuộc nhóm ngành {industry}.
 Dưới đây là DỮ LIỆU TÀI CHÍNH hiện tại:
-- Giá: {price:,.0f} VNĐ
+- Giá: {price} (nghìn đồng)
 - P/E: {pe}
 - P/B: {pb}
-- ROE: {roe}%
+- ROE: {roe}
 
 Dựa vào các CHỈ SỐ TÀI CHÍNH trên, hãy đưa ra đánh giá và chiến lược gom dài hạn.
 Trả về DUY NHẤT JSON thuần túy (không markdown) gồm 4 trường:
 1. "bctc": Nhận xét sức khỏe tài chính dựa trên P/E, P/B, ROE, tối đa 40 từ.
 2. "outlook": Triển vọng kinh doanh 1-3 năm tới, tối đa 40 từ.
 3. "recommendation": Chỉ chọn 1 trong các từ ("GOM TÍCH SẢN", "NẮM GIỮ CHẶT", "CHỜ ĐỢI", "HẠ TỶ TRỌNG") kèm 1 câu lý do dựa trên định giá.
-4. "price_zone": Chiến lược gom vốn. VD: "P/E đang thấp, gom 30% vị thế. Chia 3 đợt gom nếu về vùng 40.000 - 42.000. Giữ 2-3 năm."
+4. "price_zone": Chiến lược gom vốn. VD: "P/E đang thấp, gom 30% vị thế. Chia 3 đợt gom nếu về vùng hấp dẫn. Giữ 2-3 năm."
 """
     payload = {
         "model": "qwen-plus",
@@ -61,9 +61,8 @@ Trả về DUY NHẤT JSON thuần túy (không markdown) gồm 4 trường:
     return None, None, None, None
 
 def main():
-    # 1. Kiểm tra xem file data.json có tồn tại không
     if not os.path.exists(DATA_FILE):
-        print(f"❌ Không tìm thấy file {DATA_FILE}. Vui lòng đảm bảo file dữ liệu đã tồn tại.")
+        print(f"❌ Không tìm thấy file {DATA_FILE}.")
         return
 
     try:
@@ -75,33 +74,25 @@ def main():
 
     total = len(data)
     if total == 0:
-        print("⚠️ File data.json trống không có mã nào.")
+        print("⚠️ File data.json trống.")
         return
 
     updated = 0
     now_iso = time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())
 
-    print(f"🤖 Bắt đầu dùng AI phân tích lại dựa trên dữ liệu sẵn có trong {DATA_FILE} ({total} mã)...\n")
+    print(f"🤖 Bắt đầu phân tích AI dựa trên dữ liệu sẵn có trong {DATA_FILE} ({total} mã)...\n")
 
-    # Duyệt qua từng mã đã lưu trong JSON
     for idx, (symbol, info) in enumerate(list(data.items()), 1):
         industry = info.get("industry", "VN100")
         
-        # Cố gắng bóc tách giá và các chỉ số từ dữ liệu cũ (nếu có lưu hoặc bạn lưu thêm)
-        # Hoặc nếu trong JSON chỉ lưu các trường cũ, ta có thể dùng giá trị mặc định / đọc từ cấu trúc cũ.
-        # Ở đây giả định file json của bạn lưu cấu trúc có sẵn, ví dụ chúng ta cần thêm trường giá/pe/pb/roe nếu có, 
-        # hoặc nếu file JSON của bạn chỉ có kết quả AI cũ, ta cần bổ sung nguồn giá.
-        
-        print(f"[{idx}/{total}] Đang xử lý mã {symbol} ({industry})...")
-        
-        # Lấy các thông số sẵn có từ cấu trúc JSON cũ (nếu bạn có lưu giá/pe/pb trong đó)
-        # Nếu file json của bạn chưa lưu giá, bạn có thể bổ sung. Dưới đây lấy mẫu từ info:
-        price = info.get("price", 0)
+        # Lấy trực tiếp từ các key trong JSON của bạn (close, pe, pb, roe)
+        price = info.get("close", 0)
         pe = info.get("pe", 0)
         pb = info.get("pb", 0)
         roe = info.get("roe", 0)
+        
+        print(f"[{idx}/{total}] Đang phân tích mã {symbol} (Giá: {price}, P/E: {pe}, P/B: {pb}, ROE: {roe})...")
 
-        # Gọi AI phân tích lại
         bctc, outlook, recommendation, price_zone = get_ai_evaluation(symbol, industry, price, pe, pb, roe)
         
         if bctc and outlook:
@@ -117,7 +108,7 @@ def main():
         else:
             print(f"  ⏭️ Bỏ qua do AI gặp lỗi.")
         
-        # Lưu đệm liên tục
+        # Lưu đệm liên tục vào file json
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=4)
             
