@@ -1,45 +1,12 @@
 import sys
-import subprocess
 import os
-
-# ==========================================
-# CÀI ĐẶT & IMPORT TỰ ĐỘNG VNSTOCK DỰ PHÒNG
-# ==========================================
-try:
-    import vnstock
-    from vnstock import Market
-except ImportError:
-    print("🔄 Đang cài đặt tự động vnstock...")
-    subprocess.check_call([
-        sys.executable, "-m", "pip", "install", 
-        "vnstock==5.0.1", 
-        "--extra-index-url", "https://vnstocks.com/api/packages"
-    ])
-    import vnstock
-    from vnstock import Market
-
 import requests
 import pandas as pd
 import streamlit as st
+from datetime import datetime, timedelta
 
 # ==========================================
-# CẤU HÌNH XÁC THỰC VNSTOCK
-# ==========================================
-api_key = os.environ.get("VNSTOCK_API_KEY")
-if not api_key and hasattr(st, "secrets") and "VNSTOCK_API_KEY" in st.secrets:
-    api_key = st.secrets["VNSTOCK_API_KEY"]
-
-if api_key:
-    try:
-        vnstock.login(api_key)
-        print("✅ Đăng nhập vnstock thành công!")
-    except Exception as e:
-        print(f"❌ Lỗi đăng nhập vnstock: {e}")
-else:
-    print("⚠️ Không tìm thấy VNSTOCK_API_KEY. Chạy ở cấp Khách (Guest)!")
-
-# ==========================================
-# DANH SÁCH MÃ THEO DÕI MẶC ĐỊNH
+# DANH SÁCH MÃ THEO DÕI MẶC ĐỊNH (Watchlist)
 # ==========================================
 DEFAULT_WATCHLIST = [
     "FPT", "MWG", "PNJ", "FRT", "VNM", "MSN",
@@ -50,25 +17,48 @@ DEFAULT_WATCHLIST = [
 ]
 
 # ==========================================
-# CÁC HÀM XỬ LÝ DỮ LIỆU & CHIẾN LƯỢC QUANT
+# LẤY DỮ LIỆU GIÁ TRỰC TIẾP QUA API PUBLIC
 # ==========================================
-def get_stock_data(symbol):
-    """Lấy dữ liệu lịch sử giá từ vnstock 5.x"""
+def get_stock_data_direct(symbol):
+    """Lấy dữ liệu lịch sử giá OHLCV trực tiếp từ API chứng khoán (Không cần thư viện ngoài)"""
     try:
-        df = Market().equity(symbol).ohlcv(limit=60)
-        if df is not None and not df.empty:
-            df['time'] = pd.to_datetime(df['time'])
-            return df
+        # Thời gian 100 ngày gần nhất
+        end_date = datetime.now()
+        start_date = end_date - timedelta(days=120)
+        
+        start_timestamp = int(start_date.timestamp())
+        end_timestamp = int(end_date.timestamp())
+        
+        # Gọi API public
+        url = f"https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol={symbol.upper()}&from={start_timestamp}&to={end_timestamp}"
+        headers = {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+        }
+        
+        res = requests.get(url, headers=headers, timeout=10)
+        if res.status_code == 200:
+            data = res.json()
+            if data.get("s") == "ok":
+                df = pd.DataFrame({
+                    "time": pd.to_datetime(data["t"], unit="s"),
+                    "open": data["o"],
+                    "high": data["h"],
+                    "low": data["l"],
+                    "close": data["c"],
+                    "volume": data["v"]
+                })
+                return df
     except Exception as e:
-        print(f"Lỗi khi lấy dữ liệu mã {symbol}: {e}")
+        print(f"Lỗi tải mã {symbol}: {e}")
     return None
 
 def analyze_stock(symbol):
-    """Tính toán chỉ báo kỹ thuật cho từng mã"""
-    df = get_stock_data(symbol)
+    """Phân tích kỹ thuật (Breakout & Squeeze)"""
+    df = get_stock_data_direct(symbol)
     if df is None or len(df) < 20:
         return None
     
+    # Tính MA20 và Volume MA20
     df['MA20'] = df['close'].rolling(window=20).mean()
     df['Volume_MA20'] = df['volume'].rolling(window=20).mean()
     
@@ -83,10 +73,10 @@ def analyze_stock(symbol):
     if pd.isna(prev['MA20']) or pd.isna(ma20) or pd.isna(vol_ma20):
         return None
 
-    # Điều kiện Breakout
+    # Điều kiện Breakout: Giá vượt MA20 + Vol bùng nổ (> 1.5 lần trung bình 20 phiên)
     is_breakout = (close_price > ma20) and (prev['close'] <= prev['MA20']) and (volume > 1.5 * vol_ma20)
     
-    # Điều kiện Squeeze (Cạn cung)
+    # Điều kiện Squeeze (Cạn cung): Biên độ 5 phiên hẹp + Vol thấp
     avg_close_5 = df['close'].tail(5).mean()
     price_range = (df['high'].tail(5) - df['low'].tail(5)).mean() / avg_close_5 if avg_close_5 > 0 else 0
     is_squeeze = (price_range < 0.02) and (volume < 0.8 * vol_ma20)
@@ -100,7 +90,7 @@ def analyze_stock(symbol):
     }
 
 def run_screening(watchlist):
-    """Chạy quét toàn bộ danh sách mã"""
+    """Quét toàn bộ danh sách mã"""
     breakout_list = []
     squeeze_list = []
     
@@ -115,7 +105,7 @@ def run_screening(watchlist):
     return breakout_list, squeeze_list
 
 def send_telegram_message(message):
-    """Gửi thông báo về Telegram"""
+    """Gửi thông báo Telegram"""
     token = os.environ.get("TELEGRAM_TOKEN")
     chat_id = os.environ.get("CHAT_ID")
     
@@ -136,34 +126,30 @@ def send_telegram_message(message):
     try:
         response = requests.post(url, json=payload)
         if response.status_code == 200:
-            print("Đã gửi tin nhắn Telegram thành công!")
-        else:
-            print(f"Lỗi gửi Telegram: {response.text}")
+            print("Đã gửi Telegram thành công!")
     except Exception as e:
-        print(f"Lỗi kết nối Telegram: {e}")
+        print(f"Lỗi Telegram: {e}")
 
 # ==========================================
-# CHẾ ĐỘ CHẠY TỰ ĐỘNG (GitHub Actions / CLI)
+# CHẾ ĐỘ AUTO BÁO CÁO (GitHub Actions)
 # ==========================================
 if len(sys.argv) > 1 and sys.argv[1] == "--auto":
-    print("Đang chạy chế độ tự động (Auto Mode)...")
+    print("Đang chạy chế độ tự động...")
     breakouts, squeezes = run_screening(DEFAULT_WATCHLIST)
     
     msg = "🚨 *PRO QUANT SCREENER - BÁO CÁO TỰ ĐỘNG* 🚨\n\n"
-    
     msg += "🚀 *1. Nhóm Breakout (Nổ Vol & Vượt MA20):*\n"
     if breakouts:
         for b in breakouts:
-            price_str = f"{b['close'] * 1000:,.0f}" 
-            msg += f"• `{b['symbol']}` - Giá: {price_str} | Vol: {b['volume']:,.0f}\n"
+            # Giá API VNDirect tính bằng VNĐ chuẩn (ví dụ 30,000)
+            msg += f"• `{b['symbol']}` - Giá: {b['close']:,.0f} | Vol: {b['volume']:,.0f}\n"
     else:
         msg += "• Không có mã nào đạt tiêu chí hôm nay.\n"
         
     msg += "\n📦 *2. Nhóm Squeeze (Cạn cung / Tích lũy hẹp):*\n"
     if squeezes:
         for s in squeezes:
-            price_str = f"{s['close'] * 1000:,.0f}"
-            msg += f"• `{s['symbol']}` - Giá: {price_str}\n"
+            msg += f"• `{s['symbol']}` - Giá: {s['close']:,.0f}\n"
     else:
         msg += "• Không có mã nào đạt tiêu chí hôm nay.\n"
         
@@ -171,20 +157,16 @@ if len(sys.argv) > 1 and sys.argv[1] == "--auto":
     sys.exit(0)
 
 # ==========================================
-# CHẾ ĐỘ GIAO DIỆN WEB (Streamlit UI)
+# GIAO DIỆN STREAMLIT WEB
 # ==========================================
-st.set_page_config(
-    page_title="Pro Quant Screener",
-    page_icon="📈",
-    layout="wide"
-)
+st.set_page_config(page_title="Pro Quant Screener", page_icon="📈", layout="wide")
 
 st.title("📈 Pro Quant Stock Screener")
-st.markdown("Hệ thống lọc cổ phiếu định lượng tự động (**Breakout** & **Squeeze**) sử dụng dữ liệu vnstock 5.x.")
+st.markdown("Hệ thống lọc cổ phiếu định lượng tự động (**Breakout** & **Squeeze**).")
 
 st.sidebar.header("⚙️ Cấu hình quét")
 watchlist_input = st.sidebar.text_area(
-    "Danh sách cổ phiếu theo dõi (phân tách bằng dấu phẩy):",
+    "Danh sách cổ phiếu theo dõi:",
     value=", ".join(DEFAULT_WATCHLIST),
     height=150
 )
@@ -198,12 +180,10 @@ if st.sidebar.button("🚀 Chạy Quét Tất Cả Chiến Lược", type="prima
     st.success("Quét hoàn tất!")
     
     col1, col2 = st.columns(2)
-    
     with col1:
         st.subheader("🚀 Nhóm Breakout")
         if breakouts:
             df_b = pd.DataFrame(breakouts)
-            df_b['close'] = df_b['close'] * 1000
             st.dataframe(df_b[['symbol', 'close', 'volume']], use_container_width=True)
         else:
             st.info("Không tìm thấy mã Breakout nào.")
@@ -212,13 +192,11 @@ if st.sidebar.button("🚀 Chạy Quét Tất Cả Chiến Lược", type="prima
         st.subheader("📦 Nhóm Squeeze (Cạn cung)")
         if squeezes:
             df_s = pd.DataFrame(squeezes)
-            df_s['close'] = df_s['close'] * 1000
             st.dataframe(df_s[['symbol', 'close', 'volume']], use_container_width=True)
         else:
             st.info("Không tìm thấy mã Squeeze nào.")
             
     if st.button("📤 Gửi báo cáo này về Telegram"):
-        msg = "📊 *BÁO CÁO THỦ CÔNG TỪ WEB*\n\n"
-        msg += f"Số mã Breakout: {len(breakouts)} | Số mã Squeeze: {len(squeezes)}"
+        msg = f"📊 *BÁO CÁO TỪ WEB*\nBreakout: {len(breakouts)} mã | Squeeze: {len(squeezes)} mã"
         send_telegram_message(msg)
-        st.toast("Đã gửi thông báo tới Telegram của bạn!", icon="✅")
+        st.toast("Đã gửi thông báo!", icon="✅")
