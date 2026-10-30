@@ -30,7 +30,9 @@ INDUSTRY_MAP = {
 }
 
 def fetch_stock_data(symbol):
-    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
+    }
     close, pe, pb, roe, roa, eps, debt_equity, dividend_yield = 0, 0, 0, 0, 0, 0, 0, 0
 
     # 1. Lấy giá đóng cửa thực tế từ DChart API
@@ -38,7 +40,7 @@ def fetch_stock_data(symbol):
         end = int(time.time())
         start = end - (10 * 86400)
         url_price = f"https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol={symbol}&from={start}&to={end}"
-        res = requests.get(url_price, headers=headers, timeout=5).json()
+        res = requests.get(url_price, headers=headers, timeout=8).json()
         if res.get("s") == "ok" and res.get("c"):
             close = res["c"][-1]
     except Exception as e:
@@ -47,26 +49,59 @@ def fetch_stock_data(symbol):
     # 2. Lấy trọn bộ chỉ số PTCB từ Finfo API
     try:
         url_ratio = f"https://api-finfo.vndirect.com.vn/v4/ratios?q=code:{symbol}&size=50&sort=reportDate:desc"
-        res = requests.get(url_ratio, headers=headers, timeout=5).json()
+        res = requests.get(url_ratio, headers=headers, timeout=8).json()
         if res.get("data"):
             for item in res["data"]:
                 code = str(item.get("ratioCode", "")).upper()
-                val = float(item.value or 0)
+                # Sửa lỗi: dùng .get("value") để đọc từ điển dict an toàn
+                val_raw = item.get("value")
+                if val_raw is None:
+                    continue
+                
+                try:
+                    val = float(val_raw)
+                except ValueError:
+                    continue
+
                 if val == 0:
                     continue
 
-                if code == "PRICE_TO_EARNINGS" and pe == 0: pe = val
-                if code == "PRICE_TO_BOOK" and pb == 0: pb = val
+                if code == "PRICE_TO_EARNINGS" and pe == 0: 
+                    pe = val
+                if code == "PRICE_TO_BOOK" and pb == 0: 
+                    pb = val
                 if ("ROE" in code or "ROAE" in code) and roe == 0:
                     roe = val * 100 if 0 < val < 1 else val
                 if ("ROA" in code or "ROAA" in code) and roa == 0:
                     roa = val * 100 if 0 < val < 1 else val
-                if code == "EPS" and eps == 0: eps = val
-                if ("DEBT" in code or "DEBT_TO_EQUITY" in code) and debt_equity == 0: debt_equity = val
+                if code == "EPS" and eps == 0: 
+                    eps = val
+                if ("DEBT" in code or "DEBT_TO_EQUITY" in code) and debt_equity == 0: 
+                    debt_equity = val
                 if ("DIVIDEND" in code or "DIVIDEND_YIELD" in code) and dividend_yield == 0:
                     dividend_yield = val * 100 if 0 < val < 1 else val
     except Exception as e:
         print(f"Lỗi chỉ số {symbol}: {e}")
+
+    # 3. Fallback dự phòng nếu ROE/ROA cho Ngân hàng hoặc BCTC theo quý bị thiếu
+    if roe == 0 or roa == 0:
+        try:
+            url_fb = f"https://api-finfo.vndirect.com.vn/v4/financial_models?q=code:{symbol}~reportType:QUARTER&size=20&sort=reportDate:desc"
+            res_fb = requests.get(url_fb, headers=headers, timeout=8).json()
+            if res_fb.get("data"):
+                for item in res_fb["data"]:
+                    m_code = str(item.get("modelCode", "")).upper()
+                    val_raw = item.get("value")
+                    if val_raw is None:
+                        continue
+                    
+                    val = float(val_raw)
+                    if ("ROE" in m_code or "ROAE" in m_code) and roe == 0:
+                        roe = val * 100 if 0 < val < 1 else val
+                    if ("ROA" in m_code or "ROAA" in m_code) and roa == 0:
+                        roa = val * 100 if 0 < val < 1 else val
+        except Exception as e:
+            pass
 
     return {
         "close": close,
@@ -80,13 +115,12 @@ def fetch_stock_data(symbol):
     }
 
 def main():
-    # Đọc file data.json cũ để giữ lại phần phân tích AI
     old_data = {}
     if os.path.exists(DATA_FILE):
         try:
             with open(DATA_FILE, "r", encoding="utf-8") as f:
                 old_data = json.load(f)
-        except:
+        except Exception:
             pass
 
     print("🚀 Bắt đầu quá trình cào thông số PTCB cho VN100...")
@@ -114,9 +148,8 @@ def main():
             "price_zone": prev.get("price_zone", "Chưa có vùng giá"),
             "macro_view": prev.get("macro_view", "Chưa có vĩ mô")
         }
-        time.sleep(0.2) # Nghỉ ngắn giữa các request để tránh bị nghẽn
+        time.sleep(0.15)
 
-    # Ghi đè vào data.json
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(new_data, f, ensure_ascii=False, indent=4)
 
