@@ -1,8 +1,8 @@
-import json
 import os
 import time
 import requests
 import re
+import json  # Đã bổ sung import thư viện json
 
 DATA_FILE = "data.json"
 
@@ -57,7 +57,7 @@ def analyze_stock_with_ai(symbol, data):
         if response.status_code == 200:
             res_json = response.json()
             content = res_json["choices"][0]["message"]["content"].strip()
-            # Làm sạch JSON (đề phòng AI trả về kèm markationdown)
+            # Làm sạch JSON (đề phòng AI trả về kèm markdown)
             content = re.sub(r"^```json\s*", "", content)
             content = re.sub(r"^```\s*", "", content)
             content = re.sub(r"\s*```$", "", content)
@@ -89,10 +89,10 @@ def main():
             ai_result = analyze_stock_with_ai(symbol, data)
             
             if ai_result:
-                # Ghi đè/cập nhật các trường từ AI
+                # Ghi đè/cập nhật các trường từ AI (Sửa lại key 'recommendation' cho khớp với prompt)
                 data["bctc"] = ai_result.get("bctc", "")
                 data["outlook"] = ai_result.get("outlook", "")
-                data["ai_recommendation"] = ai_result.get("recommend", "")
+                data["ai_recommendation"] = ai_result.get("recommendation", "")
                 data["ai_price_zone"] = ai_result.get("price_zone", "")
                 data["macro_view"] = ai_result.get("macro_view", "")
                 data["ai_updated_at"] = time.strftime("%Y-%m-%d %H:%M:%S")
