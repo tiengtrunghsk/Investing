@@ -6,9 +6,10 @@ import re
 
 DATA_FILE = "data.json"
 
-# Lấy trực tiếp từ biến môi trường của GitHub Actions
+# Lấy trực tiếp từ biến môi trường của GitHub Actions Secrets
 ALIBABA_API_KEY = os.getenv("ALIBABA_API_KEY", "").strip()
-API_URL = "https://dashscope-intl.aliyuncs.com/compatible-v1/chat/completions"
+# Cập nhật endpoint mới theo yêu cầu
+API_URL = "https://ws-8lcqaxwxdv0h9xzy.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions"
 
 def analyze_stock_with_ai(symbol, data):
     if not ALIBABA_API_KEY:
@@ -79,8 +80,7 @@ def main():
     print(f"🤖 Bắt đầu tiến trình AI cho {len(stock_db)} mã cổ phiếu...")
 
     count = 0
-    # Chạy thử trước với 3 mã đầu tiên để kiểm tra log nhanh chóng, sau đó bạn có thể bỏ giới hạn slice [:3]
-    for symbol, data in list(stock_db.items()): 
+    for symbol, data in stock_db.items():
         print(f"Đang gọi AI xử lý mã: {symbol}...")
         ai_result = analyze_stock_with_ai(symbol, data)
         
@@ -98,7 +98,7 @@ def main():
         
         time.sleep(0.5)
 
-    # Ghi đè kết quả vào data.json
+    # Ghi đè kết quả vào data.json và đẩy lên GitHub
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(stock_db, f, ensure_ascii=False, indent=4)
 
