@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - Hybrid API</title>
+    <title>Pro Quant Screener - Data.json</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,11 +12,6 @@
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         .spinner { animation: spin 1s linear infinite; }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        
-        @media (max-width: 768px) {
-            .mobile-table th, .mobile-table td { padding: 0.5rem 0.3rem; font-size: 11px; }
-            .hide-mobile { display: none; }
-        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans pb-10">
@@ -24,68 +19,48 @@
     <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-30 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
-                <div class="bg-indigo-600 text-white p-2 rounded-lg shadow-lg shadow-indigo-500/30">
-                    <i class="fa-solid fa-bolt text-lg"></i>
+                <div class="bg-blue-600 text-white p-2 rounded-lg shadow-lg shadow-blue-500/30">
+                    <i class="fa-solid fa-chart-pie text-lg"></i>
                 </div>
                 <div>
-                    <h1 class="text-base md:text-lg font-bold tracking-wide text-white">Pro Quant Screener <span class="text-[9px] bg-indigo-500/20 text-indigo-400 px-1.5 py-0.5 rounded border border-indigo-500/30">Hybrid</span></h1>
-                    <p class="text-[10px] text-slate-400">Giá từ VNDirect | Chỉ số từ data.json</p>
+                    <h1 class="text-base md:text-lg font-bold tracking-wide text-white">Pro Quant Screener</h1>
+                    <p class="text-[10px] text-slate-400">Đa chỉ số: Giá, P/E, P/B, EPS, ROE...</p>
                 </div>
             </div>
             
-            <button onclick="initData()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2">
+            <button onclick="loadData()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2">
                 <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span class="hidden md:inline">Làm mới</span>
             </button>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-2 md:px-4 py-4">
-        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-sm mb-4 flex justify-between items-center gap-4">
-            <div class="relative w-full md:w-80">
+    <main class="max-w-7xl mx-auto px-3 md:px-4 py-4">
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-sm mb-4">
+            <div class="relative w-full">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
-                <input type="text" id="search-input" placeholder="Tìm mã (VD: ACB)..." 
-                    class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-indigo-500 transition">
+                <input type="text" id="search-input" placeholder="Tìm mã cổ phiếu (VD: ACB)..." 
+                    class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 transition">
             </div>
-            <div id="status-text" class="text-[10px] text-slate-500 hidden md:block">Sẵn sàng</div>
         </div>
 
-        <div class="bg-slate-900 rounded-xl border border-slate-800 shadow-lg overflow-hidden">
-            <div class="overflow-x-auto w-full">
-                <table class="w-full text-left border-collapse min-w-[800px] mobile-table">
-                    <thead>
-                        <tr class="bg-slate-950/90 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
-                            <th class="py-3.5 px-2 md:px-4 font-semibold w-16">Mã</th>
-                            <th class="py-3.5 px-2 md:px-4 font-semibold text-right">Giá Real-time</th>
-                            <th class="py-3.5 px-2 md:px-4 font-semibold text-right hide-mobile">P/E</th>
-                            <th class="py-3.5 px-2 md:px-4 font-semibold text-right hide-mobile">P/B</th>
-                            <th class="py-3.5 px-2 md:px-4 font-semibold text-right hide-mobile">Cổ tức</th>
-                            <th class="py-3.5 px-2 md:px-4 font-semibold text-center w-28">Trạng thái</th>
-                            <th class="py-3.5 px-2 md:px-4 font-semibold text-left w-48">Chi tiết</th>
-                        </tr>
-                    </thead>
-                    <tbody id="stock-table-body" class="divide-y divide-slate-800/60 text-sm">
-                        <tr>
-                            <td colspan="7" class="text-center py-12 text-slate-500">
-                                <i class="fa-solid fa-spinner spinner text-2xl text-indigo-500 mb-3 block mx-auto"></i>
-                                Đang tải cấu hình và gọi API...
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div id="stock-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="col-span-full text-center py-12 text-slate-500">
+                <i class="fa-solid fa-spinner spinner text-2xl text-blue-500 mb-3 block"></i>
+                <p>Đang tải dữ liệu từ data.json...</p>
             </div>
         </div>
     </main>
 
     <script>
         let stockData = {};
-        // Sử dụng Proxy để vượt qua lỗi CORS khi gọi VNDirect từ điện thoại
-        const CORS_PROXY = "https://corsproxy.io/?url="; 
-        
+
         function formatNumber(num) {
             if (num === undefined || num === null || num === 0) return '—';
-            return Math.round(num).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+            // Nếu dữ liệu cũ bị thiếu số 0 (VD: 21.5 thay vì 21500)
+            let val = (num < 1000 && num > 0) ? num * 1000 : num; 
+            return Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
 
         function formatPercent(num) {
@@ -93,81 +68,37 @@
             return num.toFixed(1) + '%';
         }
 
-        async function initData() {
+        async function loadData() {
             const icon = document.getElementById('refresh-icon');
-            const statusText = document.getElementById('status-text');
             icon.classList.add('spinner');
-            statusText.innerText = "Đang tải data.json...";
+            
+            // Cơ chế Timeout: Nếu quá 5 giây không tải được file JSON thì báo lỗi luôn
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
 
             try {
-                // 1. Tải dữ liệu nền từ JSON (P/E, P/B, EPS, ROE...)
-                const response = await fetch('data.json?t=' + new Date().getTime());
-                if (!response.ok) throw new Error('Lỗi tải JSON');
-                stockData = await response.json();
-                
-                // 2. Hiển thị dữ liệu JSON trước (để người dùng thấy ngay)
-                renderTable();
-                statusText.innerText = "Đang cập nhật giá realtime...";
+                const response = await fetch('data.json?t=' + new Date().getTime(), { signal: controller.signal });
+                clearTimeout(timeoutId);
 
-                // 3. Gọi API VNDirect để lấy giá realtime (chạy ngầm)
-                fetchRealtimePrices();
+                if (!response.ok) throw new Error('Không thể tải data.json');
                 
+                stockData = await response.json();
+                renderCards();
             } catch (error) {
                 console.error(error);
-                document.getElementById('stock-table-body').innerHTML = `
-                    <tr><td colspan="7" class="text-center py-8 text-rose-400 font-semibold">
-                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi tải data.json. Vui lòng kiểm tra lại file!
-                    </td></tr>`;
+                document.getElementById('stock-container').innerHTML = `
+                    <div class="col-span-full text-center py-8 text-rose-400 font-semibold bg-rose-500/10 rounded-xl border border-rose-500/30">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi tải file data.json!<br>
+                        <span class="text-xs font-normal mt-2 block">Hãy đảm bảo file data.json đã được chạy từ Python và up lên cùng thư mục.</span>
+                    </div>`;
+            } finally {
                 icon.classList.remove('spinner');
             }
         }
 
-        // Hàm gọi API lấy giá realtime
-        async function fetchRealtimePrices() {
-            const statusText = document.getElementById('status-text');
-            let successCount = 0;
-            
-            // Chúng ta sẽ lấy giá realtime cho các mã đang hiển thị trên bảng
-            const symbols = Object.keys(stockData);
-            
-            for (let i = 0; i < symbols.length; i++) {
-                const symbol = symbols[i];
-                try {
-                    const url = `https://finfo-api.vndirect.com.vn/v4/stock_prices?sort=date&q=code:${symbol}&size=1`;
-                    const res = await fetch(CORS_PROXY + encodeURIComponent(url));
-                    
-                    if (res.ok) {
-                        const json = await res.json();
-                        if (json.data && json.data.length > 0) {
-                            const latest = json.data[0];
-                            // Ghi đè giá và khối lượng realtime vào object
-                            stockData[symbol].close = parseFloat(latest.close);
-                            stockData[symbol].volume = parseFloat(latest.nmVolume);
-                            successCount++;
-                        }
-                    }
-                } catch (e) {
-                    // Bỏ qua lỗi của từng mã, không làm dừng cả quá trình
-                }
-                
-                // Cập nhật giao diện dần dần sau mỗi 5 mã để thấy tiến trình
-                if (i % 5 === 0) {
-                    renderTable();
-                    statusText.innerText = `Đã cập nhật ${i}/${symbols.length} mã...`;
-                }
-                
-                // Nghỉ 100ms tránh bị chặn
-                await new Promise(r => setTimeout(r, 100));
-            }
-
-            renderTable();
-            statusText.innerText = `Hoàn tất! Đã lấy giá realtime cho ${successCount} mã.`;
-            document.getElementById('refresh-icon').classList.remove('spinner');
-        }
-
-        function renderTable() {
-            const tbody = document.getElementById('stock-table-body');
-            tbody.innerHTML = '';
+        function renderCards() {
+            const container = document.getElementById('stock-container');
+            container.innerHTML = '';
 
             const searchTerm = document.getElementById('search-input').value.toUpperCase();
             const filtered = Object.values(stockData)
@@ -175,60 +106,87 @@
                 .sort((a, b) => a.symbol.localeCompare(b.symbol));
 
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="7" class="text-center py-8 text-slate-500">Không tìm thấy mã cổ phiếu.</td></tr>`;
+                container.innerHTML = `<div class="col-span-full text-center py-8 text-slate-500">Không tìm thấy mã nào.</div>`;
                 return;
             }
 
             filtered.forEach(item => {
-                const tr = document.createElement('tr');
-                tr.className = "hover:bg-slate-800/40 transition border-b border-slate-800/40";
-                
-                // Giá đã được API cập nhật, không cần nhân 1000 nữa (API VNDirect trả về VNĐ chuẩn)
-                const closePrice = formatNumber(item.close);
-                const volVal = formatNumber(item.volume);
-
-                let badgeColor = "bg-slate-800 text-slate-300";
+                let statusColor = "text-slate-400 bg-slate-800";
+                let borderColor = "border-slate-700";
                 let shortStatus = item.recommendation;
-                
+
                 if (item.recommendation.includes("BREAKOUT")) {
-                    badgeColor = "bg-emerald-500/20 text-emerald-400 borderẠ border-emerald-500/N30";
-                    shortStatus = "BRE CAKOUT";
-                } else ifUNG (item.recommendation")).includes("C {
-                    badgeColor = "bg-amber-500/20 text-amber-400 border border-amber-500/30";
+                    statusColor = "text-emerald-400 bg-emerald-500/10";
+                    borderColor = "border-emerald-500/30";
+                    shortStatus = "BREAKOUT";
+                } else if (item.recommendation.includes("CẠN CUNG")) {
+                    statusColor = "text-amber-400 bg-amber-500/10";
+                    borderColor = "border-amber-500/30";
                     shortStatus = "CẠN CUNG";
                 } else if (item.recommendation.includes("GOM")) {
-                    badgeColor = "bg-blue-500/20 text-blue-400 border border-blue-500/30";
+                    statusColor = "text-blue-400 bg-blue-500/10";
+                    borderColor = "border-blue-500/30";
                     shortStatus = "GOM HÀNG";
                 } else if (item.recommendation.includes("TÍCH LŨY")) {
                     shortStatus = "TÍCH LŨY";
                 }
 
-                tr.innerHTML = `
-                    <td class="py-3 px-2 md:px-4 font-black text-indigo-400 whitespace-nowrap text-base">
-                        ${item.symbol}
-                    </td>
-                    <td class="py-3 px-2 md:px-4 text-right font-bold text-emerald-400 whitespace-nowrap">
-                        ${closePrice}
-                        <div class="text-[9px] text-slate-500 font-normal">${volVal}</div>
-                    </td>
-                    <td class="py-3 px-2 md:px-4 text-right text-slate-300 hide-mobile">${item.pe > 0 ? item.pe.toFixed(1) : '—'}</td>
-                    <td class="py-3 px-2 md:px-4 text-right text-slate-300 hide-mobile">${item.pb > 0 ? item.pb.toFixed(1) : '—'}</td>
-                    <td class="py-3 px-2 md:px-4 text-right text-amber-400 hide-mobile">${formatPercent(item.dividend_yield)}</td>
-                    <td class="py-3 px-2 md:px-4 text-center whitespace-nowrap">
-                        <span class="text-[10px] px-2 py-1 rounded-full font-semibold ${badgeColor}">${shortStatus}</span>
-                    </td>
-                    <td class="py-3 px-2 md:px-4 text-left text-[11px] text-slate-400 leading-tight">
-                        ${item.price_zone}
-                    </td>
+                let peColor = "text-slate-200";
+                if (item.pe > 20) peColor = "text-rose-400";
+                else if (item.pe > 0 && item.pe < 10) peColor = "text-emerald-400";
+
+                const card = document.createElement('div');
+                card.className = `bg-slate-900 rounded-xl border ${borderColor} p-4 shadow-lg hover:bg-slate-800/80 transition`;
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div class="flex items-center gap-2">
+                            <span class="text-xl font-black text-white">${item.symbol}</span>
+                            <span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${shortStatus}</span>
+                        </div>
+                        <div class="text-right">
+                            <span class="block text-lg font-bold text-emerald-400">${formatNumber(item.close)}</span>
+                            <span class="text-[10px] text-slate-500">KL: ${formatNumber(item.volume)}</span>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-4 gap-2 mb-3 bg-slate-950/50 p-2 rounded-lg border border-slate-800/50">
+                        <div class="text-center">
+                            <span class="block text-[10px] text-slate-500 mb-0.5">P/E</span>
+                            <span class="text-xs font-semibold ${peColor}">${item.pe > 0 ? item.pe.toFixed(1) : '—'}</span>
+                        </div>
+                        <div class="text-center border-l border-slate-800">
+                            <span class="block text-[10px] text-slate-500 mb-0.5">P/B</span>
+                            <span class="text-xs font-semibold text-slate-200">${item.pb > 0 ? item.pb.toFixed(1) : '—'}</span>
+                        </div>
+                        <div class="text-center border-l border-slate-800">
+                            <span class="block text-[10px] text-slate-500 mb-0.5">EPS</span>
+                            <span class="text-xs font-semibold text-slate-200">${formatNumber(item.eps)}</span>
+                        </div>
+                        <div class="text-center border-l border-slate-800">
+                            <span class="block text-[10px] text-slate-500 mb-0.5">Cổ tức</span>
+                            <span class="text-xs font-semibold text-amber-400">${formatPercent(item.dividend_yield)}</span>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between items-center mb-3 text-xs bg-slate-950/30 px-2 py-1.5 rounded">
+                        <div>ROE: <strong class="text-blue-400">${formatPercent(item.roe)}</strong></div>
+                        <div class="text-slate-600">|</div>
+                        <div>ROA: <strong class="text-indigo-400">${formatPercent(item.roa)}</strong></div>
+                    </div>
+
+                    <div class="text-[11px] text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
+                        <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i> ${item.price_zone}
+                    </div>
                 `;
-                tbody.appendChild(tr);
+                container.appendChild(card);
             });
         }
 
-        document.getElementById('search-input').addEventListener('input', renderTable);
+        document.getElementById('search-input').addEventListener('input', renderCards);
         
         // Khởi chạy
-        initData();
+        loadData();
     </script>
 </body>
 </html>
