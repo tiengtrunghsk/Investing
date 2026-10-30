@@ -156,7 +156,7 @@
         </div>
     </div>
 
-    <!-- MODAL HIỂN THỊ BIỂU ĐỒ TRADINGVIEW (TỰ ĐỘNG BẬT KHI CHỌN MÃ) -->
+    <!-- MODAL HIỂN THỊ BIỂU ĐỒ TRADINGVIEW -->
     <div id="chart-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm hidden p-3 md:p-4">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col">
             <div class="bg-slate-950 px-5 py-4 border-b border-slate-800 flex justify-between items-center">
@@ -409,7 +409,6 @@
                 const sectorCode = getSector(item.symbol);
                 const card = document.createElement('div');
                 
-                // CLICK TRỰC TIẾP VÀO CARD SẼ BẬT BIỂU ĐỒ NGAY LẬP TỨC
                 card.className = `relative bg-slate-900 rounded-xl border ${borderColor} ${cardGlow} p-4 shadow-lg hover:bg-slate-800/80 transition w-full flex flex-col justify-between mt-2 cursor-pointer`;
                 card.onclick = () => openChartModal(item.symbol);
                 
@@ -420,6 +419,9 @@
                             <div class="flex flex-col">
                                 <div class="flex items-center gap-2">
                                     <span class="text-xl font-black text-white">${item.symbol}</span>
+                                    <button onclick="event.stopPropagation(); openModal('${item.symbol}')" class="text-indigo-400 bg-indigo-500/10 hover:bg-indigo-500/20 px-2 py-1 rounded-md border border-indigo-500/20 text-xs transition flex items-center gap-1" title="Xem đánh giá AI">
+                                        <i class="fa-solid fa-robot"></i> <span class="hidden sm:inline">AI</span>
+                                    </button>
                                     ${displayRec ? `<span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${displayRec}</span>` : ''}
                                 </div>
                                 <span class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-tag mr-1"></i>${SECTOR_NAMES[sectorCode]}</span>
@@ -439,11 +441,6 @@
                     </div>
                     
                     ${scoreHtml}
-
-                    <!-- Nút phụ mở nhanh bảng phân tích AI chi tiết -->
-                    <button onclick="event.stopPropagation(); openModal('${item.symbol}')" class="mt-2 w-full py-1.5 bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-300 hover:text-white rounded-lg text-xs font-semibold transition flex items-center justify-center gap-1.5">
-                        <i class="fa-solid fa-robot text-indigo-400"></i> Xem đánh giá AI chi tiết
-                    </button>
                 `;
                 container.appendChild(card);
             });
@@ -483,14 +480,12 @@
             document.getElementById('ai-modal').classList.add('hidden');
         }
 
-        // HÀM MỞ BIỂU ĐỒ TRADINGVIEW (KÈM VOLUME VÀ NÚT XEM AI)
         function openChartModal(symbol) {
             const item = stockData[symbol];
             if (!item) return;
 
             document.getElementById('chart-modal-symbol').innerText = symbol;
             
-            // Gắn sự kiện chuyển sang xem bảng AI chi tiết từ trong modal biểu đồ
             document.getElementById('btn-view-ai').onclick = () => {
                 closeChartModal();
                 openModal(symbol);
@@ -501,7 +496,6 @@
             const container = document.getElementById('tv-chart-container');
             container.innerHTML = '';
 
-            // Khởi tạo biểu đồ Lightweight Charts
             chartInstance = LightweightCharts.createChart(container, {
                 width: container.clientWidth,
                 height: 420,
@@ -510,14 +504,12 @@
                 timeScale: { borderColor: '#334155' }
             });
 
-            // Biểu đồ nến
             const candleSeries = chartInstance.addCandlestickSeries({
                 upColor: '#10b981', downColor: '#f43f5e',
                 borderUpColor: '#10b981', borderDownColor: '#f43f5e',
                 wickUpColor: '#10b981', wickDownColor: '#f43f5e',
             });
 
-            // Biểu đồ khối lượng (Volume Histogram)
             const volumeSeries = chartInstance.addHistogramSeries({
                 priceFormat: { type: 'volume' },
                 priceScaleId: '',
