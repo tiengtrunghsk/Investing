@@ -1,9 +1,9 @@
-name: VN100 Screener Data Updater
+name: VN100 Screener & Telegram Alert
 
 on:
-  workflow_dispatch:
+  workflow_dispatch: # Cho phép bấm nút chạy thủ công trên giao diện GitHub Actions
   schedule:
-    - cron: '0 1 * * 1-5' # Chạy lúc 8h sáng (giờ VN) các ngày từ Thứ 2 đến Thứ 6
+    - cron: '0 1 * * 1-5' # Chạy tự động lúc 8:00 sáng (giờ VN) từ Thứ 2 đến Thứ 6
 
 jobs:
   run-screener:
@@ -22,14 +22,20 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests numpy
 
-      - name: Run update_screener.py
+      - name: Run update_screener.py (Cập nhật giá, P/E, P/B định lượng)
         run: python update_screener.py
+
+      - name: Run scanner.py (Quét tín hiệu D1: Cạn cung, Breakout & Gửi Telegram)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python scanner.py
 
       - name: Commit and push updated data.json
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update data.json with full PTCB metrics" && git push)
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update data.json & send Telegram alert" && git push)
