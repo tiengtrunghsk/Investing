@@ -174,10 +174,9 @@
                 }
             } catch (e) {}
 
-            // 2. Lấy trọn bộ chỉ số PTCB từ API Finfo VNDirect
+            // 2. Lấy toàn bộ chỉ số tài chính mới nhất từ API Finfo VNDirect
             try {
-                const ratioCodes = "PRICE_TO_EARNINGS,PRICE_TO_BOOK,ROE,ROAE,ROAE_TR_AVG5Q,ROA,ROAA,EPS,DEBT_TO_EQUITY,PROFIT_MARGIN,DIVIDEND_YIELD";
-                const resRatio = await fetch(`https://api-finfo.vndirect.com.vn/v4/ratios?q=code:${symbol}~ratioCode:${ratioCodes}&size=20&sort=reportDate:desc`);
+                const resRatio = await fetch(`https://api-finfo.vndirect.com.vn/v4/ratios?q=code:${symbol}&size=30&sort=reportDate:desc`);
                 const dataRatio = await resRatio.json();
                 
                 if (dataRatio && dataRatio.data) {
