@@ -69,10 +69,9 @@
                         <tr class="bg-slate-950/80 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
                             <th class="py-3.5 px-4 font-semibold">Mã</th>
                             <th class="py-3.5 px-4 font-semibold">Ngành</th>
-                            <th class="py-3.5 px-4 font-semibold text-right">Giá (VNĐ)</th>
-                            <th class="py-3.5 px-4 font-semibold text-right">P/E</th>
-                            <th class="py-3.5 px-4 font-semibold text-right">P/B</th>
-                            <!-- Các chỉ số không có dữ liệu (ROE, EPS, v.v.) đã được lược bỏ khỏi tiêu đề bảng -->
+                            <th class="py-3.5 px-4 font-semibold text-right">Giá (VNĐ) <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Trực tiếp từ TCBS API"></i></th>
+                            <th class="py-3.5 px-4 font-semibold text-right">P/E <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Trực tiếp từ TCBS API"></i></th>
+                            <th class="py-3.5 px-4 font-semibold text-right">P/B <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Trực tiếp từ TCBS API"></i></th>
                             <th class="py-3.5 px-4 font-semibold text-center">Khuyến nghị AI</th>
                             <th class="py-3.5 px-4 font-semibold">Vùng mua đề xuất</th>
                             <th class="py-3.5 px-4 font-semibold text-center">Chi tiết</th>
@@ -80,7 +79,9 @@
                     </thead>
                     <tbody id="stock-table-body" class="divide-y divide-slate-800/60 text-sm">
                         <tr>
-                            <td colspan="8" class="text-center py-8 text-slate-500">Đang tải dữ liệu thị trường...</td>
+                            <td colspan="8" class="text-center py-8 text-slate-500">
+                                <i class="fa-solid fa-spinner fa-spin mr-2"></i> Đang tải dữ liệu thời gian thực từ TCBS API & JSON...
+                            </td>
                         </tr>
                     </tbody>
                 </table>
@@ -109,11 +110,11 @@
             <div class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
                 <div class="grid grid-cols-2 gap-3 bg-slate-950/50 p-3 rounded-xl border border-slate-800 text-center">
                     <div>
-                        <span class="text-xs text-slate-500 block">Giá hiện tại</span>
+                        <span class="text-xs text-slate-500 block">Giá hiện tại (Live API)</span>
                         <span id="modal-price" class="text-base font-bold text-white">--</span>
                     </div>
                     <div>
-                        <span class="text-xs text-slate-500 block">P/E | P/B</span>
+                        <span class="text-xs text-slate-500 block">P/E | P/B (Live API)</span>
                         <span id="modal-valuation" class="text-base font-bold text-blue-400">--</span>
                     </div>
                 </div>
@@ -147,38 +148,104 @@
         </div>
     </div>
 
-    <!-- JavaScript Xử lý dữ liệu -->
+    <!-- JavaScript Xử lý dữ liệu song song (TCBS API + data.json) -->
     <script>
-        let stockData = {};
+        let combinedData = {};
+
+        // Hàm gọi API TCBS để lấy Giá, P/E, P/B trực tiếp theo thời gian thực
+        async function fetchLiveTcbsData(symbol) {
+            let close = 0, pe = 0, pb = 0;
+            const headers = { "User-Agent": "Mozilla/5.0" };
+
+            try {
+                // 1. Lấy giá
+                const rPrice = await fetch(`https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=${symbol}`);
+                if (rPrice.ok) {
+                    const jsonPrice = await rPrice.json();
+                    const data = jsonPrice.data || [];
+                    if (data.length > 0) {
+                        close = data[0].matchPrice || data[0].refPrice || 0;
+                    }
+                }
+
+                // 2. Lấy P/E, P/B
+                const rRatio = await fetch(`https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=${symbol}`);
+                if (rRatio.ok) {
+                    const jsonRatio = await rRatio.json();
+                    const data = jsonRatio.data || [];
+                    if (data.length > 0) {
+                        pe = data[0].priceToEarning || 0;
+                        pb = data[0].priceToBook || 0;
+                    }
+                }
+            } catch (err) {
+                console.warn(`Không thể lấy live API cho ${symbol}:`, err);
+            }
+
+            return { close, pe, pb };
+        }
 
         async function loadData() {
             try {
+                // 1. Đọc nội dung nhận định định tính từ file data.json
                 const response = await fetch('data.json?t=' + new Date().getTime());
                 if (!response.ok) throw new Error('Không thể tải file data.json');
-                stockData = await response.json();
+                const jsonData = await response.json();
                 
+                combinedData = jsonData;
                 initFilters();
-                renderTable(stockData);
+                renderTable(combinedData);
                 updateStats();
+
+                // 2. Sau khi render cơ bản xong, tiến hành gọi API TCBS ngầm để cập nhật Giá, P/E, P/B realtime
+                updateLiveMarketData();
+
             } catch (error) {
                 console.error("Lỗi:", error);
                 document.getElementById('stock-table-body').innerHTML = `
                     <tr><td colspan="8" class="text-center py-8 text-rose-400">
-                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> Không thể tải dữ liệu. Hãy đảm bảo file data.json đã được tạo thành công!
+                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> Không thể tải dữ liệu. Hãy đảm bảo file data.json đã tồn tại!
                     </td></tr>`;
             }
         }
 
+        async function updateLiveMarketData() {
+            const symbols = Object.keys(combinedData);
+            for (let symbol of symbols) {
+                const live = await fetchLiveTcbsData(symbol);
+                if (live.close > 0) combinedData[symbol].close = live.close;
+                if (live.pe > 0) combinedData[symbol].pe = live.pe;
+                if (live.pb > 0) combinedData[symbol].pb = live.pb;
+                
+                // Cập nhật lại giao diện từng dòng sau khi có dữ liệu live từ API
+                updateRowElement(symbol);
+            }
+        }
+
+        function updateRowElement(symbol) {
+            const item = combinedData[symbol];
+            const row = document.getElementById(`row-${symbol}`);
+            if (!row) return;
+
+            const closePrice = item.close ? item.close.toLocaleString('vi-VN') : '—';
+            const peVal = item.pe ? item.pe.toFixed(1) : '—';
+            const pbVal = item.pb ? item.pb.toFixed(1) : '—';
+
+            row.querySelector('.col-price').innerText = closePrice;
+            row.querySelector('.col-pe').innerText = peVal;
+            row.querySelector('.col-pb').innerText = pbVal;
+        }
+
         function updateStats() {
-            const symbols = Object.keys(stockData);
+            const symbols = Object.keys(combinedData);
             document.getElementById('total-stocks').innerText = symbols.length;
-            const aiCount = symbols.filter(s => stockData[s].ai_updated_at || (stockData[s].bctc && stockData[s].bctc !== "Chưa có đánh giá")).length;
+            const aiCount = symbols.filter(s => combinedData[s].ai_updated_at || (combinedData[s].bctc && combinedData[s].bctc !== "Chưa có đánh giá")).length;
             document.getElementById('ai-stocks').innerText = aiCount;
         }
 
         function initFilters() {
             const industries = new Set();
-            Object.values(stockData).forEach(item => {
+            Object.values(combinedData).forEach(item => {
                 if (item.industry) industries.add(item.industry);
             });
 
@@ -223,6 +290,7 @@
 
             filtered.forEach(item => {
                 const tr = document.createElement('tr');
+                tr.id = `row-${item.symbol}`;
                 tr.className = "hover:bg-slate-800/40 transition border-b border-slate-800/40";
                 
                 const closePrice = item.close ? item.close.toLocaleString('vi-VN') : '—';
@@ -232,13 +300,13 @@
                 tr.innerHTML = `
                     <td class="py-3 px-4 font-bold text-white">${item.symbol}</td>
                     <td class="py-3 px-4 text-slate-400 text-xs">${item.industry || 'VN100'}</td>
-                    <td class="py-3 px-4 text-right font-semibold text-slate-200">${closePrice}</td>
-                    <td class="py-3 px-4 text-right text-slate-300">${peVal}</td>
-                    <td class="py-3 px-4 text-right text-slate-300">${pbVal}</td>
+                    <td class="py-3 px-4 text-right font-semibold text-slate-200 col-price">${closePrice}</td>
+                    <td class="py-3 px-4 text-right text-slate-300 col-pe">${peVal}</td>
+                    <td class="py-3 px-4 text-right text-slate-300 col-pb">${pbVal}</td>
                     <td class="py-3 px-4 text-center">${getRecommendationBadge(item.recommendation || 'CHỜ ĐỢI')}</td>
                     <td class="py-3 px-4 text-amber-300 text-xs font-medium truncate max-w-xs" title="${item.price_zone || ''}">${item.price_zone || 'Chưa có vùng giá'}</td>
                     <td class="py-3 px-4 text-center">
-                        <button onclick='openDetail(${JSON.stringify(item)})' class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white rounded-lg text-xs font-medium transition border border-blue-500/30">
+                        <button onclick='openDetail("${item.symbol}")' class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white rounded-lg text-xs font-medium transition border border-blue-500/30">
                             <i class="fa-solid fa-eye mr-1"></i> Xem
                         </button>
                     </td>
@@ -247,7 +315,10 @@
             });
         }
 
-        function openDetail(item) {
+        function openDetail(symbol) {
+            const item = combinedData[symbol];
+            if (!item) return;
+
             document.getElementById('modal-symbol').innerText = item.symbol;
             document.getElementById('modal-industry').innerText = item.industry || 'VN100';
             document.getElementById('modal-price').innerText = item.close ? item.close.toLocaleString('vi-VN') + ' VNĐ' : '—';
@@ -266,15 +337,16 @@
             document.getElementById('detail-modal').classList.add('hidden');
         }
 
-        document.getElementById('search-input').addEventListener('input', () => renderTable(stockData));
-        document.getElementById('industry-filter').addEventListener('change', () => renderTable(stockData));
-        document.getElementById('rec-filter').addEventListener('change', () => renderTable(stockData));
+        document.getElementById('search-input').addEventListener('input', () => renderTable(combinedData));
+        document.getElementById('industry-filter').addEventListener('change', () => renderTable(combinedData));
+        document.getElementById('rec-filter').addEventListener('change', () => renderTable(combinedData));
 
         window.addEventListener('click', (e) => {
             const modal = document.getElementById('detail-modal');
             if (e.target === modal) closeModal();
         });
 
+        // Bắt đầu tải dữ liệu
         loadData();
     </script>
 </body>
