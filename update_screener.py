@@ -1,7 +1,7 @@
-import os
 import json
+import os
 import time
-from vnstock import stock_historical_data
+import requests
 
 DATA_FILE = "data.json"
 
@@ -12,8 +12,8 @@ VN100_SYMBOLS = [
     "DIG", "NLG", "KDH", "CEO", "DXG", "TCH", "SJS", "HDG", "KBC", "IDC", 
     "SZC", "BCM", "PHR", "HPG", "HSG", "NKG", "VLB", "CTD", "VCG", "HHV", 
     "C4G", "FPT", "MWG", "PNJ", "FRT", "VNM", "MSN", "SAB", "GAS", "PVD", 
-    "PVS", "BSR", "POW", "REE", "PC1", "NT2", "DGC", "DCM", "DPM", "GMD", 
-    "HAH", "PVT", "VJC", "HVN", "VHC", "ANV", "PAN", "BAF"
+    "PVS", "BSR", "POW", "REE", "PC1", "NT2", "GMD", "HAH", "PVT", "VJC", 
+    "HVN", "VHC", "ANV", "PAN", "BAF"
 ]
 
 INDUSTRY_MAP = {
@@ -29,57 +29,98 @@ INDUSTRY_MAP = {
     "POW": "Năng lượng", "DGC": "Hóa chất", "DCM": "Phân bón", "DPM": "Phân bón", "GMD": "Cảng biển & Logistics"
 }
 
+def fetch_stock_data(symbol):
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    close, pe, pb, roe, roa, eps, debt_equity, dividend_yield = 0, 0, 0, 0, 0, 0, 0, 0
+
+    # 1. Lấy giá đóng cửa thực tế từ DChart API
+    try:
+        end = int(time.time())
+        start = end - (10 * 86400)
+        url_price = f"https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol={symbol}&from={start}&to={end}"
+        res = requests.get(url_price, headers=headers, timeout=5).json()
+        if res.get("s") == "ok" and res.get("c"):
+            close = res["c"][-1]
+    except Exception as e:
+        print(f"Lỗi giá {symbol}: {e}")
+
+    # 2. Lấy trọn bộ chỉ số PTCB từ Finfo API
+    try:
+        url_ratio = f"https://api-finfo.vndirect.com.vn/v4/ratios?q=code:{symbol}&size=50&sort=reportDate:desc"
+        res = requests.get(url_ratio, headers=headers, timeout=5).json()
+        if res.get("data"):
+            for item in res["data"]:
+                code = str(item.get("ratioCode", "")).upper()
+                val = float(item.value or 0)
+                if val == 0:
+                    continue
+
+                if code == "PRICE_TO_EARNINGS" and pe == 0: pe = val
+                if code == "PRICE_TO_BOOK" and pb == 0: pb = val
+                if ("ROE" in code or "ROAE" in code) and roe == 0:
+                    roe = val * 100 if 0 < val < 1 else val
+                if ("ROA" in code or "ROAA" in code) and roa == 0:
+                    roa = val * 100 if 0 < val < 1 else val
+                if code == "EPS" and eps == 0: eps = val
+                if ("DEBT" in code or "DEBT_TO_EQUITY" in code) and debt_equity == 0: debt_equity = val
+                if ("DIVIDEND" in code or "DIVIDEND_YIELD" in code) and dividend_yield == 0:
+                    dividend_yield = val * 100 if 0 < val < 1 else val
+    except Exception as e:
+        print(f"Lỗi chỉ số {symbol}: {e}")
+
+    return {
+        "close": close,
+        "pe": round(pe, 2),
+        "pb": round(pb, 2),
+        "roe": round(roe, 2),
+        "roa": round(roa, 2),
+        "eps": round(eps, 2),
+        "debtEquity": round(debt_equity, 2),
+        "dividendYield": round(dividend_yield, 2)
+    }
+
 def main():
-    # Đọc dữ liệu cũ để giữ lại phần AI đã phân tích trước đó
-    data = {}
+    # Đọc file data.json cũ để giữ lại phần phân tích AI
+    old_data = {}
     if os.path.exists(DATA_FILE):
         try:
             with open(DATA_FILE, "r", encoding="utf-8") as f:
-                data = json.load(f)
-        except Exception:
-            data = {}
+                old_data = json.load(f)
+        except:
+            pass
 
-    symbols = sorted(set(VN100_SYMBOLS))
-    now_iso = time.strftime("%Y-%m-%d %H:%M:%S UTC", time.gmtime())
+    print("🚀 Bắt đầu quá trình cào thông số PTCB cho VN100...")
+    new_data = {}
 
-    print(f"🔄 Bắt đầu lấy dữ liệu giá qua vnstock cho {len(symbols)} mã...")
+    for symbol in VN100_SYMBOLS:
+        print(f"Đang xử lý: {symbol}...")
+        live = fetch_stock_data(symbol)
+        prev = old_data.get(symbol, {})
 
-    for symbol in symbols:
-        industry = INDUSTRY_MAP.get(symbol, "VN100")
-        close = 0
-
-        try:
-            # Lấy giá đóng cửa gần nhất bằng vnstock
-            df = stock_historical_data(symbol=symbol, start_date="2026-01-01", end_date="", resolution="1D", type="stock")
-            if df is not None and not df.empty:
-                close = float(df.iloc[-1]["close"])
-        except Exception as e:
-            print(f"  ⚠️ Lỗi lấy giá {symbol}: {e}")
-
-        # Giữ lại các chỉ số và nhận xét AI cũ, chỉ cập nhật giá mới
-        existing_info = data.get(symbol, {})
-        data[symbol] = {
+        new_data[symbol] = {
             "symbol": symbol,
-            "industry": industry,
-            "close": close,
-            "pe": existing_info.get("pe", 0),
-            "pb": existing_info.get("pb", 0),
-            "roe": existing_info.get("roe", 0),
-            "bctc": existing_info.get("bctc", "Đang chờ AI phân tích..."),
-            "outlook": existing_info.get("outlook", "Đang chờ AI phân tích..."),
-            "recommendation": existing_info.get("recommendation", "Chưa có"),
-            "price_zone": existing_info.get("price_zone", "Chưa có"),
-            "macro_view": existing_info.get("macro_view", "Chưa có"),
-            "ai_updated_at": existing_info.get("ai_updated_at", None)
+            "industry": INDUSTRY_MAP.get(symbol, prev.get("industry", "VN100")),
+            "close": live["close"] or prev.get("close", 0),
+            "pe": live["pe"] or prev.get("pe", 0),
+            "pb": live["pb"] or prev.get("pb", 0),
+            "roe": live["roe"] or prev.get("roe", 0),
+            "roa": live["roa"] or prev.get("roa", 0),
+            "eps": live["eps"] or prev.get("eps", 0),
+            "debtEquity": live["debtEquity"] or prev.get("debtEquity", 0),
+            "dividendYield": live["dividendYield"] or prev.get("dividendYield", 0),
+            "bctc": prev.get("bctc", "Đang chờ phân tích AI..."),
+            "outlook": prev.get("outlook", "Đang cập nhật triển vọng..."),
+            "recommendation": prev.get("recommendation", "CHỜ ĐỢI"),
+            "price_zone": prev.get("price_zone", "Chưa có vùng giá"),
+            "macro_view": prev.get("macro_view", "Chưa có vĩ mô")
         }
-        print(f"  ✔ {symbol} -> Giá: {close}")
-        time.sleep(0.3)
+        time.sleep(0.2) # Nghỉ ngắn giữa các request để tránh bị nghẽn
 
-    # Ghi đè file data.json để website hiển thị
+    # Ghi đè vào data.json
     with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=4)
-        
-    print(f"\n✨ Đã cập nhật xong dữ liệu vào {DATA_FILE} lúc {now_iso}!")
+        json.dump(new_data, f, ensure_ascii=False, indent=4)
+
+    print("✅ Đã cập nhật thành công trọn bộ thông số vào file data.json!")
 
 if __name__ == "__main__":
     main()
