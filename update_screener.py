@@ -1,8 +1,10 @@
 import json
 import os
-import requests
 import datetime
 import numpy as np
+
+# Thư viện lotusmarket - cài đặt: pip install lotusmarket[fetchers]
+from lotusmarket import fetchers
 
 DATA_FILE = "data.json"
 
@@ -16,47 +18,34 @@ VN100_SYMBOLS = [
     "REE", "PC1", "NT2", "GMD", "HAH", "PVT", "VJC", "HVN", "VHC", "ANV"
 ]
 
-def fetch_vndirect_data(symbol):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-        "Accept": "application/json, text/plain, */*"
-    }
+def fetch_lotusmarket_data(symbol):
     close_price, volume, pe, pb = 0, 0, 0, 0
     closes, volumes = [], []
 
     try:
-        # 1. Lấy dữ liệu lịch sử giá & khối lượng từ VNDirect API
-        end_date = datetime.datetime.now().strftime("%Y-%m-%d")
-        start_date = (datetime.datetime.now() - datetime.timedelta(days=60)).strftime("%Y-%m-%d")
-        
-        url_hist = f"https://finfo-api.vndirect.com.vn/v4/stock_prices?sort=date&q=code:{symbol}~date:gte:{start_date}~date:lte:{end_date}&size=50"
-        rHist = requests.get(url_hist, headers=headers, timeout=15)
-        
-        if rHist.status_code == 200:
-            items = rHist.json().get("data", [])
-            if items:
-                closes = [float(i.get("close", 0) or 0) for i in items]
-                volumes = [float(i.get("nmVolume", 0) or 0) for i in items]
-                close_price = closes[-1] if closes else 0
-                volume = volumes[-1] if volumes else 0
+        # 1. Lấy lịch sử OHLCV từ Entrade (tối đa 1000 ngày, không cần key)
+        history = fetchers.entrade_history(symbol, days=60)
+        if history:
+            closes = [float(h.close) for h in history if h.close is not None]
+            volumes = [float(h.volume) for h in history if h.volume is not None]
+            if closes:
+                close_price = closes[-1]
+            if volumes:
+                volume = volumes[-1]
 
-        # 2. Lấy chỉ số P/E, P/B từ VNDirect API
-        url_ratio = f"https://finfo-api.vndirect.com.vn/v4/ratios?q=code:{symbol}"
-        rRatio = requests.get(url_ratio, headers=headers, timeout=15)
-        if rRatio.status_code == 200:
-            rData = rRatio.json().get("data", [])
-            if rData:
-                latest_ratio = rData[-1]
-                pe = float(latest_ratio.get("priceEarning", 0) or 0)
-                pb = float(latest_ratio.get("priceBook", 0) or 0)
+        # 2. Lấy chỉ số cơ bản P/E, P/B từ KBS (không cần key)
+        fundamentals = fetchers.kbs(symbol)
+        if fundamentals:
+            pe = float(fundamentals.pe) if fundamentals.pe else 0
+            pb = float(fundamentals.pb) if fundamentals.pb else 0
 
     except Exception as e:
         print(f"⚠️ Lỗi lấy dữ liệu mã {symbol}: {e}")
 
-    # 3. Thuật toán Price Action D1
+    # 3. Thuật toán Price Action D1 (giữ nguyên logic cũ)
     status = "ĐANG TÍCH LŨY NỀN"
     detail = "Đang siết nền tích lũy biên độ hẹp."
-    
+
     if len(closes) >= 20 and len(volumes) >= 20:
         recent_vols = volumes[-20:]
         ma_vol_20 = np.mean(recent_vols)
@@ -85,7 +74,7 @@ def fetch_vndirect_data(symbol):
     }
 
 def main():
-    print("🚀 Bắt đầu cập nhật dữ liệu VN100 & Volume từ VNDirect API...")
+    print("🚀 Bắt đầu cập nhật dữ liệu VN100 qua lotusmarket...")
     stock_db = {}
     if os.path.exists(DATA_FILE):
         try:
@@ -96,14 +85,14 @@ def main():
 
     for symbol in VN100_SYMBOLS:
         print(f"Đang xử lý: {symbol}...")
-        data = fetch_vndirect_data(symbol)
+        data = fetch_lotusmarket_data(symbol)
         if symbol not in stock_db:
             stock_db[symbol] = {}
         stock_db[symbol].update(data)
 
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(stock_db, f, ensure_ascii=False, indent=4)
-        
+
     print("✅ Đã cập nhật xong data.json với đầy đủ thông số!")
 
 if __name__ == "__main__":
