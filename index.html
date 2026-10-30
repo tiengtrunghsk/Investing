@@ -38,28 +38,29 @@
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-3 md:px-4 py-4">
-        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-sm mb-4 flex flex-col gap-3">
-            <div class="flex flex-col md:flex-row gap-3">
-                <div class="relative w-full md:w-1/3">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
-                        <i class="fa-solid fa-magnifying-glass"></i>
+    <main class="max-w-7xl mx-auto px-2 md:px-4 py-4">
+        <!-- Đưa ô tìm kiếm, lọc ngành, lọc xếp hạng vào chung 1 hàng (thêm tùy chọn lọc về vùng giá mua) -->
+        <div class="bg-slate-900 p-2 md:p-3 rounded-xl border border-slate-800 shadow-sm mb-4">
+            <div class="grid grid-cols-3 gap-1.5 md:gap-3">
+                <div class="relative w-full">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass text-xs md:text-sm"></i>
                     </span>
                     <input type="text" id="search-input" placeholder="Tìm mã..." 
-                        class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                        class="w-full pl-7 md:pl-10 pr-2 md:pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-xs md:text-sm text-white focus:outline-none focus:border-emerald-500 transition">
                 </div>
                 
-                <div class="relative w-full md:w-1/3">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
-                        <i class="fa-solid fa-filter"></i>
+                <div class="relative w-full">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 text-slate-400">
+                        <i class="fa-solid fa-filter text-xs md:text-sm"></i>
                     </span>
-                    <select id="sector-filter" class="w-full pl-10 pr-8 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 appearance-none transition">
-                        <option value="ALL">Tất cả nhóm ngành</option>
+                    <select id="sector-filter" class="w-full pl-7 md:pl-10 pr-5 md:pr-8 py-2 bg-slate-950 border border-slate-700 rounded-lg text-xs md:text-sm text-white focus:outline-none focus:border-emerald-500 appearance-none transition truncate">
+                        <option value="ALL">Tất cả ngành</option>
                         <option value="NH">Ngân hàng (NH)</option>
                         <option value="CK">Chứng khoán (CK)</option>
                         <option value="BDS">Bất động sản (BĐS)</option>
-                        <option value="BDS_KCN">Bất động sản KCN</option>
-                        <option value="THEP">Thép & Vật liệu</option>
+                        <option value="BDS_KCN">BĐS KCN</option>
+                        <option value="THEP">Thép</option>
                         <option value="BANLE">Bán lẻ</option>
                         <option value="THUCPHAM">Thực phẩm</option>
                         <option value="DAUKHI">Dầu khí</option>
@@ -67,23 +68,24 @@
                         <option value="VANTAI">Vận tải</option>
                         <option value="CONGNGHE">Công nghệ</option>
                     </select>
-                    <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 pointer-events-none">
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 md:pr-3 text-slate-400 pointer-events-none">
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </span>
                 </div>
 
-                <div class="relative w-full md:w-1/3">
-                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-400">
-                        <i class="fa-solid fa-trophy"></i>
+                <div class="relative w-full">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-2 md:pl-3 text-amber-400">
+                        <i class="fa-solid fa-trophy text-xs md:text-sm"></i>
                     </span>
-                    <select id="ranking-filter" class="w-full pl-10 pr-8 py-2.5 bg-slate-950 border border-amber-500/50 rounded-lg text-sm text-amber-300 font-semibold focus:outline-none focus:border-amber-400 appearance-none transition">
-                        <option value="NONE">Xem tất cả (A-Z)</option>
-                        <option value="ALL_SCORE">🏆 Top 10 (Tổng hợp)</option>
-                        <option value="FUNDAMENTAL">💰 Top 10 (Cơ bản đặc thù)</option>
-                        <option value="TECHNICAL">📈 Top 10 (Kỹ thuật)</option>
+                    <select id="ranking-filter" class="w-full pl-7 md:pl-10 pr-5 md:pr-8 py-2 bg-slate-950 border border-amber-500/50 rounded-lg text-xs md:text-sm text-amber-300 font-semibold focus:outline-none focus:border-amber-400 appearance-none transition truncate">
+                        <option value="NONE">Mặc định (A-Z)</option>
+                        <option value="ALL_SCORE">🏆 Sắp xếp Tổng hợp</option>
+                        <option value="FUNDAMENTAL">💰 Sắp xếp Cơ bản</option>
+                        <option value="TECHNICAL">📈 Sắp xếp Kỹ thuật</option>
+                        <option value="BUY_ZONE">🎯 Đang về vùng giá mua</option>
                     </select>
-                    <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-amber-400 pointer-events-none">
-                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-2 md:pr-3 text-amber-400 pointer-events-none">
+                        <i class="fa-solid fa-chevron-down text-[10px]"></i>
                     </span>
                 </div>
             </div>
@@ -122,14 +124,16 @@
                     <div><span class="text-[10px] text-slate-500 block">ROE</span><span id="modal-roe" class="text-sm font-bold text-blue-400">--</span></div>
                     <div><span class="text-[10px] text-slate-500 block">Cổ tức</span><span id="modal-div" class="text-sm font-bold text-amber-400">--</span></div>
                 </div>
-                <div class="bg-indigo-500/10 border border-indigo-500/30 p-4 rounded-xl">
+                
+                <div id="modal-ai-rec-box" class="bg-indigo-500/10 border border-indigo-500/30 p-4 rounded-xl">
                     <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2"><i class="fa-solid fa-bullseye mr-1.5"></i> Khuyến nghị của AI</h4>
-                    <p id="modal-ai-rec" class="text-lg font-black text-white mb-2">--</p>
+                    <p id="modal-ai-rec" class="text-lg font-black text-white mb-2"></p>
                     <div class="bg-slate-900/50 p-2.5 rounded border border-indigo-500/20">
                         <span class="text-[10px] text-slate-400 block mb-1">Chiến lược hành động:</span>
                         <p id="modal-ai-price" class="text-sm text-emerald-300 font-medium">--</p>
                     </div>
                 </div>
+
                 <div>
                     <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-file-invoice-dollar text-emerald-500 mr-1.5"></i> Đánh giá BCTC</h4>
                     <p id="modal-bctc" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
@@ -286,6 +290,21 @@
             return Math.round((fund * 0.5) + (tech * 0.5));
         }
 
+        // Hàm kiểm tra xem cổ phiếu có đang về vùng giá mua hay không dựa trên AI recommendation / price zone hoặc trạng thái
+        function isinBuyZone(item) {
+            let rec = (item.ai_recommendation || item.recommendation || "").toUpperCase();
+            let zoneText = (item.ai_price_zone || item.price_zone || "").toLowerCase();
+            
+            // Các từ khóa nhận diện đang về vùng mua tích sản, gom hàng, chờ test lại hoặc đang ở vùng giá hấp dẫn
+            if (rec.includes("MUA") || rec.includes("GOM") || rec.includes("TÍCH LŨY") || rec.includes("CHỜ TEST") || rec.includes("CẠN CUNG")) {
+                return true;
+            }
+            if (zoneText.includes("mua") || zoneText.includes("tích lũy") || zoneText.includes("gom")) {
+                return true;
+            }
+            return false;
+        }
+
         function renderCards() {
             const container = document.getElementById('stock-container');
             container.innerHTML = '';
@@ -297,24 +316,34 @@
             let filtered = Object.values(stockData).filter(item => {
                 let matchSearch = item.symbol.includes(searchTerm);
                 let matchSector = (selectedSector === "ALL") ? true : (getSector(item.symbol) === selectedSector);
-                return matchSearch && matchSector;
+                let matchBuyZone = true;
+
+                // Nếu chọn lọc vùng giá mua
+                if (rankingMode === "BUY_ZONE") {
+                    matchBuyZone = isinBuyZone(item);
+                }
+
+                return matchSearch && matchSector && matchBuyZone;
             });
 
+            // SẮP XẾP TẤT CẢ DANH SÁCH
             if (rankingMode === "FUNDAMENTAL") {
                 filtered.forEach(item => { item._score = scoreFundamental(item); });
                 filtered.sort((a, b) => b._score - a._score);
-                filtered = filtered.slice(0, 10);
             } 
             else if (rankingMode === "TECHNICAL") {
                 filtered.forEach(item => { item._score = scoreTechnical(item); });
                 filtered.sort((a, b) => b._score - a._score);
-                filtered = filtered.slice(0, 10);
             }
             else if (rankingMode === "ALL_SCORE") {
                 filtered.forEach(item => { item._score = scoreCombined(item); });
                 filtered.sort((a, b) => b._score - a._score);
-                filtered = filtered.slice(0, 10);
             } 
+            else if (rankingMode === "BUY_ZONE") {
+                // Sắp xếp ưu tiên theo điểm tổng hợp khi ở chế độ lọc vùng mua
+                filtered.forEach(item => { item._score = scoreCombined(item); });
+                filtered.sort((a, b) => b._score - a._score);
+            }
             else {
                 filtered.sort((a, b) => a.symbol.localeCompare(b.symbol));
             }
@@ -328,7 +357,7 @@
                 let statusColor = "text-slate-400 bg-slate-800";
                 let borderColor = "border-slate-700";
                 
-                let displayRec = item.ai_recommendation || item.recommendation;
+                let displayRec = item.ai_recommendation || item.recommendation || "";
                 if (displayRec.includes("MUA") || displayRec.includes("BREAKOUT") || displayRec.includes("GOM")) {
                     statusColor = "text-emerald-400 bg-emerald-500/10";
                     borderColor = "border-emerald-500/30";
@@ -348,10 +377,10 @@
 
                 let scoreHtml = "";
                 if (rankingMode !== "NONE") {
-                    let label = "";
+                    let label = "Điểm Tổng hợp";
                     if (rankingMode === "FUNDAMENTAL") label = "Điểm Cơ bản";
                     else if (rankingMode === "TECHNICAL") label = "Điểm Kỹ thuật";
-                    else label = "Điểm Tổng hợp";
+                    else if (rankingMode === "BUY_ZONE") label = "Điểm Tổng hợp (Vùng mua)";
 
                     scoreHtml = `
                     <div class="text-[10px] text-center mb-1 bg-indigo-500/10 text-indigo-300 rounded py-1 border border-indigo-500/20">
@@ -372,7 +401,7 @@
                             <div class="flex flex-col">
                                 <div class="flex items-center gap-2">
                                     <span class="text-xl font-black text-white">${item.symbol}</span>
-                                    <span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${displayRec}</span>
+                                    ${displayRec ? `<span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${displayRec}</span>` : ''}
                                 </div>
                                 <span class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-tag mr-1"></i>${SECTOR_NAMES[sectorCode]}</span>
                             </div>
@@ -409,7 +438,14 @@
             document.getElementById('modal-roe').innerText = formatPercent(item.roe);
             document.getElementById('modal-div').innerText = formatPercent(item.dividend_yield);
 
-            document.getElementById('modal-ai-rec').innerText = item.ai_recommendation || "Chưa có phân tích AI";
+            const recEl = document.getElementById('modal-ai-rec');
+            if (item.ai_recommendation) {
+                recEl.innerText = item.ai_recommendation;
+                recEl.style.display = "block";
+            } else {
+                recEl.innerText = "Đang cập nhật phân tích từ hệ thống...";
+            }
+
             document.getElementById('modal-ai-price').innerText = item.ai_price_zone || item.price_zone || "Đang cập nhật...";
             document.getElementById('modal-bctc').innerText = item.bctc || "AI chưa phân tích dữ liệu BCTC cho mã này.";
             document.getElementById('modal-outlook').innerText = item.outlook || "Chưa có đánh giá định giá & kỹ thuật.";
