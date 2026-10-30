@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - Direct API</title>
+    <title>Pro Quant Screener - Direct API (Debug Mode)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -11,9 +11,13 @@
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #475569; }
+        
+        /* Hiệu ứng cho Toast thông báo */
+        #toast { transition: opacity 0.3s, transform 0.3s; transform: translateY(20px); opacity: 0; pointer-events: none; }
+        #toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans relative">
 
     <!-- Header -->
     <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-30 shadow-md">
@@ -23,8 +27,8 @@
                     <i class="fa-solid fa-chart-candlestick text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded border border-blue-500/30">Direct API</span></h1>
-                    <p class="text-xs text-slate-400">Lấy dữ liệu trực tiếp từ VNDirect (Không cần GitHub Actions)</p>
+                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-rose-500/20 text-rose-400 px-2 py-0.5 rounded border border-rose-500/30">Debug Mode</span></h1>
+                    <p class="text-xs text-slate-400">Hiển thị chi tiết lỗi kết nối API</p>
                 </div>
             </div>
             
@@ -33,7 +37,6 @@
                     <i class="fa-solid fa-database text-blue-400 mr-1"></i> Đã tải: <strong id="total-stocks" class="text-white">0</strong>/70
                 </div>
                 
-                <!-- Nút Export JSON -->
                 <button onclick="exportJSON()" id="btn-export" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow opacity-50 cursor-not-allowed" disabled>
                     <i class="fa-solid fa-file-export text-emerald-400"></i> <span>Xuất JSON</span>
                 </button>
@@ -62,7 +65,8 @@
             </div>
             <div class="flex gap-2 text-xs">
                 <span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded border border-emerald-500/30"><i class="fa-solid fa-arrow-trend-up mr-1"></i> Breakout</span>
-                <span class="bg-amber-500/20 text-amber-400 px-2 py-1 rounded border border-amber-500/30"><i class="fa-solid fa-box-archive mr-1"></i> Tích lũy / Gom</span>
+                <span class="bg-amber-500/20 text-amber-400 px-2 py-1 rounded border border-amber-500/30"><i class="fa-solid fa-box-archive mr-1"></i> Tích lũy</span>
+                <span class="bg-rose-500/20 text-rose-400 px-2 py-1 rounded border border-rose-500/30"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi API</span>
             </div>
         </div>
 
@@ -77,13 +81,13 @@
                             <th class="py-3.5 px-4 font-semibold text-right w-32">Vol D1</th>
                             <th class="py-3.5 px-4 font-semibold text-right w-20">P/E</th>
                             <th class="py-3.5 px-4 font-semibold text-right w-20">P/B</th>
-                            <th class="py-3.5 px-4 font-semibold text-center w-32">Trạng thái</th>
+                            <th class="py-3.5 px-4 font-semibold text-center w-40">Trạng thái / Lỗi</th>
                         </tr>
                     </thead>
                     <tbody id="stock-table-body" class="divide-y divide-slate-800/60 text-sm">
                         <tr>
                             <td colspan="6" class="text-center py-12 text-slate-500">
-                                <i class="fa-solid fa-circle-info mr-2 text-blue-500"></i> Nhấn "Bắt đầu Quét" để lấy dữ liệu trực tiếp từ VNDirect.
+                                <i class="fa-solid fa-circle-info mr-2 text-blue-500"></i> Nhấn "Bắt đầu Quét" để kiểm tra kết nối API.
                             </td>
                         </tr>
                     </tbody>
@@ -91,6 +95,12 @@
             </div>
         </div>
     </main>
+
+    <!-- Toast Thông báo -->
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-800 border-l-4 border-blue-500 text-white px-5 py-3 rounded-lg shadow-2xl z-50 flex items-center gap-3">
+        <i class="fa-solid fa-circle-info text-blue-400"></i>
+        <span id="toast-msg">Thông báo...</span>
+    </div>
 
     <script>
         const VN100_SYMBOLS = [
@@ -103,11 +113,31 @@
             "REE", "PC1", "NT2", "GMD", "HAH", "PVT", "VJC", "HVN", "VHC", "ANV"
         ];
 
-        const CORS_PROXY = "https://corsproxy.io/?url=";
+        // Thử đổi proxy nếu corsproxy.io bị sập
+        // const CORS_PROXY = "https://corsproxy.io/?url=";
+        const CORS_PROXY = "https://api.allorigins.win/raw?url="; 
+
         let stockData = {};
         let isScanning = false;
 
         const avg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            const toastMsg = document.getElementById('toast-msg');
+            toastMsg.innerText = msg;
+            
+            if (isError) {
+                toast.className = toast.className.replace('border-blue-500', 'border-rose-500');
+                toast.querySelector('i').className = "fa-solid fa-triangle-exclamation text-rose-400";
+            } else {
+                toast.className = toast.className.replace('border-rose-500', 'border-blue-500');
+                toast.querySelector('i').className = "fa-solid fa-circle-info text-blue-400";
+            }
+            
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
 
         async function fetchStockData(symbol) {
             try {
@@ -117,9 +147,16 @@
                 const histUrl = `https://finfo-api.vndirect.com.vn/v4/stock_prices?sort=date&q=code:${symbol}~date:gte:${start_date}~date:lte:${end_date}&size=50`;
                 const ratioUrl = `https://finfo-api.vndirect.com.vn/v4/ratios?q=code:${symbol}`;
 
+                // Sử dụng Promise.all để gọi song song
                 const [histRes, ratioRes] = await Promise.all([
-                    fetch(CORS_PROXY + encodeURIComponent(histUrl)).then(r => r.json()),
-                    fetch(CORS_PROXY + encodeURIComponent(ratioUrl)).then(r => r.json())
+                    fetch(CORS_PROXY + encodeURIComponent(histUrl)).then(r => {
+                        if(!r.ok) throw new Error("Lỗi HTTP Lịch sử");
+                        return r.json();
+                    }),
+                    fetch(CORS_PROXY + encodeURIComponent(ratioUrl)).then(r => {
+                        if(!r.ok) throw new Error("Lỗi HTTP Chỉ số");
+                        return r.json();
+                    })
                 ]);
 
                 let closes = [], volumes = [], pe = 0, pb = 0;
@@ -127,6 +164,8 @@
                 if (histRes.data && histRes.data.length > 0) {
                     closes = histRes.data.map(i => parseFloat(i.close || 0));
                     volumes = histRes.data.map(i => parseFloat(i.nmVolume || 0));
+                } else {
+                    throw new Error("API không trả về dữ liệu giá (Có thể bị chặn)");
                 }
 
                 if (ratioRes.data && ratioRes.data.length > 0) {
@@ -135,6 +174,7 @@
                     pb = parseFloat(latest.priceBook || 0);
                 }
 
+                // Logic Price Action
                 let status = "ĐANG TÍCH LŨY NỀN";
                 let detail = "Đang siết nền tích lũy biên độ hẹp.";
 
@@ -158,7 +198,6 @@
                     }
                 }
 
-                // Định dạng ngày giờ hiện tại
                 const now = new Date();
                 const updated_at = now.getFullYear() + "-" + 
                     String(now.getMonth() + 1).padStart(2, '0') + "-" + 
@@ -168,26 +207,18 @@
                     String(now.getSeconds()).padStart(2, '0');
 
                 return {
-                    symbol,
-                    close: closes.length ? closes[closes.length - 1] : 0,
-                    volume: volumes.length ? volumes[volumes.length - 1] : 0,
-                    pe, pb, 
-                    recommendation: status, 
-                    price_zone: detail,
-                    updated_at: updated_at
+                    symbol, close: closes[closes.length - 1], volume: volumes[volumes.length - 1],
+                    pe, pb, recommendation: status, price_zone: detail, updated_at: updated_at
                 };
             } catch (err) {
-                console.error(`Lỗi mã ${symbol}:`, err);
+                console.error(`Lỗi mã ${symbol}:`, err.message);
+                // Trả về object báo lỗi rõ ràng
                 return { 
                     symbol, 
                     error: true, 
-                    close: 0, 
-                    volume: 0, 
-                    pe: 0, 
-                    pb: 0, 
-                    recommendation: "LỖI API", 
-                    price_zone: "Không lấy được dữ liệu",
-                    updated_at: "--"
+                    errorMsg: err.message || "Lỗi mạng/Proxy",
+                    recommendation: "LỖI KẾT NỐI", 
+                    price_zone: "Không lấy được dữ liệu" 
                 };
             }
         }
@@ -214,26 +245,33 @@
             icon.className = 'fa-solid fa-spinner fa-spin';
             text.innerText = 'Đang quét...';
             progressBar.classList.remove('hidden');
+            showToast("Bắt đầu quét dữ liệu. Vui lòng đợi...");
 
             let completed = 0;
+            let errorCount = 0;
 
             for (let i = 0; i < VN100_SYMBOLS.length; i++) {
                 const symbol = VN100_SYMBOLS[i];
-                text.innerText = `Đang quét: ${symbol} (${i + 1}/${VN100_SYMBOLS.length})`;
+                text.innerText = `Quét: ${symbol} (${i + 1}/${VN100_SYMBOLS.length})`;
                 
                 const data = await fetchStockData(symbol);
-                // Chỉ lưu những mã lấy được dữ liệu thành công
-                if (!data.error && data.close > 0) {
+                
+                if (!data.error) {
                     stockData[symbol] = data;
-                    renderRow(data);
                     completed++;
                     document.getElementById('total-stocks').innerText = completed;
+                } else {
+                    errorCount++;
                 }
+                
+                // Render cả mã lỗi và mã thành công
+                renderRow(data);
 
                 const pct = ((i + 1) / VN100_SYMBOLS.length) * 100;
                 progressFill.style.width = `${pct}%`;
 
-                await new Promise(r => setTimeout(r, 200));
+                // Nghỉ 300ms để tránh bị đánh dấu spam proxy
+                await new Promise(r => setTimeout(r, 300));
             }
 
             isScanning = false;
@@ -243,10 +281,18 @@
             text.innerText = 'Quét lại';
             setTimeout(() => progressBar.classList.add('hidden'), 1000);
 
-            // Kích hoạt nút Export nếu có dữ liệu
             if (completed > 0) {
                 btnExport.disabled = false;
                 btnExport.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+
+            // Thông báo kết quả cuối cùng
+            if (errorCount === VN100_SYMBOLS.length) {
+                showToast(`Toàn bộ 70 mã đều lỗi! Proxy hoặc API VNDirect đang chặn IP của bạn.`, true);
+            } else if (errorCount > 0) {
+                showToast(`Hoàn tất! Thành công: ${completed} mã, Lỗi: ${errorCount} mã.`, true);
+            } else {
+                showToast(`Tuyệt vời! Đã lấy thành công toàn bộ ${completed} mã.`, false);
             }
         }
 
@@ -255,6 +301,24 @@
             if (tbody.querySelector('td[colspan="6"]')) tbody.innerHTML = '';
 
             const tr = document.createElement('tr');
+            
+            // Xử lý giao diện nếu là dòng lỗi
+            if (item.error) {
+                tr.className = "bg-rose-900/20 border-b border-rose-800/40 hover:bg-rose-900/30 transition";
+                tr.innerHTML = `
+                    <td class="py-3 px-4 font-bold text-rose-400 whitespace-nowrap">${item.symbol}</td>
+                    <td colspan="4" class="py-3 px-4 text-right text-rose-300 text-xs italic">${item.errorMsg}</td>
+                    <td class="py-3 px-4 text-center whitespace-nowrap">
+                        <span class="text-[10px] px-2 py-1 rounded-full font-semibold bg-rose-500/20 text-rose-400 border border-rose-500/30">
+                            <i class="fa-solid fa-xmark mr-1"></i> LỖI
+                        </span>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+                return;
+            }
+
+            // Xử lý giao diện nếu thành công
             tr.className = "hover:bg-slate-800/40 transition border-b border-slate-800/40";
             
             const closePrice = item.close ? item.close.toLocaleString('vi-VN') : '—';
@@ -282,35 +346,25 @@
             tbody.appendChild(tr);
         }
 
-        // HÀM XUẤT JSON
         function exportJSON() {
             if (Object.keys(stockData).length === 0) {
-                alert("Chưa có dữ liệu để xuất!");
+                showToast("Không có dữ liệu thành công nào để xuất!", true);
                 return;
             }
 
-            // Chuyển đổi object stockData thành chuỗi JSON chuẩn (giống cấu trúc file data.json của Python)
             const jsonString = JSON.stringify(stockData, null, 4);
-            
-            // Tạo file blob và link tải xuống
             const blob = new Blob([jsonString], { type: "application/json" });
             const url = URL.createObjectURL(blob);
             
             const a = document.createElement('a');
             a.href = url;
-            a.download = "data.json"; // Tên file tải về
+            a.download = "data.json";
             document.body.appendChild(a);
             a.click();
-            
-            // Dọn dẹp
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
             
-            // Hiệu ứng thông báo nhỏ
-            const btn = document.getElementById('btn-export');
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-check text-emerald-400"></i> <span>Đã tải!</span>`;
-            setTimeout(() => { btn.innerHTML = originalHTML; }, 2000);
+            showToast(`Đã xuất file data.json thành công!`, false);
         }
 
         // Tìm kiếm
