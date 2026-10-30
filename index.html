@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - Data.json</title>
+    <title>Pro Quant Screener - Full Metrics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -20,11 +20,11 @@
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
                 <div class="bg-blue-600 text-white p-2 rounded-lg shadow-lg shadow-blue-500/30">
-                    <i class="fa-solid fa-chart-pie text-lg"></i>
+                    <i class="fa-solid fa-layer-group text-lg"></i>
                 </div>
                 <div>
                     <h1 class="text-base md:text-lg font-bold tracking-wide text-white">Pro Quant Screener</h1>
-                    <p class="text-[10px] text-slate-400">Đa chỉ số: Giá, P/E, P/B, EPS, ROE...</p>
+                    <p class="text-[10px] text-slate-400">Lọc theo Nhóm ngành & Đa chỉ số</p>
                 </div>
             </div>
             
@@ -35,20 +35,50 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-3 md:px-4 py-4">
-        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-sm mb-4">
-            <div class="relative w-full">
+        <!-- Thanh tìm kiếm và bộ lọc nhóm ngành -->
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-sm mb-4 flex flex-col md:flex-row gap-3">
+            <!-- Ô tìm kiếm mã -->
+            <div class="relative w-full md:w-1/2">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
-                <input type="text" id="search-input" placeholder="Tìm mã cổ phiếu (VD: ACB)..." 
+                <input type="text" id="search-input" placeholder="Tìm mã hoặc tên ngành (VD: ACB, BĐS)..." 
                     class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 transition">
+            </div>
+            
+            <!-- Bộ lọc nhóm ngành -->
+            <div class="w-full md:w-1/2">
+                <div class="relative">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                        <i class="fa-solid fa-filter"></i>
+                    </span>
+                    <select id="sector-filter" class="w-full pl-10 pr-8 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 appearance-none transition">
+                        <option value="ALL">Tất cả nhóm ngành</option>
+                        <option value="NH">Ngân hàng (NH)</option>
+                        <option value="CK">Chứng khoán (CK)</option>
+                        <option value="BDS">Bất động sản (BĐS)</option>
+                        <option value="BDS_KCN">Bất động sản KCN (BĐS KCN)</option>
+                        <option value="THEP">Thép & Vật liệu (Thép)</option>
+                        <option value="BANLE">Bán lẻ (Bán lẻ)</option>
+                        <option value="THUCPHAM">Thực phẩm & Đồ uống (TP)</option>
+                        <option value="DAUKHI">Dầu khí & Năng lượng (Dầu khí)</option>
+                        <option value="XAYDUNG">Xây dựng & Đầu tư (XD)</option>
+                        <option value="VANTAI">Vận tải & Logistics (VT)</option>
+                        <option value="CONGNGHE">Công nghệ (CN)</option>
+                        <option value="KHAC">Ngành khác</option>
+                    </select>
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 pointer-events-none">
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </span>
+                </div>
             </div>
         </div>
 
+        <!-- Danh sách dạng Thẻ (Cards) -->
         <div id="stock-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
             <div class="col-span-full text-center py-12 text-slate-500">
                 <i class="fa-solid fa-spinner spinner text-2xl text-blue-500 mb-3 block"></i>
-                <p>Đang tải dữ liệu từ data.json...</p>
+                <p>Đang tải dữ liệu...</p>
             </div>
         </div>
     </main>
@@ -56,9 +86,32 @@
     <script>
         let stockData = {};
 
+        // BẢNG PHÂN LOẠI NHÓM NGÀNH (Dựa trên 70 mã VN100)
+        const SECTOR_MAPPING = {
+            "NH": ["ACB", "BID", "CTG", "TCB", "MBB", "STB", "VPB", "HDB", "VIB", "TPB", "SHB", "SSB", "LPB", "MSB", "OCB", "EIB"],
+            "CK": ["SSI", "VCI", "HCM", "VIX", "MBS", "FTS", "BSI", "CTS", "ORS"],
+            "BDS": ["VHM", "VIC", "VRE", "NVL", "PDR", "DIG", "NLG", "KDH", "CEO", "DXG", "TCH", "HDG"],
+            "BDS_KCN": ["KBC", "IDC", "SZC", "BCM", "PHR"],
+            "THEP": ["HPG", "HSG", "NKG"],
+            "XAYDUNG": ["CTD", "VCG", "HHV"],
+            "CONGNGHE": ["FPT"],
+            "BANLE": ["MWG", "PNJ", "FRT"],
+            "THUCPHAM": ["VNM", "MSN", "SAB"],
+            "DAUKHI": ["GAS", "PVD", "PVS", "BSR", "POW"],
+            "VANTAI": ["GMD", "HAH", "PVT", "VJC", "HVN"],
+            "KHAC": ["REE", "PC1", "NT2", "VHC", "ANV"] // Thủy sản, Điện...
+        };
+
+        // Hàm lấy tên viết tắt ngành của một mã
+        function getSector(symbol) {
+            for (const [sectorKey, symbols] of Object.entries(SECTOR_MAPPING)) {
+                if (symbols.includes(symbol)) return sectorKey;
+            }
+            return "KHAC";
+        }
+
         function formatNumber(num) {
             if (num === undefined || num === null || num === 0) return '—';
-            // Nếu dữ liệu cũ bị thiếu số 0 (VD: 21.5 thay vì 21500)
             let val = (num < 1000 && num > 0) ? num * 1000 : num; 
             return Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
@@ -72,14 +125,12 @@
             const icon = document.getElementById('refresh-icon');
             icon.classList.add('spinner');
             
-            // Cơ chế Timeout: Nếu quá 5 giây không tải được file JSON thì báo lỗi luôn
             const controller = new AbortController();
             const timeoutId = setTimeout(() => controller.abort(), 5000);
 
             try {
                 const response = await fetch('data.json?t=' + new Date().getTime(), { signal: controller.signal });
                 clearTimeout(timeoutId);
-
                 if (!response.ok) throw new Error('Không thể tải data.json');
                 
                 stockData = await response.json();
@@ -88,8 +139,7 @@
                 console.error(error);
                 document.getElementById('stock-container').innerHTML = `
                     <div class="col-span-full text-center py-8 text-rose-400 font-semibold bg-rose-500/10 rounded-xl border border-rose-500/30">
-                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi tải file data.json!<br>
-                        <span class="text-xs font-normal mt-2 block">Hãy đảm bảo file data.json đã được chạy từ Python và up lên cùng thư mục.</span>
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi tải file data.json!
                     </div>`;
             } finally {
                 icon.classList.remove('spinner');
@@ -101,12 +151,30 @@
             container.innerHTML = '';
 
             const searchTerm = document.getElementById('search-input').value.toUpperCase();
-            const filtered = Object.values(stockData)
-                .filter(item => item.symbol.includes(searchTerm))
-                .sort((a, b) => a.symbol.localeCompare(b.symbol));
+            const selectedSector = document.getElementById('sector-filter').value;
+
+            const filtered = Object.values(stockData).filter(item => {
+                // 1. Lọc theo ô tìm kiếm (Tìm theo mã hoặc từ khóa tên ngành)
+                let matchSearch = item.symbol.includes(searchTerm);
+                if (!matchSearch) {
+                    const sec = getSector(item.symbol);
+                    // Cho phép gõ "BĐS", "NH", "CK" vào ô search
+                    if (searchTerm === "BĐS" && sec === "BDS") matchSearch = true;
+                    if (searchTerm === "NH" && sec === "NH") matchSearch = true;
+                    if (searchTerm === "CK" && sec === "CK") matchSearch = true;
+                }
+
+                // 2. Lọc theo Dropdown
+                let matchSector = true;
+                if (selectedSector !== "ALL") {
+                    matchSector = (getSector(item.symbol) === selectedSector);
+                }
+
+                return matchSearch && matchSector;
+            }).sort((a, b) => a.symbol.localeCompare(b.symbol));
 
             if (filtered.length === 0) {
-                container.innerHTML = `<div class="col-span-full text-center py-8 text-slate-500">Không tìm thấy mã nào.</div>`;
+                container.innerHTML = `<div class="col-span-full text-center py-8 text-slate-500">Không tìm thấy mã nào phù hợp.</div>`;
                 return;
             }
 
@@ -135,14 +203,21 @@
                 if (item.pe > 20) peColor = "text-rose-400";
                 else if (item.pe > 0 && item.pe < 10) peColor = "text-emerald-400";
 
+                // Gắn nhãn ngành hiển thị
+                const sectorCode = getSector(item.symbol);
+                const sectorNames = { "NH": "Ngân hàng", "CK": "Chứng khoán", "BDS": "Bất động sản", "BDS_KCN": "BĐS KCN", "THEP": "Thép", "XAYDUNG": "Xây dựng", "CONGNGHE": "Công nghệ", "BANLE": "Bán lẻ", "THUCPHAM": "Thực phẩm", "DAUKHI": "Dầu khí", "VANTAI": "Vận tải", "KHAC": "Khác" };
+
                 const card = document.createElement('div');
                 card.className = `bg-slate-900 rounded-xl border ${borderColor} p-4 shadow-lg hover:bg-slate-800/80 transition`;
                 
                 card.innerHTML = `
                     <div class="flex justify-between items-start mb-3">
-                        <div class="flex items-center gap-2">
-                            <span class="text-xl font-black text-white">${item.symbol}</span>
-                            <span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${shortStatus}</span>
+                        <div class="flex flex-col">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xl font-black text-white">${item.symbol}</span>
+                                <span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${shortStatus}</span>
+                            </div>
+                            <span class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-tag mr-1"></i>${sectorNames[sectorCode]}</span>
                         </div>
                         <div class="text-right">
                             <span class="block text-lg font-bold text-emerald-400">${formatNumber(item.close)}</span>
@@ -183,7 +258,9 @@
             });
         }
 
+        // Gắn sự kiện cho cả ô tìm kiếm và dropdown
         document.getElementById('search-input').addEventListener('input', renderCards);
+        document.getElementById('sector-filter').addEventListener('change', renderCards);
         
         // Khởi chạy
         loadData();
