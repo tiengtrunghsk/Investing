@@ -8,6 +8,7 @@ import requests
 from vnstock import Quote
 
 DATA_FILE = "data.json"
+JS_LIB_FILE = "lightweight-charts.standalone.production.js"
 
 VN100_SYMBOLS = [
     "ACB", "BID", "CTG", "TCB", "MBB", "STB", "VPB", "HDB", "VIB", "TPB",
@@ -28,6 +29,20 @@ VNDIRECT_RATIOS = {
     "dividend_yield": "DIVIDEND_YIELD"
 }
 
+def download_lightweight_charts_js():
+    """Tự động tải file thư viện TradingView nội bộ nếu chưa có để đồng bộ lên GitHub"""
+    if not os.path.exists(JS_LIB_FILE):
+        print("📥 Đang tải file thư viện TradingView (lightweight-charts)...")
+        url = "https://unpkg.com/lightweight-charts@4.1.1/dist/standalone/lightweight-charts.standalone.production.js"
+        try:
+            r = requests.get(url, timeout=15)
+            if r.status_code == 200:
+                with open(JS_LIB_FILE, "w", encoding="utf-8") as f:
+                    f.write(r.text)
+                print("✅ Đã tải xong file thư viện nội bộ vào thư mục dự án!")
+        except Exception as e:
+            print(f"⚠️ Không thể tải file thư viện JS: {e}")
+
 def get_vndirect_ratio(symbol, ratio_code):
     """Lấy chỉ số tài chính từ VNDirect"""
     url = "https://api-finfo.vndirect.com.vn/v4/ratios"
@@ -44,11 +59,14 @@ def get_vndirect_ratio(symbol, ratio_code):
     return 0
 
 def auto_git_push():
-    """Tự động add, commit và push file data.json lên GitHub"""
+    """Tự động add, commit và push cả data.json lẫn file thư viện JS lên GitHub"""
     try:
-        print("📤 Đang tiến hành đồng bộ dữ liệu lên GitHub...")
+        print("📤 Đang tiến hành đồng bộ dữ liệu và thư viện lên GitHub...")
         subprocess.run(["git", "add", DATA_FILE], check=True)
-        commit_msg = f"Auto update data.json from PC - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        if os.path.exists(JS_LIB_FILE):
+            subprocess.run(["git", "add", JS_LIB_FILE], check=True)
+            
+        commit_msg = f"Auto update data.json & chart library from PC - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push"], check=True)
         print("🚀 Đẩy dữ liệu lên GitHub thành công!")
@@ -59,6 +77,9 @@ def auto_git_push():
 
 def main():
     print("🚀 Bắt đầu cào dữ liệu thị trường và lịch sử nến trên PC...")
+    
+    # Đảm bảo có sẵn file thư viện JS nội bộ
+    download_lightweight_charts_js()
     
     stock_db = {}
     if os.path.exists(DATA_FILE):
@@ -89,7 +110,6 @@ def main():
                 
                 # Định dạng dữ liệu lịch sử phục vụ vẽ biểu đồ TradingView
                 for _, row in df.iterrows():
-                    # Xử lý chuẩn định dạng ngày 'YYYY-MM-DD'
                     time_val = row['time']
                     time_str = time_val.strftime('%Y-%m-%d') if hasattr(time_val, 'strftime') else str(time_val)[:10]
                     
@@ -147,7 +167,7 @@ def main():
             "recommendation": status,
             "price_zone": detail,
             "updated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "history": history_data, # 👈 Bổ sung mảng lịch sử nến phục vụ vẽ biểu đồ web
+            "history": history_data,
             # Kế thừa dữ liệu AI tuần trước
             "bctc": old_data.get("bctc", ""),
             "outlook": old_data.get("outlook", ""),
