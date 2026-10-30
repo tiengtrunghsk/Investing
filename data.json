@@ -10,11 +10,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.91,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "ACB có P/E ở mức 7.68x và P/B là 1.19x, cho thấy cổ phiếu đang được định giá hợp lý so với lợi nhuận và tài sản của ngân hàng. Tỷ suất cổ tức 2.91% cũng phản ánh sức khỏe tài chính ổn định.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng do lãi suất ổn định và nhu cầu tín dụng tăng. ACB với nền tảng khách hàng vững chắc và chiến lược kinh doanh hiệu quả có thể tận dụng tốt xu hướng này.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ hoạt động cho vay và thu hút dòng tiền vào ngành ngân hàng. Dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho ACB.",
+        "ai_updated_at": "2026-10-30 03:27:26"
     },
     "BID": {
         "symbol": "BID",
@@ -27,11 +28,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 1.2,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 8.16x và P/B là 1.39x, BID được đánh giá có định giá hấp dẫn so với mặt bằng chung của ngành ngân hàng, cho thấy sức khỏe tài chính ổn định và chất lượng tài sản tốt.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng nhờ vào sự ổn định của lãi suất và nhu cầu tín dụng gia tăng. BID, với nền tảng tài chính vững chắc, có triển vọng tăng trưởng lợi nhuận trong ngắn và trung hạn.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 30.0 - 32.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho nhóm ngành ngân hàng như BID. Dòng tiền chọn lọc này giúp nâng cao khả năng tăng trưởng và thu hút nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:27:31"
     },
     "CTG": {
         "symbol": "CTG",
@@ -44,11 +46,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 1.01,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 5.94x và P/B ở mức 1.22x, CTG đang được định giá thấp so với mặt bằng chung của ngành ngân hàng, cho thấy cổ phiếu có thể bị đánh giá thấp. Tỷ suất cổ tức 1.01% cũng phản ánh sức khỏe tài chính ổn định và khả năng sinh lời từ cổ tức.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng trong ngắn và trung hạn do lãi suất ổn định và nhu cầu tín dụng gia tăng. CTG, với nền tảng tài chính vững chắc, có triển vọng tăng trưởng lợi nhuận tốt nhờ vào việc mở rộng hoạt động và tối ưu hóa chi phí.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 28.0 - 30.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các ngân hàng, giúp duy trì biên lợi nhuận ổn định. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt như CTG, hỗ trợ cho sự tăng trưởng và định giá hấp dẫn.",
+        "ai_updated_at": "2026-10-30 03:27:37"
     },
     "TCB": {
         "symbol": "TCB",
@@ -61,11 +64,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 5.01,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 8.3x và P/B là 1.27x, TCB được đánh giá có sức khỏe tài chính ổn định và chất lượng tài sản tốt so với mặt bằng chung của ngành ngân hàng.",
+        "outlook": "Ngắn hạn, TCB dự kiến sẽ tiếp tục duy trì lợi nhuận ổn định nhờ vào hoạt động cho vay hiệu quả. Trung hạn, triển vọng tăng trưởng của TCB còn phụ thuộc vào khả năng mở rộng thị phần và quản lý rủi ro tín dụng.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt như TCB, tạo điều kiện thuận lợi cho sự phát triển bền vững của ngành ngân hàng.",
+        "ai_updated_at": "2026-10-30 03:27:42"
     },
     "MBB": {
         "symbol": "MBB",
@@ -78,11 +82,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0.92,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 6.59x và P/B là 1.26x, MBB đang được định giá thấp hơn so với trung bình ngành, cho thấy cổ phiếu có thể bị đánh giá thấp. Tỷ suất cổ tức 0.92% không phải là điểm mạnh, nhưng tỷ lệ P/B dưới 1.5x cho thấy chất lượng tài sản của ngân hàng vẫn ổn định.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn hạn nhờ lãi suất ổn định và nhu cầu tín dụng gia tăng. MBB, với nền tảng tài chính vững chắc, có khả năng tận dụng tốt xu hướng này để mở rộng hoạt động và cải thiện lợi nhuận.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 18.0 - 20.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các ngân hàng. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt như MBB, giúp nâng cao triển vọng tăng trưởng và thu hút nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:27:48"
     },
     "STB": {
         "symbol": "STB",
@@ -95,11 +100,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 82.69x, STB được đánh giá cao hơn so với trung bình ngành, cho thấy nhà đầu tư đang kỳ vọng vào tăng trưởng lợi nhuận trong tương lai. Tuy nhiên, P/B ở mức 1.97x cho thấy tài sản của ngân hàng vẫn còn ở mức chấp nhận được.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng ổn định do lãi suất ổn định và nhu cầu tín dụng gia tăng. STB có tiềm năng phát triển nhờ chiến lược mở rộng thị trường và cải thiện chất lượng dịch vụ.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 50.0 - 60.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các ngân hàng. Dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, giúp nâng cao khả năng thu hút vốn của STB.",
+        "ai_updated_at": "2026-10-30 03:27:53"
     },
     "VPB": {
         "symbol": "VPB",
@@ -112,11 +118,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 1.71,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "VPB có P/E ở mức 7.44x và P/B 1.24x, cho thấy cổ phiếu đang được định giá hợp lý so với lợi nhuận và tài sản của ngân hàng, phản ánh sức khỏe tài chính ổn định và chất lượng tài sản tốt.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng nhờ vào sự ổn định của lãi suất và nhu cầu tín dụng gia tăng. VPB với nền tảng khách hàng vững chắc và chiến lược kinh doanh hiệu quả, hứa hẹn sẽ duy trì đà tăng trưởng trong ngắn và trung hạn.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân chuyển có xu hướng chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, như VPB, giúp nâng cao triển vọng tăng trưởng và thu hút nhà đầu tư. Dòng tiền vào ngành ngân hàng được kỳ vọng sẽ tăng, hỗ trợ cho hoạt động và giá trị của các ngân hàng.",
+        "ai_updated_at": "2026-10-30 03:27:59"
     },
     "HDB": {
         "symbol": "HDB",
@@ -129,11 +136,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 7.73x, HDB được định giá thấp hơn so với trung bình ngành, cho thấy cổ phiếu có thể đang bị đánh giá thấp. Tuy nhiên, P/B ở mức 1.72x cho thấy tài sản của ngân hàng vẫn được đánh giá cao, phản ánh chất lượng tài sản tốt.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn do lãi suất ổn định và nhu cầu tín dụng tăng. HDB, với nền tảng tài chính vững chắc, có triển vọng tăng trưởng lợi nhuận rõ ràng nhờ vào chiến lược kinh doanh hiệu quả.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động cho vay và huy động vốn của các ngân hàng. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt, như HDB, giúp tăng cường sức hấp dẫn của cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:28:04"
     },
     "VIB": {
         "symbol": "VIB",
@@ -146,11 +154,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 5.87,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 7.03x và P/B là 1.05x, VIB được đánh giá có định giá hấp dẫn so với mặt bằng chung của ngành ngân hàng, cho thấy sức khỏe tài chính ổn định và chất lượng tài sản tốt.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng trong ngắn và trung hạn nhờ vào sự ổn định của lãi suất và nhu cầu tín dụng gia tăng. VIB, với nền tảng khách hàng đa dạng và chiến lược kinh doanh hiệu quả, có triển vọng lợi nhuận tích cực.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 13.0 - 14.5 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho nhóm ngành ngân hàng như VIB. Dòng tiền này cũng giúp hỗ trợ thanh khoản và thúc đẩy hoạt động kinh doanh.",
+        "ai_updated_at": "2026-10-30 03:28:09"
     },
     "TPB": {
         "symbol": "TPB",
@@ -163,11 +172,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 4.07,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 5.43x và P/B 0.93x, TPB đang được định giá thấp so với mặt bằng chung của ngành, cho thấy cổ phiếu có thể bị đánh giá thấp. Tỷ suất cổ tức 4.07% cũng khá hấp dẫn, phản ánh khả năng sinh lời ổn định từ cổ tức.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng trong ngắn và trung hạn do lãi suất ổn định và nhu cầu tín dụng gia tăng. TPB, với nền tảng tài chính vững chắc, có triển vọng tăng trưởng lợi nhuận tốt nhờ vào việc mở rộng hoạt động và nâng cao hiệu quả quản lý.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 12.0 - 13.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các ngân hàng. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng rõ ràng, như TPB, giúp hỗ trợ giá cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:28:14"
     },
     "SHB": {
         "symbol": "SHB",
@@ -180,11 +190,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0.02,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 4.3x và P/B là 0.69x, SHB đang được định giá thấp so với mặt bằng chung của ngành, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, tỷ suất cổ tức chỉ ở mức 0.02%, phản ánh khả năng sinh lời từ cổ tức không hấp dẫn.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn hạn do lãi suất ổn định và nhu cầu tín dụng tăng. SHB có tiềm năng tăng trưởng nhờ vào chiến lược mở rộng thị trường và cải thiện chất lượng tài sản.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 10.0 - 11.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các ngân hàng. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt, giúp nâng cao triển vọng tăng trưởng lợi nhuận.",
+        "ai_updated_at": "2026-10-30 03:28:19"
     },
     "SSB": {
         "symbol": "SSB",
@@ -197,11 +208,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 18.13x, SSB được định giá cao hơn so với trung bình ngành, nhưng P/B ở mức 1.28x cho thấy tài sản của ngân hàng vẫn còn khá ổn định và không bị đánh giá quá cao.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn hạn do lãi suất ổn định, tuy nhiên, triển vọng trung hạn của SSB cần được theo dõi kỹ lưỡng do tỷ suất cổ tức hiện tại là 0%.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 14.0 - 16.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền có xu hướng chuyển dịch vào các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho nhóm ngành ngân hàng. Tuy nhiên, sự chọn lọc của nhà đầu tư đối với những ngân hàng có triển vọng tăng trưởng rõ ràng cũng như chất lượng tài sản tốt là yếu tố quan trọng.",
+        "ai_updated_at": "2026-10-30 03:28:25"
     },
     "LPB": {
         "symbol": "LPB",
@@ -214,11 +226,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 8.04,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 9.21x và P/B là 2.39x, LPB đang được định giá hợp lý so với mặt bằng chung của ngành ngân hàng, phản ánh sức khỏe tài chính ổn định và chất lượng tài sản tốt.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng trong ngắn và trung hạn do lãi suất ổn định và nhu cầu tín dụng gia tăng. LPB có triển vọng lợi nhuận tích cực nhờ vào chiến lược kinh doanh hiệu quả và nền tảng khách hàng vững chắc.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 34.0 - 36.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động cho vay và huy động vốn của ngân hàng. Dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, giúp nâng cao khả năng tăng trưởng và hấp dẫn nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:28:30"
     },
     "MSB": {
         "symbol": "MSB",
@@ -231,11 +244,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E 10.2x và P/B 1.33x, MSB được định giá ở mức hợp lý so với ngành ngân hàng, phản ánh sức khỏe tài chính ổn định và chất lượng tài sản tốt. Tuy nhiên, tỷ suất cổ tức 0% cho thấy doanh nghiệp đang tập trung vào việc tái đầu tư thay vì trả lại lợi nhuận cho cổ đông.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng trong bối cảnh lãi suất ổn định và nhu cầu tín dụng gia tăng. MSB có triển vọng kinh doanh tích cực nhờ nền tảng khách hàng vững chắc và chiến lược phát triển đa dạng hóa sản phẩm.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 15.0 - 16.5 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động cho vay và huy động vốn của các ngân hàng. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt, giúp nâng cao khả năng tăng trưởng và hấp dẫn nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:28:35"
     },
     "OCB": {
         "symbol": "OCB",
@@ -248,11 +262,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0.01,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 7.25x và P/B là 0.89x, OCB đang được định giá thấp so với mặt bằng chung của ngành ngân hàng, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, tỷ suất cổ tức chỉ ở mức 0.01%, phản ánh khả năng trả cổ tức hiện tại không hấp dẫn.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn do lãi suất ổn định và nhu cầu tín dụng gia tăng. OCB, với nền tảng tài chính vững chắc, có triển vọng cải thiện lợi nhuận thông qua việc mở rộng danh mục khách hàng và tối ưu hóa chi phí hoạt động.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 10.0 - 11.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho các ngân hàng duy trì biên lợi nhuận ổn định. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt, như OCB, giúp nâng cao giá trị và thanh khoản của cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:28:41"
     },
     "EIB": {
         "symbol": "EIB",
@@ -265,11 +280,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 63.62x, EIB được đánh giá cao so với lợi nhuận, trong khi P/B 1.18x cho thấy tài sản của ngân hàng được định giá hợp lý so với giá trị sổ sách.",
+        "outlook": "Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng ổn định do lãi suất ổn định và nhu cầu tín dụng gia tăng. EIB có tiềm năng phát triển nhờ vào chiến lược mở rộng thị trường và cải thiện chất lượng dịch vụ.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 15.0 - 17.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ cho hoạt động kinh doanh của ngành ngân hàng. Dòng tiền đang luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho EIB.",
+        "ai_updated_at": "2026-10-30 03:28:46"
     },
     "SSI": {
         "symbol": "SSI",
@@ -282,11 +298,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 3.53,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "SSI có P/E ở mức 12.25x, cho thấy cổ phiếu đang được định giá ở mức hợp lý so với lợi nhuận, trong khi P/B là 1.54x, phản ánh chất lượng tài sản tốt và khả năng sinh lời từ vốn của doanh nghiệp.",
+        "outlook": "Trong ngắn hạn, SSI dự kiến sẽ tiếp tục tăng trưởng ổn định nhờ vào sự phục hồi của thị trường chứng khoán. Trung hạn, triển vọng kinh doanh vẫn tích cực với xu hướng mở rộng dịch vụ và tăng cường công nghệ.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 19.0 - 21.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động đầu tư, giúp dòng tiền luân chuyển tốt hơn trong ngành chứng khoán. Dòng tiền chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt như SSI, hỗ trợ tăng trưởng và định giá hấp dẫn.",
+        "ai_updated_at": "2026-10-30 03:28:51"
     },
     "VCI": {
         "symbol": "VCI",
@@ -299,11 +316,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.91,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 15.62x, VCI được định giá hợp lý so với ngành chứng khoán, trong khi P/B 1.29x cho thấy tài sản của công ty có chất lượng tốt và không bị đánh giá quá cao.",
+        "outlook": "Ngành chứng khoán dự kiến sẽ tiếp tục phục hồi trong ngắn hạn do lãi suất ổn định, tạo điều kiện thuận lợi cho hoạt động môi giới và tự doanh. Trung hạn, VCI có tiềm năng tăng trưởng nhờ vào sự phát triển của thị trường vốn và chiến lược đa dạng hóa dịch vụ.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 18.0 - 20.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt như VCI. Dòng tiền chọn lọc đang tập trung vào những cổ phiếu có triển vọng tăng trưởng rõ ràng, giúp nâng cao giá trị của VCI.",
+        "ai_updated_at": "2026-10-30 03:28:56"
     },
     "HCM": {
         "symbol": "HCM",
@@ -316,11 +334,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.73,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 26.8x và P/B là 2.18x, HCM đang được định giá cao hơn so với trung bình ngành, nhưng vẫn phản ánh chất lượng tài sản và sức khỏe tài chính tốt của doanh nghiệp.",
+        "outlook": "Ngành chứng khoán dự kiến sẽ tiếp tục tăng trưởng trong ngắn và trung hạn nhờ vào sự ổn định của lãi suất và dòng tiền luân phiên. HCM, với vị thế hàng đầu, có triển vọng lợi nhuận tích cực.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt tạo điều kiện thuận lợi cho nhóm ngành chứng khoán. Tuy nhiên, cần theo dõi sát sao diễn biến vĩ mô để kịp thời điều chỉnh chiến lược.",
+        "ai_updated_at": "2026-10-30 03:29:01"
     },
     "VIX": {
         "symbol": "VIX",
@@ -333,11 +352,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 19.05x, VIX được định giá cao hơn so với trung bình ngành, nhưng P/B ở mức 0.97x cho thấy tài sản của công ty đang được định giá thấp hơn giá trị sổ sách, phản ánh sức khỏe tài chính ổn định.",
+        "outlook": "Ngành chứng khoán có triển vọng tăng trưởng trong ngắn và trung hạn do lãi suất ổn định và dòng tiền luân phiên vào các doanh nghiệp có nền tảng tốt. Tuy nhiên, tỷ suất cổ tức 0% của VIX có thể làm giảm hấp dẫn đối với nhà đầu tư tìm kiếm thu nhập từ cổ tức.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 11.0 - 12.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các công ty chứng khoán. Dòng tiền chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng rõ ràng, giúp nâng cao khả năng cạnh tranh và tăng trưởng của ngành.",
+        "ai_updated_at": "2026-10-30 03:29:09"
     },
     "MBS": {
         "symbol": "MBS",
@@ -350,11 +370,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 9.96,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 12.6x, MBS được định giá hợp lý so với lợi nhuận, trong khi P/B ở mức 1.36x cho thấy tài sản của công ty có chất lượng tốt và không bị đánh giá quá cao.",
+        "outlook": "Ngành chứng khoán dự kiến sẽ tiếp tục tăng trưởng ổn định do lãi suất ổn định và nhu cầu đầu tư vào thị trường tài chính. MBS, với nền tảng tài chính vững chắc, có thể tận dụng cơ hội này để mở rộng hoạt động và nâng cao hiệu quả kinh doanh.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 14.0 - 15.5 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho ngành chứng khoán, giúp giảm chi phí vốn và tăng cường khả năng cạnh tranh. Dòng tiền luân phiên đang chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, như MBS, hứa hẹn thu hút sự quan tâm của nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:29:14"
     },
     "FTS": {
         "symbol": "FTS",
@@ -367,11 +388,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.41,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 17.88x, FTS được định giá cao hơn so với trung bình ngành, nhưng P/B ở mức 1.61x cho thấy tài sản của công ty vẫn còn khá vững chắc.",
+        "outlook": "Ngành chứng khoán dự kiến sẽ tiếp tục tăng trưởng trong ngắn và trung hạn do sự ổn định của lãi suất và dòng tiền luân chuyển vào các doanh nghiệp có nền tảng tốt. FTS, với vị thế là một trong những công ty chứng khoán hàng đầu, có triển vọng lợi nhuận tích cực.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 17.0 - 19.0 đ",
+        "macro_view": "Lãi suất ổn định và xu hướng dòng tiền chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt tạo điều kiện thuận lợi cho ngành chứng khoán. Tuy nhiên, cần theo dõi sát sao diễn biến kinh tế vĩ mô để kịp thời điều chỉnh chiến lược.",
+        "ai_updated_at": "2026-10-30 03:29:20"
     },
     "BSI": {
         "symbol": "BSI",
@@ -384,11 +406,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 15.61x, BSI được định giá hợp lý so với lợi nhuận, trong khi P/B ở mức 1.26x cho thấy tài sản của công ty đang được đánh giá cao hơn một chút so với ngành.",
+        "outlook": "Ngành chứng khoán dự kiến sẽ tiếp tục tăng trưởng ổn định do lãi suất ổn định và nền kinh tế phục hồi. BSI có triển vọng tốt nhờ vào vị thế vững chắc và chiến lược kinh doanh hiệu quả.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 24.0 - 26.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ dòng tiền luân chuyển trong thị trường, tạo điều kiện thuận lợi cho các doanh nghiệp chứng khoán như BSI. Dòng tiền chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng rõ ràng.",
+        "ai_updated_at": "2026-10-30 03:29:24"
     },
     "CTS": {
         "symbol": "CTS",
@@ -401,11 +424,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 52.67x, CTS được định giá cao so với lợi nhuận, cho thấy nhà đầu tư kỳ vọng vào tăng trưởng mạnh trong tương lai. Tuy nhiên, P/B ở mức 2.05x cho thấy tài sản của công ty đang được đánh giá hợp lý.",
+        "outlook": "Ngành chứng khoán có triển vọng tích cực trong ngắn và trung hạn do sự ổn định của lãi suất và dòng tiền luân chuyển vào các doanh nghiệp có nền tảng tốt. CTS, với vị thế vững chắc, có thể tận dụng cơ hội này để mở rộng hoạt động và tăng cường lợi nhuận.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt sẽ hỗ trợ ngành chứng khoán. Tuy nhiên, cần theo dõi chặt chẽ các biến động vĩ mô và chính sách tiền tệ để nắm bắt cơ hội và giảm thiểu rủi ro.",
+        "ai_updated_at": "2026-10-30 03:29:29"
     },
     "ORS": {
         "symbol": "ORS",
@@ -418,11 +442,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E 26.5x, ORS được định giá cao hơn so với mức trung bình của thị trường, cho thấy nhà đầu tư đánh giá cao triển vọng tăng trưởng của doanh nghiệp. Tuy nhiên, P/B 1.17x cho thấy tài sản của công ty đang được định giá ở mức hợp lý.",
+        "outlook": "Ngành công nghiệp mà ORS hoạt động có tiềm năng tăng trưởng tốt trong ngắn và trung hạn nhờ vào sự ổn định của lãi suất và nhu cầu tiêu dùng nội địa. ORS có nền tảng kinh doanh vững chắc và khả năng tận dụng cơ hội để mở rộng quy mô.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 12.0 - 13.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt sẽ tạo điều kiện thuận lợi cho ngành công nghiệp này. Tuy nhiên, cần theo dõi sát sao diễn biến vĩ mô và chính sách tiền tệ để nắm bắt cơ hội.",
+        "ai_updated_at": "2026-10-30 03:29:35"
     },
     "VHM": {
         "symbol": "VHM",
@@ -435,11 +460,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 6.38x, VHM được đánh giá là có mức định giá hấp dẫn so với lợi nhuận, cho thấy khả năng sinh lời tốt. Tuy nhiên, P/B ở mức 1.94x cho thấy cổ phiếu đang được định giá cao hơn giá trị sổ sách, nhưng vẫn trong giới hạn chấp nhận được.",
+        "outlook": "Ngành bất động sản dự kiến sẽ tiếp tục tăng trưởng ổn định do nhu cầu nhà ở và đầu tư vẫn duy trì ở mức cao. VHM, với vị thế hàng đầu, có triển vọng kinh doanh tích cực nhờ vào danh mục dự án đa dạng và chất lượng.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 58.0 - 62.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động vay mua nhà, thúc đẩy nhu cầu bất động sản. Dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, như VHM, giúp tăng cường sức hấp dẫn của cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:29:40"
     },
     "VIC": {
         "symbol": "VIC",
@@ -452,11 +478,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 87.19x và P/B ở mức 10.86x, VIC đang được định giá cao so với mặt bằng chung của thị trường, phản ánh kỳ vọng tăng trưởng mạnh mẽ nhưng cũng tiềm ẩn rủi ro về việc đánh giá quá cao.",
+        "outlook": "Ngành bất động sản trong ngắn hạn có thể gặp khó khăn do sự thận trọng của nhà đầu tư, tuy nhiên, VIC với vị thế dẫn đầu và dự án đa dạng có thể tiếp tục duy trì lợi nhuận ổn định trong trung hạn.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 200.0 - 220.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ cho hoạt động tài chính của các doanh nghiệp bất động sản, tuy nhiên, dòng tiền chọn lọc có thể khiến VIC phải chứng minh khả năng sinh lời bền vững để thu hút nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:29:45"
     },
     "VRE": {
         "symbol": "VRE",
@@ -469,11 +496,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 4.14,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 7.42x và P/B là 1.08x, VRE đang được định giá khá hấp dẫn so với mặt bằng chung của thị trường, cho thấy cổ phiếu có tiềm năng tăng trưởng tốt trong tương lai. Tỷ lệ này cũng phản ánh chất lượng tài sản và hiệu quả sử dụng vốn của công ty ở mức cao.",
+        "outlook": "Ngành bất động sản dự kiến sẽ tiếp tục phục hồi trong ngắn hạn do nhu cầu nhà ở và đầu tư vẫn duy trì ở mức ổn định. Trong trung hạn, VRE có thể tận dụng lợi thế từ vị trí địa lý thuận lợi và danh mục dự án đa dạng để mở rộng quy mô hoạt động, nâng cao lợi nhuận.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt như VRE, tạo điều kiện thuận lợi cho sự phát triển của ngành. Dòng tiền ổn định giúp giảm thiểu rủi ro tài chính và hỗ trợ tăng trưởng bền vững.",
+        "ai_updated_at": "2026-10-30 03:29:51"
     },
     "NVL": {
         "symbol": "NVL",
@@ -486,11 +514,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 7.86x và P/B ở mức 0.59x, NVL được định giá thấp so với mặt bằng chung của thị trường, cho thấy cổ phiếu có thể đang bị đánh giá thấp. Tuy nhiên, tỷ suất cổ tức là 0% có thể phản ánh một số rủi ro về khả năng sinh lời trong ngắn hạn.",
+        "outlook": "Trong ngắn hạn, ngành bất động sản có thể tiếp tục đối mặt với thách thức do sự thận trọng của nhà đầu tư. Tuy nhiên, trung hạn, NVL có tiềm năng tăng trưởng khi nền kinh tế phục hồi và nhu cầu nhà ở tăng lên.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 9.0 - 10.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho việc vay mua nhà, nhưng dòng tiền vẫn chọn lọc vào các doanh nghiệp có triển vọng rõ ràng, giúp giảm thiểu rủi ro.",
+        "ai_updated_at": "2026-10-30 03:29:56"
     },
     "PDR": {
         "symbol": "PDR",
@@ -503,11 +532,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "P/E ở mức 18.57x cho thấy cổ phiếu PDR được định giá cao hơn so với lợi nhuận, trong khi P/B ở mức 0.9x lại phản ánh giá trị tài sản ròng của công ty đang bị đánh giá thấp trên thị trường.",
+        "outlook": "Trong ngắn hạn, ngành bất động sản có thể đối mặt với thách thức từ việc kiểm soát tín dụng chặt chẽ, nhưng trung hạn, PDR có tiềm năng tăng trưởng nhờ vào dự án mới và nhu cầu nhà ở vẫn duy trì ở mức cao.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 10.0 - 11.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động vay mượn của doanh nghiệp, tuy nhiên, dòng tiền chọn lọc có thể khiến các doanh nghiệp không có nền tảng vững chắc gặp khó khăn.",
+        "ai_updated_at": "2026-10-30 03:30:01"
     },
     "DIG": {
         "symbol": "DIG",
@@ -520,11 +550,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 10.78x, DIG đang được định giá ở mức trung bình so với thị trường, cho thấy nhà đầu tư đánh giá doanh nghiệp có khả năng sinh lời ổn định. Tuy nhiên, P/B chỉ ở mức 0.82x, dưới 1, cho thấy tài sản của công ty đang được định giá thấp hơn giá trị sổ sách, có thể là dấu hiệu của việc tài sản bị đánh giá thấp hoặc rủi ro về chất lượng tài sản.",
+        "outlook": "Trong ngắn hạn, ngành bất động sản có thể tiếp tục đối mặt với thách thức từ sự thận trọng của người mua, nhưng DIG với vị thế vững chắc trong phân khúc có thể tận dụng tốt các cơ hội khi thị trường phục hồi. Trung hạn, triển vọng tăng trưởng của DIG phụ thuộc vào khả năng quản lý dự án và nguồn vốn, cũng như xu hướng chung của thị trường bất động sản.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 9.0 - 10.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động vay mượn và đầu tư vào bất động sản. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt sẽ hỗ trợ cho những công ty như DIG nếu họ duy trì được chất lượng tài chính và triển khai hiệu quả các dự án.",
+        "ai_updated_at": "2026-10-30 03:30:09"
     },
     "NLG": {
         "symbol": "NLG",
@@ -537,11 +568,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.12,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 18.08x, NLG được định giá cao hơn so với trung bình ngành, nhưng P/B chỉ ở mức 0.89x cho thấy tài sản của công ty đang được định giá thấp, phản ánh sức khỏe tài chính ổn định.",
+        "outlook": "Trong ngắn hạn, bất động sản có thể gặp khó khăn do sự thận trọng của nhà đầu tư, nhưng triển vọng trung hạn vẫn tích cực nhờ vào nhu cầu nhà ở và các dự án mới. NLG với vị thế vững chắc trong ngành có khả năng tận dụng tốt xu hướng này.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ cho việc giảm chi phí vốn, giúp tăng lợi nhuận cho các doanh nghiệp bất động sản. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt như NLG, tạo điều kiện thuận lợi cho sự phát triển.",
+        "ai_updated_at": "2026-10-30 03:30:19"
     },
     "KDH": {
         "symbol": "KDH",
@@ -554,11 +586,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 9.83x, KDH được định giá thấp hơn so với trung bình ngành, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, P/B ở mức 0.93x dưới 1, phản ánh rằng tài sản ròng của công ty đang được định giá thấp hơn giá thị trường, có thể do lo ngại về chất lượng tài sản.",
+        "outlook": "Trong ngắn hạn, bất động sản vẫn đối mặt với thách thức từ việc điều chỉnh chính sách và nguồn cung dồi dào. Tuy nhiên, trung hạn, nhu cầu nhà ở thực sự cùng với các dự án mới hứa hẹn sẽ thúc đẩy tăng trưởng lợi nhuận cho KDH.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 12.0 - 14.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ khả năng tiếp cận vốn cho các dự án BĐS, nhưng dòng tiền chọn lọc chỉ tập trung vào những doanh nghiệp có nền tảng cơ bản tốt và triển vọng rõ ràng, như KDH.",
+        "ai_updated_at": "2026-10-30 03:30:24"
     },
     "CEO": {
         "symbol": "CEO",
@@ -571,11 +604,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0.01,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Tỷ số P/E ở mức 34.55x cho thấy cổ phiếu đang được định giá cao so với lợi nhuận, trong khi P/B ở mức 1.05x phản ánh tài sản của công ty được đánh giá tương đối hợp lý.",
+        "outlook": "Ngành công nghiệp mà CEO hoạt động có triển vọng tăng trưởng ổn định trong ngắn và trung hạn, tuy nhiên, tỷ suất cổ tức thấp (0.01%) có thể làm giảm hấp dẫn đối với nhà đầu tư tìm kiếm thu nhập từ cổ tức.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 9.0 - 10.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền có xu hướng chuyển dịch vào các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng rõ ràng, điều này có thể tạo thuận lợi cho những doanh nghiệp như CEO nếu họ chứng minh được khả năng sinh lời.",
+        "ai_updated_at": "2026-10-30 03:30:29"
     },
     "DXG": {
         "symbol": "DXG",
@@ -588,11 +622,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0.01,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 65.2x, DXG được định giá cao so với lợi nhuận, nhưng P/B chỉ 0.88x cho thấy tài sản của công ty đang được định giá thấp hơn giá trị sổ sách.",
+        "outlook": "Ngành bất động sản dự kiến sẽ phục hồi trong ngắn hạn do lãi suất ổn định và nhu cầu nhà ở tăng. Tuy nhiên, DXG cần cải thiện hiệu quả kinh doanh để tận dụng cơ hội này.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 9.0 - 10.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ dòng tiền luân chuyển vào các doanh nghiệp có nền tảng tốt, tạo điều kiện thuận lợi cho ngành bất động sản. Tuy nhiên, sự chọn lọc vẫn là yếu tố quan trọng.",
+        "ai_updated_at": "2026-10-30 03:30:33"
     },
     "TCH": {
         "symbol": "TCH",
@@ -605,11 +640,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0.25,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 40.99x, TCH được đánh giá cao về triển vọng tăng trưởng lợi nhuận trong tương lai. Tuy nhiên, P/B chỉ ở mức 1.05x cho thấy tài sản của công ty đang được định giá hợp lý.",
+        "outlook": "Ngành công nghiệp mà TCH hoạt động có triển vọng tăng trưởng ổn định trong ngắn và trung hạn. TCH với nền tảng tài chính vững chắc và chiến lược kinh doanh hiệu quả, dự kiến sẽ tiếp tục duy trì đà tăng trưởng.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 11.0 - 12.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, TCH là một lựa chọn hấp dẫn. Dòng tiền vào thị trường chứng khoán Việt Nam đang tập trung vào những doanh nghiệp có triển vọng tăng trưởng rõ ràng.",
+        "ai_updated_at": "2026-10-30 03:30:39"
     },
     "SJS": {
         "symbol": "SJS",
@@ -622,11 +658,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 10.0x, SJS được định giá ở mức hợp lý so với lợi nhuận, trong khi P/B ở 3.33x cho thấy tài sản của công ty đang được đánh giá cao hơn so với ngành.",
+        "outlook": "Ngành VN100 dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn, tạo điều kiện thuận lợi cho SJS mở rộng hoạt động kinh doanh và nâng cao hiệu quả.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 50.0 - 52.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên vào các doanh nghiệp có nền tảng cơ bản tốt như SJS, giúp hỗ trợ giá cổ phiếu và triển vọng tăng trưởng.",
+        "ai_updated_at": "2026-10-30 03:30:43"
     },
     "HDG": {
         "symbol": "HDG",
@@ -639,11 +676,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.97,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 6.66x và P/B là 0.89x, HDG đang được định giá thấp so với giá trị tài sản thực tế, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, cần xem xét kỹ lưỡng các yếu tố khác như chất lượng tài sản và hiệu quả hoạt động để có cái nhìn toàn diện.",
+        "outlook": "Ngành công nghiệp mà HDG tham gia có triển vọng tăng trưởng ổn định trong ngắn hạn, nhờ vào nhu cầu nội địa vững mạnh. Trung hạn, doanh nghiệp có tiềm năng mở rộng thị trường và nâng cao hiệu quả hoạt động, nhưng cũng cần theo dõi sát sao các rủi ro về cạnh tranh và biến động kinh tế.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 14.0 - 15.5 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền có xu hướng chuyển dịch vào các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng rõ ràng, tạo điều kiện thuận lợi cho HDG. Tuy nhiên, sự thận trọng vẫn cần được duy trì trước những biến động không mong đợi của thị trường.",
+        "ai_updated_at": "2026-10-30 03:30:49"
     },
     "KBC": {
         "symbol": "KBC",
@@ -656,11 +694,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 14.25x, KBC được định giá ở mức trung bình so với thị trường, cho thấy nhà đầu tư đánh giá khả năng sinh lời của doanh nghiệp là ổn định. Tuy nhiên, P/B chỉ ở mức 0.96x, dưới 1, có thể phản ánh rằng tài sản của công ty đang được định giá thấp hơn giá trị sổ sách, hoặc chất lượng tài sản không được đánh giá cao.",
+        "outlook": "Trong ngắn hạn, ngành xây dựng và bất động sản mà KBC hoạt động trong có thể gặp phải thách thức do sự thận trọng của người mua, nhưng triển vọng trung hạn vẫn tích cực nhờ vào nhu cầu về nhà ở và cơ sở hạ tầng. KBC, với vị thế là một trong những công ty hàng đầu, có tiềm năng tăng trưởng tốt khi nền kinh tế phục hồi.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho việc tiếp cận vốn, giúp giảm áp lực chi phí tài chính cho các doanh nghiệp như KBC. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng rõ ràng, như KBC, có thể hỗ trợ giá cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:30:56"
     },
     "IDC": {
         "symbol": "IDC",
@@ -673,11 +712,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 7.66,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 6.84x, IDC được đánh giá là có mức định giá hấp dẫn so với lợi nhuận, trong khi P/B ở mức 2.05x cho thấy tài sản của công ty đang được định giá cao hơn một chút so với ngành.",
+        "outlook": "Ngành công nghệ thông tin và truyền thông dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn, tạo điều kiện thuận lợi cho IDC mở rộng hoạt động kinh doanh. Tuy nhiên, cạnh tranh trong ngành cũng đang gia tăng, đòi hỏi IDC cần phải liên tục đổi mới và nâng cao chất lượng dịch vụ.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 30.0 - 32.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, IDC có thể thu hút sự quan tâm từ nhà đầu tư. Tuy nhiên, cần theo dõi sát sao diễn biến vĩ mô để nắm bắt cơ hội và giảm thiểu rủi ro.",
+        "ai_updated_at": "2026-10-30 03:31:01"
     },
     "SZC": {
         "symbol": "SZC",
@@ -690,11 +730,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 5.14,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 21.77x, SZC được định giá cao hơn so với trung bình ngành, nhưng P/B ở mức 1.14x cho thấy tài sản của công ty vẫn còn ở mức hợp lý, phản ánh sức khỏe tài chính ổn định.",
+        "outlook": "Ngành công nghiệp mà SZC hoạt động có triển vọng tăng trưởng tốt trong ngắn và trung hạn, đặc biệt khi nền kinh tế phục hồi. Tuy nhiên, cần theo dõi sát sao các yếu tố rủi ro về cạnh tranh và biến động thị trường.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 18.0 - 20.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho SZC. Tuy nhiên, cần chú ý đến sự chọn lọc của nhà đầu tư đối với các cổ phiếu có triển vọng tăng trưởng rõ ràng.",
+        "ai_updated_at": "2026-10-30 03:31:06"
     },
     "BCM": {
         "symbol": "BCM",
@@ -707,11 +748,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 21.03x, BCM được định giá cao hơn so với trung bình ngành, nhưng P/B ở mức 1.87x cho thấy tài sản của công ty vẫn còn ở mức hợp lý.",
+        "outlook": "Ngành công nghiệp mà BCM hoạt động đang có triển vọng tăng trưởng ổn định trong ngắn và trung hạn, BCM có tiềm năng cải thiện lợi nhuận nhờ vào chiến lược kinh doanh hiệu quả.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 35.0 - 37.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho BCM nếu công ty tiếp tục duy trì chất lượng tài chính tốt.",
+        "ai_updated_at": "2026-10-30 03:31:11"
     },
     "PHR": {
         "symbol": "PHR",
@@ -724,11 +766,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.33,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E 8.4x, PHR được định giá ở mức thấp so với lợi nhuận, cho thấy cổ phiếu có thể đang bị đánh giá thấp. Tỷ lệ P/B 1.68x phản ánh tài sản của công ty được định giá hợp lý, không quá đắt.",
+        "outlook": "Ngành công nghiệp mà PHR hoạt động dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn. PHR có triển vọng tốt nhờ vào nền tảng tài chính vững chắc và chiến lược kinh doanh hiệu quả.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 29.0 - 31.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang luân chuyển vào các doanh nghiệp có chất lượng cơ bản tốt như PHR. Điều này tạo điều kiện thuận lợi cho sự tăng trưởng của PHR và ngành công nghiệp liên quan.",
+        "ai_updated_at": "2026-10-30 03:31:16"
     },
     "HPG": {
         "symbol": "HPG",
@@ -741,11 +784,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.14,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 7.71x và P/B là 1.2x, HPG đang được định giá khá hấp dẫn so với mặt bằng chung của thị trường, cho thấy sức khỏe tài chính ổn định và chất lượng tài sản tốt.",
+        "outlook": "Ngành thép & VLXD dự kiến sẽ tiếp tục phục hồi trong ngắn hạn do nhu cầu xây dựng tăng lên, đồng thời HPG có triển vọng tăng trưởng lợi nhuận rõ ràng nhờ vào chiến lược mở rộng thị trường và nâng cao hiệu quả sản xuất.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt như HPG, tạo điều kiện thuận lợi để ngành thép & VLXD thu hút sự quan tâm của nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:31:21"
     },
     "HSG": {
         "symbol": "HSG",
@@ -758,11 +802,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.24,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E 13.72x, HSG đang được định giá ở mức hợp lý so với lợi nhuận, trong khi P/B 0.76x cho thấy cổ phiếu đang được đánh giá thấp so với giá trị tài sản ròng, phản ánh sức khỏe tài chính ổn định.",
+        "outlook": "Ngành thép và VLXD dự kiến sẽ tiếp tục tăng trưởng do nhu cầu xây dựng và cơ sở hạ tầng vẫn duy trì ở mức cao. HSG có triển vọng tốt nhờ vào chiến lược mở rộng thị trường và nâng cao hiệu quả sản xuất.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 10.0 - 11.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh và đầu tư của các doanh nghiệp trong ngành. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt như HSG, giúp tăng cường khả năng tăng trưởng.",
+        "ai_updated_at": "2026-10-30 03:31:26"
     },
     "NKG": {
         "symbol": "NKG",
@@ -775,11 +820,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 35.76x, NKG được định giá cao so với lợi nhuận, nhưng P/B chỉ ở 0.77x cho thấy tài sản ròng của công ty đang được định giá thấp hơn thị trường. Điều này có thể phản ánh sự lo ngại về khả năng sinh lời trong tương lai.",
+        "outlook": "Ngành thép và VLXD dự kiến sẽ tiếp tục phục hồi khi nền kinh tế mở cửa trở lại, thúc đẩy nhu cầu xây dựng. Tuy nhiên, NKG cần cải thiện hiệu quả hoạt động để tận dụng cơ hội tăng trưởng này.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 10.0 - 12.0 đ",
+        "macro_view": "Lãi suất ổn định hỗ trợ dòng tiền luân chuyển tốt trong thị trường, tạo điều kiện thuận lợi cho các doanh nghiệp có nền tảng tài chính vững chắc. Tuy nhiên, sự chọn lọc của nhà đầu tư vẫn tập trung vào những doanh nghiệp có triển vọng tăng trưởng rõ ràng.",
+        "ai_updated_at": "2026-10-30 03:31:32"
     },
     "VLB": {
         "symbol": "VLB",
@@ -792,11 +838,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 9.25,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 3.71x, VLB được đánh giá là có mức định giá hấp dẫn so với lợi nhuận, cho thấy khả năng sinh lời tốt. Tuy nhiên, P/B ở mức 2.09x cho thấy tài sản của công ty đang được định giá cao hơn so với giá trị sổ sách.",
+        "outlook": "Trong ngắn hạn, ngành và doanh nghiệp dự kiến sẽ tiếp tục duy trì tăng trưởng ổn định nhờ vào nền tảng cơ bản vững chắc. Trung hạn, triển vọng tăng trưởng lợi nhuận rõ ràng cùng với sự lựa chọn kỹ lưỡng của dòng tiền luân phiên sẽ hỗ trợ cho sự phát triển bền vững.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 50.0 - 55.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho việc đầu tư vào các doanh nghiệp có nền tảng cơ bản tốt. Dòng tiền luân phiên đang tập trung vào những doanh nghiệp có triển vọng tăng trưởng rõ ràng, giúp nâng cao giá trị của nhóm ngành này.",
+        "ai_updated_at": "2026-10-30 03:31:37"
     },
     "CTD": {
         "symbol": "CTD",
@@ -809,11 +856,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 1.4,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 9.18x, CTD được định giá khá hấp dẫn so với mức trung bình của thị trường, cho thấy khả năng sinh lời tốt. Tuy nhiên, P/B chỉ ở mức 0.75x, thấp hơn nhiều so với mức trung bình, có thể phản ánh sự lo ngại về chất lượng tài sản.",
+        "outlook": "Ngành xây dựng và vật liệu xây dựng dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn hạn nhờ vào nhu cầu cơ sở hạ tầng và bất động sản. CTD với vị thế vững chắc trong ngành, có triển vọng cải thiện lợi nhuận thông qua việc tối ưu hóa chi phí và mở rộng thị trường.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 60.0 - 65.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển trong nền kinh tế, hỗ trợ cho các doanh nghiệp như CTD có nền tảng tài chính vững mạnh. Dòng tiền chọn lọc đang tập trung vào các doanh nghiệp có triển vọng tăng trưởng rõ ràng và định giá hấp dẫn.",
+        "ai_updated_at": "2026-10-30 03:31:43"
     },
     "VCG": {
         "symbol": "VCG",
@@ -826,11 +874,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0.1,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E 2.61x và P/B 0.98x, VCG đang được định giá thấp so với ngành, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, tỷ suất cổ tức 0.1% khá khiêm tốn, phản ánh khả năng phân phối lợi nhuận cho cổ đông còn hạn chế.",
+        "outlook": "Ngành VN100 dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn, nhờ vào nền tảng kinh tế vĩ mô ổn định. VCG, với vị thế trong nhóm ngành, có triển vọng cải thiện hiệu quả hoạt động và tăng cường lợi nhuận.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 14.0 - 15.5 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, tạo điều kiện thuận lợi cho VCG thu hút vốn đầu tư. Triển vọng tăng trưởng rõ ràng của doanh nghiệp cũng giúp hấp dẫn nhà đầu tư dài hạn.",
+        "ai_updated_at": "2026-10-30 03:31:49"
     },
     "HHV": {
         "symbol": "HHV",
@@ -843,11 +892,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "P/E ở mức 8.64x cho thấy cổ phiếu HHV đang được định giá thấp so với lợi nhuận, trong khi P/B ở mức 0.48x phản ánh tài sản ròng của công ty có thể bị đánh giá thấp.",
+        "outlook": "Ngành công nghiệp mà HHV hoạt động dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn, tạo điều kiện thuận lợi cho HHV mở rộng thị phần và cải thiện hiệu quả kinh doanh.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 9.0 - 10.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên vào các doanh nghiệp có nền tảng cơ bản tốt như HHV, giúp nâng cao khả năng thu hút vốn và tăng trưởng của ngành.",
+        "ai_updated_at": "2026-10-30 03:31:54"
     },
     "C4G": {
         "symbol": "C4G",
@@ -860,11 +910,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 41.49x, C4G được đánh giá cao về triển vọng tăng trưởng lợi nhuận trong tương lai, nhưng P/B chỉ ở mức 0.43x cho thấy tài sản của công ty đang được định giá thấp so với giá trị sổ sách.",
+        "outlook": "Ngành công nghệ thông tin, nơi C4G hoạt động, có triển vọng tăng trưởng tốt nhờ xu hướng số hóa và chuyển đổi số. Tuy nhiên, C4G cần chứng minh khả năng sinh lời ổn định và cải thiện hiệu quả sử dụng vốn.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 4.0 - 4.5 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, C4G cần phải thể hiện rõ hơn về tiềm năng tăng trưởng và quản lý rủi ro để thu hút sự quan tâm của nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:31:59"
     },
     "FPT": {
         "symbol": "FPT",
@@ -877,11 +928,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 3.43,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 9.94x, FPT được định giá thấp hơn so với trung bình ngành, cho thấy cổ phiếu có thể bị đánh giá thấp. Tỷ lệ P/B là 2.32x, phản ánh chất lượng tài sản và khả năng sinh lời tốt.",
+        "outlook": "Ngành công nghệ đang có xu hướng tăng trưởng mạnh mẽ nhờ sự phát triển của công nghệ số và chuyển đổi số. FPT, với vị thế hàng đầu trong lĩnh vực CNTT, có tiềm năng tăng trưởng lợi nhuận ổn định trong ngắn và trung hạn.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 50.0 - 55.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt như FPT. Dòng tiền chọn lọc sẽ tiếp tục hỗ trợ cho những doanh nghiệp có triển vọng tăng trưởng rõ ràng.",
+        "ai_updated_at": "2026-10-30 03:32:04"
     },
     "MWG": {
         "symbol": "MWG",
@@ -894,11 +946,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 1.32,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "MWG có P/E ở mức 10.01x, cho thấy cổ phiếu đang được định giá ở mức hợp lý so với lợi nhuận. Tỷ lệ P/B là 2.45x, phản ánh chất lượng tài sản tốt và khả năng sinh lời từ vốn.",
+        "outlook": "Ngành bán lẻ dự kiến sẽ tiếp tục tăng trưởng ổn định do nhu cầu tiêu dùng trong nước vẫn duy trì ở mức cao. MWG với mạng lưới phân phối rộng khắp và thương hiệu mạnh mẽ, có triển vọng tăng trưởng lợi nhuận tốt trong ngắn và trung hạn.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 70.0 - 75.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các doanh nghiệp bán lẻ. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt, như MWG, giúp nâng cao giá trị và thanh khoản của cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:32:10"
     },
     "PNJ": {
         "symbol": "PNJ",
@@ -911,11 +964,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 9.88,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E 3.36x và P/B 0.61x, PNJ đang được định giá thấp so với mức trung bình của ngành, cho thấy cổ phiếu có thể bị đánh giá thấp. Tỷ suất cổ tức 9.88% cũng phản ánh sức khỏe tài chính tốt và khả năng sinh lời ổn định.",
+        "outlook": "Ngành bán lẻ dự kiến sẽ tiếp tục tăng trưởng nhờ vào sự phục hồi của nền kinh tế và nhu cầu tiêu dùng trong nước. PNJ, với vị thế là một trong những doanh nghiệp hàng đầu trong lĩnh vực, có triển vọng tăng trưởng lợi nhuận rõ ràng trong ngắn và trung hạn.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 15.0 - 17.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt như PNJ. Điều này tạo điều kiện thuận lợi cho việc thu hút vốn và tăng trưởng bền vững của doanh nghiệp.",
+        "ai_updated_at": "2026-10-30 03:32:16"
     },
     "FRT": {
         "symbol": "FRT",
@@ -928,11 +982,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 23.23x, FRT được định giá cao hơn so với trung bình ngành, nhưng P/B ở mức 5.5x cho thấy doanh nghiệp có chất lượng tài sản tốt và khả năng sinh lời ổn định.",
+        "outlook": "Ngành bán lẻ đang có triển vọng tăng trưởng tốt trong ngắn và trung hạn do nhu cầu tiêu dùng nội địa tăng lên. FRT có tiềm năng mở rộng thị trường và nâng cao hiệu quả kinh doanh.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 130.0 - 140.0 (nghìn đồng)",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho hoạt động kinh doanh của các doanh nghiệp bán lẻ. Dòng tiền luân phiên chọn lọc vào các doanh nghiệp có nền tảng cơ bản tốt, giúp hỗ trợ giá cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:32:20"
     },
     "VNM": {
         "symbol": "VNM",
@@ -945,11 +1000,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 4.95,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 11.0x, VNM được định giá hợp lý so với lợi nhuận, trong khi P/B ở mức 3.78x cho thấy tài sản của công ty có chất lượng tốt và được thị trường đánh giá cao.",
+        "outlook": "Ngành tiêu dùng dự kiến sẽ tiếp tục tăng trưởng ổn định do nhu cầu nội địa vẫn duy trì ở mức cao. VNM với vị thế dẫn đầu và chiến lược kinh doanh hiệu quả có khả năng duy trì và mở rộng thị phần.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 52.0 - 55.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên vào các doanh nghiệp có nền tảng cơ bản tốt như VNM, tạo điều kiện thuận lợi cho sự tăng trưởng và hấp dẫn đối với nhà đầu tư. Tuy nhiên, cần theo dõi sát sao các biến động vĩ mô để kịp thời điều chỉnh chiến lược.",
+        "ai_updated_at": "2026-10-30 03:32:26"
     },
     "MSN": {
         "symbol": "MSN",
@@ -962,11 +1018,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 11.63x, MSN được định giá hợp lý so với lợi nhuận, trong khi P/B ở mức 2.53x cho thấy tài sản của công ty có chất lượng tốt.",
+        "outlook": "Ngành tiêu dùng đang có triển vọng tăng trưởng ổn định do nhu cầu nội địa vẫn duy trì ở mức cao. MSN với vị thế dẫn đầu và chiến lược kinh doanh hiệu quả dự kiến sẽ tiếp tục duy trì lợi nhuận tốt trong ngắn và trung hạn.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 68.0 - 72.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt như MSN. Dòng tiền chọn lọc này giúp nâng cao khả năng tăng trưởng và hấp dẫn nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:32:31"
     },
     "SAB": {
         "symbol": "SAB",
@@ -979,11 +1036,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 11.82,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "SAB có P/E ở mức 11.68x, cho thấy cổ phiếu đang được định giá hợp lý so với lợi nhuận. Tỷ lệ P/B là 2.61x, phản ánh chất lượng tài sản và sức khỏe tài chính tốt của doanh nghiệp.",
+        "outlook": "Ngành công nghiệp đồ uống có triển vọng tăng trưởng ổn định trong ngắn và trung hạn. SAB với vị thế dẫn đầu và nền tảng kinh doanh vững chắc dự kiến sẽ tiếp tục duy trì lợi nhuận và thị phần.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 40.0 - 43.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt. SAB nằm trong nhóm ngành hấp dẫn đối với nhà đầu tư tìm kiếm cơ hội tăng trưởng.",
+        "ai_updated_at": "2026-10-30 03:32:37"
     },
     "GAS": {
         "symbol": "GAS",
@@ -996,11 +1054,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 2.68,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 14.42x, GAS đang được định giá ở mức trung bình so với thị trường, cho thấy nhà đầu tư đánh giá cao triển vọng tăng trưởng của doanh nghiệp. Tỷ lệ P/B là 2.67x, phản ánh chất lượng tài sản và khả năng sinh lời từ vốn chủ sở hữu tốt.",
+        "outlook": "Ngành dầu khí dự kiến sẽ tiếp tục phục hồi trong ngắn hạn nhờ vào sự ổn định của giá dầu thế giới. GAS, với vị trí hàng đầu trong ngành, có tiềm năng tăng trưởng lợi nhuận mạnh mẽ trong trung hạn nhờ vào các dự án mở rộng và nâng cấp cơ sở hạ tầng.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 70.0 - 75.0 (nghìn đồng)",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt, GAS được hưởng lợi từ xu hướng này. Ngành dầu khí cũng được hỗ trợ bởi nhu cầu tiêu thụ nhiên liệu tăng lên khi nền kinh tế phục hồi.",
+        "ai_updated_at": "2026-10-30 03:32:43"
     },
     "PVD": {
         "symbol": "PVD",
@@ -1013,11 +1072,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 1.66,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "P/E ở mức 15.3x cho thấy PVD đang được định giá ở mức trung bình so với thị trường, trong khi P/B ở mức 0.98x cho thấy cổ phiếu đang được định giá thấp hơn giá trị sổ sách, phản ánh sức khỏe tài chính và chất lượng tài sản tốt.",
+        "outlook": "Ngành dầu khí dự kiến sẽ tiếp tục tăng trưởng ổn định do nhu cầu năng lượng toàn cầu vẫn duy trì ở mức cao. PVD với vị thế là một trong những công ty hàng đầu trong ngành, có triển vọng tăng trưởng lợi nhuận rõ ràng nhờ vào việc mở rộng hoạt động và nâng cao hiệu quả.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 17.0 - 19.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt như PVD. Dòng tiền chọn lọc này giúp hỗ trợ giá cổ phiếu của PVD trong ngắn hạn.",
+        "ai_updated_at": "2026-10-30 03:32:48"
     },
     "PVS": {
         "symbol": "PVS",
@@ -1030,11 +1090,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "P/E ở mức 8.92x và P/B là 1.19x cho thấy cổ phiếu PVS đang được định giá ở mức hợp lý, phản ánh sức khỏe tài chính ổn định và chất lượng tài sản tốt.",
+        "outlook": "Ngành công nghiệp dầu khí có triển vọng tăng trưởng trong ngắn hạn do nhu cầu năng lượng phục hồi sau đại dịch, nhưng trung hạn cần theo dõi sát sao biến động giá dầu thế giới.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 28.0 - 30.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên vào các doanh nghiệp có nền tảng cơ bản tốt sẽ hỗ trợ nhóm ngành này, đặc biệt là những doanh nghiệp có triển vọng tăng trưởng lợi nhuận rõ ràng.",
+        "ai_updated_at": "2026-10-30 03:32:56"
     },
     "BSR": {
         "symbol": "BSR",
@@ -1047,11 +1108,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 6.96x, BSR được đánh giá là có định giá hấp dẫn so với lợi nhuận, trong khi P/B 1.9x cho thấy tài sản của công ty đang được định giá cao hơn so với giá trị sổ sách.",
+        "outlook": "Trong ngắn hạn, ngành dầu khí dự kiến sẽ tiếp tục ổn định do lãi suất ổn định và nhu cầu năng lượng tăng. Trung hạn, BSR có tiềm năng tăng trưởng nhờ vào việc mở rộng hoạt động và cải thiện hiệu quả vận hành.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 25.0 - 27.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt như BSR. Dòng tiền chọn lọc giúp nâng cao khả năng tăng trưởng và thu hút nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:33:04"
     },
     "POW": {
         "symbol": "POW",
@@ -1064,11 +1126,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 6.39x và P/B ở mức 0.92x, POW được đánh giá là có định giá hấp dẫn so với mặt bằng chung của thị trường, cho thấy cổ phiếu đang được định giá thấp hơn giá trị sổ sách. Tuy nhiên, tỷ suất cổ tức 0% cho thấy doanh nghiệp chưa mang lại lợi ích trực tiếp cho nhà đầu tư thông qua cổ tức.",
+        "outlook": "Ngành năng lượng trong ngắn hạn có thể gặp phải những thách thức về biến động giá nguyên liệu, nhưng trung hạn, nhu cầu năng lượng dự kiến sẽ tăng lên theo sự phát triển kinh tế, tạo điều kiện thuận lợi cho POW. POW cần tập trung vào việc nâng cao hiệu quả hoạt động và đa dạng hóa nguồn cung để tận dụng cơ hội này.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 11.0 - 13.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền có xu hướng chuyển dịch vào các doanh nghiệp có nền tảng tài chính vững chắc như POW. Điều này có thể hỗ trợ giá cổ phiếu POW trong thời gian tới. Tuy nhiên, cần chú ý đến các yếu tố vĩ mô khác như biến động giá dầu mỏ, có thể ảnh hưởng đến hoạt động kinh doanh của ngành.",
+        "ai_updated_at": "2026-10-30 03:33:12"
     },
     "REE": {
         "symbol": "REE",
@@ -1081,11 +1144,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 1.89,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Tỷ số P/E ở mức 10.75x cho thấy REE đang được định giá ở mức hợp lý so với lợi nhuận, trong khi P/B ở mức 1.26x phản ánh chất lượng tài sản tốt và không có dấu hiệu của việc đánh giá quá cao.",
+        "outlook": "Ngành công nghiệp điện tử và cơ khí chế tạo mà REE hoạt động trong đó dự kiến sẽ tiếp tục tăng trưởng ổn định do nhu cầu trong nước và xuất khẩu. REE với vị thế là một trong những doanh nghiệp hàng đầu trong ngành, có tiềm năng mở rộng thị trường và cải thiện biên lợi nhuận.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 40.0 - 43.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang tìm kiếm các doanh nghiệp có nền tảng cơ bản vững chắc như REE. Điều này có thể hỗ trợ giá cổ phiếu và thu hút thêm sự quan tâm từ nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 03:33:19"
     },
     "PC1": {
         "symbol": "PC1",
@@ -1098,11 +1162,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 6.71x, PC1 được định giá thấp so với lợi nhuận, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, P/B ở mức 1.16x cho thấy tài sản của công ty đang được định giá hợp lý.",
+        "outlook": "Ngành công nghiệp mà PC1 hoạt động dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn. Doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng lợi nhuận rõ ràng.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 18.0 - 20.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng lợi nhuận rõ ràng, điều này tạo thuận lợi cho PC1. Dòng tiền vào thị trường chứng khoán Việt Nam vẫn duy trì tích cực, hỗ trợ cho sự tăng trưởng của nhóm ngành VN100.",
+        "ai_updated_at": "2026-10-30 03:33:24"
     },
     "NT2": {
         "symbol": "NT2",
@@ -1115,11 +1180,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 3.06,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 4.52x, NT2 được đánh giá là có mức định giá hấp dẫn so với lợi nhuận, cho thấy khả năng sinh lời tốt. Tỷ lệ P/B 1.28x phản ánh tài sản của công ty được định giá hợp lý, không quá cao so với giá trị sổ sách.",
+        "outlook": "Trong ngắn hạn, ngành và doanh nghiệp NT2 dự kiến sẽ tiếp tục duy trì hoạt động ổn định nhờ vào nền tảng tài chính vững chắc. Trung hạn, triển vọng tăng trưởng lợi nhuận rõ ràng khi doanh nghiệp tận dụng hiệu quả nguồn vốn và mở rộng thị trường.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển trong thị trường, đặc biệt là vào các doanh nghiệp có nền tảng cơ bản tốt như NT2. Dòng tiền chọn lọc này giúp nâng cao thanh khoản và hỗ trợ giá cổ phiếu của nhóm ngành.",
+        "ai_updated_at": "2026-10-30 03:33:30"
     },
     "GMD": {
         "symbol": "GMD",
@@ -1132,11 +1198,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 5.26,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 13.19x, GMD được định giá hợp lý so với lợi nhuận, trong khi P/B ở mức 2.47x cho thấy tài sản của công ty có chất lượng tốt và được thị trường đánh giá cao.",
+        "outlook": "Ngành cảng biển & logistics dự kiến sẽ tiếp tục tăng trưởng do nhu cầu vận chuyển hàng hóa gia tăng. GMD, với vị trí chiến lược và cơ sở hạ tầng hiện đại, có khả năng tận dụng xu hướng này để mở rộng hoạt động và nâng cao hiệu quả kinh doanh.",
+        "recommendation": "NẮM GIỮ CHẶT",
+        "price_zone": "Vùng gom: 50.0 - 55.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho việc đầu tư vào các doanh nghiệp có nền tảng cơ bản tốt như GMD. Dòng tiền luân phiên chọn lọc đang tập trung vào những doanh nghiệp có triển vọng tăng trưởng rõ ràng, giúp hỗ trợ giá cổ phiếu.",
+        "ai_updated_at": "2026-10-30 03:33:36"
     },
     "HAH": {
         "symbol": "HAH",
@@ -1149,11 +1216,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 5.54,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 7.19x, HAH được định giá thấp hơn so với trung bình ngành, cho thấy cổ phiếu có thể đang bị đánh giá thấp. Tỷ lệ P/B là 1.72x, phản ánh chất lượng tài sản tốt và khả năng sinh lời từ vốn chủ sở hữu.",
+        "outlook": "Ngành công nghiệp mà HAH hoạt động dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn, nhờ vào sự phục hồi của nền kinh tế. HAH có triển vọng tăng trưởng lợi nhuận rõ ràng do hiệu quả quản lý và chiến lược mở rộng thị trường.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 45.0 - 50.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt như HAH. Dòng tiền chọn lọc này giúp nâng cao giá trị của cổ phiếu và hỗ trợ triển vọng tăng trưởng.",
+        "ai_updated_at": "2026-10-30 03:33:41"
     },
     "PVT": {
         "symbol": "PVT",
@@ -1166,11 +1234,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "PVT có P/E ở mức 7.72x, thấp hơn so với trung bình ngành, cho thấy cổ phiếu đang được định giá hấp dẫn. Tuy nhiên, P/B ở mức 1.12x cho thấy tài sản của công ty không quá đắt đỏ, nhưng vẫn cần chú ý đến chất lượng tài sản.",
+        "outlook": "Ngành công nghiệp mà PVT hoạt động có triển vọng tăng trưởng ổn định trong ngắn và trung hạn. PVT với nền tảng tài chính vững chắc và chiến lược kinh doanh rõ ràng có thể tận dụng cơ hội để mở rộng thị phần.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt. Nhóm ngành VN100, bao gồm PVT, sẽ thu hút sự quan tâm của nhà đầu tư nhờ triển vọng tăng trưởng và định giá hấp dẫn.",
+        "ai_updated_at": "2026-10-30 03:33:46"
     },
     "VJC": {
         "symbol": "VJC",
@@ -1183,11 +1252,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 46.49x và P/B là 3.84x, VJC được định giá cao so với thị trường, phản ánh kỳ vọng tăng trưởng lợi nhuận mạnh mẽ. Tuy nhiên, tỷ suất cổ tức 0% cho thấy doanh nghiệp đang tập trung vào việc tái đầu tư thay vì trả lại cho cổ đông.",
+        "outlook": "Ngành hàng không dự kiến sẽ phục hồi mạnh mẽ trong ngắn hạn do nhu cầu du lịch tăng trở lại sau đại dịch. Trung hạn, VJC có tiềm năng mở rộng mạng lưới và nâng cao hiệu quả hoạt động, nhưng cũng cần chú ý đến rủi ro về biến động giá nhiên liệu.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 120.0 - 125.0 đ",
+        "macro_view": "Lãi suất ổn định tạo điều kiện thuận lợi cho dòng tiền luân chuyển vào các doanh nghiệp có triển vọng tăng trưởng tốt. Tuy nhiên, sự chọn lọc của nhà đầu tư đối với các doanh nghiệp có nền tảng cơ bản vững chắc vẫn là yếu tố quyết định.",
+        "ai_updated_at": "2026-10-30 03:33:52"
     },
     "HVN": {
         "symbol": "HVN",
@@ -1200,11 +1270,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 14.44x, HVN được định giá ở mức trung bình so với thị trường, cho thấy nhà đầu tư đánh giá doanh nghiệp có khả năng sinh lời ổn định. Tuy nhiên, P/B ở mức 6.93x cho thấy cổ phiếu đang được định giá cao hơn nhiều so với giá trị sổ sách, phản ánh sự kỳ vọng vào tăng trưởng và chất lượng tài sản.",
+        "outlook": "Ngành hàng không dự kiến sẽ tiếp tục phục hồi trong ngắn hạn nhờ nhu cầu du lịch nội địa và quốc tế tăng trở lại. Trong trung hạn, HVN có tiềm năng mở rộng mạng lưới bay và nâng cao hiệu quả hoạt động, nhưng cũng cần chú ý đến rủi ro về biến động giá nhiên liệu.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 18.0 - 20.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền có xu hướng luân chuyển vào các doanh nghiệp có nền tảng cơ bản tốt và triển vọng tăng trưởng rõ ràng. Tuy nhiên, ngành hàng không vẫn chịu áp lực từ chi phí nhiên liệu và cạnh tranh, đòi hỏi nhà đầu tư cần thận trọng.",
+        "ai_updated_at": "2026-10-30 03:34:00"
     },
     "VHC": {
         "symbol": "VHC",
@@ -1217,11 +1288,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 4.16,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "VHC có P/E ở mức 7.43x và P/B là 1.15x, cho thấy cổ phiếu đang được định giá khá hấp dẫn so với lợi nhuận và giá trị tài sản ròng. Điều này phản ánh sức khỏe tài chính ổn định và chất lượng tài sản tốt của doanh nghiệp.",
+        "outlook": "Ngành thủy sản, trong đó VHC hoạt động, dự kiến sẽ tiếp tục tăng trưởng nhờ nhu cầu tiêu thụ nội địa và xuất khẩu tăng. Trong ngắn hạn, VHC có thể tận dụng được lợi thế từ chuỗi cung ứng ổn định và thị trường xuất khẩu mở rộng.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 48.0 - 52.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền luân phiên chọn lọc các doanh nghiệp có nền tảng cơ bản tốt như VHC. Điều này tạo điều kiện thuận lợi cho việc thu hút vốn đầu tư vào ngành thủy sản, hỗ trợ tăng trưởng và định giá hấp dẫn.",
+        "ai_updated_at": "2026-10-30 03:34:06"
     },
     "ANV": {
         "symbol": "ANV",
@@ -1234,11 +1306,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "Với P/E ở mức 5.71x và P/B là 1.11x, ANV được định giá khá hấp dẫn so với mặt bằng chung của thị trường, cho thấy cổ phiếu có thể đang bị đánh giá thấp. Tuy nhiên, tỷ suất cổ tức 0% cũng phản ánh rằng doanh nghiệp hiện không chia cổ tức, có thể do đang tập trung vào việc tái đầu tư.",
+        "outlook": "Ngành công nghiệp mà ANV hoạt động dự kiến sẽ tiếp tục tăng trưởng ổn định trong ngắn và trung hạn, nhờ vào sự phục hồi của nền kinh tế. ANV, với vị thế vững chắc trong ngành, có khả năng tận dụng tốt cơ hội này để mở rộng quy mô và cải thiện hiệu quả hoạt động.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 15.0 - 17.0 đ",
+        "macro_view": "Trong bối cảnh lãi suất ổn định, dòng tiền đang luân chuyển vào các doanh nghiệp có chất lượng tài chính tốt và triển vọng tăng trưởng rõ ràng, điều này tạo lợi thế cho ANV. Dòng tiền chọn lọc như hiện nay giúp nâng cao giá trị của những doanh nghiệp có nền tảng cơ bản mạnh mẽ.",
+        "ai_updated_at": "2026-10-30 03:34:12"
     },
     "PAN": {
         "symbol": "PAN",
@@ -1251,11 +1324,12 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 14.28,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
-        "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "bctc": "P/E ở mức 3.56x và P/B ở mức 0.79x cho thấy cổ phiếu PAN đang được định giá thấp so với giá trị sổ sách, phản ánh sức khỏe tài chính ổn định và chất lượng tài sản tốt.",
+        "outlook": "Ngành công nghiệp mà PAN hoạt động có triển vọng tăng trưởng ổn định trong ngắn và trung hạn, đồng thời doanh nghiệp cũng có tiềm năng cải thiện lợi nhuận nhờ nền tảng cơ bản vững chắc.",
+        "recommendation": "GOM TÍCH SẢN",
+        "price_zone": "Vùng gom: 16.0 - 18.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên vào các doanh nghiệp có nền tảng cơ bản tốt sẽ tạo điều kiện thuận lợi cho PAN, giúp tăng cường khả năng thu hút vốn và phát triển kinh doanh.",
+        "ai_updated_at": "2026-10-30 03:34:18"
     },
     "BAF": {
         "symbol": "BAF",
@@ -1268,10 +1342,11 @@
         "eps": 0,
         "debtEquity": 0,
         "dividendYield": 0,
-        "bctc": "Đang chờ phân tích AI...",
-        "outlook": "Đang cập nhật triển vọng...",
+        "bctc": "Với P/E ở mức 131.7x, BAF được đánh giá là đắt đỏ so với lợi nhuận hiện tại, trong khi P/B 2.82x cho thấy tài sản của công ty đang được định giá cao hơn so với giá trị sổ sách.",
+        "outlook": "Trong ngắn hạn, ngành và doanh nghiệp có thể gặp khó khăn do tỷ suất cổ tức 0% và P/E cao, nhưng trung hạn, nếu công ty cải thiện hiệu quả kinh doanh, triển vọng tăng trưởng vẫn còn khả quan.",
         "recommendation": "CHỜ ĐỢI",
-        "price_zone": "Chưa có vùng giá",
-        "macro_view": "Chưa có vĩ mô"
+        "price_zone": "Vùng gom: 20.0 - 22.0 đ",
+        "macro_view": "Lãi suất ổn định và dòng tiền luân phiên vào các doanh nghiệp có nền tảng cơ bản tốt sẽ tạo điều kiện thuận lợi cho những công ty có triển vọng tăng trưởng rõ ràng, tuy nhiên, BAF cần chứng minh khả năng sinh lời để thu hút dòng tiền.",
+        "ai_updated_at": "2026-10-30 03:34:25"
     }
 }
