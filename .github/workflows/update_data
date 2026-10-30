@@ -1,0 +1,44 @@
+name: Auto Update VN100 Screener Data
+
+on:
+  # Cho phép bấm nút chạy thủ công ngay trên giao diện GitHub (Tab Actions)
+  workflow_dispatch:
+  
+  # Tự động chạy định kỳ (Ví dụ: 8h sáng các ngày từ Thứ 2 đến Thứ 6 hàng tuần, theo giờ UTC)
+  schedule:
+    - cron: '0 1 * * 1-5'
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+    
+    steps:
+      # 1. Tải mã nguồn của repository về máy chủ ảo GitHub
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Cài đặt môi trường Python
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      # 3. Cài đặt các thư viện cần thiết (nếu có thêm thư viện ngoài requests)
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests
+
+      # 4. Chạy script Python cào dữ liệu mới nhất
+      - name: Run update script
+        run: python update_screener.py
+
+      # 5. Tự động commit và đẩy file data.json mới nhất lên GitHub
+      - name: Commit and push changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto-update stock data.json [skip ci]" && git push)
