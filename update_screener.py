@@ -46,9 +46,10 @@ def fetch_stock_data(symbol):
     except Exception as e:
         print(f"Lỗi giá {symbol}: {e}")
 
-    # 2. Lấy trọn bộ chỉ số PTCB từ Finfo API với cơ chế khớp từ khóa linh hoạt
+    # 2. Lấy trọn bộ chỉ số PTCB bằng cách truy vấn trực tiếp các mã chỉ số cốt lõi
     try:
-        url_ratio = f"https://api-finfo.vndirect.com.vn/v4/ratios?q=code:{symbol}&size=50&sort=reportDate:desc"
+        ratio_codes = "PRICE_TO_EARNINGS,PRICE_TO_BOOK,ROE,ROAE,ROA,ROAA,EPS,DEBT_TO_EQUITY,DIVIDEND_YIELD"
+        url_ratio = f"https://api-finfo.vndirect.com.vn/v4/ratios?q=code:{symbol}~ratioCode:{ratio_codes}&size=20&sort=reportDate:desc"
         res = requests.get(url_ratio, headers=headers, timeout=8).json()
         if res.get("data"):
             for item in res["data"]:
@@ -65,16 +66,15 @@ def fetch_stock_data(symbol):
                 if val == 0:
                     continue
 
-                # Khớp linh hoạt theo từ khóa chứa trong ratioCode
-                if ("PE" in code or "PRICE_TO_EARNINGS" in code) and pe == 0:
+                if ("PRICE_TO_EARNINGS" in code or code == "PE") and pe == 0:
                     pe = val
-                elif ("PB" in code or "PRICE_TO_BOOK" in code) and pb == 0:
+                elif ("PRICE_TO_BOOK" in code or code == "PB") and pb == 0:
                     pb = val
                 elif ("ROE" in code or "ROAE" in code) and roe == 0:
                     roe = val * 100 if 0 < val < 1 else val
                 elif ("ROA" in code or "ROAA" in code) and roa == 0:
                     roa = val * 100 if 0 < val < 1 else val
-                elif "EPS" in code and eps == 0:
+                elif code == "EPS" and eps == 0:
                     eps = val
                 elif ("DEBT" in code or "LIABILITIES" in code) and debt_equity == 0:
                     debt_equity = val
@@ -83,10 +83,10 @@ def fetch_stock_data(symbol):
     except Exception as e:
         print(f"Lỗi chỉ số {symbol}: {e}")
 
-    # 3. Fallback dự phòng qua financial_models nếu chỉ số chính chưa có
-    if roe == 0 or roa == 0 or pe == 0:
+    # 3. Fallback dự phòng qua financial_models nếu ROE/ROA/EPS vẫn trống
+    if roe == 0 or roa == 0 or eps == 0:
         try:
-            url_fb = f"https://api-finfo.vndirect.com.vn/v4/financial_models?q=code:{symbol}~reportType:QUARTER&size=20&sort=reportDate:desc"
+            url_fb = f"https://api-finfo.vndirect.com.vn/v4/financial_models?q=code:{symbol}~reportType:QUARTER&size=15&sort=reportDate:desc"
             res_fb = requests.get(url_fb, headers=headers, timeout=8).json()
             if res_fb.get("data"):
                 for item in res_fb["data"]:
