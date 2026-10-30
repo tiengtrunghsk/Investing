@@ -159,7 +159,7 @@
             return num.toLocaleString('vi-VN') + suf;
         }
 
-        // Cào toàn bộ thông số PTCB & Giá trực tiếp từ API VNDirect
+        // Cào thông số PTCB linh hoạt bằng cách sử dụng API Snapshot chuyên dụng
         async function fetchStockParameters(symbol) {
             let close = 0, pe = 0, pb = 0, roe = 0, roa = 0, eps = 0, debtEquity = 0, profitMargin = 0, dividendYield = 0;
             
@@ -174,35 +174,54 @@
                 }
             } catch (e) {}
 
-            // 2. Lấy toàn bộ chỉ số tài chính mới nhất từ API Finfo VNDirect
+            // 2. Lấy dữ liệu Tổng quan Chỉ số từ API Finfo V4
             try {
-                const resRatio = await fetch(`https://api-finfo.vndirect.com.vn/v4/ratios?q=code:${symbol}&size=30&sort=reportDate:desc`);
+                const resRatio = await fetch(`https://api-finfo.vndirect.com.vn/v4/ratios?q=code:${symbol}&size=50&sort=reportDate:desc`);
                 const dataRatio = await resRatio.json();
                 
-                if (dataRatio && dataRatio.data) {
+                if (dataRatio && dataRatio.data && dataRatio.data.length > 0) {
                     dataRatio.data.forEach(item => {
-                        const code = item.ratioCode;
+                        const code = (item.ratioCode || '').toUpperCase();
                         const val = parseFloat(item.value || 0);
-                        
+                        if (isNaN(val) || val === 0) return;
+
                         if (code === "PRICE_TO_EARNINGS" && pe === 0) pe = val;
                         if (code === "PRICE_TO_BOOK" && pb === 0) pb = val;
-                        if ((code === "ROE" || code === "ROAE" || code === "ROAE_TR_AVG5Q") && roe === 0) {
+                        
+                        // Quét tất cả dạng mã đại diện cho ROE
+                        if ((code.includes("ROE") || code.includes("ROAE")) && roe === 0) {
                             roe = (val > 0 && val < 1) ? val * 100 : val;
                         }
-                        if ((code === "ROA" || code === "ROAA") && roa === 0) {
+                        // Quét tất cả dạng mã đại diện cho ROA
+                        if ((code.includes("ROA") || code.includes("ROAA")) && roa === 0) {
                             roa = (val > 0 && val < 1) ? val * 100 : val;
                         }
                         if (code === "EPS" && eps === 0) eps = val;
-                        if (code === "DEBT_TO_EQUITY" && debtEquity === 0) debtEquity = val;
-                        if (code === "PROFIT_MARGIN" && profitMargin === 0) {
+                        if ((code.includes("DEBT") || code === "DEBT_TO_EQUITY") && debtEquity === 0) debtEquity = val;
+                        if ((code.includes("MARGIN") || code === "PROFIT_MARGIN") && profitMargin === 0) {
                             profitMargin = (val > 0 && val < 1) ? val * 100 : val;
                         }
-                        if (code === "DIVIDEND_YIELD" && dividendYield === 0) {
+                        if ((code.includes("DIVIDEND") || code === "DIVIDEND_YIELD") && dividendYield === 0) {
                             dividendYield = (val > 0 && val < 1) ? val * 100 : val;
                         }
                     });
                 }
             } catch (e) {}
+
+            // 3. Fallback dự phòng trực tiếp nếu ROE vẫn bị trống
+            if (roe === 0) {
+                try {
+                    const resFb = await fetch(`https://api-finfo.vndirect.com.vn/v4/financial_models?q=code:${symbol}~reportType:QUARTER&size=10&sort=reportDate:desc`);
+                    const dataFb = await resFb.json();
+                    if (dataFb && dataFb.data) {
+                        const itemRoe = dataFb.data.find(x => x.modelCode === "ROE" || x.modelCode === "ROAE");
+                        if (itemRoe) {
+                            let val = parseFloat(itemRoe.value || 0);
+                            roe = (val > 0 && val < 1) ? val * 100 : val;
+                        }
+                    }
+                } catch(e) {}
+            }
 
             return {
                 close,
@@ -327,3 +346,4 @@
     </script>
 </body>
 </html>
+
