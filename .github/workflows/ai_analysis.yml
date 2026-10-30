@@ -1,0 +1,43 @@
+name: Auto AI Analysis Weekly
+
+on:
+  schedule:
+    # Chạy vào lúc 02:00 sáng giờ VN (19:00 UTC thứ Sáu) hoặc chọn 16:00 chiều thứ 7 giờ VN (9:00 sáng UTC thứ 7)
+    # Dưới đây chọn 16:00 chiều Thứ 7 giờ VN (9:00 UTC thứ 7):
+    - cron: '0 9 * * 6'
+  workflow_dispatch: # Vẫn giữ nút bấm thủ công khi cần
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Cấp quyền commit file data.json trở lại repo
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests
+
+      - name: Run AI Analysis
+        # Truyền Alibaba API Key từ Secrets của GitHub vào biến môi trường
+        env:
+          ALIBABA_API_KEY: ${{ secrets.ALIBABA_API_KEY }}
+          PYTHONUNBUFFERED: 1
+        run: python analyze_ai.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action AI"
+          git config --global user.email "action@github.com"
+          git add data.json
+          # Kiểm tra xem file data.json có thực sự thay đổi nội dung không rồi mới commit/push
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🧠 Tự động cập nhật Phân tích AI tuần [$(date +'%Y-%m-%d')]" && git push)
