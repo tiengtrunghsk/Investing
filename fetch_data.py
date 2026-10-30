@@ -3,13 +3,11 @@ import os
 import datetime
 import time
 import numpy as np
+import requests
 from vnstock import Quote
-import vnstock
 
-# Tên file output
 DATA_FILE = "data.json"
 
-# Danh sách 70 mã VN100
 VN100_SYMBOLS = [
     "ACB", "BID", "CTG", "TCB", "MBB", "STB", "VPB", "HDB", "VIB", "TPB",
     "SHB", "SSB", "LPB", "MSB", "OCB", "EIB", "SSI", "VCI", "HCM", "VIX",
@@ -20,15 +18,43 @@ VN100_SYMBOLS = [
     "REE", "PC1", "NT2", "GMD", "HAH", "PVT", "VJC", "HVN", "VHC", "ANV"
 ]
 
+# Danh sách tất cả các chỉ số cần lấy từ VNDirect
+VNDIRECT_RATIOS = {
+    "pe": "PRICE_TO_EARNINGS",
+    "pb": "PRICE_TO_BOOK",
+    "eps": "EPS_TR",
+    "roe": "ROAE_TR_AVG5Q",
+    "roa": "ROAA_TR_AVG5Q",
+    "dividend_yield": "DIVIDEND_YIELD"
+}
+
+def get_vndirect_ratio(symbol, ratio_code):
+    """Gọi API VNDirect để lấy một chỉ số cụ thể"""
+    url = "https://api-finfo.vndirect.com.vn/v4/ratios"
+    params = {
+        "q": f"code:{symbol}~ratioCode:{ratio_code}",
+        "size": 1,
+        "sort": "reportDate:desc"
+    }
+    headers = {"User-Agent": "Mozilla/5.0"}
+    try:
+        r = requests.get(url, params=params, headers=headers, timeout=10)
+        if r.status_code == 200:
+            data = r.json().get("data", [])
+            if data:
+                return float(data[0].get("value", 0))
+    except Exception as e:
+        print(f"  ⚠️ Lỗi lấy {ratio_code} của {symbol}: {e}")
+    return 0
+
 def fetch_data(symbol):
     closes, volumes = [], []
     close_price, volume = 0, 0
     
     try:
-        # Lấy dữ liệu 60 ngày gần nhất từ nguồn VCI
+        # 1. Lấy giá và khối lượng từ VCI (vnstock)
         end_date = datetime.datetime.now().strftime("%Y-%m-%d")
         start_date = (datetime.datetime.now() - datetime.timedelta(days=60)).strftime("%Y-%m-%d")
-        
         quote = Quote(source='VCI', symbol=symbol)
         df = quote.history(start=start_date, end=end_date)
         
@@ -38,10 +64,17 @@ def fetch_data(symbol):
             close_price = closes[-1]
             volume = volumes[-1]
             
+        # 2. Lấy TẤT CẢ các chỉ số từ VNDirect
+        ratios = {}
+        for key, code in VNDIRECT_RATIOS.items():
+            ratios[key] = get_vndirect_ratio(symbol, code)
+            time.sleep(0.4) # Nghỉ giữa các request để tránh bị chặn
+            
     except Exception as e:
-        print(f"  ⚠️ Lỗi lấy dữ liệu {symbol}: {e}")
+        print(f"  ⚠️ Lỗi tổng hợp {symbol}: {e}")
+        ratios = {k: 0 for k in VNDIRECT_RATIOS}
 
-    # Thuật toán Price Action D1
+    # 3. Thuật toán Price Action
     status = "ĐANG TÍCH LŨY NỀN"
     detail = "Đang siết nền tích lũy biên độ hẹp."
     
@@ -63,40 +96,32 @@ def fetch_data(symbol):
 
     return {
         "symbol": symbol,
-        "close": int(close_price * 1000),  # Đổi sang VNĐ và bỏ thập phân
-        "volume": int(volume),             # Khối lượng luôn là số nguyên
-        "pe": 0,
-        "pb": 0,
+        "close": int(close_price * 1000),
+        "volume": int(volume),
+        "pe": round(ratios.get("pe", 0), 2),
+        "pb": round(ratios.get("pb", 0), 2),
+        "eps": int(ratios.get("eps", 0)),
+        "roe": round(ratios.get("roe", 0) * 100, 1),  # Đổi sang %
+        "roa": round(ratios.get("roa", 0) * 100, 1),  # Đổi sang %
+        "dividend_yield": round(ratios.get("dividend_yield", 0) * 100, 2), # Đổi sang %
         "recommendation": status,
         "price_zone": detail,
         "updated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
 def main():
-    print("🚀 Bắt đầu cập nhật dữ liệu VN100 qua Vnstock (VCI)...")
+    print("🚀 Bắt đầu cập nhật dữ liệu VN100 (Giá từ VCI, TẤT CẢ chỉ số từ VNDirect)...")
     
-    # Đăng nhập tự động bằng biến môi trường
     API_KEY = os.getenv("VNSTOCK_API_KEY")
     if API_KEY:
         try:
-            print("🔑 Đang đăng nhập Vnstock...")
+            import vnstock
             vnstock.login(API_KEY)
-            print("✅ Đăng nhập thành công!")
+            print("✅ Đăng nhập Vnstock thành công!")
         except Exception as e:
             print(f"⚠️ Lỗi đăng nhập Vnstock: {e}")
-            # Thử logout thiết bị cũ nếu bị giới hạn
-            try:
-                vnstock.logout()
-                vnstock.login(API_KEY)
-                print("✅ Đã xoay vòng thiết bị và đăng nhập lại thành công!")
-            except Exception as ex:
-                print(f"❌ Vẫn lỗi sau khi xoay vòng: {ex}")
-    else:
-        print("⚠️ Không tìm thấy VNSTOCK_API_KEY trong môi trường.")
 
     stock_db = {}
-    
-    # Đọc dữ liệu cũ nếu có
     if os.path.exists(DATA_FILE):
         try:
             with open(DATA_FILE, "r", encoding="utf-8") as f:
@@ -107,18 +132,15 @@ def main():
     total = len(VN100_SYMBOLS)
     for i, symbol in enumerate(VN100_SYMBOLS):
         print(f"[{i+1}/{total}] Đang xử lý: {symbol}...")
-        
         data = fetch_data(symbol)
         
         if data.get("close", 0) > 0:
             stock_db[symbol] = data
         else:
-            print(f"  ❌ Bỏ qua {symbol} do không có dữ liệu.")
+            print(f"  ❌ Bỏ qua {symbol} do không có dữ liệu giá.")
             
-        # Nghỉ 1.2s để tránh rate limit
-        time.sleep(1.2)
+        time.sleep(1.5) # Nghỉ lâu hơn vì gọi nhiều request
 
-    # Ghi ra file data.json
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(stock_db, f, ensure_ascii=False, indent=4)
         
