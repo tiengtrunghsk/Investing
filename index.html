@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Quant Screener - Price Action & Volume (D1)</title>
     <!-- Tailwind CSS CDN -->
-    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
 
@@ -166,13 +166,13 @@
         async function fetchLiveTcbsData(symbol) {
             let close = 0, pe = 0, pb = 0;
             try {
-                const rPrice = await fetch(`[https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=$](https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=$){symbol}`);
+                const rPrice = await fetch(`https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=${symbol}`);
                 if (rPrice.ok) {
                     const jsonPrice = await rPrice.json();
                     const data = jsonPrice.data || [];
                     if (data.length > 0) close = data[0].matchPrice || data[0].refPrice || 0;
                 }
-                const rRatio = await fetch(`[https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=$](https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=$){symbol}`);
+                const rRatio = await fetch(`https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=${symbol}`);
                 if (rRatio.ok) {
                     const jsonRatio = await rRatio.json();
                     const data = jsonRatio.data || [];
@@ -318,7 +318,6 @@
             });
         }
 
-        // Quét cổ phiếu chuẩn Price Action / Breakout nền D1 & Gửi Telegram
         async function scanAndSendTelegram() {
             const btn = document.getElementById('btn-telegram');
             const originalText = btn.innerHTML;
@@ -351,7 +350,7 @@
             message += `⏰ <i>Thời gian quét khung D1: ${new Date().toLocaleString('vi-VN')}</i>`;
 
             try {
-                const teleUrl = `[https://api.telegram.org/bot$](https://api.telegram.org/bot$){TELEGRAM_BOT_TOKEN}/sendMessage`;
+                const teleUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
                 const res = await fetch(teleUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
