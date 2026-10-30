@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - VN100 Investment Dashboard</title>
+    <title>Pro Quant Screener - VN100 Dashboard</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -22,14 +22,18 @@
                 </div>
                 <div>
                     <h1 class="text-lg font-bold text-white tracking-tight">Pro Quant Screener</h1>
-                    <p class="text-[11px] text-slate-400">Dữ liệu Real-time từ VNDirect & Phân tích chuyên sâu Qwen AI</p>
+                    <p class="text-[11px] text-slate-400">HTML cào giá Real-time + Đọc báo cáo AI từ data.json</p>
                 </div>
             </div>
-            <div class="flex items-center gap-3 w-full sm:w-auto">
-                <div id="statusBadge" class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3.5 py-2 rounded-xl flex items-center gap-2 w-full justify-center">
+            <div class="flex items-center gap-2.5 w-full sm:w-auto">
+                <div id="statusBadge" class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3.5 py-2 rounded-xl flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                    <span id="statusText">Đang kết nối API...</span>
+                    <span id="statusText">Đang cào giá & đồng bộ AI...</span>
                 </div>
+                <!-- Nút này giúp xuất file data.json mới nhất sau khi HTML đã cập nhật giá -->
+                <button onclick="downloadJsonFile()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-600/20">
+                    <i class="fa-solid fa-download"></i> Tải data.json mới
+                </button>
             </div>
         </div>
     </header>
@@ -41,11 +45,11 @@
         <div class="flex flex-col md:flex-row justify-between items-stretch md:items-center gap-3 bg-slate-900/60 border border-slate-800 p-4 rounded-2xl">
             <div class="relative flex-1">
                 <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-sm"></i>
-                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Tìm kiếm theo Mã CP, Nhóm ngành (vd: VCB, Ngân hàng, Chứng khoán)..." 
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Tìm kiếm theo Mã CP, Nhóm ngành (vd: VCB, Ngân hàng)..." 
                     class="bg-slate-950 border border-slate-800 text-slate-200 text-xs rounded-xl focus:ring-1 focus:ring-blue-500 block w-full pl-10 p-3 outline-none transition-all">
             </div>
             <button onclick="initDashboard()" class="px-4 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-medium rounded-xl transition-all flex items-center justify-center gap-2">
-                <i class="fa-solid fa-arrows-rotate"></i> Làm mới dữ liệu
+                <i class="fa-solid fa-arrows-rotate"></i> Cào lại giá Real-time
             </button>
         </div>
 
@@ -65,7 +69,7 @@
                         </tr>
                     </thead>
                     <tbody id="stockTableBody" class="divide-y divide-slate-800/60 text-slate-200 text-xs">
-                        <tr><td colspan="7" class="py-12 text-center text-slate-500"><i class="fa-solid fa-spinner fa-spin text-xl mb-2 block"></i>Đang tải dữ liệu VN100...</td></tr>
+                        <tr><td colspan="7" class="py-12 text-center text-slate-500"><i class="fa-solid fa-spinner fa-spin text-xl mb-2 block"></i>Đang khởi tạo dữ liệu VN100...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -149,57 +153,52 @@
         }
 
         async function fetchStockLive(symbol) {
-            let close = 0, pe = 0, pb = 0, roe = 0;
             try {
-                // Gọi API lịch sử giá VNDirect trực tiếp từ trình duyệt
                 const end = Math.floor(Date.now() / 1000);
                 const start = end - (10 * 86400);
                 const res = await fetch(`https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol=${symbol}&from=${start}&to=${end}`);
                 const data = await res.json();
                 if (data && data.s === "ok" && data.c && data.c.length > 0) {
-                    close = data.c[data.c.length - 1];
+                    return data.c[data.c.length - 1];
                 }
             } catch (e) {}
-            return { close, pe, pb, roe };
+            return 0;
         }
 
         async function initDashboard() {
-            document.getElementById("statusText").innerText = "Đang tải dữ liệu AI (data.json)...";
+            document.getElementById("statusText").innerText = "Đang đọc báo cáo & nhận định AI từ data.json...";
             
-            // 1. Tải trước file dữ liệu AI đã lưu sẵn
+            // 1. Đọc file data.json sẵn có để lấy các trường phân tích AI
             let aiDb = {};
             try {
                 const res = await fetch('data.json?v=' + Date.now());
                 if (res.ok) aiDb = await res.json();
             } catch (e) {}
 
-            document.getElementById("statusText").innerText = "Đang cập nhật giá Real-time từ VNDirect...";
-            document.getElementById("totalCount").innerText = VN100.length;
-
+            document.getElementById("statusText").innerText = "Đang cào giá Real-time từ VNDirect...";
             let html = "";
             masterData = {};
 
-            // 2. Duyệt qua từng mã và gọi API trực tiếp trên trình duyệt
+            // 2. Cào giá trực tiếp trên trình duyệt rồi ghi đè/gộp chung với dữ liệu AI
             for (let i = 0; i < VN100.length; i++) {
                 const symbol = VN100[i];
                 const industry = INDUSTRY_MAP[symbol] || "VN100";
                 
-                // Lấy giá real-time, lấy chỉ số P/E, P/B, ROE từ file AI lưu trước đó hoặc API
-                const live = await fetchStockLive(symbol);
-                const aiInfo = aiDb[symbol] || {};
+                const closePrice = await fetchStockLive(symbol);
+                const prevInfo = aiDb[symbol] || {};
 
                 masterData[symbol] = {
                     symbol: symbol,
                     industry: industry,
-                    close: live.close || aiInfo.close || 0,
-                    pe: aiInfo.pe || 0,
-                    pb: aiInfo.pb || 0,
-                    roe: aiInfo.roe || 0,
-                    bctc: aiInfo.bctc || "Đang chờ phân tích AI...",
-                    outlook: aiInfo.outlook || "Đang cập nhật triển vọng...",
-                    recommendation: aiInfo.recommendation || "CHỜ ĐỢI",
-                    price_zone: aiInfo.price_zone || "Chưa có vùng giá",
-                    macro_view: aiInfo.macro_view || "Chưa có góc nhìn vĩ mô"
+                    close: closePrice || prevInfo.close || 0,
+                    pe: prevInfo.pe || 0,
+                    pb: prevInfo.pb || 0,
+                    roe: prevInfo.roe || 0,
+                    bctc: prevInfo.bctc || "Đang chờ phân tích AI...",
+                    outlook: prevInfo.outlook || "Đang cập nhật triển vọng...",
+                    recommendation: prevInfo.recommendation || "CHỜ ĐỢI",
+                    price_zone: prevInfo.price_zone || "Chưa có vùng giá",
+                    macro_view: prevInfo.macro_view || "Chưa có vĩ mô"
                 };
 
                 const item = masterData[symbol];
@@ -219,9 +218,11 @@
                 document.getElementById("stockTableBody").innerHTML = html;
             }
 
-            document.getElementById("statusText").innerText = "Hoàn tất cập nhật Real-time!";
-            document.getElementById("statusBadge").className = "text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3.5 py-2 rounded-xl flex items-center gap-2 w-full justify-center";
+            document.getElementById("statusText").innerText = "Hoàn tất cập nhật giá & nạp AI!";
+            document.getElementById("statusBadge").className = "text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3.5 py-2 rounded-xl flex items-center gap-2";
         }
+
+        window.addEventListener("DOMContentLoaded", initDashboard);
 
         function filterTable() {
             const query = document.getElementById("searchInput").value.toUpperCase().trim();
@@ -251,7 +252,17 @@
 
         function closeModal() { document.getElementById("stockModal").classList.add("hidden"); }
         window.addEventListener("click", (e) => { if (e.target === document.getElementById("stockModal")) closeModal(); });
-        window.addEventListener("DOMContentLoaded", initDashboard);
+
+        // Hàm giúp HTML ghi dữ liệu mới cào thành file data.json để tải xuống
+        function downloadJsonFile() {
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(masterData, null, 4));
+            const downloadAnchor = document.createElement('a');
+            downloadAnchor.setAttribute("href", dataStr);
+            downloadAnchor.setAttribute("download", "data.json");
+            document.body.appendChild(downloadAnchor);
+            downloadAnchor.click();
+            downloadAnchor.remove();
+        }
     </script>
 </body>
 </html>
