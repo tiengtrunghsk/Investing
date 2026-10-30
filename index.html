@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - Full Metrics</title>
+    <title>Pro Quant Screener - Sector Specific Ranking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -12,6 +12,10 @@
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
         .spinner { animation: spin 1s linear infinite; }
         @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        
+        .glow-top1 { box-shadow: 0 0 15px rgba(234, 179, 8, 0.4); border-color: #eab308; }
+        .glow-top2 { box-shadow: 0 0 10px rgba(148, 163, 184, 0.3); border-color: #94a3b8; }
+        .glow-top3 { box-shadow: 0 0 10px rgba(180, 83, 9, 0.3); border-color: #b45309; }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans pb-10">
@@ -19,12 +23,12 @@
     <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-30 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 text-white p-2 rounded-lg shadow-lg shadow-blue-500/30">
-                    <i class="fa-solid fa-layer-group text-lg"></i>
+                <div class="bg-emerald-600 text-white p-2 rounded-lg shadow-lg shadow-emerald-500/30">
+                    <i class="fa-solid fa-scale-balanced text-lg"></i>
                 </div>
                 <div>
                     <h1 class="text-base md:text-lg font-bold tracking-wide text-white">Pro Quant Screener</h1>
-                    <p class="text-[10px] text-slate-400">Lọc theo Nhóm ngành & Đa chỉ số</p>
+                    <p class="text-[10px] text-slate-400">Hệ thống chấm điểm đặc thù theo Nhóm ngành</p>
                 </div>
             </div>
             
@@ -35,58 +39,120 @@
     </header>
 
     <main class="max-w-7xl mx-auto px-3 md:px-4 py-4">
-        <!-- Thanh tìm kiếm và bộ lọc nhóm ngành -->
-        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-sm mb-4 flex flex-col md:flex-row gap-3">
-            <!-- Ô tìm kiếm mã -->
-            <div class="relative w-full md:w-1/2">
-                <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </span>
-                <input type="text" id="search-input" placeholder="Tìm mã hoặc tên ngành (VD: ACB, BĐS)..." 
-                    class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 transition">
-            </div>
-            
-            <!-- Bộ lọc nhóm ngành -->
-            <div class="w-full md:w-1/2">
-                <div class="relative">
+        <div class="bg-slate-900 p-3 rounded-xl border border-slate-800 shadow-sm mb-4 flex flex-col gap-3">
+            <div class="flex flex-col md:flex-row gap-3">
+                <div class="relative w-full md:w-1/3">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" id="search-input" placeholder="Tìm mã..." 
+                        class="w-full pl-10 pr-4 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 transition">
+                </div>
+                
+                <div class="relative w-full md:w-1/3">
                     <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                         <i class="fa-solid fa-filter"></i>
                     </span>
-                    <select id="sector-filter" class="w-full pl-10 pr-8 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 appearance-none transition">
+                    <select id="sector-filter" class="w-full pl-10 pr-8 py-2.5 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 appearance-none transition">
                         <option value="ALL">Tất cả nhóm ngành</option>
                         <option value="NH">Ngân hàng (NH)</option>
                         <option value="CK">Chứng khoán (CK)</option>
                         <option value="BDS">Bất động sản (BĐS)</option>
-                        <option value="BDS_KCN">Bất động sản KCN (BĐS KCN)</option>
-                        <option value="THEP">Thép & Vật liệu (Thép)</option>
-                        <option value="BANLE">Bán lẻ (Bán lẻ)</option>
-                        <option value="THUCPHAM">Thực phẩm & Đồ uống (TP)</option>
-                        <option value="DAUKHI">Dầu khí & Năng lượng (Dầu khí)</option>
-                        <option value="XAYDUNG">Xây dựng & Đầu tư (XD)</option>
-                        <option value="VANTAI">Vận tải & Logistics (VT)</option>
-                        <option value="CONGNGHE">Công nghệ (CN)</option>
-                        <option value="KHAC">Ngành khác</option>
+                        <option value="BDS_KCN">Bất động sản KCN</option>
+                        <option value="THEP">Thép & Vật liệu</option>
+                        <option value="BANLE">Bán lẻ</option>
+                        <option value="THUCPHAM">Thực phẩm</option>
+                        <option value="DAUKHI">Dầu khí</option>
+                        <option value="XAYDUNG">Xây dựng</option>
+                        <option value="VANTAI">Vận tải</option>
+                        <option value="CONGNGHE">Công nghệ</option>
                     </select>
                     <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-slate-400 pointer-events-none">
+                        <i class="fa-solid fa-chevron-down text-xs"></i>
+                    </span>
+                </div>
+
+                <div class="relative w-full md:w-1/3">
+                    <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-400">
+                        <i class="fa-solid fa-trophy"></i>
+                    </span>
+                    <select id="ranking-filter" class="w-full pl-10 pr-8 py-2.5 bg-slate-950 border border-amber-500/50 rounded-lg text-sm text-amber-300 font-semibold focus:outline-none focus:border-amber-400 appearance-none transition">
+                        <option value="NONE">Xem tất cả (A-Z)</option>
+                        <option value="ALL_SCORE">🏆 Top 10 (Tổng hợp)</option>
+                        <option value="FUNDAMENTAL">💰 Top 10 (Cơ bản đặc thù)</option>
+                        <option value="TECHNICAL">📈 Top 10 (Kỹ thuật)</option>
+                    </select>
+                    <span class="absolute inset-y-0 right-0 flex items-center pr-3 text-amber-400 pointer-events-none">
                         <i class="fa-solid fa-chevron-down text-xs"></i>
                     </span>
                 </div>
             </div>
         </div>
 
-        <!-- Danh sách dạng Thẻ (Cards) -->
-        <div id="stock-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+        <div id="stock-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
             <div class="col-span-full text-center py-12 text-slate-500">
-                <i class="fa-solid fa-spinner spinner text-2xl text-blue-500 mb-3 block"></i>
+                <i class="fa-solid fa-spinner spinner text-2xl text-emerald-500 mb-3 block"></i>
                 <p>Đang tải dữ liệu...</p>
             </div>
         </div>
     </main>
 
+    <!-- MODAL CHI TIẾT AI -->
+    <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-3 md:p-4">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            <div class="bg-slate-950 px-5 py-4 border-b border-slate-800 flex justify-between items-center sticky top-0 z-10">
+                <div class="flex items-center space-x-3">
+                    <span id="modal-symbol" class="text-2xl font-black text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-lg border border-indigo-500/20">--</span>
+                    <div>
+                        <h3 class="text-sm font-bold text-white">Chuyên Gia AI Phân Tích</h3>
+                        <p id="modal-sector" class="text-[10px] text-slate-400">Ngành: --</p>
+                    </div>
+                </div>
+                <button onclick="closeModal()" class="text-slate-400 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div class="p-5 overflow-y-auto space-y-4">
+                <div class="grid grid-cols-3 md:grid-cols-6 gap-2 bg-slate-950/50 p-3 rounded-xl border border-slate-800 text-center">
+                    <div><span class="text-[10px] text-slate-500 block">Giá</span><span id="modal-price" class="text-sm font-bold text-emerald-400">--</span></div>
+                    <div><span class="text-[10px] text-slate-500 block">P/E</span><span id="modal-pe" class="text-sm font-bold text-slate-200">--</span></div>
+                    <div><span class="text-[10px] text-slate-500 block">P/B</span><span id="modal-pb" class="text-sm font-bold text-slate-200">--</span></div>
+                    <div><span class="text-[10px] text-slate-500 block">EPS</span><span id="modal-eps" class="text-sm font-bold text-slate-200">--</span></div>
+                    <div><span class="text-[10px] text-slate-500 block">ROE</span><span id="modal-roe" class="text-sm font-bold text-blue-400">--</span></div>
+                    <div><span class="text-[10px] text-slate-500 block">Cổ tức</span><span id="modal-div" class="text-sm font-bold text-amber-400">--</span></div>
+                </div>
+                <div class="bg-indigo-500/10 border border-indigo-500/30 p-4 rounded-xl">
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2"><i class="fa-solid fa-bullseye mr-1.5"></i> Khuyến nghị của AI</h4>
+                    <p id="modal-ai-rec" class="text-lg font-black text-white mb-2">--</p>
+                    <div class="bg-slate-900/50 p-2.5 rounded border border-indigo-500/20">
+                        <span class="text-[10px] text-slate-400 block mb-1">Chiến lược hành động:</span>
+                        <p id="modal-ai-price" class="text-sm text-emerald-300 font-medium">--</p>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-file-invoice-dollar text-emerald-500 mr-1.5"></i> Đánh giá BCTC</h4>
+                    <p id="modal-bctc" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-chart-line text-blue-500 mr-1.5"></i> Định giá & Hành động giá</h4>
+                    <p id="modal-outlook" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-globe text-amber-500 mr-1.5"></i> Vĩ mô & Sóng ngành</h4>
+                    <p id="modal-macro" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
+                </div>
+            </div>
+            <div class="bg-slate-950 px-5 py-3 border-t border-slate-800 flex justify-between items-center text-[10px] text-slate-500">
+                <span id="modal-time">AI cập nhật: --</span>
+                <button onclick="closeModal()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition font-bold shadow">Đóng</button>
+            </div>
+        </div>
+    </div>
+
     <script>
         let stockData = {};
 
-        // BẢNG PHÂN LOẠI NHÓM NGÀNH (Dựa trên 70 mã VN100)
         const SECTOR_MAPPING = {
             "NH": ["ACB", "BID", "CTG", "TCB", "MBB", "STB", "VPB", "HDB", "VIB", "TPB", "SHB", "SSB", "LPB", "MSB", "OCB", "EIB"],
             "CK": ["SSI", "VCI", "HCM", "VIX", "MBS", "FTS", "BSI", "CTS", "ORS"],
@@ -99,10 +165,10 @@
             "THUCPHAM": ["VNM", "MSN", "SAB"],
             "DAUKHI": ["GAS", "PVD", "PVS", "BSR", "POW"],
             "VANTAI": ["GMD", "HAH", "PVT", "VJC", "HVN"],
-            "KHAC": ["REE", "PC1", "NT2", "VHC", "ANV"] // Thủy sản, Điện...
+            "KHAC": ["REE", "PC1", "NT2", "VHC", "ANV"]
         };
+        const SECTOR_NAMES = { "NH": "Ngân hàng", "CK": "Chứng khoán", "BDS": "Bất động sản", "BDS_KCN": "BĐS KCN", "THEP": "Thép", "XAYDUNG": "Xây dựng", "CONGNGHE": "Công nghệ", "BANLE": "Bán lẻ", "THUCPHAM": "Thực phẩm", "DAUKHI": "Dầu khí", "VANTAI": "Vận tải", "KHAC": "Khác" };
 
-        // Hàm lấy tên viết tắt ngành của một mã
         function getSector(symbol) {
             for (const [sectorKey, symbols] of Object.entries(SECTOR_MAPPING)) {
                 if (symbols.includes(symbol)) return sectorKey;
@@ -115,7 +181,6 @@
             let val = (num < 1000 && num > 0) ? num * 1000 : num; 
             return Math.round(val).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
         }
-
         function formatPercent(num) {
             if (!num) return '—';
             return num.toFixed(1) + '%';
@@ -124,19 +189,12 @@
         async function loadData() {
             const icon = document.getElementById('refresh-icon');
             icon.classList.add('spinner');
-            
-            const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000);
-
             try {
-                const response = await fetch('data.json?t=' + new Date().getTime(), { signal: controller.signal });
-                clearTimeout(timeoutId);
-                if (!response.ok) throw new Error('Không thể tải data.json');
-                
+                const response = await fetch('data.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('Lỗi tải file');
                 stockData = await response.json();
                 renderCards();
             } catch (error) {
-                console.error(error);
                 document.getElementById('stock-container').innerHTML = `
                     <div class="col-span-full text-center py-8 text-rose-400 font-semibold bg-rose-500/10 rounded-xl border border-rose-500/30">
                         <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi tải file data.json!
@@ -146,123 +204,264 @@
             }
         }
 
+        // ==========================================
+        // THUẬT TOÁN CHẤM ĐIỂM CƠ BẢN ĐẶC THÙ NGÀNH
+        // ==========================================
+        function scoreFundamental(item) {
+            const sector = getSector(item.symbol);
+            let score = 0;
+            let pe = item.pe || 0;
+            let pb = item.pb || 0;
+            let roe = item.roe || 0;
+            let div = item.dividend_yield || 0;
+
+            // 1. NHÓM TÀI CHÍNH (Ngân hàng, Chứng khoán) - Ưu tiên P/B và ROE
+            if (sector === "NH" || sector === "CK") {
+                // P/B (40đ): Định giá tài sản
+                if (pb > 0 && pb < 1.5) score += 40;
+                else if (pb > 0 && pb < 2.0) score += 25;
+                else if (pb > 0) score += 10;
+                
+                // ROE (40đ): Hiệu quả sử dụng vốn
+                if (roe > 18) score += 40;
+                else if (roe > 12) score += 25;
+                else if (roe > 8) score += 10;
+
+                // P/E (20đ)
+                if (pe > 0 && pe < 10) score += 20;
+                else if (pe > 0 && pe < 15) score += 10;
+            } 
+            
+            // 2. NHÓM BẤT ĐỘNG SẢN (BĐS Dân dụng, BĐS KCN, Xây dựng) - Ưu tiên P/B và Cổ tức
+            else if (sector === "BDS" || sector === "BDS_KCN" || sector === "XAYDUNG") {
+                // P/B (40đ): Định giá quỹ đất
+                if (pb > 0 && pb < 1.0) score += 40;
+                else if (pb > 0 && pb < 1.5) score += 25;
+                else if (pb > 0) score += 10;
+
+                // P/E (30đ): Thường BĐS có P/E cao vào đáy chu kỳ
+                if (pe > 0 && pe < 10) score += 30;
+                else if (pe > 0 && pe < 15) score += 20;
+                else if (pe > 0 && pe < 25) score += 10;
+                
+                // ROE (30đ)
+                if (roe > 15) score += 30;
+                else if (roe > 10) score += 20;
+                else if (roe > 5) score += 10;
+            } 
+
+            // 3. NHÓM TĂNG TRƯỞNG (Công nghệ, Bán lẻ) - Chấp nhận P/E cao, ưu tiên ROE
+            else if (sector === "CONGNGHE" || sector === "BANLE") {
+                // ROE (50đ): Yếu tố sống còn của ngành tăng trưởng
+                if (roe > 25) score += 50;
+                else if (roe > 18) score += 35;
+                else if (roe > 12) score += 20;
+                else score += 5;
+
+                // P/E (30đ): Chấp nhận mức P/E cao hơn (đến 30)
+                if (pe > 0 && pe < 15) score += 30;
+                else if (pe > 0 && pe < 25) score += 20;
+                else if (pe > 0 && pe < 35) score += 10;
+
+                // P/B (20đ)
+                if (pb > 0 && pb < 3.0) score += 20;
+                else if (pb > 0 && pb < 5.0) score += 10;
+            } 
+            
+            // 4. NHÓM PHÒNG THỦ / CHU KỲ (Thép, Dầu khí, Thực phẩm, Vận tải)
+            else {
+                // P/E (40đ)
+                if (pe > 0 && pe < 8) score += 40;
+                else if (pe > 0 && pe < 12) score += 30;
+                else if (pe > 0 && pe < 18) score += 15;
+
+                // Cổ tức (30đ): Rất quan trọng với nhà đầu tư phòng thủ
+                if (div >= 6) score += 30;
+                else if (div >= 4) score += 20;
+                else if (div >= 2) score += 10;
+
+                // ROE (30đ)
+                if (roe > 15) score += 30;
+                else if (roe > 10) score += 20;
+                else if (roe > 5) score += 10;
+            }
+
+            return Math.min(score, 100); // Đảm bảo tối đa 100
+        }
+
+        // ==========================================
+        // THUẬT TOÁN CHẤM ĐIỂM KỸ THUẬT & KẾT HỢP
+        // ==========================================
+        function scoreTechnical(item) {
+            let score = 0;
+            let rec = (item.ai_recommendation || item.recommendation || "").toUpperCase();
+            
+            if (rec.includes("MUA TÍCH SẢN") || rec.includes("BREAKOUT")) score += 100;
+            else if (rec.includes("MUA") || rec.includes("GOM")) score += 80;
+            else if (rec.includes("CHỜ TEST LẠI") || rec.includes("CẠN CUNG")) score += 60;
+            else if (rec.includes("TÍCH LŨY")) score += 40;
+            else score += 10;
+            
+            return score;
+        }
+
+        function scoreCombined(item) {
+            const fund = scoreFundamental(item); // Đã tính theo đặc thù ngành
+            const tech = scoreTechnical(item);
+            return Math.round((fund * 0.5) + (tech * 0.5));
+        }
+
         function renderCards() {
             const container = document.getElementById('stock-container');
             container.innerHTML = '';
 
             const searchTerm = document.getElementById('search-input').value.toUpperCase();
             const selectedSector = document.getElementById('sector-filter').value;
+            const rankingMode = document.getElementById('ranking-filter').value;
 
-            const filtered = Object.values(stockData).filter(item => {
-                // 1. Lọc theo ô tìm kiếm (Tìm theo mã hoặc từ khóa tên ngành)
+            let filtered = Object.values(stockData).filter(item => {
                 let matchSearch = item.symbol.includes(searchTerm);
-                if (!matchSearch) {
-                    const sec = getSector(item.symbol);
-                    // Cho phép gõ "BĐS", "NH", "CK" vào ô search
-                    if (searchTerm === "BĐS" && sec === "BDS") matchSearch = true;
-                    if (searchTerm === "NH" && sec === "NH") matchSearch = true;
-                    if (searchTerm === "CK" && sec === "CK") matchSearch = true;
-                }
-
-                // 2. Lọc theo Dropdown
-                let matchSector = true;
-                if (selectedSector !== "ALL") {
-                    matchSector = (getSector(item.symbol) === selectedSector);
-                }
-
+                let matchSector = (selectedSector === "ALL") ? true : (getSector(item.symbol) === selectedSector);
                 return matchSearch && matchSector;
-            }).sort((a, b) => a.symbol.localeCompare(b.symbol));
+            });
+
+            // XỬ LÝ XẾP HẠNG
+            if (rankingMode === "FUNDAMENTAL") {
+                filtered.forEach(item => { item._score = scoreFundamental(item); });
+                filtered.sort((a, b) => b._score - a._score);
+                filtered = filtered.slice(0, 10);
+            } 
+            else if (rankingMode === "TECHNICAL") {
+                filtered.forEach(item => { item._score = scoreTechnical(item); });
+                filtered.sort((a, b) => b._score - a._score);
+                filtered = filtered.slice(0, 10);
+            }
+            else if (rankingMode === "ALL_SCORE") {
+                filtered.forEach(item => { item._score = scoreCombined(item); });
+                filtered.sort((a, b) => b._score - a._score);
+                filtered = filtered.slice(0, 10);
+            } 
+            else {
+                filtered.sort((a, b) => a.symbol.localeCompare(b.symbol));
+            }
 
             if (filtered.length === 0) {
                 container.innerHTML = `<div class="col-span-full text-center py-8 text-slate-500">Không tìm thấy mã nào phù hợp.</div>`;
                 return;
             }
 
-            filtered.forEach(item => {
+            filtered.forEach((item, index) => {
                 let statusColor = "text-slate-400 bg-slate-800";
                 let borderColor = "border-slate-700";
-                let shortStatus = item.recommendation;
-
-                if (item.recommendation.includes("BREAKOUT")) {
+                
+                let displayRec = item.ai_recommendation || item.recommendation;
+                if (displayRec.includes("MUA") || displayRec.includes("BREAKOUT") || displayRec.includes("GOM")) {
                     statusColor = "text-emerald-400 bg-emerald-500/10";
                     borderColor = "border-emerald-500/30";
-                    shortStatus = "BREAKOUT";
-                } else if (item.recommendation.includes("CẠN CUNG")) {
+                } else if (displayRec.includes("CHỜ") || displayRec.includes("TÍCH LŨY") || displayRec.includes("CẠN CUNG")) {
                     statusColor = "text-amber-400 bg-amber-500/10";
                     borderColor = "border-amber-500/30";
-                    shortStatus = "CẠN CUNG";
-                } else if (item.recommendation.includes("GOM")) {
-                    statusColor = "text-blue-400 bg-blue-500/10";
-                    borderColor = "border-blue-500/30";
-                    shortStatus = "GOM HÀNG";
-                } else if (item.recommendation.includes("TÍCH LŨY")) {
-                    shortStatus = "TÍCH LŨY";
                 }
 
-                let peColor = "text-slate-200";
-                if (item.pe > 20) peColor = "text-rose-400";
-                else if (item.pe > 0 && item.pe < 10) peColor = "text-emerald-400";
+                let topBadge = "";
+                let cardGlow = "";
+                if (rankingMode !== "NONE") {
+                    if (index === 0) { topBadge = `<span class="absolute -top-3 -left-2 bg-yellow-500 text-black text-xs font-black px-2 py-1 rounded shadow">#1</span>`; cardGlow = "glow-top1"; }
+                    else if (index === 1) { topBadge = `<span class="absolute -top-3 -left-2 bg-slate-300 text-black text-xs font-black px-2 py-1 rounded shadow">#2</span>`; cardGlow = "glow-top2"; }
+                    else if (index === 2) { topBadge = `<span class="absolute -top-3 -left-2 bg-amber-700 text-white text-xs font-black px-2 py-1 rounded shadow">#3</span>`; cardGlow = "glow-top3"; }
+                    else { topBadge = `<span class="absolute -top-3 -left-2 bg-indigo-600 text-white text-xs font-black px-2 py-1 rounded shadow">#${index + 1}</span>`; }
+                }
 
-                // Gắn nhãn ngành hiển thị
+                let scoreHtml = "";
+                if (rankingMode !== "NONE") {
+                    let label = "";
+                    if (rankingMode === "FUNDAMENTAL") label = "Điểm Cơ bản";
+                    else if (rankingMode === "TECHNICAL") label = "Điểm Kỹ thuật";
+                    else label = "Điểm Tổng hợp";
+
+                    scoreHtml = `
+                    <div class="text-[10px] text-center mb-2 bg-indigo-500/10 text-indigo-300 rounded py-1 border border-indigo-500/20">
+                        ${label}: <strong>${item._score}/100</strong>
+                    </div>`;
+                }
+
                 const sectorCode = getSector(item.symbol);
-                const sectorNames = { "NH": "Ngân hàng", "CK": "Chứng khoán", "BDS": "Bất động sản", "BDS_KCN": "BĐS KCN", "THEP": "Thép", "XAYDUNG": "Xây dựng", "CONGNGHE": "Công nghệ", "BANLE": "Bán lẻ", "THUCPHAM": "Thực phẩm", "DAUKHI": "Dầu khí", "VANTAI": "Vận tải", "KHAC": "Khác" };
-
                 const card = document.createElement('div');
-                card.className = `bg-slate-900 rounded-xl border ${borderColor} p-4 shadow-lg hover:bg-slate-800/80 transition`;
+                
+                card.className = `relative bg-slate-900 rounded-xl border ${borderColor} ${cardGlow} p-4 shadow-lg hover:bg-slate-800/80 transition cursor-pointer w-full flex flex-col justify-between mt-2`;
+                card.onclick = () => openModal(item.symbol);
                 
                 card.innerHTML = `
-                    <div class="flex justify-between items-start mb-3">
-                        <div class="flex flex-col">
-                            <div class="flex items-center gap-2">
-                                <span class="text-xl font-black text-white">${item.symbol}</span>
-                                <span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${shortStatus}</span>
+                    ${topBadge}
+                    <div>
+                        <div class="flex justify-between items-start mb-3">
+                            <div class="flex flex-col">
+                                <div class="flex items-center gap-2">
+                                    <span class="text-xl font-black text-white">${item.symbol}</span>
+                                    <span class="text-[10px] px-2 py-1 rounded font-bold ${statusColor}">${displayRec}</span>
+                                </div>
+                                <span class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-tag mr-1"></i>${SECTOR_NAMES[sectorCode]}</span>
                             </div>
-                            <span class="text-[10px] text-slate-400 mt-1"><i class="fa-solid fa-tag mr-1"></i>${sectorNames[sectorCode]}</span>
+                            <div class="text-right">
+                                <span class="block text-lg font-bold text-emerald-400">${formatNumber(item.close)}</span>
+                                <span class="text-[10px] text-slate-500">KL: ${formatNumber(item.volume)}</span>
+                            </div>
                         </div>
-                        <div class="text-right">
-                            <span class="block text-lg font-bold text-emerald-400">${formatNumber(item.close)}</span>
-                            <span class="text-[10px] text-slate-500">KL: ${formatNumber(item.volume)}</span>
+
+                        <div class="grid grid-cols-4 gap-2 mb-3 bg-slate-950/50 p-2 rounded-lg border border-slate-800/50">
+                            <div class="text-center"><span class="block text-[10px] text-slate-500 mb-0.5">P/E</span><span class="text-xs font-semibold text-slate-200">${item.pe > 0 ? item.pe.toFixed(1) : '—'}</span></div>
+                            <div class="text-center border-l border-slate-800"><span class="block text-[10px] text-slate-500 mb-0.5">P/B</span><span class="text-xs font-semibold text-slate-200">${item.pb > 0 ? item.pb.toFixed(1) : '—'}</span></div>
+                            <div class="text-center border-l border-slate-800"><span class="block text-[10px] text-slate-500 mb-0.5">ROE</span><span class="text-xs font-semibold text-blue-400">${formatPercent(item.roe)}</span></div>
+                            <div class="text-center border-l border-slate-800"><span class="block text-[10px] text-slate-500 mb-0.5">Cổ tức</span><span class="text-xs font-semibold text-amber-400">${formatPercent(item.dividend_yield)}</span></div>
                         </div>
                     </div>
+                    
+                    ${scoreHtml}
 
-                    <div class="grid grid-cols-4 gap-2 mb-3 bg-slate-950/50 p-2 rounded-lg border border-slate-800/50">
-                        <div class="text-center">
-                            <span class="block text-[10px] text-slate-500 mb-0.5">P/E</span>
-                            <span class="text-xs font-semibold ${peColor}">${item.pe > 0 ? item.pe.toFixed(1) : '—'}</span>
-                        </div>
-                        <div class="text-center border-l border-slate-800">
-                            <span class="block text-[10px] text-slate-500 mb-0.5">P/B</span>
-                            <span class="text-xs font-semibold text-slate-200">${item.pb > 0 ? item.pb.toFixed(1) : '—'}</span>
-                        </div>
-                        <div class="text-center border-l border-slate-800">
-                            <span class="block text-[10px] text-slate-500 mb-0.5">EPS</span>
-                            <span class="text-xs font-semibold text-slate-200">${formatNumber(item.eps)}</span>
-                        </div>
-                        <div class="text-center border-l border-slate-800">
-                            <span class="block text-[10px] text-slate-500 mb-0.5">Cổ tức</span>
-                            <span class="text-xs font-semibold text-amber-400">${formatPercent(item.dividend_yield)}</span>
-                        </div>
-                    </div>
-
-                    <div class="flex justify-between items-center mb-3 text-xs bg-slate-950/30 px-2 py-1.5 rounded">
-                        <div>ROE: <strong class="text-blue-400">${formatPercent(item.roe)}</strong></div>
-                        <div class="text-slate-600">|</div>
-                        <div>ROA: <strong class="text-indigo-400">${formatPercent(item.roa)}</strong></div>
-                    </div>
-
-                    <div class="text-[11px] text-slate-400 leading-relaxed border-t border-slate-800 pt-2">
-                        <i class="fa-solid fa-circle-info text-blue-500 mr-1"></i> ${item.price_zone}
+                    <div class="text-[11px] text-indigo-400 font-semibold text-center mt-2 pt-2 border-t border-slate-800/50">
+                        <i class="fa-solid fa-robot mr-1"></i> Bấm xem AI phân tích
                     </div>
                 `;
                 container.appendChild(card);
             });
         }
 
-        // Gắn sự kiện cho cả ô tìm kiếm và dropdown
+        function openModal(symbol) {
+            const item = stockData[symbol];
+            if (!item) return;
+
+            document.getElementById('modal-symbol').innerText = item.symbol;
+            document.getElementById('modal-sector').innerText = `Ngành: ${SECTOR_NAMES[getSector(item.symbol)]}`;
+            document.getElementById('modal-price').innerText = formatNumber(item.close);
+            document.getElementById('modal-pe').innerText = item.pe > 0 ? item.pe.toFixed(1) : '—';
+            document.getElementById('modal-pb').innerText = item.pb > 0 ? item.pb.toFixed(1) : '—';
+            document.getElementById('modal-eps').innerText = formatNumber(item.eps);
+            document.getElementById('modal-roe').innerText = formatPercent(item.roe);
+            document.getElementById('modal-div').innerText = formatPercent(item.dividend_yield);
+
+            document.getElementById('modal-ai-rec').innerText = item.ai_recommendation || "Chưa có phân tích AI";
+            document.getElementById('modal-ai-price').innerText = item.ai_price_zone || item.price_zone || "Đang cập nhật...";
+            document.getElementById('modal-bctc').innerText = item.bctc || "AI chưa phân tích dữ liệu BCTC cho mã này.";
+            document.getElementById('modal-outlook').innerText = item.outlook || "Chưa có đánh giá định giá & kỹ thuật.";
+            document.getElementById('modal-macro').innerText = item.macro_view || "Chưa có đánh giá vĩ mô.";
+            document.getElementById('modal-time').innerText = `AI cập nhật: ${item.ai_updated_at || 'Chưa chạy'}`;
+
+            document.getElementById('ai-modal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('ai-modal').classList.add('hidden');
+        }
+
         document.getElementById('search-input').addEventListener('input', renderCards);
         document.getElementById('sector-filter').addEventListener('change', renderCards);
+        document.getElementById('ranking-filter').addEventListener('change', renderCards);
         
-        // Khởi chạy
+        window.addEventListener('click', (e) => {
+            const modal = document.getElementById('ai-modal');
+            if (e.target === modal) closeModal();
+        });
+
         loadData();
     </script>
 </body>
