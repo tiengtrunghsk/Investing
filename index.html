@@ -3,192 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - Data Snapshot</title>
+    <title>Pro Quant Screener - VN100</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        #toast { transition: opacity 0.3s, transform 0.3s; transform: translateY(20px); opacity: 0; pointer-events: none; }
-        #toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        
+        @media (max-width: 640px) {
+            .mobile-table th, .mobile-table td { padding: 0.5rem 0.25rem; font-size: 12px; }
+        }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen font-sans relative">
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
 
     <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-30 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
-                <div class="bg-amber-600 text-white p-2.5 rounded-xl shadow-lg shadow-amber-500/30">
-                    <i class="fa-solid fa-database text-xl"></i>
+                <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg shadow-blue-500/30">
+                    <i class="fa-solid fa-chart-candlestick text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-amber-500/20 text-amber-400 px-2 py-0.5 rounded border border-amber-500/30">Data Snapshot</span></h1>
-                    <p class="text-xs text-slate-400">Dữ liệu tĩnh 30 mã VN100 (Đã xử lý Price Action)</p>
+                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded border border-blue-500/30">Vnstock Data</span></h1>
+                    <p class="text-xs text-slate-400">Dữ liệu quét tự động từ VCI (Price Action D1)</p>
                 </div>
             </div>
             
             <div class="flex items-center gap-3">
                 <div class="text-xs text-slate-300 bg-slate-800/60 px-3 py-2 rounded-lg border border-slate-700/50 hidden md:block">
-                    <i class="fa-solid fa-list text-amber-400 mr-1"></i> Tổng số: <strong id="total-stocks" class="text-white">30</strong>/30
+                    <i class="fa-solid fa-database text-blue-400 mr-1"></i> Tổng mã: <strong id="total-stocks" class="text-white">0</strong>
                 </div>
                 
-                <button onclick="exportJSON()" id="btn-export" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow">
-                    <i class="fa-solid fa-file-export text-emerald-400"></i> <span>Xuất JSON</span>
+                <button onclick="refreshData()" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow">
+                    <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span>Làm mới</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-6">
+    <main class="max-w-7xl mx-auto px-2 md:px-4 py-6">
         <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-sm mb-6 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="relative w-full md:w-80">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <input type="text" id="search-input" placeholder="Tìm kiếm mã..." 
-                    class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-amber-500 transition">
+                    class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 transition">
             </div>
             <div class="flex gap-2 text-xs">
                 <span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded border border-emerald-500/30"><i class="fa-solid fa-arrow-trend-up mr-1"></i> Breakout</span>
-                <span class="bg-amber-500/20 text-amber-400 px-2 py-1 rounded border border-amber-500/30"><i class="fa-solid fa-box-archive mr-1"></i> Tích lũy</span>
+                <span class="bg-amber-500/20 text-amber-400 px-2 py-1 rounded border border-amber-500/30"><i class="fa-solid fa-box-archive mr-1"></i> Cạn cung</span>
             </div>
         </div>
 
         <div class="bg-slate-900 rounded-xl border border-slate-800 shadow-lg overflow-hidden">
             <div class="overflow-x-auto w-full">
-                <table class="w-full text-left border-collapse min-w-[700px]">
+                <table class="w-full text-left border-collapse min-w-[500px] mobile-table">
                     <thead>
                         <tr class="bg-slate-950/90 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
-                            <th class="py-3.5 px-4 font-semibold w-24">Mã</th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-28">Giá D1</th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-32">Vol D1</th>
-                            <th class="py-3.5 px-4 font-semibold text-center w-40">Trạng thái</th>
+                            <th class="py-3.5 px-2 md:px-4 font-semibold w-20">Mã</th>
+                            <th class="py-3.5 px-2 md:px-4 font-semibold text-right">Giá D1 (VNĐ)</th>
+                            <th class="py-3.5 px-2 md:px-4 font-semibold text-right">Khối lượng</th>
+                            <th class="py-3.5 px-2 md:px-4 font-semibold text-center">Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody id="stock-table-body" class="divide-y divide-slate-800/60 text-sm">
-                        <!-- Dữ liệu sẽ được render bằng JS -->
+                        <tr>
+                            <td colspan="4" class="text-center py-12 text-slate-500">
+                                <i class="fa-solid fa-spinner fa-spin mr-2 text-blue-500"></i> Đang tải dữ liệu từ data.json...
+                            </td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
 
-    <div id="toast" class="fixed bottom-5 right-5 bg-slate-800 border-l-4 border-emerald-500 text-white px-5 py-3 rounded-lg shadow-2xl z-50 flex items-center gap-3">
-        <i class="fa-solid fa-circle-check text-emerald-400"></i>
-        <span id="toast-msg">Thông báo...</span>
-    </div>
-
     <script>
-        // Dữ liệu snapshot 30 mã tiêu biểu (Đã được trích xuất và xử lý sẵn)
-        const STOCK_DATA = {
-            "ACB": { "symbol": "ACB", "close": 24300, "volume": 8450000, "pe": 7.2, "pb": 1.6, "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)", "price_zone": "Vol cạn kiệt. Biên độ siết chặt.", "updated_at": "2026-10-30 12:00:00" },
-            "BID": { "symbol": "BID", "close": 48500, "volume": 2100000, "pe": 12.5, "pb": 2.1, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "CTG": { "symbol": "CTG", "close": 35200, "volume": 15600000, "pe": 8.8, "pb": 1.8, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "TCB": { "symbol": "TCB", "close": 24800, "volume": 12300000, "pe": 7.5, "pb": 1.3, "recommendation": "SẴN SÀNG BREAKOUT (NỔ VOL)", "price_zone": "Vol bùng nổ 1.8x MA20 kèm giá tăng +2.5%.", "updated_at": "2026-10-30 12:00:00" },
-            "MBB": { "symbol": "MBB", "close": 21500, "volume": 9800000, "pe": 6.9, "pb": 1.4, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "STB": { "symbol": "STB", "close": 31200, "volume": 11500000, "pe": 9.2, "pb": 1.7, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "VPB": { "symbol": "VPB", "close": 19500, "volume": 18700000, "pe": 8.1, "pb": 1.5, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "HDB": { "symbol": "HDB", "close": 26800, "volume": 5600000, "pe": 7.8, "pb": 1.6, "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)", "price_zone": "Vol cạn kiệt. Biên độ siết chặt.", "updated_at": "2026-10-30 12:00:00" },
-            "VIB": { "symbol": "VIB", "close": 22300, "volume": 7200000, "pe": 6.5, "pb": 1.2, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "TPB": { "symbol": "TPB", "close": 18900, "volume": 8300000, "pe": 7.0, "pb": 1.1, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "SSI": { "symbol": "SSI", "close": 36800, "volume": 14200000, "pe": 15.2, "pb": 2.3, "recommendation": "SẴN SÀNG BREAKOUT (NỔ VOL)", "price_zone": "Vol bùng nổ 1.6x MA20 kèm giá tăng +2.1%.", "updated_at": "2026-10-30 12:00:00" },
-            "VCI": { "symbol": "VCI", "close": 42500, "volume": 5800000, "pe": 18.5, "pb": 2.8, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "HCM": { "symbol": "HCM", "close": 29700, "volume": 6100000, "pe": 16.8, "pb": 2.5, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "VHM": { "symbol": "VHM", "close": 45200, "volume": 8900000, "pe": 10.5, "pb": 1.4, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "VIC": { "symbol": "VIC", "close": 42100, "volume": 5400000, "pe": 12.8, "pb": 1.9, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "VRE": { "symbol": "VRE", "close": 25500, "volume": 7600000, "pe": 9.8, "pb": 1.3, "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)", "price_zone": "Vol cạn kiệt. Biên độ siết chặt.", "updated_at": "2026-10-30 12:00:00" },
-            "HPG": { "symbol": "HPG", "close": 27800, "volume": 19800000, "pe": 11.2, "pb": 1.7, "recommendation": "SẴN SÀNG BREAKOUT (NỔ VOL)", "price_zone": "Vol bùng nổ 1.9x MA20 kèm giá tăng +3.2%.", "updated_at": "2026-10-30 12:00:00" },
-            "HSG": { "symbol": "HSG", "close": 19200, "volume": 10500000, "pe": 8.9, "pb": 1.1, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "NKG": { "symbol": "NKG", "close": 15800, "volume": 6700000, "pe": 7.5, "pb": 0.9, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "FPT": { "symbol": "FPT", "close": 132000, "volume": 3400000, "pe": 22.5, "pb": 6.8, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "MWG": { "symbol": "MWG", "close": 48900, "volume": 9200000, "pe": 18.2, "pb": 3.1, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "PNJ": { "symbol": "PNJ", "close": 98500, "volume": 2100000, "pe": 16.5, "pb": 3.5, "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)", "price_zone": "Vol cạn kiệt. Biên độ siết chặt.", "updated_at": "2026-10-30 12:00:00" },
-            "FRT": { "symbol": "FRT", "close": 112000, "volume": 1800000, "pe": 25.1, "pb": 5.2, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "VNM": { "symbol": "VNM", "close": 68500, "volume": 4300000, "pe": 15.8, "pb": 4.2, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "MSN": { "symbol": "MSN", "close": 78500, "volume": 3200000, "pe": 19.5, "pb": 4.8, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "GAS": { "symbol": "GAS", "close": 72500, "volume": 1500000, "pe": 14.2, "pb": 2.9, "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)", "price_zone": "Vol cạn kiệt. Biên độ siết chặt.", "updated_at": "2026-10-30 12:00:00" },
-            "PVD": { "symbol": "PVD", "close": 27800, "volume": 6800000, "pe": 12.8, "pb": 1.5, "recommendation": "GOM HÀNG", "price_zone": "Dòng tiền duy trì trên MA20.", "updated_at": "2026-10-30 12:00:00" },
-            "PVS": { "symbol": "PVS", "close": 38500, "volume": 4900000, "pe": 13.5, "pb": 1.8, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" },
-            "BSR": { "symbol": "BSR", "close": 31500, "volume": 8900000, "pe": 6.7, "pb": 1.7, "recommendation": "SẴN SÀNG BREAKOUT (NỔ VOL)", "price_zone": "Vol bùng nổ 2.1x MA20 kèm giá tăng +3.5%.", "updated_at": "2026-10-30 12:00:00" },
-            "POW": { "symbol": "POW", "close": 12800, "volume": 7400000, "pe": 10.2, "pb": 1.2, "recommendation": "ĐANG TÍCH LŨY NỀN", "price_zone": "Đang siết nền tích lũy biên độ hẹp.", "updated_at": "2026-10-30 12:00:00" }
-        };
+        let stockData = {};
 
-        const avg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
-
-        function showToast(msg, isError = false) {
-            const toast = document.getElementById('toast');
-            const toastMsg = document.getElementById('toast-msg');
-            toastMsg.innerText = msg;
-            if (isError) {
-                toast.className = toast.className.replace('border-emerald-500', 'border-rose-500');
-                toast.querySelector('i').className = "fa-solid fa-triangle-exclamation text-rose-400";
-            } else {
-                toast.className = toast.className.replace('border-rose-500', 'border-emerald-500');
-                toast.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400";
+        async function loadData() {
+            try {
+                // Thêm timestamp để trình duyệt không lưu cache file data.json cũ
+                const response = await fetch('data.json?t=' + new Date().getTime());
+                if (!response.ok) throw new Error('Không thể tải data.json');
+                
+                stockData = await response.json();
+                renderTable();
+                document.getElementById('total-stocks').innerText = Object.keys(stockData).length;
+            } catch (error) {
+                console.error(error);
+                document.getElementById('stock-table-body').innerHTML = `
+                    <tr><td colspan="4" class="text-center py-8 text-rose-400 font-semibold">
+                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Chưa có dữ liệu data.json. Hãy chạy file Python để tạo file!
+                    </td></tr>`;
             }
-            toast.classList.add('show');
-            setTimeout(() => toast.classList.remove('show'), 4000);
+        }
+
+        function refreshData() {
+            const icon = document.getElementById('refresh-icon');
+            icon.classList.add('fa-spin');
+            loadData();
+            setTimeout(() => icon.classList.remove('fa-spin'), 600);
         }
 
         function renderTable() {
             const tbody = document.getElementById('stock-table-body');
             tbody.innerHTML = '';
 
-            // Lấy dữ liệu và sắp xếp theo mã ABC
-            const items = Object.values(STOCK_DATA).sort((a, b) => a.symbol.localeCompare(b.symbol));
+            const searchTerm = document.getElementById('search-input').value.toUpperCase();
+            const filtered = Object.values(stockData)
+                .filter(item => item.symbol.includes(searchTerm))
+                .sort((a, b) => a.symbol.localeCompare(b.symbol)); // Sắp xếp A-Z
 
-            items.forEach(item => {
+            if (filtered.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="4" class="text-center py-8 text-slate-500">Không tìm thấy mã cổ phiếu.</td></tr>`;
+                return;
+            }
+
+            filtered.forEach(item => {
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-800/40 transition border-b border-slate-800/40";
                 
                 const closePrice = item.close ? item.close.toLocaleString('vi-VN') : '—';
-                const volVal = item.volume ? item.volume.toLocaleString('vi-VN') : '—';
+                
+                // Format khối lượng (VD: 8.4M)
+                const formatVol = (num) => {
+                    if (!num) return '—';
+                    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
+                    if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
+                    return num;
+                };
+                const volVal = formatVol(item.volume);
 
                 let badgeColor = "bg-slate-800 text-slate-300";
-                if (item.recommendation.includes("BREAKOUT")) badgeColor = "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
-                else if (item.recommendation.includes("CẠN CUNG")) badgeColor = "bg-amber-500/20 text-amber-400 border border-amber-500/30";
-                else if (item.recommendation.includes("GOM")) badgeColor = "bg-blue-500/20 text-blue-400 border border-blue-500/30";
+                let shortStatus = item.recommendation;
+                
+                if (item.recommendation.includes("BREAKOUT")) {
+                    badgeColor = "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+                    shortStatus = "BREAKOUT";
+                } else if (item.recommendation.includes("CẠN CUNG")) {
+                    badgeColor = "bg-amber-500/20 text-amber-400 border border-amber-500/30";
+                    shortStatus = "CẠN CUNG";
+                } else if (item.recommendation.includes("GOM")) {
+                    badgeColor = "bg-blue-500/20 text-blue-400 border border-blue-500/30";
+                    shortStatus = "GOM HÀNG";
+                } else if (item.recommendation.includes("TÍCH LŨY")) {
+                    shortStatus = "TÍCH LŨY";
+                }
 
                 tr.innerHTML = `
-                    <td class="py-3 px-4 font-bold text-white whitespace-nowrap">
-                        <span class="text-amber-400 font-black text-sm">${item.symbol}</span>
+                    <td class="py-3 px-2 md:px-4 font-bold text-white whitespace-nowrap">
+                        <span class="text-blue-400 font-black text-sm">${item.symbol}</span>
                     </td>
-                    <td class="py-3 px-4 text-right font-semibold text-slate-200 whitespace-nowrap">${closePrice}</td>
-                    <td class="py-3 px-4 text-right text-slate-400 font-medium whitespace-nowrap">${volVal}</td>
-                    <td class="py-3 px-4 text-center whitespace-nowrap">
-                        <span class="text-[10px] px-2 py-1 rounded-full font-semibold ${badgeColor}">${item.recommendation}</span>
+                    <td class="py-3 px-2 md:px-4 text-right font-semibold text-slate-200 whitespace-nowrap">${closePrice}</td>
+                    <td class="py-3 px-2 md:px-4 text-right text-slate-400 font-medium whitespace-nowrap">${volVal}</td>
+                    <td class="py-3 px-2 md:px-4 text-center whitespace-nowrap">
+                        <span class="text-[10px] px-2 py-1 rounded-full font-semibold ${badgeColor}">${shortStatus}</span>
                     </td>
                 `;
                 tbody.appendChild(tr);
             });
         }
 
-        function exportJSON() {
-            const jsonString = JSON.stringify(STOCK_DATA, null, 4);
-            const blob = new Blob([jsonString], { type: "application/json" });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = "data.json";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-            showToast(`Đã xuất file data.json thành công!`, false);
-        }
-
-        document.getElementById('search-input').addEventListener('input', (e) => {
-            const term = e.target.value.toUpperCase();
-            const rows = document.querySelectorAll('#stock-table-body tr');
-            rows.forEach(row => {
-                const symbol = row.cells[0]?.innerText || '';
-                row.style.display = symbol.includes(term) ? '' : 'none';
-            });
-        });
-
-        // Khởi chạy
-        renderTable();
+        document.getElementById('search-input').addEventListener('input', renderTable);
+        
+        // Tải dữ liệu ngay khi mở trang
+        loadData();
     </script>
 </body>
 </html>
