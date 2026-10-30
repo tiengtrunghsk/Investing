@@ -1,0 +1,42 @@
+name: Auto AI Analysis
+
+on:
+  schedule:
+    # Chạy lúc 16:00 giờ VN (9:00 sáng UTC), sau khi đã lấy xong dữ liệu giá
+    - cron: '0 9 * * 1-5' 
+  workflow_dispatch: # Cho phép chạy thủ công bằng tay
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Cấp quyền commit file data.json
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install requests
+
+      - name: Run AI Analysis
+        # Truyền API Key từ Secrets vào biến môi trường
+        env:
+          ALIBABA_API_KEY: ${{ secrets.ALIBABA_API_KEY }}
+          PYTHONUNBUFFERED: 1
+        run: python analyze_ai.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action AI"
+          git config --global user.email "action@github.com"
+          git add data.json
+          # Kiểm tra xem có thay đổi không rồi mới commit
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🧠 Tự động cập nhật Phân tích AI [$(date +'%Y-%m-%d %H:%M:%S')]" && git push)
