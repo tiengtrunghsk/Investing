@@ -5,14 +5,14 @@ import requests
 import re
 
 DATA_FILE = "data.json"
-# Lấy API Key từ biến môi trường của GitHub Actions Secrets
-API_KEY = os.getenv("AI_API_KEY", "") 
-# Endpoint chuẩn tương thích OpenAI (Ví dụ: Qwen DashScope hoặc OpenAI, DeepSeek...)
+# Sửa lại đúng tên biến môi trường khớp với GitHub Secrets của bạn
+ALIBABA_API_KEY = os.getenv("ALIBABA_API_KEY", "") 
+# Endpoint chuẩn tương thích OpenAI (Qwen DashScope)
 API_URL = "https://dashscope-intl.aliyuncs.com/compatible-v1/chat/completions"
 
 def analyze_stock_with_ai(symbol, data):
-    if not API_KEY:
-        print(f"⚠️ Chưa cấu hình AI_API_KEY. Bỏ qua phân tích AI cho {symbol}.")
+    if not ALIBABA_API_KEY:
+        print(f"⚠️ Chưa cấu hình ALIBABA_API_KEY. Bỏ qua phân tích AI cho {symbol}.")
         return None
 
     prompt = f"""
@@ -36,7 +36,7 @@ def analyze_stock_with_ai(symbol, data):
     """
 
     headers = {
-        "Authorization": f"Bearer {API_KEY}",
+        "Authorization": f"Bearer {ALIBABA_API_KEY}",
         "Content-Type": "application/json"
     }
     
