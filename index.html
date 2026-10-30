@@ -6,8 +6,8 @@
     <title>Pro Quant Screener - Sector Specific Ranking</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Thư viện biểu đồ nến TradingView Lightweight Charts (Cập nhật CDN cdnjs mới nhất) -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightweight-charts/4.1.1/lightweight-charts.standalone.production.js"></script>
+    <!-- Thư viện biểu đồ nến TradingView Lightweight Charts bản UMD Standalone chuẩn -->
+    <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/standalone/lightweight-charts.standalone.production.js"></script>
     <style>
         ::-webkit-scrollbar { width: 6px; height: 6px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
@@ -497,7 +497,14 @@
             const container = document.getElementById('tv-chart-container');
             container.innerHTML = '';
 
-            chartInstance = LightweightCharts.createChart(container, {
+            // Kiểm tra an toàn đối tượng LightweightCharts trước khi khởi tạo
+            const LC = window.LightweightCharts || LightweightCharts;
+            if (!LC) {
+                container.innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Lỗi: Không tải được thư viện biểu đồ TradingView. Vui lòng kiểm tra lại kết nối mạng!</div>`;
+                return;
+            }
+
+            chartInstance = LC.createChart(container, {
                 width: container.clientWidth,
                 height: 420,
                 layout: { background: { color: '#0f172a' }, textColor: '#94a3b8' },
