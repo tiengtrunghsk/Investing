@@ -11,7 +11,13 @@
         "dividend_yield": 2.91,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:30:46"
+        "updated_at": "2026-10-30 16:30:46",
+        "bctc": "EPS ở mức 2773 VNĐ, ROE 16.5% và ROA 1.6% cho thấy ACB có khả năng sinh lời tốt và sử dụng hiệu quả vốn của mình. Tuy nhiên, tỷ suất cổ tức chỉ 2.91%, thấp hơn so với mặt bằng chung, nhưng vẫn đủ sức hấp dẫn để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.68 và P/B 1.19 cho thấy ACB đang được định giá khá hấp dẫn so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nến đang gom hàng và dòng tiền duy trì ổn định trên mức trung bình 20 phiên, tạo điều kiện thuận lợi cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 20.0 - 21.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng đang có xu hướng phục hồi do chính sách hỗ trợ từ ngân hàng trung ương và nhu cầu tín dụng tăng. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào ACB.",
+        "ai_updated_at": "2026-10-30 09:52:30"
     },
     "BID": {
         "symbol": "BID",
@@ -25,7 +31,13 @@
         "dividend_yield": 1.2,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:30:51"
+        "updated_at": "2026-10-30 16:30:51",
+        "bctc": "Doanh nghiệp có EPS cao (4430 VNĐ) và ROE tốt (18.0%), cho thấy khả năng sinh lời hiệu quả. Tuy nhiên, ROA ở mức trung bình (1.0%) cho thấy hiệu quả sử dụng tài sản cần cải thiện. Tổng thể, BID có nội lực tốt để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 8.16 và P/B 1.39 là hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang siết nền tích lũy biên độ hẹp, tạo cơ hội mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 32.0 - 33.5 | Mua gia tăng khi Breakout > 34.5 kèm Vol lớn",
+        "macro_view": "Ngành Ngân hàng đang trong xu hướng phục hồi, hỗ trợ bởi chính sách tiền tệ nới lỏng và nhu cầu tín dụng tăng. Vĩ mô ổn định, lãi suất giảm, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:52:36"
     },
     "CTG": {
         "symbol": "CTG",
@@ -39,7 +51,13 @@
         "dividend_yield": 1.01,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.58x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:30:57"
+        "updated_at": "2026-10-30 16:30:57",
+        "bctc": "CTG có EPS cao và ROE tốt, cho thấy doanh nghiệp đang hoạt động hiệu quả. Tuy nhiên, tỷ suất cổ tức thấp có thể hạn chế hấp dẫn đối với một số nhà đầu tư. Tổng thể, CTG có đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 5.94 và P/B 1.22 là rất hấp dẫn so với ngành, đặc biệt khi nền giá đang cạn cung, tạo điểm mua tốt. Khối lượng giao dịch giảm và biên độ giá siết chặt cho thấy sự tích lũy mạnh mẽ.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 30.0 - 30.5 | Mua gia tăng khi Breakout > 31.0 kèm Vol lớn",
+        "macro_view": "Ngành ngân hàng đang được hỗ trợ bởi chính sách tiền tệ nới lỏng và nhu cầu tín dụng tăng. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào CTG.",
+        "ai_updated_at": "2026-10-30 09:52:43"
     },
     "TCB": {
         "symbol": "TCB",
@@ -53,7 +71,13 @@
         "dividend_yield": 5.01,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:31:02"
+        "updated_at": "2026-10-30 16:31:02",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao, ROE và ROA ở mức chấp nhận được. Điều này cho thấy TCB có khả năng sinh lời ổn định và hiệu quả sử dụng vốn tốt, đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 8.3 và P/B 1.27 là hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang siết nền tích lũy biên độ hẹp, tạo điều kiện thuận lợi cho điểm mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 20.0 - 21.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện nay, ngành Ngân hàng đang có xu hướng phục hồi và tăng trưởng, đồng thời môi trường vĩ mô ổn định, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:52:50"
     },
     "MBB": {
         "symbol": "MBB",
@@ -67,7 +91,13 @@
         "dividend_yield": 0.92,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:31:08"
+        "updated_at": "2026-10-30 16:31:08",
+        "bctc": "Doanh nghiệp có EPS cao (3734 VNĐ) và ROE tốt (21.2%), cho thấy hiệu quả sinh lời từ vốn chủ sở hữu. Tuy nhiên, ROA ở mức trung bình (2.0%) cho thấy hiệu quả sử dụng tài sản cần cải thiện. Tổng thể, MBB có sức khỏe tài chính ổn định, đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 6.59 và P/B 1.26 là hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền. Nền giá đang siết chặt, tạo điều kiện cho một đợt breakout tiềm năng trong tương lai.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 18.0 - 19.5 | Mua gia tăng khi Breakout > 20.0 kèm Vol lớn",
+        "macro_view": "Hiện nay, ngành Ngân hàng đang được hỗ trợ bởi chính sách lãi suất linh hoạt và nhu cầu tín dụng tăng. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô như lạm phát và tăng trưởng kinh tế để xác định xu hướng dài hạn.",
+        "ai_updated_at": "2026-10-30 09:53:00"
     },
     "STB": {
         "symbol": "STB",
@@ -81,7 +111,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:31:14"
+        "updated_at": "2026-10-30 16:31:14",
+        "bctc": "EPS ở mức 809 VNĐ cho thấy doanh nghiệp đang có lợi nhuận trên mỗi cổ phiếu khá tốt, tuy nhiên ROE và ROA lần lượt chỉ ở mức 2.5% và 0.2%, thấp hơn nhiều so với mặt bằng chung của ngành ngân hàng, điều này cho thấy hiệu quả sử dụng vốn và tài sản của STB chưa thực sự hiệu quả. Doanh nghiệp cần cải thiện hiệu suất hoạt động để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 82.69 và P/B ở mức 1.97, định giá hiện tại của STB được coi là cao so với mặt bằng chung của thị trường, đặc biệt là khi so sánh với các công ty cùng ngành. Tuy nhiên, tình trạng gom hàng và dòng tiền duy trì ổn định trên mức trung bình 20 phiên cho thấy lực cầu vẫn còn, nhưng cần cẩn trọng với mức định giá hiện tại.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 64.0 - 66.3 | Mua gia tăng khi Breakout > 68.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng đang chịu áp lực từ việc siết chặt chính sách tín dụng và tăng lãi suất, điều này có thể ảnh hưởng đến hoạt động kinh doanh của STB. Tuy nhiên, nếu nền kinh tế phục hồi và nhu cầu tín dụng tăng lên, đây sẽ là cơ hội để STB cải thiện hiệu suất hoạt động.",
+        "ai_updated_at": "2026-10-30 09:53:09"
     },
     "VPB": {
         "symbol": "VPB",
@@ -95,7 +131,13 @@
         "dividend_yield": 1.71,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:31:19"
+        "updated_at": "2026-10-30 16:31:19",
+        "bctc": "VPB có EPS cao (3118 VNĐ) và ROE tốt (17.0%), cho thấy doanh nghiệp đang hoạt động hiệu quả và sinh lời tốt. Tuy nhiên, ROA ở mức trung bình (2.3%) cho thấy hiệu quả sử dụng tài sản cần được cải thiện. Tổng thể, VPB có sức khỏe tài chính ổn định, đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.44 và P/B 1.24 của VPB khá hấp dẫn so với mặt bằng chung của ngành ngân hàng. Kết hợp với trạng thái kỹ thuật hiện tại, VPB đang siết nền tích lũy biên độ hẹp, tạo điều kiện thuận lợi cho việc mua vào khi cung cạn kiệt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 22.0 - 22.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện nay, ngành Ngân hàng đang trong xu hướng phục hồi, hỗ trợ bởi chính sách lãi suất linh hoạt và nhu cầu tín dụng tăng. Tuy nhiên, cần theo dõi sát sao các yếu tố vĩ mô như lạm phát và chính sách tiền tệ để đảm bảo sự ổn định.",
+        "ai_updated_at": "2026-10-30 09:53:17"
     },
     "HDB": {
         "symbol": "HDB",
@@ -109,7 +151,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:31:25"
+        "updated_at": "2026-10-30 16:31:25",
+        "bctc": "Doanh nghiệp có EPS cao (3815 VNĐ) và ROE tốt (24.8%), cho thấy khả năng sinh lời mạnh mẽ. Tuy nhiên, tỷ suất cổ tức là 0.0%, nên cần cân nhắc về chính sách chia cổ tức. Tổng thể, HDB có nội lực tốt để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.73 và P/B 1.72 là hấp dẫn so với ngành ngân hàng. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang gom hàng và dòng tiền duy trì ổn định, tạo điểm mua tiềm năng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 21.5 - 22.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Ngành ngân hàng đang được hỗ trợ bởi chính sách lãi suất linh hoạt của Ngân hàng Nhà nước. Tuy nhiên, cần theo dõi sát sao các biến động vĩ mô như lạm phát và tăng trưởng kinh tế.",
+        "ai_updated_at": "2026-10-30 09:53:23"
     },
     "VIB": {
         "symbol": "VIB",
@@ -123,7 +171,13 @@
         "dividend_yield": 5.87,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:31:30"
+        "updated_at": "2026-10-30 16:31:30",
+        "bctc": "Doanh nghiệp có EPS cao (2071 VNĐ) và ROE tốt (16.2%), cho thấy khả năng sinh lời hiệu quả. Tuy nhiên, ROA chỉ ở mức trung bình (1.4%) nhưng vẫn đủ để chứng minh nội lực ổn định, phù hợp với việc dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.03 và P/B 1.05 là hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang siết nền tích lũy biên độ hẹp, tạo cơ hội mua vào khi cung cạn kiệt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 13500 - 14000 | Mua gia tăng khi Breakout > 14500 kèm Vol lớn",
+        "macro_view": "Hiện nay, ngành Ngân hàng đang được hỗ trợ bởi chính sách lãi suất ổn định và nhu cầu tín dụng tăng trưởng. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào các cổ phiếu ngân hàng như VIB.",
+        "ai_updated_at": "2026-10-30 09:53:30"
     },
     "TPB": {
         "symbol": "TPB",
@@ -137,7 +191,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:31:36"
+        "updated_at": "2026-10-30 16:31:36",
+        "bctc": "Doanh nghiệp TPB có EPS cao (2732 VNĐ) và ROE tốt (17.1%), cho thấy khả năng sinh lời hiệu quả. Tuy nhiên, tỷ suất cổ tức là 0.0% và ROA ở mức trung bình (1.5%) nên cần cân nhắc kỹ trước khi nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 5.43 và P/B 0.93 cho thấy cổ phiếu đang được định giá hấp dẫn so với ngành. Kết hợp với trạng thái nến đang gom hàng và dòng tiền duy trì ổn định, đây có thể là thời điểm tốt để mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 12000 - 12500 | Mua gia tăng khi Breakout > 13000 kèm Vol lớn",
+        "macro_view": "Ngành Ngân hàng đang có xu hướng phục hồi, hỗ trợ bởi chính sách tiền tệ nới lỏng và nhu cầu tín dụng tăng. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:53:36"
     },
     "SHB": {
         "symbol": "SHB",
@@ -151,7 +211,13 @@
         "dividend_yield": 0.02,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.49x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:31:41"
+        "updated_at": "2026-10-30 16:31:41",
+        "bctc": "Doanh nghiệp có EPS cao (2486 VNĐ) và ROE tốt (17.6%), cho thấy khả năng sinh lời hiệu quả. Tuy nhiên, tỷ suất cổ tức thấp (0.02%) và ROA trung bình (1.4%) cần được chú ý. Tổng thể, doanh nghiệp có nội lực tốt để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 4.3 và P/B 0.69 là rất hấp dẫn so với ngành, kết hợp nền giá đang cạn cung tạo điểm mua tốt. Khối lượng giao dịch giảm mạnh (0.49x so với trung bình 20 phiên) và biên độ giá siết chặt cho thấy sự tích lũy.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 10500 - 10700 | Mua gia tăng khi Breakout > 11000 kèm Vol lớn",
+        "macro_view": "Ngành Ngân hàng đang trong xu hướng phục hồi, hỗ trợ bởi chính sách tiền tệ nới lỏng và nhu cầu tín dụng tăng. Vĩ mô ổn định, GDP tăng trưởng tốt, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:53:43"
     },
     "SSB": {
         "symbol": "SSB",
@@ -165,7 +231,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:31:47"
+        "updated_at": "2026-10-30 16:31:47",
+        "bctc": "EPS ở mức 870 VNĐ cho thấy doanh nghiệp đang có khả năng sinh lời tốt. Tuy nhiên, ROE và ROA lần lượt ở mức 7.3% và 0.8% cho thấy hiệu quả sử dụng vốn và tài sản chưa thực sự ấn tượng. Doanh nghiệp cần cải thiện hiệu quả hoạt động để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "P/E 18.13 và P/B 1.28 cho thấy định giá của SSB đang ở mức trung bình so với ngành. Trạng thái kỹ thuật hiện tại đang tích lũy nền với biên độ hẹp, tạo điều kiện cho cạn cung và tiềm năng tăng giá trong tương lai.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 14500 - 15500 | Mua gia tăng khi Breakout > 16000 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường vĩ mô đang ổn định nhưng vẫn còn nhiều rủi ro từ biến động kinh tế toàn cầu. Ngành BĐS, nơi SSB hoạt động, đang có xu hướng phục hồi nhưng cần theo dõi thêm các chính sách hỗ trợ từ Chính phủ.",
+        "ai_updated_at": "2026-10-30 09:53:50"
     },
     "LPB": {
         "symbol": "LPB",
@@ -179,7 +251,13 @@
         "dividend_yield": 8.04,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:31:53"
+        "updated_at": "2026-10-30 16:31:53",
+        "bctc": "Doanh nghiệp có EPS cao (4047 VNĐ) và ROE tốt (26.3%), cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Tuy nhiên, ROA ở mức trung bình (2.0%) cho thấy hiệu suất sử dụng tài sản cần cải thiện. Tổng thể, doanh nghiệp có sức khỏe tài chính ổn định, đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 9.21 và P/B 2.39 là hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang siết nền tích lũy biên độ hẹp, tạo cơ hội mua vào khi cung cạn.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 35.0 - 36.5 | Mua gia tăng khi Breakout > 37.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô đang ủng hộ các doanh nghiệp trong ngành ngân hàng, với lãi suất ổn định và tăng trưởng kinh tế tích cực. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:54:04"
     },
     "MSB": {
         "symbol": "MSB",
@@ -193,7 +271,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:31:58"
+        "updated_at": "2026-10-30 16:31:58",
+        "bctc": "Doanh nghiệp có EPS cao (1887 VNĐ) và ROE tốt (13.9%), cho thấy khả năng sinh lời hiệu quả. Tuy nhiên, tỷ suất cổ tức là 0.0% và ROA chỉ ở mức trung bình (1.5%) nên cần cân nhắc kỹ trước khi nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 10.2 và P/B 1.33 khá hấp dẫn so với mặt bằng chung của ngành. Kết hợp với trạng thái nến đang gom hàng và dòng tiền duy trì ổn định, đây có thể là cơ hội tốt để mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 15600 - 15800 | Mua gia tăng khi Breakout > 16000 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng đang có xu hướng phục hồi và được hỗ trợ bởi chính sách lãi suất linh hoạt. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:54:12"
     },
     "OCB": {
         "symbol": "OCB",
@@ -207,7 +291,13 @@
         "dividend_yield": 0.01,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:32:04"
+        "updated_at": "2026-10-30 16:32:04",
+        "bctc": "Doanh nghiệp OCB có EPS cao (1482 VNĐ) và ROE tốt (13.0%), cho thấy khả năng sinh lời ổn định. Tuy nhiên, tỷ suất cổ tức thấp (0.01%) và ROA khiêm tốn (1.3%) cần được chú ý. Tổng thể, OCB có nội lực đủ để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.25 và P/B 0.89 là hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại, nến đang gom hàng và dòng tiền duy trì ổn định trên mức trung bình 20 phiên, tạo điểm mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 10400 - 10600 | Mua gia tăng khi Breakout > 10800 kèm Vol lớn",
+        "macro_view": "Ngành Ngân hàng đang trong xu hướng phục hồi, hỗ trợ bởi chính sách lãi suất linh hoạt và tăng trưởng tín dụng. Vĩ mô kinh tế Việt Nam cũng đang cải thiện, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:54:21"
     },
     "EIB": {
         "symbol": "EIB",
@@ -221,7 +311,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:32:10"
+        "updated_at": "2026-10-30 16:32:10",
+        "bctc": "EPS ở mức 264 VNĐ cho thấy doanh nghiệp đang có lợi nhuận trên mỗi cổ phiếu khá tốt, tuy nhiên ROE và ROA lần lượt chỉ ở mức 1.9% và 0.2%, cho thấy hiệu quả sử dụng vốn của doanh nghiệp còn hạn chế. Điều này cho thấy sức khỏe tài chính của EIB chưa thực sự mạnh mẽ để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 63.62 và P/B ở mức 1.18 cho thấy định giá hiện tại của EIB khá cao so với các chỉ số cơ bản. Tuy nhiên, khi kết hợp với trạng thái kỹ thuật hiện tại, EIB đang trong giai đoạn tích lũy nền với biên độ hẹp, điều này có thể tạo ra cơ hội mua nếu có sự bùng nổ về khối lượng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 15.5 - 16.5 | Mua gia tăng khi Breakout > 17.0 kèm Vol lớn",
+        "macro_view": "Ngành ngân hàng đang chịu áp lực từ việc siết chặt tín dụng và tăng lãi suất, điều này có thể ảnh hưởng đến hoạt động kinh doanh của EIB. Tuy nhiên, nếu có những dấu hiệu phục hồi vĩ mô, dòng tiền lớn vẫn có thể quan tâm đến EIB.",
+        "ai_updated_at": "2026-10-30 09:54:29"
     },
     "SSI": {
         "symbol": "SSI",
@@ -235,7 +331,13 @@
         "dividend_yield": 3.53,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:32:17"
+        "updated_at": "2026-10-30 16:32:17",
+        "bctc": "Doanh nghiệp SSI có sức khỏe tài chính tốt với EPS 1919 VNĐ, ROE 13.9% và ROA 5.0%, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Đây là những yếu tố đủ hấp dẫn để dòng tiền lớn xem xét nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 12.25 và P/B 1.54 của SSI ở mức hợp lý so với ngành, kết hợp với trạng thái kỹ thuật đang tích lũy nền và siết biên độ hẹp, tạo ra cơ hội mua vào khi cung cạn kiệt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 18.0 - 19.5 | Mua gia tăng khi Breakout > 20.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang trong xu hướng hồi phục, đặc biệt là các cổ phiếu ngân hàng và chứng khoán. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào SSI.",
+        "ai_updated_at": "2026-10-30 09:54:39"
     },
     "VCI": {
         "symbol": "VCI",
@@ -249,7 +351,13 @@
         "dividend_yield": 2.91,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:32:23"
+        "updated_at": "2026-10-30 16:32:23",
+        "bctc": "Doanh nghiệp có EPS khá tốt (1216 VNĐ) và ROE ở mức chấp nhận được (8.5%), tuy nhiên ROA chỉ ở mức trung bình (3.8%). Điều này cho thấy doanh nghiệp đang tạo ra lợi nhuận ổn định nhưng hiệu quả sử dụng tài sản cần cải thiện. Tỷ suất cổ tức 2.91% cũng là một điểm tích cực, nhưng tổng thể, sức khỏe tài chính của VCI có thể chưa đủ hấp dẫn để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 15.62 và P/B 1.29 cho thấy cổ phiếu đang ở mức định giá hợp lý so với ngành. Trạng thái kỹ thuật hiện tại cho thấy cổ phiếu đang trong giai đoạn tích lũy nền với biên độ hẹp, đây có thể là dấu hiệu cạn cung và chuẩn bị cho một đợt tăng giá.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 17.0 - 18.5 | Mua gia tăng khi Breakout > 19.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang chịu ảnh hưởng bởi các yếu tố vĩ mô như lãi suất và lạm phát. Ngành BĐS, nơi VCI hoạt động, đang có xu hướng phục hồi nhưng vẫn còn nhiều rủi ro. Dòng tiền lớn có thể đang chờ đợi thêm tín hiệu rõ ràng từ vĩ mô và ngành trước khi nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:54:47"
     },
     "HCM": {
         "symbol": "HCM",
@@ -263,7 +371,13 @@
         "dividend_yield": 2.73,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:32:28"
+        "updated_at": "2026-10-30 16:32:28",
+        "bctc": "Doanh nghiệp có EPS ở mức 1070 VNĐ, ROE 8.6% và ROA 2.7%, cho thấy hiệu quả hoạt động ổn định nhưng chưa thực sự nổi bật. Tuy nhiên, tỷ suất cổ tức 2.73% là một điểm tích cực, giúp thu hút dòng tiền dài hạn.",
+        "outlook": "Định giá P/E 26.8 và P/B 2.18 cho thấy mã HCM đang được định giá ở mức cao so với ngành. Tuy nhiên, kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt và cạn cung, tạo ra cơ hội mua tốt khi có breakout.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 22.5 - 23.0 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang trong xu hướng hồi phục, đặc biệt là các ngành như Ngân hàng và BĐS đang nhận được sự ủng hộ từ chính sách vĩ mô. Điều này có thể tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:54:54"
     },
     "VIX": {
         "symbol": "VIX",
@@ -277,7 +391,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:32:34"
+        "updated_at": "2026-10-30 16:32:34",
+        "bctc": "Doanh nghiệp có EPS ở mức 650 VNĐ, ROE 6.5% và ROA 4.8%, cho thấy hiệu quả kinh doanh ổn định nhưng chưa thực sự nổi bật. Tuy nhiên, với tỷ suất cổ tức 0.0%, doanh nghiệp đang tập trung tái đầu tư vào hoạt động kinh doanh, điều này có thể tạo ra tiềm năng tăng trưởng trong tương lai.",
+        "outlook": "Với P/E 19.05 và P/B 0.97, định giá của VIX có vẻ hợp lý so với thị trường. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt và tích lũy biên độ hẹp, đây có thể là dấu hiệu cạn cung, tạo cơ hội mua tốt khi có sự bùng nổ về khối lượng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 11.500 - 12.000 | Mua gia tăng khi Breakout > 12.500 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành công nghệ thông tin (nếu VIX thuộc ngành này) đang có xu hướng tăng trưởng ổn định, được hỗ trợ bởi nhu cầu số hóa và chuyển đổi số. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô như lãi suất và chính sách tiền tệ để xác định thời điểm phù hợp cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:55:11"
     },
     "MBS": {
         "symbol": "MBS",
@@ -291,7 +411,13 @@
         "dividend_yield": 9.96,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:32:40"
+        "updated_at": "2026-10-30 16:32:40",
+        "bctc": "Doanh nghiệp MBS có EPS cao (1214 VNĐ) và ROE tốt (13.1%), cho thấy hiệu quả sinh lời từ vốn chủ sở hữu. Tuy nhiên, ROA ở mức trung bình (3.8%) cho thấy hiệu suất sử dụng tài sản cần cải thiện. Tổng thể, doanh nghiệp có sức khỏe tài chính ổn định, đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 12.6 và P/B 1.36 của MBS nằm trong mức hấp dẫn so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền, đây là cơ hội tốt để mua vào khi cung cầu cân bằng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 14500 - 15500 | Mua gia tăng khi Breakout > 16000 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô đang ủng hộ các ngành như ngân hàng, bất động sản, và thép. Dòng tiền lớn có xu hướng chuyển dịch vào những ngành này, tạo điều kiện thuận lợi cho MBS thu hút sự quan tâm của nhà đầu tư.",
+        "ai_updated_at": "2026-10-30 09:55:21"
     },
     "FTS": {
         "symbol": "FTS",
@@ -305,7 +431,13 @@
         "dividend_yield": 2.41,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:32:45"
+        "updated_at": "2026-10-30 16:32:45",
+        "bctc": "Doanh nghiệp có EPS ở mức 1054 VNĐ, ROE 9.1% và ROA 2.9%, cho thấy khả năng sinh lời ổn định nhưng không quá nổi bật. Tuy nhiên, tỷ suất cổ tức 2.41% là khá hấp dẫn, giúp thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 17.88 và P/B 1.61 cho thấy mã FTS đang được định giá ở mức trung bình so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt, tạo điều kiện cho một điểm mua tiềm năng khi cung cạn kiệt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 17.0 - 18.0 | Mua gia tăng khi Breakout > 18.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, vĩ mô và sóng ngành đang có xu hướng hỗ trợ cho các doanh nghiệp trong lĩnh vực này. Tuy nhiên, cần theo dõi thêm các yếu tố bên ngoài như lãi suất và chính sách kinh tế để xác định thời điểm tốt nhất cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:55:28"
     },
     "BSI": {
         "symbol": "BSI",
@@ -319,7 +451,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:32:51"
+        "updated_at": "2026-10-30 16:32:51",
+        "bctc": "Doanh nghiệp có EPS khá tốt (1749 VNĐ) và ROE ở mức trung bình (8.4%), tuy nhiên ROA thấp (2.6%) cho thấy hiệu quả sử dụng tài sản chưa cao. Dù vậy, với tỷ suất cổ tức 0.0%, doanh nghiệp đang tập trung tái đầu tư, điều này có thể hỗ trợ tăng trưởng dài hạn.",
+        "outlook": "Định giá P/E 15.61 và P/B 1.26 không phải là quá hấp dẫn so với mặt bằng chung, nhưng vẫn trong giới hạn chấp nhận được. Trạng thái kỹ thuật hiện tại cho thấy dòng tiền duy trì ổn định, tạo cơ hội tích lũy.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 25.0 - 26.0 | Mua gia tăng khi Breakout > 27.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng đang chịu áp lực từ việc siết chặt chính sách tín dụng, nhưng triển vọng dài hạn vẫn tích cực do nhu cầu vốn của nền kinh tế. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô để xác định thời điểm phù hợp.",
+        "ai_updated_at": "2026-10-30 09:55:43"
     },
     "CTS": {
         "symbol": "CTS",
@@ -333,7 +471,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:32:56"
+        "updated_at": "2026-10-30 16:32:56",
+        "bctc": "EPS ở mức 409 VNĐ cho thấy doanh nghiệp có khả năng sinh lời, tuy nhiên ROE và ROA lần lượt ở mức 3.9% và 0.9% là khá thấp, thể hiện hiệu quả sử dụng vốn không cao. Điều này cho thấy sức khỏe tài chính của CTS chưa thực sự vững mạnh để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 52.67 và P/B ở mức 2.05 cho thấy cổ phiếu đang được định giá cao so với thị trường. Tuy nhiên, tình trạng gom hàng và dòng tiền duy trì ổn định trên mức trung bình 20 phiên cho thấy có sự quan tâm từ phía nhà đầu tư. Cần cân nhắc kỹ lưỡng trước khi quyết định mua.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 20.0 - 21.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng và BĐS đang gặp nhiều khó khăn do tác động của vĩ mô, trong khi ngành Thép cũng chịu áp lực từ việc giảm cầu. Trong bối cảnh này, dòng tiền lớn có thể sẽ thận trọng hơn trong việc nhập cuộc vào các mã cổ phiếu.",
+        "ai_updated_at": "2026-10-30 09:55:51"
     },
     "ORS": {
         "symbol": "ORS",
@@ -347,7 +491,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:33:02"
+        "updated_at": "2026-10-30 16:33:02",
+        "bctc": "Doanh nghiệp có EPS khá tốt, tuy nhiên ROE và ROA ở mức thấp, cho thấy hiệu quả sử dụng vốn chưa thực sự cao. Điều này có thể hạn chế khả năng thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 26.5 và P/B 1.17 không phải là hấp dẫn so với mặt bằng chung của thị trường, nhưng kết hợp với trạng thái kỹ thuật hiện tại đang gom hàng và dòng tiền duy trì ổn định, tạo ra một cơ hội tiềm năng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 13800 - 14000 | Mua gia tăng khi Breakout > 14500 kèm Vol lớn",
+        "macro_view": "Hiện tại, vĩ mô và sóng ngành chưa có nhiều tín hiệu ủng hộ mạnh mẽ, nhưng nếu có sự cải thiện trong tương lai, dòng tiền lớn có thể bắt đầu quan tâm hơn.",
+        "ai_updated_at": "2026-10-30 09:55:58"
     },
     "VHM": {
         "symbol": "VHM",
@@ -361,7 +511,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:33:08"
+        "updated_at": "2026-10-30 16:33:08",
+        "bctc": "Với EPS đạt 19.460 VNĐ, ROE 31,4% và ROA 9,5%, VHM thể hiện sức khỏe tài chính tốt, cho thấy doanh nghiệp có khả năng sinh lời cao và sử dụng hiệu quả vốn của mình. Đây là yếu tố quan trọng để dòng tiền lớn xem xét nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 6,38 và P/B 1,94 cho thấy cổ phiếu đang được định giá hấp dẫn so với mặt bằng chung của thị trường. Kết hợp với trạng thái kỹ thuật hiện tại, khi giá đang tích lũy trong biên độ hẹp, đây có thể là cơ hội tốt để mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 62.0 - 63.5 | Mua gia tăng khi Breakout > 64.5 kèm Vol lớn",
+        "macro_view": "Hiện nay, ngành BĐS đang có xu hướng phục hồi sau một thời gian điều chỉnh, đặc biệt khi lãi suất có dấu hiệu giảm và nhu cầu nhà ở vẫn duy trì ở mức cao. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:56:06"
     },
     "VIC": {
         "symbol": "VIC",
@@ -375,7 +531,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:33:13"
+        "updated_at": "2026-10-30 16:33:13",
+        "bctc": "EPS ở mức 2764 VNĐ cho thấy VIC có khả năng sinh lời tốt, tuy nhiên ROE và ROA lần lượt ở mức 13.0% và 1.9% chỉ ở mức trung bình, cho thấy hiệu quả sử dụng vốn chưa thực sự ấn tượng. Doanh nghiệp có tiềm năng nhưng cần theo dõi thêm để xem xét khả năng nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 87.19 và P/B 10.86 khá cao so với mặt bằng chung, phản ánh kỳ vọng tăng trưởng cao. Tuy nhiên, kết hợp với trạng thái kỹ thuật hiện tại, dòng tiền duy trì ổn định trên mức trung bình 20 phiên, cho thấy cổ phiếu đang được gom hàng, tạo cơ hội cho điểm mua hấp dẫn.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 235.0 - 240.0 | Mua gia tăng khi Breakout > 245.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường BĐS đang trong giai đoạn phục hồi, tuy nhiên vẫn còn nhiều rủi ro về chính sách và vĩ mô. Dòng tiền lớn có thể đang chờ đợi các tín hiệu rõ ràng hơn từ thị trường trước khi nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:56:21"
     },
     "VRE": {
         "symbol": "VRE",
@@ -389,7 +551,13 @@
         "dividend_yield": 4.14,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:33:19"
+        "updated_at": "2026-10-30 16:33:19",
+        "bctc": "Doanh nghiệp có EPS cao (3254 VNĐ) và tỷ suất lợi nhuận ROE (15.1%) cùng ROA (12.0%) tốt, cho thấy sức khỏe tài chính ổn định và khả năng sinh lời hiệu quả. Đây là những yếu tố đủ mạnh để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E ở mức 7.42 và P/B ở 1.08 cho thấy cổ phiếu đang được định giá hấp dẫn so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nến đang gom hàng và dòng tiền duy trì ổn định, tạo cơ hội mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 23.5 - 24.5 | Mua gia tăng khi Breakout > 25.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường bất động sản đang có xu hướng phục hồi, đặc biệt là phân khúc bất động sản thương mại. Điều này tạo điều kiện thuận lợi cho VRE thu hút dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:56:35"
     },
     "NVL": {
         "symbol": "NVL",
@@ -403,7 +571,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.65x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:33:25"
+        "updated_at": "2026-10-30 16:33:25",
+        "bctc": "Doanh nghiệp có EPS cao (1755 VNĐ) nhưng ROE và ROA ở mức thấp (ROE: 7.4%, ROA: 1.7%), cho thấy hiệu quả sử dụng vốn chưa tốt. Tuy nhiên, với tỷ suất cổ tức là 0.0%, doanh nghiệp đang tập trung tái đầu tư vào hoạt động kinh doanh, có thể tạo điều kiện cho tăng trưởng trong tương lai.",
+        "outlook": "Định giá P/E 7.86 và P/B 0.59 cho thấy NVL đang được định giá hấp dẫn so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, khi khối lượng cạn kiệt và biên độ giá siết chặt, đây có thể là điểm mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 10200 - 10400 | Mua gia tăng khi Breakout > 10600 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường bất động sản đang có dấu hiệu phục hồi, đặc biệt là sau các chính sách hỗ trợ từ Chính phủ. Điều này có thể tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào cổ phiếu NVL.",
+        "ai_updated_at": "2026-10-30 09:56:47"
     },
     "PDR": {
         "symbol": "PDR",
@@ -417,7 +591,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:33:30"
+        "updated_at": "2026-10-30 16:33:30",
+        "bctc": "EPS của PDR ở mức 613 VNĐ, cho thấy doanh nghiệp có khả năng sinh lời tốt. Tuy nhiên, ROE và ROA lần lượt ở mức 5.0% và 2.3%, thấp hơn so với mặt bằng chung, cho thấy hiệu quả sử dụng vốn chưa thực sự cao. Điều này có thể hạn chế sức hấp dẫn đối với dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 18.57 và P/B ở mức 0.9, định giá hiện tại của PDR không phải là quá hấp dẫn so với ngành. Tuy nhiên, cổ phiếu đang trong trạng thái tích lũy nền với biên độ hẹp, đây có thể là dấu hiệu cạn cung và tạo cơ hội mua vào khi có breakout.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 11000 - 11500 | Mua gia tăng khi Breakout > 11500 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường bất động sản (BĐS) đang gặp nhiều khó khăn do chính sách siết chặt tín dụng. Điều này có thể ảnh hưởng đến triển vọng ngắn hạn của PDR. Tuy nhiên, nếu có những tín hiệu phục hồi từ vĩ mô, dòng tiền lớn vẫn có thể quan tâm.",
+        "ai_updated_at": "2026-10-30 09:56:54"
     },
     "DIG": {
         "symbol": "DIG",
@@ -431,7 +611,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:33:36"
+        "updated_at": "2026-10-30 16:33:36",
+        "bctc": "EPS ở mức 962 VNĐ cho thấy doanh nghiệp có khả năng sinh lời tốt, tuy nhiên ROE và ROA lần lượt ở mức 8.2% và 4.0% chỉ ở mức trung bình, cho thấy hiệu quả sử dụng vốn chưa thực sự ấn tượng. Dù vậy, với tỷ suất cổ tức là 0.0%, DIG vẫn có thể hấp dẫn đối với dòng tiền lớn nếu họ tập trung vào tăng trưởng dài hạn.",
+        "outlook": "P/E ở mức 10.78 và P/B ở mức 0.82 cho thấy định giá của DIG đang ở mức hấp dẫn so với thị trường. Kết hợp với trạng thái kỹ thuật hiện tại, khi giá đang tích lũy trong biên độ hẹp, đây có thể là dấu hiệu cạn cung và tạo cơ hội mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 9300 - 9500 | Mua gia tăng khi Breakout > 9700 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành công nghệ thông tin (IT) mà DIG hoạt động trong đó đang có xu hướng tăng trưởng ổn định. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô như lãi suất và chính sách kinh tế để xác định xem liệu dòng tiền lớn có sẵn sàng nhập cuộc hay không.",
+        "ai_updated_at": "2026-10-30 09:57:02"
     },
     "NLG": {
         "symbol": "NLG",
@@ -445,7 +631,13 @@
         "dividend_yield": 2.12,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:33:41"
+        "updated_at": "2026-10-30 16:33:41",
+        "bctc": "EPS ở mức 1272 VNĐ cho thấy doanh nghiệp có khả năng sinh lời tốt, tuy nhiên ROE và ROA lần lượt ở mức 4.2% và 2.3% khá thấp, cho thấy hiệu quả sử dụng vốn chưa thực sự cao. Điều này có thể hạn chế sức hấp dẫn đối với dòng tiền lớn trong dài hạn.",
+        "outlook": "P/E ở mức 18.08 và P/B ở mức 0.89, định giá hiện tại của NLG có thể coi là hợp lý so với ngành. Tuy nhiên, cần chú ý đến hiệu quả sử dụng vốn (ROE, ROA) đang ở mức thấp. Trạng thái kỹ thuật hiện tại đang tích lũy nền, đây có thể là dấu hiệu chuẩn bị cho một đợt tăng giá nếu khối lượng giao dịch bắt đầu gia tăng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 21.5 - 22.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang chịu ảnh hưởng từ các yếu tố vĩ mô như lãi suất và lạm phát. Ngành BĐS và Thép đang gặp khó khăn do chính sách thắt chặt tín dụng, điều này có thể ảnh hưởng đến NLG. Tuy nhiên, nếu có những tín hiệu tích cực từ vĩ mô, dòng tiền lớn có thể quay trở lại.",
+        "ai_updated_at": "2026-10-30 09:57:10"
     },
     "KDH": {
         "symbol": "KDH",
@@ -459,7 +651,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:33:47"
+        "updated_at": "2026-10-30 16:33:47",
+        "bctc": "Doanh nghiệp có EPS cao (1566 VNĐ) và ROE, ROA ở mức chấp nhận được (8.6% và 4.9%), cho thấy khả năng sinh lời tốt. Tuy nhiên, tỷ suất cổ tức là 0.0%, điều này có thể làm giảm hấp dẫn đối với nhà đầu tư dài hạn.",
+        "outlook": "Định giá P/E 9.83 và P/B 0.93 cho thấy cổ phiếu đang được định giá khá hấp dẫn so với thị trường. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt, tạo cơ hội mua vào khi cung cạn kiệt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 13700 - 14000 | Mua gia tăng khi Breakout > 14200 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành BĐS đang có xu hướng phục hồi, nhưng cần theo dõi thêm các chính sách vĩ mô liên quan đến lãi suất và quy hoạch. Dòng tiền lớn có thể đang chờ đợi tín hiệu rõ ràng hơn để nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:57:21"
     },
     "CEO": {
         "symbol": "CEO",
@@ -473,7 +671,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:33:53"
+        "updated_at": "2026-10-30 16:33:53",
+        "bctc": "EPS ở mức 321 VNĐ cho thấy doanh nghiệp đang có khả năng sinh lời tốt, tuy nhiên ROE và ROA lần lượt chỉ ở mức 3.0% và 2.1%, thấp hơn so với nhiều doanh nghiệp trong ngành, điều này cho thấy hiệu quả sử dụng vốn và tài sản của công ty chưa thực sự cao. Doanh nghiệp cần cải thiện hiệu suất hoạt động để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 34.55 và P/B là 1.05, định giá hiện tại có thể được coi là khá cao so với các chỉ số cơ bản. Tuy nhiên, tình trạng gom hàng và dòng tiền duy trì ổn định trên mức trung bình 20 phiên cho thấy lực cầu vẫn mạnh, tạo ra một điểm mua tiềm năng nếu kết hợp với yếu tố kỹ thuật.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 10.800 - 11.200 | Mua gia tăng khi Breakout > 11.500 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang chịu ảnh hưởng bởi nhiều yếu tố vĩ mô như lãi suất, lạm phát và chính sách kinh tế vĩ mô. Ngành công nghệ thông tin (IT) mà CEO hoạt động trong đó đang có xu hướng tăng trưởng nhưng cũng cần theo dõi thêm các biến động từ môi trường kinh doanh toàn cầu.",
+        "ai_updated_at": "2026-10-30 09:57:42"
     },
     "DXG": {
         "symbol": "DXG",
@@ -487,7 +691,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:33:58"
+        "updated_at": "2026-10-30 16:33:58",
+        "bctc": "Doanh nghiệp có EPS khá tốt, nhưng ROE và ROA ở mức thấp, cho thấy hiệu quả sử dụng vốn không cao. Điều này có thể làm giảm sức hấp dẫn đối với dòng tiền lớn muốn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 65.2 là khá cao so với ngành, trong khi P/B 0.88 lại dưới 1, cho thấy cổ phiếu đang được định giá thấp hơn giá trị sổ sách. Tuy nhiên, kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang gom hàng và dòng tiền duy trì ổn định, tạo ra một điểm mua tiềm năng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 9800 - 10100 | Mua gia tăng khi Breakout > 10300 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường bất động sản đang gặp nhiều khó khăn do chính sách siết chặt tín dụng. Tuy nhiên, nếu có sự thay đổi về chính sách hỗ trợ, dòng tiền lớn có thể quay trở lại. Cần theo dõi thêm các thông tin vĩ mô và chính sách mới.",
+        "ai_updated_at": "2026-10-30 09:57:49"
     },
     "TCH": {
         "symbol": "TCH",
@@ -501,7 +711,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:34:04"
+        "updated_at": "2026-10-30 16:34:04",
+        "bctc": "EPS ở mức 327 VNĐ cho thấy doanh nghiệp có khả năng sinh lời tốt, tuy nhiên ROE và ROA lần lượt ở mức 2.1% và 1.5% là khá thấp, cho thấy hiệu quả sử dụng vốn không cao. Điều này có thể hạn chế sức hấp dẫn đối với dòng tiền lớn muốn nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 40.99 và P/B ở mức 1.05 cho thấy cổ phiếu đang được định giá ở mức cao so với giá trị sổ sách. Tuy nhiên, kết hợp với trạng thái kỹ thuật hiện tại, dòng tiền duy trì ổn định trên mức trung bình 20 phiên, đây có thể là dấu hiệu tích cực về sự quan tâm của nhà đầu tư.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 11500 - 11800 | Mua gia tăng khi Breakout > 12000 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường vĩ mô và sóng ngành chưa có nhiều tín hiệu rõ ràng ủng hộ dòng tiền lớn nhập cuộc. Cần theo dõi thêm các yếu tố kinh tế vĩ mô và xu hướng ngành để có cái nhìn toàn diện hơn.",
+        "ai_updated_at": "2026-10-30 09:57:57"
     },
     "HDG": {
         "symbol": "HDG",
@@ -515,7 +731,13 @@
         "dividend_yield": 2.97,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:34:10"
+        "updated_at": "2026-10-30 16:34:10",
+        "bctc": "Doanh nghiệp có EPS cao (2297 VNĐ), ROE tốt (11.4%) và ROA ổn định (6.5%), cho thấy sức khỏe tài chính vững mạnh. Đây là những yếu tố đủ để dòng tiền lớn xem xét nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 6.66 và P/B 0.89 cho thấy cổ phiếu HDG đang được định giá hấp dẫn so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang gom hàng và dòng tiền duy trì ổn định, tạo điều kiện thuận lợi cho điểm mua.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 14.5 - 15.5 | Mua gia tăng khi Breakout > 16.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô và sóng ngành đang ủng hộ sự tăng trưởng của doanh nghiệp. Ngành công nghiệp liên quan đến HDG đang có xu hướng tích cực, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:58:05"
     },
     "KBC": {
         "symbol": "KBC",
@@ -529,7 +751,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:34:15"
+        "updated_at": "2026-10-30 16:34:15",
+        "bctc": "EPS ở mức 1859 VNĐ cho thấy doanh nghiệp đang có khả năng sinh lời tốt. Tuy nhiên, ROE và ROA lần lượt ở mức 6.5% và 2.4% cho thấy hiệu quả sử dụng vốn chưa thực sự ấn tượng. Doanh nghiệp có tiềm năng nhưng cần cải thiện hiệu quả hoạt động để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 14.25 và P/B ở mức 0.96 cho thấy cổ phiếu KBC đang được định giá hợp lý so với thị trường. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt, tạo điều kiện cho một điểm mua hấp dẫn khi có sự bùng nổ về khối lượng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 25.0 - 26.0 | Mua gia tăng khi Breakout > 27.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng đang trong xu hướng phục hồi, tuy nhiên vẫn cần theo dõi thêm các chính sách vĩ mô và diễn biến kinh tế vĩ mô. Sóng ngành đang ủng hộ nhưng cần cẩn trọng với các rủi ro ngắn hạn.",
+        "ai_updated_at": "2026-10-30 09:58:19"
     },
     "IDC": {
         "symbol": "IDC",
@@ -543,7 +771,13 @@
         "dividend_yield": 7.66,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:34:21"
+        "updated_at": "2026-10-30 16:34:21",
+        "bctc": "Doanh nghiệp có EPS cao (4365 VNĐ) và tỷ suất lợi nhuận tốt (ROE: 20.9%, ROA: 7.9%), cho thấy sức khỏe tài chính ổn định và khả năng sinh lời tốt. Đây là yếu tố hấp dẫn đối với dòng tiền lớn, đủ nội lực để nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 6.84 và P/B 2.05 khá hấp dẫn so với mặt bằng chung của thị trường, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền. Nền giá đang siết hẹp, tạo điều kiện thuận lợi cho một đợt breakout sắp tới.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 33000 - 34500 | Mua gia tăng khi Breakout > 35000 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô đang ổn định, tuy nhiên cần theo dõi thêm các chính sách kinh tế vĩ mô và diễn biến của ngành công nghệ thông tin. Ngành công nghệ thông tin đang có xu hướng tăng trưởng, nhưng cũng cần chú ý đến rủi ro từ biến động thị trường.",
+        "ai_updated_at": "2026-10-30 09:58:27"
     },
     "SZC": {
         "symbol": "SZC",
@@ -557,7 +791,13 @@
         "dividend_yield": 5.14,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:34:26"
+        "updated_at": "2026-10-30 16:34:26",
+        "bctc": "Doanh nghiệp có EPS ở mức 891 VNĐ, cho thấy khả năng sinh lời trên mỗi cổ phiếu khá tốt. Tuy nhiên, ROE và ROA lần lượt là 5.1% và 1.9%, chỉ ở mức trung bình, cho thấy hiệu quả sử dụng vốn và tài sản chưa thực sự nổi bật. Dù vậy, tỷ suất cổ tức 5.14% vẫn hấp dẫn đối với nhà đầu tư dài hạn.",
+        "outlook": "Định giá P/E 21.77 và P/B 1.14 cho thấy mã SZC đang được định giá ở mức hợp lý so với ngành. Trạng thái kỹ thuật hiện tại cho thấy dòng tiền duy trì ổn định trên mức trung bình 20 phiên, tạo điều kiện thuận lợi cho việc gom hàng. Nền giá đang cạn cung, tạo điểm mua hấp dẫn.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 18.0 - 19.5 | Mua gia tăng khi Breakout > 20.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô đang ủng hộ các doanh nghiệp trong ngành, đặc biệt là những doanh nghiệp có cơ cấu tài chính vững mạnh. Sóng ngành cũng đang có xu hướng tích cực, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:58:36"
     },
     "BCM": {
         "symbol": "BCM",
@@ -571,7 +811,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:34:32"
+        "updated_at": "2026-10-30 16:34:32",
+        "bctc": "Doanh nghiệp BCM có EPS khá tốt ở mức 1880 VNĐ, cho thấy khả năng sinh lời trên mỗi cổ phiếu. Tuy nhiên, ROE và ROA lần lượt ở mức 8.7% và 3.2%, chỉ ở mức trung bình, cho thấy hiệu quả sử dụng vốn chưa thực sự ấn tượng. Tổng thể, doanh nghiệp có sức khỏe ổn định nhưng cần cải thiện hiệu quả hoạt động để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 21.03 và P/B 1.87 của BCM không phải là quá hấp dẫn so với mặt bằng chung, nhưng vẫn nằm trong giới hạn chấp nhận được. Kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền, đây có thể là cơ hội để mua vào khi cung cạn kiệt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 37.0 - 39.0 | Mua gia tăng khi Breakout > 40.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang chịu ảnh hưởng từ các yếu tố vĩ mô như lãi suất ngân hàng và tình hình kinh tế toàn cầu. Ngành BĐS và Thép đang gặp khó khăn, trong khi Ngân hàng vẫn duy trì ổn định. Trong bối cảnh này, BCM cần thêm thời gian để xác định xu hướng rõ ràng hơn.",
+        "ai_updated_at": "2026-10-30 09:58:47"
     },
     "PHR": {
         "symbol": "PHR",
@@ -585,7 +831,13 @@
         "dividend_yield": 2.33,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:34:37"
+        "updated_at": "2026-10-30 16:34:37",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức tốt, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Đây là những yếu tố quan trọng để dòng tiền lớn có thể nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 8.4 và P/B 1.68 khá hấp dẫn so với mặt bằng chung của thị trường, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang siết nền tích lũy biên độ hẹp, tạo điều kiện thuận lợi cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 30.0 - 31.5 | Mua gia tăng khi Breakout > 32.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành công nghiệp mà PHR hoạt động đang có xu hướng tăng trưởng ổn định, được hỗ trợ bởi các chính sách kinh tế vĩ mô tích cực. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:58:58"
     },
     "HPG": {
         "symbol": "HPG",
@@ -599,7 +851,13 @@
         "dividend_yield": 2.14,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:34:44"
+        "updated_at": "2026-10-30 16:34:44",
+        "bctc": "Doanh nghiệp có EPS cao (3250 VNĐ), ROE tốt (19.9%) và ROA ổn định (10.4%), cho thấy sức khỏe tài chính vững mạnh. Đây là những yếu tố quan trọng để dòng tiền lớn có thể nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.71 và P/B 1.2 là hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại, nơi dòng tiền đang duy trì ổn định trên mức trung bình 20 phiên, tạo điều kiện thuận lợi cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 20.0 - 21.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành thép đang có xu hướng phục hồi do nhu cầu xây dựng và cơ sở hạ tầng tăng lên. Đồng thời, vĩ mô kinh tế ổn định cũng hỗ trợ cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:59:04"
     },
     "HSG": {
         "symbol": "HSG",
@@ -613,7 +871,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:34:49"
+        "updated_at": "2026-10-30 16:34:49",
+        "bctc": "EPS ở mức 812 VNĐ cho thấy doanh nghiệp đang có khả năng sinh lời tốt. Tuy nhiên, ROE và ROA lần lượt ở mức 5.7% và 3.1% là khá thấp, cho thấy hiệu quả sử dụng vốn chưa thực sự ấn tượng. Doanh nghiệp cần cải thiện hiệu quả hoạt động để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 13.72 và P/B 0.76 cho thấy cổ phiếu HSG đang được định giá ở mức hợp lý so với ngành. Trạng thái kỹ thuật hiện tại cho thấy dòng tiền duy trì ổn định trên mức trung bình 20 phiên, tạo điều kiện thuận lợi cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 10500 - 10800 | Mua gia tăng khi Breakout > 11000 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành thép đang có xu hướng phục hồi do nhu cầu xây dựng và cơ sở hạ tầng tăng lên. Tuy nhiên, cần theo dõi thêm các chính sách vĩ mô và biến động của thị trường để đảm bảo dòng tiền lớn nhập cuộc một cách an toàn.",
+        "ai_updated_at": "2026-10-30 09:59:19"
     },
     "NKG": {
         "symbol": "NKG",
@@ -627,7 +891,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:34:55"
+        "updated_at": "2026-10-30 16:34:55",
+        "bctc": "EPS ở mức 494 VNĐ cho thấy doanh nghiệp đang có khả năng sinh lời tốt, tuy nhiên ROE và ROA lần lượt ở mức 3.2% và 1.4% lại khá thấp, cho thấy hiệu quả sử dụng vốn của doanh nghiệp không cao. Điều này có thể khiến dòng tiền lớn cân nhắc kỹ trước khi nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 35.76 là khá cao so với thị trường, trong khi P/B ở mức 0.77 lại dưới 1, cho thấy cổ phiếu đang được định giá thấp so với giá trị sổ sách. Tuy nhiên, kết hợp với trạng thái kỹ thuật hiện tại, dòng tiền duy trì ổn định trên mức trung bình 20 phiên, tạo ra cơ hội hấp dẫn cho nhà đầu tư.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 11500 - 11800 | Mua gia tăng khi Breakout > 12000 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành thép đang chịu áp lực từ việc tăng giá nguyên liệu đầu vào và cạnh tranh gay gắt. Tuy nhiên, nếu nền kinh tế phục hồi mạnh mẽ, nhu cầu về thép có thể tăng lên, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 09:59:28"
     },
     "CTD": {
         "symbol": "CTD",
@@ -641,7 +911,13 @@
         "dividend_yield": 1.4,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:35:01"
+        "updated_at": "2026-10-30 16:35:01",
+        "bctc": "Doanh nghiệp có EPS cao (7049 VNĐ) và ROE ở mức chấp nhận được (8.4%), tuy nhiên, ROA chỉ ở mức 2.3%, cho thấy hiệu quả sử dụng tài sản chưa thực sự tốt. Dù vậy, với tỷ suất cổ tức là 1.4%, CTD vẫn có thể thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 9.18 và P/B 0.75 cho thấy cổ phiếu đang được định giá hấp dẫn so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nến đang gom hàng và VCP cho thấy dòng tiền duy trì ổn định, tạo điều kiện thuận lợi để mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 62.0 - 64.0 | Mua gia tăng khi Breakout > 65.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang trong xu hướng phục hồi, đặc biệt là các ngành như BĐS và Thép đang có triển vọng tốt. Điều này có thể tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào CTD.",
+        "ai_updated_at": "2026-10-30 09:59:39"
     },
     "VCG": {
         "symbol": "VCG",
@@ -655,7 +931,13 @@
         "dividend_yield": 0.1,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:35:07"
+        "updated_at": "2026-10-30 16:35:07",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức rất tốt, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Đây là những yếu tố quan trọng để dòng tiền lớn có thể nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 2.61 và P/B 0.98 cho thấy cổ phiếu đang được định giá hấp dẫn so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang gom hàng và dòng tiền duy trì ổn định, tạo điều kiện thuận lợi cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 14500 - 15000 | Mua gia tăng khi Breakout > 15500 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô đang ủng hộ sự phục hồi của thị trường, đặc biệt trong ngành Bất động sản và Tài chính. Dòng tiền lớn có thể đang tìm kiếm cơ hội đầu tư vào các doanh nghiệp có tiềm năng tăng trưởng như VCG.",
+        "ai_updated_at": "2026-10-30 09:59:46"
     },
     "HHV": {
         "symbol": "HHV",
@@ -669,7 +951,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:35:12"
+        "updated_at": "2026-10-30 16:35:12",
+        "bctc": "Doanh nghiệp HHV có EPS cao (1149 VNĐ) nhưng ROE và ROA tương đối thấp (5.1% và 1.5%), cho thấy hiệu quả sử dụng vốn chưa thực sự tốt. Tuy nhiên, với tỷ suất cổ tức là 0.0%, doanh nghiệp đang tập trung vào việc tái đầu tư, điều này có thể tạo ra tiềm năng tăng trưởng trong tương lai.",
+        "outlook": "Định giá P/E 8.64 và P/B 0.48 của HHV khá hấp dẫn so với mặt bằng chung, đặc biệt là khi kết hợp với trạng thái kỹ thuật hiện tại, nơi dòng tiền duy trì ổn định trên mức trung bình 20 phiên, cho thấy sự quan tâm của nhà đầu tư lớn.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 9000 - 9300 | Mua gia tăng khi Breakout > 9500 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Bất động sản đang có xu hướng phục hồi, hỗ trợ bởi chính sách kích cầu của Chính phủ. Điều này có thể tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào các mã như HHV.",
+        "ai_updated_at": "2026-10-30 10:00:02"
     },
     "FPT": {
         "symbol": "FPT",
@@ -683,7 +971,13 @@
         "dividend_yield": 3.43,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:35:18"
+        "updated_at": "2026-10-30 16:35:18",
+        "bctc": "FPT có EPS cao (5455 VNĐ), ROE tốt (24.3%) và ROA ổn định (13.2%), cho thấy doanh nghiệp đang hoạt động hiệu quả và sinh lời tốt. Đây là những yếu tố quan trọng để dòng tiền lớn có thể nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 9.94 và P/B 2.32 của FPT khá hấp dẫn so với mặt bằng chung của thị trường, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt và cạn cung, tạo điều kiện thuận lợi cho một điểm mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 52000 - 53000 | Mua gia tăng khi Breakout > 54000 kèm Vol lớn",
+        "macro_view": "Hiện nay, ngành Công nghệ Thông tin (IT) đang nhận được sự ủng hộ từ xu hướng chuyển đổi số và nhu cầu công nghệ tăng cao, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào cổ phiếu FPT.",
+        "ai_updated_at": "2026-10-30 10:00:13"
     },
     "MWG": {
         "symbol": "MWG",
@@ -697,7 +991,13 @@
         "dividend_yield": 1.32,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:35:26"
+        "updated_at": "2026-10-30 16:35:26",
+        "bctc": "Doanh nghiệp MWG có sức khỏe tài chính tốt với EPS cao (7576 VNĐ), ROE (29.5%) và ROA (12.1%) đều ở mức rất tốt, cho thấy hiệu quả sử dụng vốn và sinh lời vượt trội. Đây là dấu hiệu tích cực cho thấy doanh nghiệp có đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 10.01 và P/B 2.45 của MWG đang ở mức hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại, nơi giá đang trong giai đoạn tích lũy nền với biên độ hẹp, tạo điều kiện thuận lợi cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 73.0 - 74.5 | Mua gia tăng khi Breakout > 75.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô đang ổn định, hỗ trợ cho sự phục hồi của thị trường chứng khoán. Ngành bán lẻ, trong đó MWG hoạt động, đang có xu hướng tăng trưởng tốt, thu hút dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 10:00:22"
     },
     "PNJ": {
         "symbol": "PNJ",
@@ -711,7 +1011,13 @@
         "dividend_yield": 9.88,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:35:31"
+        "updated_at": "2026-10-30 16:35:31",
+        "bctc": "Doanh nghiệp PNJ có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức tốt, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Đây là những yếu tố quan trọng để dòng tiền lớn có thể nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 3.36 và P/B 0.61 của PNJ rất hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang siết nền tích lũy biên độ hẹp, tạo điều kiện thuận lợi cho điểm mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 15000 - 15500 | Mua gia tăng khi Breakout > 16000 kèm Vol lớn",
+        "macro_view": "Hiện tại, vĩ mô và sóng ngành đang ủng hộ PNJ, đặc biệt trong bối cảnh tiêu dùng nội địa phục hồi mạnh mẽ. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 10:00:30"
     },
     "FRT": {
         "symbol": "FRT",
@@ -725,7 +1031,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:35:37"
+        "updated_at": "2026-10-30 16:35:37",
+        "bctc": "Với EPS đạt 6358 VNĐ, ROE 24.1% và ROA 4.9%, FRT thể hiện sức khỏe tài chính tốt, cho thấy doanh nghiệp có khả năng sinh lời cao và sử dụng hiệu quả nguồn vốn. Tuy nhiên, tỷ suất cổ tức 0.0% có thể làm giảm hấp dẫn đối với các nhà đầu tư tìm kiếm thu nhập từ cổ tức.",
+        "outlook": "P/E ở mức 23.23 và P/B 5.5 cho thấy định giá của FRT đang ở mức cao so với thị trường. Tuy nhiên, kết hợp với trạng thái kỹ thuật hiện tại, dòng tiền duy trì ổn định trên mức trung bình 20 phiên, đây có thể là dấu hiệu tích cực cho việc dòng tiền lớn đang quan tâm.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Nền giá tích lũy: 140.0 - 145.0 | Mua gia tăng khi Breakout > 150.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành BĐS đang trong xu hướng phục hồi, nhưng vẫn cần theo dõi thêm các chính sách vĩ mô liên quan đến lãi suất và quy hoạch. Điều này có thể ảnh hưởng đến quyết định của dòng tiền lớn trong việc nhập cuộc.",
+        "ai_updated_at": "2026-10-30 10:00:40"
     },
     "VNM": {
         "symbol": "VNM",
@@ -739,7 +1051,13 @@
         "dividend_yield": 4.95,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:35:43"
+        "updated_at": "2026-10-30 16:35:43",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức rất tốt, cho thấy hiệu quả sử dụng vốn và sinh lời vượt trội. Đây là dấu hiệu cho thấy doanh nghiệp có đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 11.0 và P/B 3.78 cho thấy cổ phiếu VNM đang được định giá hợp lý so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt, tạo điều kiện cho một đợt tăng giá tiềm năng trong tương lai.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Vùng nền giá tích lũy: 54.0 - 57.0 | Mua gia tăng khi Breakout > 58.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô ổn định và ngành tiêu dùng đang có xu hướng tăng trưởng, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô và ngành để xác định thời điểm mua phù hợp.",
+        "ai_updated_at": "2026-10-30 10:00:48"
     },
     "MSN": {
         "symbol": "MSN",
@@ -753,7 +1071,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:35:49"
+        "updated_at": "2026-10-30 16:35:49",
+        "bctc": "Với EPS đạt 6199 VNĐ, ROE ở mức 20.0% và ROA là 7.1%, MSN thể hiện sức khỏe tài chính tốt, cho thấy doanh nghiệp có khả năng sinh lời cao và sử dụng vốn hiệu quả. Đây là những yếu tố quan trọng để dòng tiền lớn xem xét nắm giữ dài hạn.",
+        "outlook": "P/E ở mức 11.63 và P/B là 2.53, định giá của MSN đang ở mức hợp lý so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, khi cổ phiếu đang tích lũy nền với biên độ hẹp, đây có thể là thời điểm hấp dẫn để mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 68.0 - 71.0 | Mua gia tăng khi Breakout > 72.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô ổn định và ngành tiêu dùng nội địa đang có xu hướng tăng trưởng, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Tuy nhiên, cần theo dõi thêm các biến động về lãi suất và chính sách kinh tế vĩ mô.",
+        "ai_updated_at": "2026-10-30 10:00:56"
     },
     "SAB": {
         "symbol": "SAB",
@@ -767,7 +1091,13 @@
         "dividend_yield": 11.82,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:35:54"
+        "updated_at": "2026-10-30 16:35:54",
+        "bctc": "Doanh nghiệp SAB có sức khỏe tài chính tốt với EPS cao (3622 VNĐ), ROE (20.1%) và ROA (14.8%) đều ở mức tốt, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Đây là những yếu tố đủ hấp dẫn để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 11.68 và P/B 2.61 của SAB đang ở mức hợp lý so với ngành, kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền với biên độ hẹp, tạo điều kiện thuận lợi cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 41500 - 42500 | Mua gia tăng khi Breakout > 43000 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô ổn định và ngành Bia - Rượu - Nước giải khát đang có xu hướng tăng trưởng tốt, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 10:01:04"
     },
     "GAS": {
         "symbol": "GAS",
@@ -781,7 +1111,13 @@
         "dividend_yield": 2.68,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:36:00"
+        "updated_at": "2026-10-30 16:36:00",
+        "bctc": "Doanh nghiệp GAS có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức hấp dẫn. Điều này cho thấy doanh nghiệp có khả năng sinh lời tốt và sử dụng hiệu quả nguồn vốn, đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 14.42 và P/B 2.67 của GAS nằm trong khoảng hợp lý so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền, đây là dấu hiệu cạn cung và tạo cơ hội mua vào hấp dẫn.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 75.0 - 78.0 | Mua gia tăng khi Breakout > 80.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Dầu khí đang nhận được sự ủng hộ từ xu hướng tăng giá dầu toàn cầu, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô như lãi suất và tỷ giá để đảm bảo tính bền vững.",
+        "ai_updated_at": "2026-10-30 10:01:12"
     },
     "PVD": {
         "symbol": "PVD",
@@ -795,7 +1131,13 @@
         "dividend_yield": 1.66,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:36:06"
+        "updated_at": "2026-10-30 16:36:06",
+        "bctc": "EPS ở mức 2001 VNĐ, ROE 6.5% và ROA 4.0% cho thấy doanh nghiệp có khả năng sinh lời ổn định nhưng chưa thực sự mạnh mẽ. Tuy nhiên, với tỷ suất cổ tức 1.66%, PVD vẫn có thể thu hút dòng tiền lớn nắm giữ dài hạn nhờ vào tiềm năng tăng trưởng tương đối ổn định.",
+        "outlook": "P/E 15.3 và P/B 0.98 cho thấy định giá của PVD đang ở mức hợp lý so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang siết chặt và tích lũy, tạo điều kiện thuận lợi cho việc mua vào khi cung cạn kiệt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 17500 - 18000 | Mua gia tăng khi Breakout > 18500 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang trong xu hướng phục hồi, đặc biệt là các ngành như BĐS và Thép đang có dấu hiệu tích cực. Điều này có thể tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc vào PVD.",
+        "ai_updated_at": "2026-10-30 10:01:25"
     },
     "PVS": {
         "symbol": "PVS",
@@ -809,7 +1151,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.60x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:36:12"
+        "updated_at": "2026-10-30 16:36:12",
+        "bctc": "Với EPS đạt 3417 VNĐ, ROE 12.8%, và ROA 5.1%, PVS thể hiện sức khỏe tài chính tốt, cho thấy doanh nghiệp có khả năng sinh lời ổn định. Tuy nhiên, tỷ suất cổ tức là 0.0% có thể làm giảm hấp dẫn đối với một số nhà đầu tư dài hạn.",
+        "outlook": "Định giá P/E 8.92 và P/B 1.19 của PVS khá hấp dẫn so với mặt bằng chung, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền và cạn cung, tạo ra cơ hội mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 30.0 - 31.0 | Mua gia tăng khi Breakout > 32.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành dầu khí đang được hỗ trợ bởi xu hướng tăng giá dầu toàn cầu, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô như lãi suất và chính sách tiền tệ.",
+        "ai_updated_at": "2026-10-30 10:01:34"
     },
     "BSR": {
         "symbol": "BSR",
@@ -823,7 +1171,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.65x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:36:17"
+        "updated_at": "2026-10-30 16:36:17",
+        "bctc": "Doanh nghiệp BSR có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức rất tốt, cho thấy hiệu quả sử dụng vốn và khả năng sinh lời mạnh mẽ. Đây là những yếu tố hấp dẫn để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 6.96 và P/B 1.9 của BSR khá hấp dẫn so với mặt bằng chung, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền và cạn cung, tạo ra cơ hội mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 27000 - 28000 | Mua gia tăng khi Breakout > 28500 kèm Vol lớn",
+        "macro_view": "Hiện nay, ngành Ngân hàng và Bất động sản đang có xu hướng phục hồi, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Tuy nhiên, cần theo dõi thêm các chính sách vĩ mô và biến động thị trường.",
+        "ai_updated_at": "2026-10-30 10:01:43"
     },
     "POW": {
         "symbol": "POW",
@@ -837,7 +1191,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:36:23"
+        "updated_at": "2026-10-30 16:36:23",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao, ROE và ROA ở mức chấp nhận được, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Tuy nhiên, tỷ suất cổ tức là 0% có thể làm giảm hấp dẫn đối với nhà đầu tư dài hạn.",
+        "outlook": "Định giá P/E 6.39 và P/B 0.92 cho thấy cổ phiếu POW đang được định giá thấp so với ngành, kết hợp với nền giá đang siết chặt và cạn cung, tạo điều kiện thuận lợi cho một điểm mua tiềm năng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 12000 - 12500 | Mua gia tăng khi Breakout > 12800 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành điện lực đang có triển vọng tích cực do nhu cầu tiêu thụ điện tăng và các dự án cơ sở hạ tầng mới. Điều này có thể thu hút dòng tiền lớn vào cổ phiếu POW.",
+        "ai_updated_at": "2026-10-30 10:01:50"
     },
     "REE": {
         "symbol": "REE",
@@ -851,7 +1211,13 @@
         "dividend_yield": 1.89,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:36:29"
+        "updated_at": "2026-10-30 16:36:29",
+        "bctc": "Doanh nghiệp có EPS cao (4416 VNĐ) và ROE, ROA ở mức chấp nhận được (10.9% và 6.7%), cho thấy khả năng sinh lời tốt. Tuy nhiên, tỷ suất cổ tức thấp (1.89%) có thể hạn chế hấp dẫn đối với nhà đầu tư dài hạn.",
+        "outlook": "Định giá P/E 10.75 và P/B 1.26 là hợp lý so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang siết nền tích lũy biên độ hẹp, tạo cơ hội mua vào khi cung cạn.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 43000 - 45000 | Mua gia tăng khi Breakout > 46000 kèm Vol lớn",
+        "macro_view": "Hiện tại, vĩ mô Việt Nam đang ổn định và có xu hướng phục hồi, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Ngành công nghiệp điện lực, trong đó REE hoạt động, cũng đang có triển vọng tăng trưởng tốt.",
+        "ai_updated_at": "2026-10-30 10:01:57"
     },
     "PC1": {
         "symbol": "PC1",
@@ -865,7 +1231,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:36:34"
+        "updated_at": "2026-10-30 16:36:34",
+        "bctc": "Doanh nghiệp có EPS cao (2809 VNĐ) và ROE, ROA tốt (13.3% và 4.8%), cho thấy hiệu quả hoạt động và khả năng sinh lời ổn định. Tuy nhiên, tỷ suất cổ tức là 0.0%, điều này có thể ảnh hưởng đến sự hấp dẫn đối với các nhà đầu tư dài hạn.",
+        "outlook": "Định giá P/E 6.71 và P/B 1.16 là khá hấp dẫn so với mặt bằng chung, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền. Nền giá đang siết chặt, tạo cơ hội cho một đợt breakout tiềm năng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 18.0 - 18.5 | Mua gia tăng khi Breakout > 19.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành công nghệ thông tin đang có xu hướng tăng trưởng ổn định, nhưng cần theo dõi thêm các yếu tố vĩ mô như lãi suất và chính sách kinh tế để xác định thời điểm nhập cuộc phù hợp.",
+        "ai_updated_at": "2026-10-30 10:02:06"
     },
     "NT2": {
         "symbol": "NT2",
@@ -879,7 +1251,13 @@
         "dividend_yield": 3.06,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:36:40"
+        "updated_at": "2026-10-30 16:36:40",
+        "bctc": "Doanh nghiệp NT2 có sức khỏe tài chính tốt với EPS cao (5068 VNĐ), ROE (29.4%) và ROA (14.9%) đều ở mức rất tốt, cho thấy hiệu quả sử dụng vốn và khả năng sinh lời mạnh mẽ. Đây là những yếu tố quan trọng để dòng tiền lớn có thể nắm giữ dài hạn.",
+        "outlook": "Với P/E chỉ 4.52 và P/B 1.28, NT2 đang được định giá hấp dẫn so với mặt bằng chung của thị trường. Kết hợp với trạng thái kỹ thuật hiện tại, nến đang gom hàng và dòng tiền duy trì ổn định, đây là dấu hiệu tích cực cho việc mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 21.5 - 22.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng đang có xu hướng phục hồi, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Tuy nhiên, cần theo dõi thêm các biến động vĩ mô như lãi suất và chính sách tiền tệ để đảm bảo an toàn.",
+        "ai_updated_at": "2026-10-30 10:02:14"
     },
     "GMD": {
         "symbol": "GMD",
@@ -893,7 +1271,13 @@
         "dividend_yield": 5.26,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.60x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:36:46"
+        "updated_at": "2026-10-30 16:36:46",
+        "bctc": "Doanh nghiệp có EPS cao (6015 VNĐ), ROE (17.3%) và ROA (12.9%) tốt, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Đây là những yếu tố tích cực, đủ để dòng tiền lớn xem xét nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 13.19 và P/B 2.47 ở mức hợp lý so với ngành. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang cạn cung và khối lượng giao dịch giảm, tạo điều kiện thuận lợi cho điểm mua hấp dẫn.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 52.0 - 53.5 | Mua gia tăng khi Breakout > 54.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô ổn định, các ngành như BĐS, Thép đang có xu hướng phục hồi, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Ngành của GMD cũng đang trong đà tăng trưởng, hỗ trợ thêm cho quyết định đầu tư.",
+        "ai_updated_at": "2026-10-30 10:02:21"
     },
     "HAH": {
         "symbol": "HAH",
@@ -907,7 +1291,13 @@
         "dividend_yield": 5.54,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.44x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:36:51"
+        "updated_at": "2026-10-30 16:36:51",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức hấp dẫn, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Đây là những yếu tố đủ để dòng tiền lớn xem xét nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.19 và P/B 1.72 khá hấp dẫn so với ngành, kết hợp với trạng thái kỹ thuật hiện tại đang cạn cung, tạo cơ hội mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 48.0 - 50.0 | Mua gia tăng khi Breakout > 51.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, vĩ mô và sóng ngành đang ủng hộ, đặc biệt trong bối cảnh kinh tế phục hồi và nhu cầu đầu tư vào các doanh nghiệp có tiềm năng tăng trưởng. Dòng tiền lớn có thể đang tìm kiếm cơ hội nhập cuộc.",
+        "ai_updated_at": "2026-10-30 10:02:29"
     },
     "PVT": {
         "symbol": "PVT",
@@ -921,7 +1311,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.61x so với trung bình 20 phiên. Biên độ giá siết chặt.",
-        "updated_at": "2026-10-30 16:36:57"
+        "updated_at": "2026-10-30 16:36:57",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao (2976 VNĐ), ROE (12.9%) và ROA (6.9%) ở mức chấp nhận được, cho thấy khả năng sinh lời và sử dụng vốn hiệu quả. Tuy nhiên, tỷ suất cổ tức là 0.0%, điều này có thể làm giảm hấp dẫn đối với nhà đầu tư dài hạn.",
+        "outlook": "Định giá P/E 7.72 và P/B 1.12 cho thấy cổ phiếu đang được định giá khá hấp dẫn so với thị trường. Kết hợp với trạng thái kỹ thuật hiện tại, nền giá đang cạn cung và khối lượng giao dịch siết chặt, tạo ra cơ hội mua tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 20.5 - 21.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành Ngân hàng và BĐS đang có xu hướng phục hồi, tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô như lãi suất và chính sách kinh tế để có cái nhìn toàn diện.",
+        "ai_updated_at": "2026-10-30 10:02:38"
     },
     "VJC": {
         "symbol": "VJC",
@@ -935,7 +1331,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:37:02"
+        "updated_at": "2026-10-30 16:37:02",
+        "bctc": "Với EPS đạt 2830 VNĐ, ROE 8.7% và ROA 1.7%, VJC thể hiện sức khỏe tài chính ổn định nhưng chưa thực sự xuất sắc. Tuy nhiên, doanh nghiệp vẫn có tiềm năng để dòng tiền lớn nắm giữ dài hạn nhờ vào vị thế dẫn đầu trong ngành hàng không.",
+        "outlook": "Định giá P/E 46.49 và P/B 3.84 cho thấy cổ phiếu đang ở mức cao so với mặt bằng chung, nhưng kết hợp với trạng thái kỹ thuật hiện tại là đang gom hàng và dòng tiền duy trì ổn định, tạo ra một cơ hội hấp dẫn cho nhà đầu tư.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 125.0 - 130.0 | Mua gia tăng khi Breakout > 135.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành hàng không đang phục hồi mạnh mẽ sau đại dịch, tạo điều kiện thuận lợi cho VJC. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô như lạm phát và lãi suất để đảm bảo môi trường kinh tế hỗ trợ cho sự tăng trưởng của doanh nghiệp.",
+        "ai_updated_at": "2026-10-30 10:02:51"
     },
     "HVN": {
         "symbol": "HVN",
@@ -949,7 +1351,13 @@
         "dividend_yield": 0.0,
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên mức trung bình 20 phiên.",
-        "updated_at": "2026-10-30 16:37:08"
+        "updated_at": "2026-10-30 16:37:08",
+        "bctc": "Doanh nghiệp có EPS cao (1460 VNĐ) và ROE tốt (72.1%), cho thấy hiệu quả sử dụng vốn chủ sở hữu rất tốt. Tuy nhiên, tỷ suất cổ tức là 0.0%, điều này có thể làm giảm hấp dẫn đối với nhà đầu tư tìm kiếm thu nhập từ cổ tức. Tổng thể, HVN có sức khỏe tài chính ổn định và tiềm năng tăng trưởng, đủ để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 14.44 và P/B 6.93 cho thấy cổ phiếu đang ở mức định giá trung bình so với ngành. Tuy nhiên, kết hợp với trạng thái kỹ thuật hiện tại, dòng tiền duy trì ổn định trên mức trung bình 20 phiên, tạo ra cơ hội mua vào khi cung cầu cân bằng.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 20.0 - 21.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, thị trường chứng khoán Việt Nam đang trong xu hướng phục hồi, đặc biệt là các ngành như Ngân hàng và BĐS. Điều này tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc, hỗ trợ cho việc mua vào HVN.",
+        "ai_updated_at": "2026-10-30 10:03:07"
     },
     "VHC": {
         "symbol": "VHC",
@@ -963,7 +1371,13 @@
         "dividend_yield": 4.16,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:37:13"
+        "updated_at": "2026-10-30 16:37:13",
+        "bctc": "Với EPS đạt 6931 VNĐ, ROE 14.5% và ROA 10.8%, VHC thể hiện sức khỏe tài chính tốt, cho thấy doanh nghiệp có khả năng sinh lời cao và sử dụng hiệu quả nguồn vốn. Điều này đủ để thu hút dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 7.43 và P/B 1.15 cho thấy cổ phiếu đang được định giá hấp dẫn so với mặt bằng chung của thị trường. Kết hợp với trạng thái kỹ thuật đang tích lũy nền, đây là cơ hội tốt để mua vào.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 50.0 - 52.0 | Mua gia tăng khi Breakout > 54.0 kèm Vol lớn",
+        "macro_view": "Hiện tại, ngành thủy sản đang có xu hướng tăng trưởng ổn định, hỗ trợ bởi nhu cầu xuất khẩu tăng. Đồng thời, môi trường vĩ mô ổn định cũng tạo điều kiện thuận lợi cho dòng tiền lớn nhập cuộc.",
+        "ai_updated_at": "2026-10-30 10:03:16"
     },
     "ANV": {
         "symbol": "ANV",
@@ -977,6 +1391,12 @@
         "dividend_yield": 6.39,
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
-        "updated_at": "2026-10-30 16:37:19"
+        "updated_at": "2026-10-30 16:37:19",
+        "bctc": "Doanh nghiệp có sức khỏe tài chính tốt với EPS cao, ROE và ROA đều ở mức hấp dẫn. Điều này cho thấy ANV có khả năng sinh lời tốt và hiệu quả sử dụng vốn hiệu quả, đủ nội lực để dòng tiền lớn nắm giữ dài hạn.",
+        "outlook": "Định giá P/E 5.71 và P/B 1.11 là rất hấp dẫn so với ngành, đặc biệt khi kết hợp với trạng thái kỹ thuật hiện tại đang tích lũy nền với biên độ hẹp, tạo cơ hội mua vào tốt.",
+        "ai_recommendation": "",
+        "ai_price_zone": "Mua tích lũy: 15.0 - 16.5 | Mua gia tăng khi Breakout > 17.5 kèm Vol lớn",
+        "macro_view": "Hiện tại, môi trường vĩ mô và sóng ngành đang ủng hộ dòng tiền lớn nhập cuộc, đặc biệt trong bối cảnh lãi suất ổn định và nhu cầu đầu tư vào các doanh nghiệp có tiềm năng tăng trưởng cao.",
+        "ai_updated_at": "2026-10-30 10:03:27"
     }
 }
