@@ -23,43 +23,28 @@
                     <h1 class="text-base sm:text-lg font-bold bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
                         Pro Quant Screener Pro
                     </h1>
-                    <p class="text-[11px] text-slate-400">Giá Real-time từ VNDIRECT · Chiến lược AI Qwen</p>
+                    <p class="text-[11px] text-slate-400">Dữ liệu tự động từ data.json · Chiến lược AI Qwen</p>
                 </div>
-            </div>
-            <div class="flex items-center bg-slate-800/80 p-1 rounded-xl border border-slate-700/60 w-full sm:w-auto">
-                <button onclick="switchTab('universe')" id="tabBtnUniverse" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white shadow">
-                    <i class="fa-solid fa-building-columns mr-1.5"></i> VN100
-                </button>
-                <button onclick="switchTab('signals')" id="tabBtnSignals" class="flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white">
-                    <i class="fa-solid fa-bolt mr-1.5"></i> Tín Hiệu
-                </button>
             </div>
         </div>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 py-6 flex-1 w-full space-y-6">
-
-        <section id="tabUniverse" class="space-y-4">
+        <section class="space-y-4">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-3 bg-slate-800/40 border border-slate-800 p-4 rounded-2xl">
                 <div>
                     <h2 class="text-sm font-bold text-white flex items-center gap-2">
                         <i class="fa-solid fa-layer-group text-blue-400"></i> Danh Sách Cổ Phiếu VN100
                     </h2>
-                    <p class="text-xs text-slate-400 mt-0.5">Click vào mã để xem chi tiết. Chỉ số lấy thực tế từ VNDIRECT.</p>
+                    <p class="text-xs text-slate-400 mt-0.5">Click vào mã để xem chi tiết phân tích từ AI.</p>
                 </div>
                 
-                <div class="flex flex-col sm:flex-row items-center gap-2 w-full md:w-auto">
+                <div class="flex items-center gap-2 w-full md:w-auto">
                     <div class="relative w-full sm:w-64">
-                        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                            <i class="fa-solid fa-magnifying-glass text-slate-400 text-xs"></i>
-                        </div>
-                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Tìm mã, ngành (vd: NH, CK, BĐS)..." 
-                            class="bg-slate-900/60 border border-slate-700 text-slate-200 text-xs rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full pl-9 p-2 transition-all outline-none">
+                        <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Tìm mã, ngành..." 
+                            class="bg-slate-900/60 border border-slate-700 text-slate-200 text-xs rounded-xl focus:ring-blue-500 block w-full pl-3 p-2 outline-none">
                     </div>
-                    <button onclick="loadUniverse()" class="px-3 py-2 bg-slate-700 hover:bg-slate-600 text-white text-xs rounded-xl transition-all flex items-center justify-center gap-1.5 w-full sm:w-auto">
-                        <i class="fa-solid fa-rotate"></i> Refresh
-                    </button>
-                    <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-2 rounded-xl whitespace-nowrap hidden sm:block">
+                    <div class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3 py-2 rounded-xl whitespace-nowrap">
                         Tổng: <span id="totalUniverseCount">0</span> mã
                     </div>
                 </div>
@@ -79,17 +64,10 @@
                             </tr>
                         </thead>
                         <tbody id="universeBody" class="divide-y divide-slate-800 text-slate-200 text-xs">
-                            <tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải dữ liệu từ VNDIRECT...</td></tr>
+                            <tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải dữ liệu từ data.json...</td></tr>
                         </tbody>
                     </table>
                 </div>
-            </div>
-        </section>
-
-        <section id="tabSignals" class="space-y-6 hidden">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4"><h3 class="text-xs font-bold text-emerald-400"><i class="fa-solid fa-rocket"></i> Breakout</h3><table class="w-full text-xs mt-2"><tbody id="breakoutBody"></tbody></table></div>
-                <div class="bg-slate-800/40 border border-slate-800 rounded-2xl p-4"><h3 class="text-xs font-bold text-amber-400"><i class="fa-solid fa-box"></i> Squeeze</h3><table class="w-full text-xs mt-2"><tbody id="squeezeBody"></tbody></table></div>
             </div>
         </section>
     </main>
@@ -111,158 +89,79 @@
             <div class="space-y-2 text-xs">
                 <div class="bg-slate-900/40 p-3 rounded-xl"><p class="text-blue-400 font-bold mb-1">Tài chính (AI):</p><p id="modalBctc" class="text-slate-300">--</p></div>
                 <div class="bg-blue-950/30 p-3 rounded-xl"><p class="text-emerald-400 font-bold mb-1">Triển vọng (AI):</p><p id="modalOutlook" class="text-emerald-200">--</p></div>
-                <div class="bg-amber-950/30 p-3 rounded-xl"><p class="text-amber-400 font-bold mb-1">Chiến lược (AI):</p><p id="modalRecommendation" class="text-amber-100 font-bold mb-2">--</p><p id="modalPriceZone" class="text-amber-200 font-mono">--</p></div>
+                <div class="bg-amber-950/30 p-3 rounded-xl"><p class="text-amber-400 font-bold mb-1">Khuyến nghị (AI):</p><p id="modalRecommendation" class="text-amber-100 font-bold mb-2">--</p><p id="modalPriceZone" class="text-amber-200 font-mono">--</p></div>
                 <div class="bg-indigo-950/30 p-3 rounded-xl"><p class="text-indigo-400 font-bold mb-1">Vĩ mô (AI):</p><p id="modalMacroView" class="text-indigo-200">--</p></div>
             </div>
         </div>
     </div>
 
     <script>
-        const VN100 = ["VCB","BID","CTG","TCB","MBB","ACB","STB","VPB","HDB","VIB","TPB","SHB","SSB","LPB","MSB","OCB","EIB","SSI","VCI","HCM","VIX","MBS","FTS","BSI","CTS","ORS","VHM","VIC","VRE","NVL","PDR","DIG","NLG","KDH","CEO","DXG","TCH","SJS","HDG","KBC","IDC","SZC","BCM","PHR","HPG","HSG","NKG","VLB","CTD","HBC","VCG","HHV","C4G","FPT","MWG","PNJ","FRT","VNM","MSN","DGW","SAB","BHN","KDC","PET","GAS","POW","BSR","PVD","PVS","DGC","DCM","DPM","GEG","REE","PC1","NT2","GMD","HAH","VJC","HVN","PVT","VSC","VHC","ANV","DAB","PAN","BAF"];
-        const INDUSTRY_MAP = {"VCB": "Ngân hàng", "BID": "Ngân hàng", "CTG": "Ngân hàng", "TCB": "Ngân hàng", "MBB": "Ngân hàng","ACB": "Ngân hàng", "STB": "Ngân hàng", "VPB": "Ngân hàng", "HDB": "Ngân hàng", "VIB": "Ngân hàng","TPB": "Ngân hàng", "SHB": "Ngân hàng", "SSB": "Ngân hàng", "LPB": "Ngân hàng", "MSB": "Ngân hàng","OCB": "Ngân hàng", "EIB": "Ngân hàng", "SSI": "Chứng khoán", "VCI": "Chứng khoán", "HCM": "Chứng khoán","VIX": "Chứng khoán", "MBS": "Chứng khoán", "FTS": "Chứng khoán", "BSI": "Chứng khoán", "CTS": "Chứng khoán", "ORS": "Chứng khoán","VHM": "Bất động sản", "VIC": "Bất động sản", "VRE": "Bất động sản", "NVL": "Bất động sản","PDR": "Bất động sản", "DIG": "Bất động sản", "NLG": "Bất động sản", "KDH": "Bất động sản","CEO": "Bất động sản", "DXG": "Bất động sản", "TCH": "Bất động sản", "HDG": "Bất động sản","KBC": "BĐS Khu công nghiệp", "IDC": "BĐS Khu công nghiệp", "SZC": "BĐS Khu công nghiệp","BCM": "BĐS Khu công nghiệp", "PHR": "BĐS Khu công nghiệp", "HPG": "Thép & VLXD", "HSG": "Thép & VLXD","NKG": "Thép & VLXD", "VLB": "Thép & VLXD", "CTD": "Xây dựng", "VCG": "Xây dựng", "HHV": "Xây dựng", "C4G": "Xây dựng","FPT": "Công nghệ", "MWG": "Bán lẻ", "PNJ": "Bán lẻ", "FRT": "Bán lẻ", "DGW": "Bán lẻ","VNM": "Tiêu dùng", "MSN": "Tiêu dùng", "SAB": "Tiêu dùng", "GAS": "Dầu khí", "PVD": "Dầu khí","PVS": "Dầu khí", "BSR": "Dầu khí", "POW": "Năng lượng", "REE": "Năng lượng", "PC1": "Năng lượng","NT2": "Năng lượng", "DGC": "Hóa chất", "DCM": "Phân bón", "DPM": "Phân bón","GMD": "Cảng biển & Logistics", "HAH": "Cảng biển & Logistics", "PVT": "Vận tải biển","VJC": "Hàng không", "HVN": "Hàng không", "VHC": "Thủy sản", "ANV": "Thủy sản", "DAB": "Nông nghiệp"};
-        const INDUSTRY_KEYWORDS = {"Ngân hàng": "nh bank", "Chứng khoán": "ck securities", "Bất động sản": "bds realestate", "BĐS Khu công nghiệp": "bds kcn industrial", "Thép & VLXD": "thep vlxd steel", "Xây dựng": "xd construction", "Công nghệ": "cn tech", "Bán lẻ": "bl retail", "Tiêu dùng": "td consumer", "Dầu khí": "dk oil gas", "Năng lượng": "nl energy", "Hóa chất": "hc chemical", "Phân bón": "pb fertilizer", "Cảng biển & Logistics": "cangbien logistics", "Vận tải biển": "vtb shipping", "Hàng không": "hk aviation", "Thủy sản": "ts seafood", "Nông nghiệp": "nn agriculture"};
+        let globalData = {};
 
-        let aiDatabase = {}, liveDataMap = {}, historyCache = {}, universeLoading = false;
-
-        function switchTab(tabName) {
-            const tabUniverse = document.getElementById("tabUniverse"), tabSignals = document.getElementById("tabSignals");
-            const tabBtnUniverse = document.getElementById("tabBtnUniverse"), tabBtnSignals = document.getElementById("tabBtnSignals");
-            if (tabName === 'universe') {
-                tabUniverse.classList.remove("hidden"); tabSignals.classList.add("hidden");
-                tabBtnUniverse.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white shadow";
-                tabBtnSignals.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white";
-            } else {
-                tabUniverse.classList.add("hidden"); tabSignals.classList.remove("hidden");
-                tabBtnSignals.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all bg-blue-600 text-white shadow";
-                tabBtnUniverse.className = "flex-1 sm:flex-none px-4 py-2 rounded-lg text-xs font-semibold transition-all text-slate-400 hover:text-white";
-            }
+        function fmtNum(val, suffix = '') {
+            if (val === null || val === undefined || isNaN(val) || val === 0) return '—';
+            return val.toLocaleString('vi-VN') + suffix;
         }
 
-        // GỌI API VNDIRECT TRỰC TIẾP (KHÔNG CẦN PROXY)
-        async function fetchVND(url, params) {
-            const query = new URLSearchParams(params).toString();
-            const fullUrl = `${url}?${query}`;
-            const controller = new AbortController();
-            const timer = setTimeout(() => controller.abort(), 8000);
-            try {
-                const res = await fetch(fullUrl, { signal: controller.signal });
-                if (!res.ok) return null;
-                return await res.json();
-            } catch (e) {
-                return null;
-            } finally {
-                clearTimeout(timer);
-            }
-        }
-
-        async function fetchHistory(symbol) {
-            if (historyCache[symbol]) return historyCache[symbol];
-            const end = Math.floor(Date.now() / 1000);
-            const start = end - (120 * 86400);
-            const data = await fetchVND("https://dchart-api.vndirect.com.vn/dchart/history", { resolution: "D", symbol: symbol, from: start, to: end });
-            if (data && data.s === "ok" && data.c && data.c.length >= 21) { historyCache[symbol] = data; return data; }
-            return null;
-        }
-
-        async function fetchRatio(symbol, ratioCode) {
-            const data = await fetchVND("https://api-finfo.vndirect.com.vn/v4/ratios", { q: `code:${symbol}~ratioCode:${ratioCode}`, size: 1, sort: "reportDate:desc" });
-            if (data && data.data && data.data.length > 0) {
-                let val = parseFloat(data.data[0].value);
-                if (ratioCode === "ROAE_TR_AVG5Q" && val > 0 && val < 1) return val * 100;
-                return val;
-            }
-            return null;
-        }
-
-        async function fetchFundamentals(symbol) {
-            const [pe, pb, roe] = await Promise.all([fetchRatio(symbol, "PRICE_TO_EARNINGS"), fetchRatio(symbol, "PRICE_TO_BOOK"), fetchRatio(symbol, "ROAE_TR_AVG5Q")]);
-            return { pe, pb, roe };
-        }
-
-        function fmtRatio(val) { if (val === null || val === undefined || isNaN(val) || val === 0) return '—'; return val.toFixed(1); }
-        function fmtPrice(val) { if (!val || val === 0) return '—'; return val.toLocaleString('vi-VN'); }
-
-        async function loadUniverse() {
-            universeLoading = true;
-            const tbody = document.getElementById("universeBody");
-            tbody.innerHTML = `<tr><td colspan="6" class="py-8 text-center text-slate-500">Đang tải dữ liệu từ VNDIRECT & AI...</td></tr>`;
-            document.getElementById("searchInput").value = "";
-
+        async function loadData() {
             try {
                 const res = await fetch('data.json');
-                if (res.ok) aiDatabase = await res.json();
-            } catch (e) {}
-
-            const entries = VN100;
-            document.getElementById("totalUniverseCount").innerText = entries.length;
-
-            const BATCH = 5;
-            for (let i = 0; i < entries.length; i += BATCH) {
-                await Promise.all(entries.slice(i, i + BATCH).map(async (symbol) => {
-                    const history = await fetchHistory(symbol);
-                    const close = (history && history.c.length > 0) ? history.c[history.c.length - 1] : 0;
-                    const ratios = await fetchFundamentals(symbol);
-                    liveDataMap[symbol] = {
-                        symbol, industry: INDUSTRY_MAP[symbol] || "VN100", close, pe: ratios.pe, pb: ratios.pb, roe: ratios.roe,
-                        bctc: aiDatabase[symbol]?.bctc || "Chưa có đánh giá AI",
-                        outlook: aiDatabase[symbol]?.outlook || "Chưa có triển vọng AI",
-                        recommendation: aiDatabase[symbol]?.recommendation || "Chưa có khuyến nghị",
-                        price_zone: aiDatabase[symbol]?.price_zone || "Chưa có vùng giá",
-                        macro_view: aiDatabase[symbol]?.macro_view || "Chưa có góc nhìn vĩ mô"
-                    };
-                }));
+                if (!res.ok) throw new Error("Không thể tải file data.json");
+                globalData = await res.json();
+            } catch (e) {
+                document.getElementById("universeBody").innerHTML = `<tr><td colspan="6" class="py-8 text-center text-red-400">Lỗi tải dữ liệu data.json</td></tr>`;
+                return;
             }
+
+            const symbols = Object.keys(globalData);
+            document.getElementById("totalUniverseCount").innerText = symbols.length;
 
             let html = "";
-            for (const symbol of entries) {
-                const d = liveDataMap[symbol]; if (!d) continue;
-                const pe = fmtRatio(d.pe), pb = fmtRatio(d.pb), roe = fmtRatio(d.roe);
-                const keywords = INDUSTRY_KEYWORDS[d.industry] || "";
+            symbols.forEach(symbol => {
+                const d = globalData[symbol];
                 html += `
-                    <tr class="hover:bg-slate-800/60 transition-colors cursor-pointer universe-row" 
-                        data-symbol="${symbol.toUpperCase()}" data-industry="${d.industry.toUpperCase()}" data-keywords="${keywords.toUpperCase()}"
+                    <tr class="hover:bg-slate-800/65 transition-colors cursor-pointer universe-row" 
+                        data-symbol="${symbol}" data-industry="${d.industry.toUpperCase()}"
                         onclick="showStockDetail('${symbol}')">
-                        <td class="py-3 px-4 font-bold text-blue-400"><span class="flex items-center gap-1.5 bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20 w-fit"><i class="fa-solid fa-circle-info text-[10px]"></i> ${symbol}</span></td>
+                        <td class="py-3 px-4 font-bold text-blue-400"><span class="bg-blue-500/10 px-2 py-1 rounded-lg border border-blue-500/20">${symbol}</span></td>
                         <td class="py-3 px-4 text-slate-300">${d.industry}</td>
-                        <td class="py-3 px-4 text-right font-mono text-white">${fmtPrice(d.close)}</td>
-                        <td class="py-3 px-4 text-center font-mono text-blue-300">${pe !== '—' ? pe + 'x' : '—'}</td>
-                        <td class="py-3 px-4 text-center font-mono text-amber-300">${pb !== '—' ? pb + 'x' : '—'}</td>
-                        <td class="py-3 px-4 text-center font-mono text-purple-300">${roe !== '—' ? roe + '%' : '—'}</td>
+                        <td class="py-3 px-4 text-right font-mono text-white">${fmtNum(d.close)}</td>
+                        <td class="py-3 px-4 text-center font-mono text-blue-300">${fmtNum(d.pe, 'x')}</td>
+                        <td class="py-3 px-4 text-center font-mono text-amber-300">${fmtNum(d.pb, 'x')}</td>
+                        <td class="py-3 px-4 text-center font-mono text-purple-300">${fmtNum(d.roe, '%')}</td>
                     </tr>`;
-            }
-            tbody.innerHTML = html;
-            universeLoading = false;
+            });
+            document.getElementById("universeBody").innerHTML = html;
         }
 
         function filterTable() {
             const filter = document.getElementById("searchInput").value.toUpperCase().trim();
             document.querySelectorAll(".universe-row").forEach(row => {
-                const symbol = row.getAttribute("data-symbol"), industry = row.getAttribute("data-industry"), keywords = row.getAttribute("data-keywords");
-                row.style.display = (symbol.includes(filter) || industry.includes(filter) || keywords.includes(filter)) ? "" : "none";
+                const symbol = row.getAttribute("data-symbol"), industry = row.getAttribute("data-industry");
+                row.style.display = (symbol.includes(filter) || industry.includes(filter)) ? "" : "none";
             });
         }
 
         function showStockDetail(symbol) {
-            const data = liveDataMap[symbol]; if (!data) return;
+            const d = globalData[symbol]; if (!d) return;
             document.getElementById("modalSymbolBadge").innerText = symbol;
             document.getElementById("modalTitle").innerText = `Hồ Sơ: ${symbol}`;
-            document.getElementById("modalIndustry").innerText = `Ngành: ${data.industry}`;
-            document.getElementById("modalPrice").innerText = fmtPrice(data.close) + " đ";
-            document.getElementById("modalPe").innerText = fmtRatio(data.pe) + 'x';
-            document.getElementById("modalPb").innerText = fmtRatio(data.pb) + 'x';
-            document.getElementById("modalRoe").innerText = fmtRatio(data.roe) + '%';
-            document.getElementById("modalBctc").innerText = data.bctc;
-            document.getElementById("modalOutlook").innerText = data.outlook;
-            document.getElementById("modalRecommendation").innerText = data.recommendation;
-            document.getElementById("modalPriceZone").innerText = data.price_zone;
-            document.getElementById("modalMacroView").innerText = data.macro_view;
+            document.getElementById("modalIndustry").innerText = `Ngành: ${d.industry}`;
+            document.getElementById("modalPrice").innerText = fmtNum(d.close, ' đ');
+            document.getElementById("modalPe").innerText = fmtNum(d.pe, 'x');
+            document.getElementById("modalPb").innerText = fmtNum(d.pb, 'x');
+            document.getElementById("modalRoe").innerText = fmtNum(d.roe, '%');
+            document.getElementById("modalBctc").innerText = d.bctc || 'Chưa có';
+            document.getElementById("modalOutlook").innerText = d.outlook || 'Chưa có';
+            document.getElementById("modalRecommendation").innerText = d.recommendation || 'Chưa có';
+            document.getElementById("modalPriceZone").innerText = d.price_zone || 'Chưa có';
+            document.getElementById("modalMacroView").innerText = d.macro_view || 'Chưa có';
             document.getElementById("stockModal").classList.remove("hidden");
         }
 
         function closeModal() { document.getElementById("stockModal").classList.add("hidden"); }
         window.addEventListener("click", (e) => { if (e.target === document.getElementById("stockModal")) closeModal(); });
-        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeModal(); });
-        window.addEventListener("DOMContentLoaded", async () => { await loadUniverse(); });
+        window.addEventListener("DOMContentLoaded", loadData);
     </script>
 </body>
 </html>
