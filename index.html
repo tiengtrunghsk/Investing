@@ -32,13 +32,13 @@
                     <span><i class="fa-solid fa-robot text-emerald-400 mr-1"></i> AI: <strong id="ai-stocks" class="text-emerald-400">0</strong></span>
                 </div>
                 
-                <!-- Nút Refresh -->
-                <button onclick="refreshData()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition border border-slate-700 flex items-center gap-1.5 shadow" title="Làm mới dữ liệu">
-                    <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span class="hidden sm:inline">Làm mới</span>
+                <!-- Nút Refresh: Tải lại dữ liệu & Quét lại API TCBS -->
+                <button onclick="refreshData()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition border border-slate-700 flex items-center gap-1.5 shadow" title="Làm mới và quét lại dữ liệu">
+                    <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span class="hidden sm:inline">Làm mới & Quét</span>
                 </button>
 
-                <!-- Nút Quét Nền & Gửi Telegram -->
-                <button onclick="scanAndSendTelegram()" id="btn-telegram" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2 shadow-lg shadow-emerald-600/20">
+                <!-- Nút Quét Nền & Gửi Telegram (Đã fix lỗi CORS, tích hợp GitHub Actions) -->
+                <button onclick="scanAndSendTelegram()" id="btn-telegram" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2 shadow-lg shadow-emerald-600/20" title="Chạy quét tự động trên GitHub">
                     <i class="fa-brands fa-telegram text-sm"></i> <span>Quét Nền & Báo Telegram</span>
                 </button>
             </div>
@@ -160,9 +160,6 @@
     <script>
         let combinedData = {};
 
-        const TELEGRAM_BOT_TOKEN = "7969018440:AAExxxxxxxx"; 
-        const TELEGRAM_CHAT_ID = "6238381831";            
-
         async function fetchLiveTcbsData(symbol) {
             let close = 0, pe = 0, pb = 0;
             try {
@@ -196,7 +193,7 @@
                 initFilters();
                 renderTable(combinedData);
                 updateStats();
-                updateLiveMarketData();
+                await updateLiveMarketData();
             } catch (error) {
                 console.error("Lỗi:", error);
                 document.getElementById('stock-table-body').innerHTML = `
@@ -206,6 +203,7 @@
             }
         }
 
+        // Nút Refresh: Tải lại data.json và quét lại trực tiếp giá/chỉ số từ TCBS API
         async function refreshData() {
             const icon = document.getElementById('refresh-icon');
             icon.classList.add('fa-spin');
@@ -318,60 +316,12 @@
             });
         }
 
-        async function scanAndSendTelegram() {
-            const btn = document.getElementById('btn-telegram');
-            const originalText = btn.innerHTML;
-            btn.disabled = true;
-            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Đang quét D1...`;
-
-            const breakoutStocks = Object.values(combinedData).filter(item => {
-                const rec = item.recommendation || "";
-                return rec.includes("BREAKOUT") || rec.includes("TÍCH LŨY") || rec.includes("GOM");
-            }).slice(0, 5);
-
-            if (breakoutStocks.length === 0) {
-                alert("Không tìm thấy mã đạt tiêu chí cấu trúc nền D1.");
-                btn.disabled = false;
-                btn.innerHTML = originalText;
-                return;
-            }
-
-            let message = `📊 <b>[PRICE ACTION D1] TÍN HIỆU TÍCH LŨY & BREAKOUT</b>\n`;
-            message += `------------------------------------\n\n`;
-
-            breakoutStocks.forEach((item, idx) => {
-                message += `<b>${idx + 1}. Mã ${item.symbol} (${item.industry})</b>\n`;
-                message += `• Giá D1: <b>${item.close ? item.close.toLocaleString('vi-VN') : '—'} VNĐ</b>\n`;
-                message += `• Định giá: P/E: ${item.pe ? item.pe.toFixed(1) : '—'}x | P/B: ${item.pb ? item.pb.toFixed(1) : '—'}x\n`;
-                message += `• Trạng thái D1: <b>${item.recommendation}</b>\n`;
-                message += `• Cấu trúc nền: <i>${item.price_zone}</i>\n\n`;
-            });
-
-            message += `⏰ <i>Thời gian quét khung D1: ${new Date().toLocaleString('vi-VN')}</i>`;
-
-            try {
-                const teleUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
-                const res = await fetch(teleUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML'
-                    })
-                });
-
-                if (res.ok) {
-                    alert("✅ Đã gửi báo cáo cấu trúc nền D1 thành công về Telegram!");
-                } else {
-                    alert("⚠️ Gửi Telegram thất bại. Kiểm tra lại Bot Token và Chat ID.");
-                }
-            } catch (err) {
-                console.error("Lỗi:", err);
-                alert("Lỗi kết nối khi gửi Telegram!");
-            } finally {
-                btn.disabled = false;
-                btn.innerHTML = originalText;
+        // Xử lý nút Gửi Telegram qua GitHub Actions để triệt tiêu hoàn toàn lỗi CORS trình duyệt
+        function scanAndSendTelegram() {
+            if(confirm("Hệ thống sẽ chuyển hướng bạn đến trang GitHub Actions để thực thi quét tín hiệu D1 và đẩy báo cáo về Telegram. Bạn có muốn tiếp tục?")) {
+                // Thay thế đường dẫn dưới đây bằng link GitHub Actions repository của bạn
+                const githubActionsUrl = "https://github.com/TÊN_TÀI_KHOẢN/TÊN_REPO/actions/workflows/screener.yml";
+                window.open(githubActionsUrl, '_blank');
             }
         }
 
