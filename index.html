@@ -83,6 +83,13 @@
     <script>
         let stockData = {};
 
+        // Hàm tự định dạng số có dấu chấm (VD: 21000 -> 21.000)
+        // Không phụ thuộc vào thiết lập ngôn ngữ của trình duyệt
+        function formatNumber(num) {
+            if (!num) return '—';
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+        }
+
         async function loadData() {
             try {
                 // Thêm timestamp để trình duyệt không lưu cache file data.json cũ
@@ -126,16 +133,9 @@
                 const tr = document.createElement('tr');
                 tr.className = "hover:bg-slate-800/40 transition border-b border-slate-800/40";
                 
-                const closePrice = item.close ? item.close.toLocaleString('vi-VN') : '—';
-                
-                // Format khối lượng (VD: 8.4M)
-                const formatVol = (num) => {
-                    if (!num) return '—';
-                    if (num >= 1000000) return (num / 1000000).toFixed(1) + 'M';
-                    if (num >= 1000) return (num / 1000).toFixed(0) + 'K';
-                    return num;
-                };
-                const volVal = formatVol(item.volume);
+                // Sử dụng hàm formatNumber tự viết
+                const closePrice = formatNumber(item.close);
+                const volVal = formatNumber(item.volume);
 
                 let badgeColor = "bg-slate-800 text-slate-300";
                 let shortStatus = item.recommendation;
