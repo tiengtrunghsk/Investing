@@ -1,0 +1,43 @@
+name: Auto Update Data
+
+on:
+  schedule:
+    # Chạy tự động vào 15:30 giờ VN (8:30 sáng UTC) từ Thứ 2 đến Thứ 6
+    - cron: '30 8 * * 1-5' 
+  workflow_dispatch: # Cho phép bạn bấm chạy thủ công bằng tay
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # Cấp quyền cho Action được phép commit file data.json
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -U --extra-index-url https://vnstocks.com/api/packages vnstock numpy
+
+      - name: Run script
+        # Truyền API Key từ GitHub Secrets vào biến môi trường của máy ảo
+        env:
+          VNSTOCK_API_KEY: ${{ secrets.VNSTOCK_API_KEY }}
+          PYTHONUNBUFFERED: 1
+        run: python fetch_data.py
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          # Thêm file và kiểm tra xem có thay đổi không
+          git add data.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "🤖 Auto update data.json [$(date +'%Y-%m-%d %H:%M:%S')]" && git push)
