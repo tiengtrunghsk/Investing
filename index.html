@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - Direct API (Debug Mode)</title>
+    <title>Pro Quant Screener - TCBS API (No Proxy)</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         ::-webkit-scrollbar { width: 8px; height: 8px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
-        ::-webkit-scrollbar-thumb:hover { background: #475569; }
-        
         #toast { transition: opacity 0.3s, transform 0.3s; transform: translateY(20px); opacity: 0; pointer-events: none; }
         #toast.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
     </style>
@@ -21,32 +19,32 @@
     <header class="bg-slate-900 border-b border-slate-800 sticky top-0 z-30 shadow-md">
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
-                <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg shadow-blue-500/30">
-                    <i class="fa-solid fa-chart-candlestick text-xl"></i>
+                <div class="bg-emerald-600 text-white p-2.5 rounded-xl shadow-lg shadow-emerald-500/30">
+                    <i class="fa-solid fa-chart-line text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-rose-500/20 text-rose-400 px-2 py-0.5 rounded border border-rose-500/30">Debug Mode</span></h1>
-                    <p class="text-xs text-slate-400">Đã bật Timeout (Chống treo điện thoại)</p>
+                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-emerald-500/20 text-emerald-400 px-2 py-0.5 rounded border border-emerald-500/30">TCBS API</span></h1>
+                    <p class="text-xs text-slate-400">Không dùng Proxy - Chạy trực tiếp trên Điện thoại</p>
                 </div>
             </div>
             
             <div class="flex items-center gap-3">
                 <div class="text-xs text-slate-300 bg-slate-800/60 px-3 py-2 rounded-lg border border-slate-700/50 hidden md:block">
-                    <i class="fa-solid fa-database text-blue-400 mr-1"></i> Đã tải: <strong id="total-stocks" class="text-white">0</strong>/70
+                    <i class="fa-solid fa-database text-emerald-400 mr-1"></i> Đã tải: <strong id="total-stocks" class="text-white">0</strong>/70
                 </div>
                 
                 <button onclick="exportJSON()" id="btn-export" class="px-3.5 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow opacity-50 cursor-not-allowed" disabled>
                     <i class="fa-solid fa-file-export text-emerald-400"></i> <span>Xuất JSON</span>
                 </button>
 
-                <button onclick="startScan()" id="btn-scan" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow">
+                <button onclick="startScan()" id="btn-scan" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-sm font-semibold transition flex items-center gap-2 shadow">
                     <i class="fa-solid fa-play" id="scan-icon"></i> <span id="scan-text">Bắt đầu Quét</span>
                 </button>
             </div>
         </div>
         
         <div id="progress-bar" class="w-full bg-slate-800 h-1 hidden">
-            <div id="progress-fill" class="bg-blue-500 h-1 transition-all duration-300" style="width: 0%"></div>
+            <div id="progress-fill" class="bg-emerald-500 h-1 transition-all duration-300" style="width: 0%"></div>
         </div>
     </header>
 
@@ -57,11 +55,7 @@
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
                 <input type="text" id="search-input" placeholder="Tìm kiếm mã..." 
-                    class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 transition">
-            </div>
-            <div class="flex gap-2 text-xs">
-                <span class="bg-emerald-500/20 text-emerald-400 px-2 py-1 rounded border border-emerald-500/30"><i class="fa-solid fa-arrow-trend-up mr-1"></i> Breakout</span>
-                <span class="bg-rose-500/20 text-rose-400 px-2 py-1 rounded border border-rose-500/30"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi API</span>
+                    class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-emerald-500 transition">
             </div>
         </div>
 
@@ -73,15 +67,13 @@
                             <th class="py-3.5 px-4 font-semibold w-24">Mã</th>
                             <th class="py-3.5 px-4 font-semibold text-right w-28">Giá D1</th>
                             <th class="py-3.5 px-4 font-semibold text-right w-32">Vol D1</th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-20">P/E</th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-20">P/B</th>
-                            <th class="py-3.5 px-4 font-semibold text-center w-40">Trạng thái / Lỗi</th>
+                            <th class="py-3.5 px-4 font-semibold text-center w-40">Trạng thái</th>
                         </tr>
                     </thead>
                     <tbody id="stock-table-body" class="divide-y divide-slate-800/60 text-sm">
                         <tr>
-                            <td colspan="6" class="text-center py-12 text-slate-500">
-                                <i class="fa-solid fa-circle-info mr-2 text-blue-500"></i> Nhấn "Bắt đầu Quét" để kiểm tra kết nối API.
+                            <td colspan="4" class="text-center py-12 text-slate-500">
+                                <i class="fa-solid fa-circle-info mr-2 text-emerald-500"></i> Nhấn "Bắt đầu Quét" để lấy dữ liệu từ TCBS.
                             </td>
                         </tr>
                     </tbody>
@@ -90,8 +82,8 @@
         </div>
     </main>
 
-    <div id="toast" class="fixed bottom-5 right-5 bg-slate-800 border-l-4 border-blue-500 text-white px-5 py-3 rounded-lg shadow-2xl z-50 flex items-center gap-3">
-        <i class="fa-solid fa-circle-info text-blue-400"></i>
+    <div id="toast" class="fixed bottom-5 right-5 bg-slate-800 border-l-4 border-emerald-500 text-white px-5 py-3 rounded-lg shadow-2xl z-50 flex items-center gap-3">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
         <span id="toast-msg">Thông báo...</span>
     </div>
 
@@ -106,8 +98,6 @@
             "REE", "PC1", "NT2", "GMD", "HAH", "PVT", "VJC", "HVN", "VHC", "ANV"
         ];
 
-        // Đổi sang proxy corsproxy.org
-        const CORS_PROXY = "https://corsproxy.org/?"; 
         let stockData = {};
         let isScanning = false;
 
@@ -117,75 +107,37 @@
             const toast = document.getElementById('toast');
             const toastMsg = document.getElementById('toast-msg');
             toastMsg.innerText = msg;
-            
             if (isError) {
-                toast.className = toast.className.replace('border-blue-500', 'border-rose-500');
+                toast.className = toast.className.replace('border-emerald-500', 'border-rose-500');
                 toast.querySelector('i').className = "fa-solid fa-triangle-exclamation text-rose-400";
             } else {
-                toast.className = toast.className.replace('border-rose-500', 'border-blue-500');
-                toast.querySelector('i').className = "fa-solid fa-circle-info text-blue-400";
+                toast.className = toast.className.replace('border-rose-500', 'border-emerald-500');
+                toast.querySelector('i').className = "fa-solid fa-circle-check text-emerald-400";
             }
-            
             toast.classList.add('show');
             setTimeout(() => toast.classList.remove('show'), 4000);
         }
 
-        // Hàm fetch có gắn Timeout để chống treo
-        async function fetchWithTimeout(resource, options = {}) {
-            const { timeout = 8000 } = options; // 8 giây không phản hồi là hủy
-            const controller = new AbortController();
-            const id = setTimeout(() => controller.abort(), timeout);
-            
-            try {
-                const response = await fetch(resource, {
-                    ...options,
-                    signal: controller.signal  
-                });
-                clearTimeout(id);
-                return response;
-            } catch (error) {
-                clearTimeout(id);
-                if (error.name === 'AbortError') {
-                    throw new Error("Quá thời gian chờ (8s). Proxy bị nghẽn!");
-                }
-                throw error;
-            }
-        }
-
         async function fetchStockData(symbol) {
             try {
-                const end_date = new Date().toISOString().split('T')[0];
-                const start_date = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+                // TCBS API: Lấy dữ liệu lịch sử 60 ngày (khung ngày)
+                const today = Math.floor(Date.now() / 1000);
+                const sixtyDaysAgo = today - (60 * 24 * 60 * 60);
                 
-                const histUrl = `https://finfo-api.vndirect.com.vn/v4/stock_prices?sort=date&q=code:${symbol}~date:gte:${start_date}~date:lte:${end_date}&size=50`;
-                const ratioUrl = `https://finfo-api.vndirect.com.vn/v4/ratios?q=code:${symbol}`;
-
-                // Dùng fetchWithTimeout thay cho fetch thường
-                const [histRes, ratioRes] = await Promise.all([
-                    fetchWithTimeout(CORS_PROXY + encodeURIComponent(histUrl)).then(r => {
-                        if(!r.ok) throw new Error("Lỗi HTTP Lịch sử");
-                        return r.json();
-                    }),
-                    fetchWithTimeout(CORS_PROXY + encodeURIComponent(ratioUrl)).then(r => {
-                        if(!r.ok) throw new Error("Lỗi HTTP Chỉ số");
-                        return r.json();
-                    })
-                ]);
-
-                let closes = [], volumes = [], pe = 0, pb = 0;
-
-                if (histRes.data && histRes.data.length > 0) {
-                    closes = histRes.data.map(i => parseFloat(i.close || 0));
-                    volumes = histRes.data.map(i => parseFloat(i.nmVolume || 0));
-                } else {
-                    throw new Error("VNDirect chặn IP hoặc không có dữ liệu");
+                const url = `https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/bars-long-term?ticker=${symbol}&type=stock&resolution=D&from=${sixtyDaysAgo}&to=${today}`;
+                
+                const res = await fetch(url);
+                if (!res.ok) throw new Error("Lỗi kết nối TCBS");
+                
+                const json = await res.json();
+                
+                if (!json.data || json.data.length === 0) {
+                    throw new Error("Không có dữ liệu");
                 }
 
-                if (ratioRes.data && ratioRes.data.length > 0) {
-                    const latest = ratioRes.data[ratioRes.data.length - 1];
-                    pe = parseFloat(latest.priceEarning || 0);
-                    pb = parseFloat(latest.priceBook || 0);
-                }
+                // Trích xuất giá đóng cửa và khối lượng
+                const closes = json.data.map(i => parseFloat(i.close || 0));
+                const volumes = json.data.map(i => parseFloat(i.volume || 0));
 
                 let status = "ĐANG TÍCH LŨY NỀN";
                 let detail = "Đang siết nền tích lũy biên độ hẹp.";
@@ -200,7 +152,7 @@
 
                     if (volRatio < 0.7 && Math.abs(priceChangePct) < 1.5) {
                         status = "CẠN CUNG";
-                        detail = `Vol cạn kiệt (${volRatio.toFixed(2)}x MA20). Biên độ siết chặt.`;
+                        detail = `Vol cạn kiệt (${volRatio.toFixed(2)}x MA20).`;
                     } else if (volRatio > 1.5 && priceChangePct > 1.5) {
                         status = "BREAKOUT";
                         detail = `Vol bùng nổ (${volRatio.toFixed(2)}x MA20) kèm giá tăng +${priceChangePct.toFixed(1)}%.`;
@@ -220,15 +172,16 @@
 
                 return {
                     symbol, close: closes[closes.length - 1], volume: volumes[volumes.length - 1],
-                    pe, pb, recommendation: status, price_zone: detail, updated_at: updated_at
+                    pe: 0, pb: 0, // TCBS API này không trả P/E, P/B
+                    recommendation: status, price_zone: detail, updated_at: updated_at
                 };
             } catch (err) {
                 console.error(`Lỗi mã ${symbol}:`, err.message);
                 return { 
                     symbol, 
                     error: true, 
-                    errorMsg: err.message || "Lỗi mạng/Proxy",
-                    recommendation: "LỖI KẾT NỐI", 
+                    errorMsg: err.message || "Lỗi mạng",
+                    recommendation: "LỖI", 
                     price_zone: "Không lấy được dữ liệu" 
                 };
             }
@@ -256,7 +209,7 @@
             icon.className = 'fa-solid fa-spinner fa-spin';
             text.innerText = 'Đang quét...';
             progressBar.classList.remove('hidden');
-            showToast("Đã bật Timeout 8s. Đang cố gắng kết nối...");
+            showToast("Bắt đầu kết nối trực tiếp TCBS...");
 
             let completed = 0;
             let errorCount = 0;
@@ -280,8 +233,8 @@
                 const pct = ((i + 1) / VN100_SYMBOLS.length) * 100;
                 progressFill.style.width = `${pct}%`;
 
-                // Giảm thời gian nghỉ xuống 150ms vì đã có Timeout xử lý
-                await new Promise(r => setTimeout(r, 150));
+                // Nghỉ 200ms tránh spam server TCBS
+                await new Promise(r => setTimeout(r, 200));
             }
 
             isScanning = false;
@@ -297,17 +250,15 @@
             }
 
             if (errorCount === VN100_SYMBOLS.length) {
-                showToast(`Toàn bộ đều lỗi! Proxy sập hoặc nhà mạng chặn API.`, true);
-            } else if (errorCount > 0) {
-                showToast(`Xong! Thành công: ${completed}, Lỗi: ${errorCount}`, true);
+                showToast(`Toàn bộ lỗi! Hãy thử lại hoặc đổi mạng.`, true);
             } else {
-                showToast(`Tuyệt vời! Đã lấy thành công ${completed} mã.`, false);
+                showToast(`Hoàn tất! Thành công: ${completed} mã.`, false);
             }
         }
 
         function renderRow(item) {
             const tbody = document.getElementById('stock-table-body');
-            if (tbody.querySelector('td[colspan="6"]')) tbody.innerHTML = '';
+            if (tbody.querySelector('td[colspan="4"]')) tbody.innerHTML = '';
 
             const tr = document.createElement('tr');
             
@@ -315,7 +266,7 @@
                 tr.className = "bg-rose-900/20 border-b border-rose-800/40 hover:bg-rose-900/30 transition";
                 tr.innerHTML = `
                     <td class="py-3 px-4 font-bold text-rose-400 whitespace-nowrap">${item.symbol}</td>
-                    <td colspan="4" class="py-3 px-4 text-right text-rose-300 text-xs italic">${item.errorMsg}</td>
+                    <td colspan="2" class="py-3 px-4 text-right text-rose-300 text-xs italic">${item.errorMsg}</td>
                     <td class="py-3 px-4 text-center whitespace-nowrap">
                         <span class="text-[10px] px-2 py-1 rounded-full font-semibold bg-rose-500/20 text-rose-400 border border-rose-500/30">
                             <i class="fa-solid fa-xmark mr-1"></i> LỖI
@@ -330,8 +281,6 @@
             
             const closePrice = item.close ? item.close.toLocaleString('vi-VN') : '—';
             const volVal = item.volume ? item.volume.toLocaleString('vi-VN') : '—';
-            const peVal = item.pe ? item.pe.toFixed(1) : '—';
-            const pbVal = item.pb ? item.pb.toFixed(1) : '—';
 
             let badgeColor = "bg-slate-800 text-slate-300";
             if (item.recommendation.includes("BREAKOUT")) badgeColor = "bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
@@ -340,12 +289,10 @@
 
             tr.innerHTML = `
                 <td class="py-3 px-4 font-bold text-white whitespace-nowrap">
-                    <span class="text-blue-400 font-black text-sm">${item.symbol}</span>
+                    <span class="text-emerald-400 font-black text-sm">${item.symbol}</span>
                 </td>
                 <td class="py-3 px-4 text-right font-semibold text-slate-200 whitespace-nowrap">${closePrice}</td>
                 <td class="py-3 px-4 text-right text-amber-400 font-medium whitespace-nowrap">${volVal}</td>
-                <td class="py-3 px-4 text-right text-slate-300 whitespace-nowrap">${peVal}</td>
-                <td class="py-3 px-4 text-right text-slate-300 whitespace-nowrap">${pbVal}</td>
                 <td class="py-3 px-4 text-center whitespace-nowrap">
                     <span class="text-[10px] px-2 py-1 rounded-full font-semibold ${badgeColor}">${item.recommendation}</span>
                 </td>
@@ -355,14 +302,12 @@
 
         function exportJSON() {
             if (Object.keys(stockData).length === 0) {
-                showToast("Không có dữ liệu thành công nào để xuất!", true);
+                showToast("Không có dữ liệu để xuất!", true);
                 return;
             }
-
             const jsonString = JSON.stringify(stockData, null, 4);
             const blob = new Blob([jsonString], { type: "application/json" });
             const url = URL.createObjectURL(blob);
-            
             const a = document.createElement('a');
             a.href = url;
             a.download = "data.json";
@@ -370,7 +315,6 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-            
             showToast(`Đã xuất file data.json thành công!`, false);
         }
 
