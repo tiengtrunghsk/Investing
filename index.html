@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pro Quant Screener - Price Action & Volume (D1)</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
@@ -19,65 +17,53 @@
                     <i class="fa-solid fa-chart-candlestick text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded border border-blue-500/30">Price & Volume (D1)</span></h1>
-                    <p class="text-xs text-slate-400">Hệ thống lọc Tích lũy nền, Breakout Volume & Định giá thời gian thực</p>
+                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded border border-blue-500/30">Price & Volume D1</span></h1>
+                    <p class="text-xs text-slate-400">Lọc Tích lũy nền & Nổ Vol Breakout (Nguồn: VNDirect)</p>
                 </div>
             </div>
             
-            <!-- Thống kê nhanh & Nút Tác vụ -->
-            <div class="flex flex-wrap items-center gap-2.5">
-                <div class="flex items-center gap-2 text-xs text-slate-300 bg-slate-800/60 px-3 py-2 rounded-lg border border-slate-700/50">
-                    <span><i class="fa-solid fa-database text-blue-400 mr-1"></i> Tổng: <strong id="total-stocks" class="text-white">0</strong></span>
-                    <span class="text-slate-600">|</span>
-                    <span><i class="fa-solid fa-bolt text-amber-400 mr-1"></i> Đã quét D1: <strong id="scanned-stocks" class="text-amber-400">0</strong></span>
+            <div class="flex items-center gap-3">
+                <div class="text-xs text-slate-300 bg-slate-800/60 px-3 py-2 rounded-lg border border-slate-700/50">
+                    <i class="fa-solid fa-database text-blue-400 mr-1"></i> Tổng mã: <strong id="total-stocks" class="text-white">0</strong>
                 </div>
                 
-                <!-- Nút Refresh kèm hiệu ứng tiến trình -->
-                <button onclick="refreshAndScanMarket()" id="btn-refresh" class="px-3.5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2 shadow-lg shadow-blue-600/20">
-                    <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span id="refresh-text">Làm mới & Quét D1</span>
+                <button onclick="refreshData()" class="px-3.5 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2 shadow">
+                    <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span>Làm mới</span>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
+    <!-- Main Content -->
     <main class="max-w-7xl mx-auto px-4 py-6">
-        
-        <!-- Bộ lọc & Tìm kiếm -->
-        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-sm mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
-            <div class="relative w-full md:w-72">
+        <!-- Search Box -->
+        <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-sm mb-6 flex justify-between items-center">
+            <div class="relative w-full md:w-80">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </span>
-                <input type="text" id="search-input" placeholder="Nhập mã cổ phiếu (VD: HPG, VCB)..." 
-                    class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition">
-            </div>
-
-            <div class="flex flex-wrap w-full md:w-auto gap-3">
-                <select id="industry-filter" class="bg-slate-950 border border-slate-700 text-slate-300 text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
-                    <option value="">Tất cả Nhóm ngành</option>
-                </select>
+                <input type="text" id="search-input" placeholder="Tìm kiếm mã cổ phiếu (VD: HPG, VCB)..." 
+                    class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white focus:outline-none focus:border-blue-500 transition">
             </div>
         </div>
 
-        <!-- Bảng Dữ liệu -->
+        <!-- Data Table -->
         <div class="bg-slate-900 rounded-xl border border-slate-800 shadow-lg overflow-hidden">
             <div class="overflow-x-auto w-full">
-                <table class="w-full text-left border-collapse min-w-[700px]">
+                <table class="w-full text-left border-collapse min-w-[650px]">
                     <thead>
                         <tr class="bg-slate-950/90 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
-                            <th class="py-3.5 px-4 font-semibold w-24">Mã <span class="text-[10px] text-blue-400 font-normal">(Xem chi tiết)</span></th>
-                            <th class="py-3.5 px-4 font-semibold w-36">Ngành</th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-28">Giá D1 <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Live TCBS"></i></th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-32">Khối lượng (Vol)</th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-20">P/E</th>
-                            <th class="py-3.5 px-4 font-semibold text-right w-20">P/B</th>
+                            <th class="py-3.5 px-4 font-semibold w-28">Mã cổ phiếu</th>
+                            <th class="py-3.5 px-4 font-semibold text-right w-28">Giá D1 (VNĐ)</th>
+                            <th class="py-3.5 px-4 font-semibold text-right w-36">Khối lượng (Vol D1)</th>
+                            <th class="py-3.5 px-4 font-semibold text-right w-24">P/E</th>
+                            <th class="py-3.5 px-4 font-semibold text-right w-24">P/B</th>
                         </tr>
                     </thead>
                     <tbody id="stock-table-body" class="divide-y divide-slate-800/60 text-sm">
                         <tr>
-                            <td colspan="6" class="text-center py-12 text-slate-500">
-                                <i class="fa-solid fa-spinner fa-spin mr-2 text-blue-500"></i> Đang tải dữ liệu và quét tín hiệu D1...
+                            <td colspan="5" class="text-center py-12 text-slate-500">
+                                <i class="fa-solid fa-spinner fa-spin mr-2 text-blue-500"></i> Đang tải dữ liệu...
                             </td>
                         </tr>
                     </tbody>
@@ -86,26 +72,23 @@
         </div>
     </main>
 
-    <!-- Modal Chi tiết tích hợp toàn bộ thông tin PTKT -->
+    <!-- Modal Chi tiết -->
     <div id="detail-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-150">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-xl rounded-2xl shadow-2xl overflow-hidden">
             <div class="bg-slate-950 px-6 py-4 border-b border-slate-800 flex justify-between items-center">
                 <div class="flex items-center space-x-3">
                     <span id="modal-symbol" class="text-xl font-black text-blue-400 bg-blue-500/10 px-3 py-1 rounded-lg border border-blue-500/20">--</span>
-                    <div>
-                        <h3 id="modal-industry" class="text-sm font-semibold text-slate-300">--</h3>
-                        <p class="text-xs text-slate-500">Phân tích Cấu trúc Nền & Dòng tiền lớn (D1)</p>
-                    </div>
+                    <h3 class="text-sm font-semibold text-slate-300">Chi tiết Tín hiệu Price Action & Volume</h3>
                 </div>
                 <button onclick="closeModal()" class="text-slate-400 hover:text-white text-lg p-2 rounded-lg hover:bg-slate-800 transition">
                     <i class="fa-solid fa-xmark"></i>
                 </button>
             </div>
             
-            <div class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+            <div class="p-6 space-y-4">
                 <div class="grid grid-cols-3 gap-3 bg-slate-950/50 p-3 rounded-xl border border-slate-800 text-center">
                     <div>
-                        <span class="text-xs text-slate-500 block">Giá D1 hiện tại</span>
+                        <span class="text-xs text-slate-500 block">Giá D1</span>
                         <span id="modal-price" class="text-sm font-bold text-white">--</span>
                     </div>
                     <div>
@@ -118,20 +101,14 @@
                     </div>
                 </div>
 
-                <!-- Trạng thái PTKT hiển thị đầy đủ trong Modal -->
                 <div class="bg-blue-500/10 border border-blue-500/30 p-4 rounded-xl">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1"><i class="fa-solid fa-chart-line mr-1.5"></i> Trạng thái kỹ thuật (D1)</h4>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-blue-400 mb-1"><i class="fa-solid fa-chart-line mr-1.5"></i> Trạng thái kỹ thuật</h4>
                     <p id="modal-status" class="text-sm font-bold text-white">--</p>
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-chart-candlestick text-purple-400 mr-1.5"></i> Cấu trúc Nền giá & Chi tiết Volume</h4>
-                    <p id="modal-outlook" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
-                </div>
-
-                <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-1"><i class="fa-solid fa-crosshairs mr-1.5"></i> Đánh giá cơ bản & BCTC</h4>
-                    <p id="modal-bctc" class="text-sm font-medium text-amber-200">--</p>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-circle-info text-purple-400 mr-1.5"></i> Phân tích cấu trúc Nền & Volume</h4>
+                    <p id="modal-detail" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
                 </div>
             </div>
 
@@ -142,10 +119,9 @@
         </div>
     </div>
 
-    <!-- JavaScript Xử lý Thuật toán Price Action D1 -->
+    <!-- JavaScript -->
     <script>
         let combinedData = {};
-        let scannedCount = 0;
 
         async function loadData() {
             try {
@@ -153,152 +129,20 @@
                 if (!response.ok) throw new Error('Không thể tải data.json');
                 combinedData = await response.json();
                 
-                initFilters();
                 renderTable(combinedData);
-                updateStats();
-                await scanMarketSignals();
+                document.getElementById('total-stocks').innerText = Object.keys(combinedData).length;
             } catch (error) {
-                console.error("Lỗi:", error);
+                console.error(error);
                 document.getElementById('stock-table-body').innerHTML = `
-                    <tr><td colspan="6" class="text-center py-8 text-rose-400">
-                        <i class="fa-solid fa-triangle-exclamation mr-2"></i> Không thể tải dữ liệu. Hãy đảm bảo file data.json đã tồn tại!
-                    </td></tr>`;
+                    <tr><td colspan="5" class="text-center py-8 text-rose-400">Chưa có dữ liệu data.json. Hãy bấm chạy Workflow trên GitHub!</td></tr>`;
             }
         }
 
-        async function scanMarketSignals() {
-            const symbols = Object.keys(combinedData);
-            scannedCount = 0;
-            document.getElementById('scanned-stocks').innerText = `0 / ${symbols.length}`;
-
-            for (let symbol of symbols) {
-                try {
-                    const dataD1 = await fetchHistoryD1(symbol);
-                    if (dataD1.closes.length >= 20) {
-                        const evaluation = evaluatePriceVolume(dataD1.closes, dataD1.volumes);
-                        combinedData[symbol].close = dataD1.closes[dataD1.closes.length - 1];
-                        combinedData[symbol].volume = dataD1.volumes[dataD1.volumes.length - 1];
-                        combinedData[symbol].recommendation = evaluation.status;
-                        combinedData[symbol].price_zone = evaluation.detail;
-                        if(dataD1.pe) combinedData[symbol].pe = dataD1.pe;
-                        if(dataD1.pb) combinedData[symbol].pb = dataD1.pb;
-                    }
-                } catch (err) {
-                    console.warn(`Lỗi quét mã ${symbol}:`, err);
-                }
-                scannedCount++;
-                document.getElementById('scanned-stocks').innerText = `${scannedCount} / ${symbols.length}`;
-                updateRowElement(symbol);
-            }
-            renderTable(combinedData);
-        }
-
-        async function fetchHistoryD1(symbol) {
-            let closes = [], volumes = [], pe = 0, pb = 0;
-            const endTime = Math.floor(Date.now() / 1000);
-            const startTime = endTime - (45 * 86400);
-
-            try {
-                const rHist = await fetch(`https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/history-price?ticker=${symbol}&from=${startTime}&to=${endTime}&resolution=D`);
-                if (rHist.ok) {
-                    const json = await rHist.json();
-                    const items = json.data || [];
-                    if (items.length > 0) {
-                        closes = items.map(i => i.close || 0);
-                        volumes = items.map(i => i.volume || 0);
-                    }
-                }
-                const rRatio = await fetch(`https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=${symbol}`);
-                if (rRatio.ok) {
-                    const jsonRatio = await rRatio.json();
-                    const ratioData = jsonRatio.data || [];
-                    if (ratioData.length > 0) {
-                        pe = ratioData[0].priceToEarning || 0;
-                        pb = ratioData[0].priceToBook || 0;
-                    }
-                }
-            } catch (e) {}
-
-            return { closes, volumes, pe, pb };
-        }
-
-        function evaluatePriceVolume(closes, volumes) {
-            const currClose = closes[closes.length - 1];
-            const prevClose = closes[closes.length - 2];
-            const currVol = volumes[volumes.length - 1];
-            
-            const recentVols = volumes.slice(-20);
-            const maVol20 = recentVols.reduce((a, b) => a + b, 0) / recentVols.length;
-            const volRatio = maVol20 > 0 ? (currVol / maVol20) : 1.0;
-            const priceChangePct = ((currClose - prevClose) / prevClose) * 100;
-
-            if (volRatio < 0.7 && Math.abs(priceChangePct) < 1.5) {
-                return {
-                    status: "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
-                    detail: `Khối lượng cạn kiệt ở mức ${(volRatio).toFixed(2)}x so với trung bình 20 phiên. Biên độ giá siết chặt, thể hiện lực bán đã cạn và nhà đầu tư lớn đang gom hàng.`
-                };
-            } else if (volRatio > 1.5 && priceChangePct > 1.5) {
-                return {
-                    status: "SẴN SÀNG BREAKOUT (NỔ VOL)",
-                    detail: `Khối lượng bùng nổ vượt trội đạt ${(volRatio).toFixed(2)}x MA20 kèm giá tăng +${priceChangePct.toFixed(1)}%. Dòng tiền lớn xác nhận đánh lên.`
-                };
-            } else if (currClose > maVol20) {
-                return {
-                    status: "ĐANG GOM HÀNG",
-                    detail: `Dòng tiền duy trì ổn định trên mức trung bình 20 phiên, vận động sideway tạo nền giá.`
-                };
-            } else {
-                return {
-                    status: "CHỜ TEST LẠI",
-                    detail: `Áp lực điều chỉnh nhẹ, vận động giằng co quanh vùng hỗ trợ.`
-                };
-            }
-        }
-
-        async function refreshAndScanMarket() {
+        async function refreshData() {
             const icon = document.getElementById('refresh-icon');
-            const text = document.getElementById('refresh-text');
             icon.classList.add('fa-spin');
-            text.innerText = "Đang quét...";
-            
             await loadData();
-
-            setTimeout(() => {
-                icon.classList.remove('fa-spin');
-                text.innerText = "Làm mới & Quét D1";
-            }, 600);
-        }
-
-        function updateRowElement(symbol) {
-            const item = combinedData[symbol];
-            const row = document.getElementById(`row-${symbol}`);
-            if (!row) return;
-
-            row.querySelector('.col-price').innerText = item.close ? item.close.toLocaleString('vi-VN') : '—';
-            row.querySelector('.col-vol').innerText = item.volume ? item.volume.toLocaleString('vi-VN') : '—';
-            row.querySelector('.col-pe').innerText = item.pe ? item.pe.toFixed(1) : '—';
-            row.querySelector('.col-pb').innerText = item.pb ? item.pb.toFixed(1) : '—';
-        }
-
-        function updateStats() {
-            const symbols = Object.keys(combinedData);
-            document.getElementById('total-stocks').innerText = symbols.length;
-        }
-
-        function initFilters() {
-            const industries = new Set();
-            Object.values(combinedData).forEach(item => {
-                if (item.industry) industries.add(item.industry);
-            });
-
-            const industrySelect = document.getElementById('industry-filter');
-            industrySelect.innerHTML = '<option value="">Tất cả Nhóm ngành</option>';
-            Array.from(industries).sort().forEach(ind => {
-                const opt = document.createElement('option');
-                opt.value = ind;
-                opt.textContent = ind;
-                industrySelect.appendChild(opt);
-            });
+            setTimeout(() => icon.classList.remove('fa-spin'), 600);
         }
 
         function renderTable(data) {
@@ -306,22 +150,15 @@
             tbody.innerHTML = '';
 
             const searchTerm = document.getElementById('search-input').value.toUpperCase();
-            const selectedIndustry = document.getElementById('industry-filter').value;
-
-            const filtered = Object.values(data).filter(item => {
-                const matchSearch = item.symbol.includes(searchTerm);
-                const matchInd = !selectedIndustry || item.industry === selectedIndustry;
-                return matchSearch && matchInd;
-            });
+            const filtered = Object.values(data).filter(item => item.symbol.includes(searchTerm));
 
             if (filtered.length === 0) {
-                tbody.innerHTML = `<tr><td colspan="6" class="text-center py-8 text-slate-500">Không tìm thấy mã cổ phiếu phù hợp.</td></tr>`;
+                tbody.innerHTML = `<tr><td colspan="5" class="text-center py-8 text-slate-500">Không tìm thấy mã cổ phiếu.</td></tr>`;
                 return;
             }
 
             filtered.forEach(item => {
                 const tr = document.createElement('tr');
-                tr.id = `row-${item.symbol}`;
                 tr.className = "hover:bg-slate-800/40 transition border-b border-slate-800/40";
                 
                 const closePrice = item.close ? item.close.toLocaleString('vi-VN') : '—';
@@ -331,15 +168,14 @@
 
                 tr.innerHTML = `
                     <td class="py-3 px-4 font-bold text-white whitespace-nowrap">
-                        <button onclick='openDetail("${item.symbol}")' class="text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1.5 font-black text-sm" title="Bấm để xem chi tiết">
+                        <button onclick='openDetail("${item.symbol}")' class="text-blue-400 hover:text-blue-300 hover:underline flex items-center gap-1.5 font-black text-sm">
                             <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i> ${item.symbol}
                         </button>
                     </td>
-                    <td class="py-3 px-4 text-slate-400 text-xs whitespace-nowrap">${item.industry || 'VN100'}</td>
-                    <td class="py-3 px-4 text-right font-semibold text-slate-200 col-price whitespace-nowrap">${closePrice}</td>
-                    <td class="py-3 px-4 text-right text-amber-400 font-medium col-vol whitespace-nowrap">${volVal}</td>
-                    <td class="py-3 px-4 text-right text-slate-300 col-pe whitespace-nowrap">${peVal}</td>
-                    <td class="py-3 px-4 text-right text-slate-300 col-pb whitespace-nowrap">${pbVal}</td>
+                    <td class="py-3 px-4 text-right font-semibold text-slate-200 whitespace-nowrap">${closePrice}</td>
+                    <td class="py-3 px-4 text-right text-amber-400 font-medium whitespace-nowrap">${volVal}</td>
+                    <td class="py-3 px-4 text-right text-slate-300 whitespace-nowrap">${peVal}</td>
+                    <td class="py-3 px-4 text-right text-slate-300 whitespace-nowrap">${pbVal}</td>
                 `;
                 tbody.appendChild(tr);
             });
@@ -350,16 +186,13 @@
             if (!item) return;
 
             document.getElementById('modal-symbol').innerText = item.symbol;
-            document.getElementById('modal-industry').innerText = item.industry || 'VN100';
             document.getElementById('modal-price').innerText = item.close ? item.close.toLocaleString('vi-VN') + ' VNĐ' : '—';
             document.getElementById('modal-vol').innerText = item.volume ? item.volume.toLocaleString('vi-VN') : '—';
             document.getElementById('modal-valuation').innerText = `${item.pe ? item.pe.toFixed(1) : '—'}x / ${item.pb ? item.pb.toFixed(1) : '—'}x`;
             
-            // Hiển thị toàn bộ thông tin cấu trúc kỹ thuật và định giá chi tiết vào Modal
             document.getElementById('modal-status').innerText = item.recommendation || 'ĐANG TÍCH LŨY NỀN';
-            document.getElementById('modal-outlook').innerText = item.price_zone || 'Đang cập nhật cấu trúc dòng tiền D1...';
-            document.getElementById('modal-bctc').innerText = item.bctc || 'Nền tảng cơ bản và tài chính lành mạnh, phù hợp chiến lược đầu tư tăng trưởng.';
-            document.getElementById('modal-time').innerText = `Cập nhật trực tiếp: ${new Date().toLocaleTimeString('vi-VN')}`;
+            document.getElementById('modal-detail').innerText = item.price_zone || 'Đang cập nhật cấu trúc nền giá.';
+            document.getElementById('modal-time').innerText = `Lần cuối cập nhật: ${item.updated_at || 'Mới đây'}`;
 
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -369,8 +202,6 @@
         }
 
         document.getElementById('search-input').addEventListener('input', () => renderTable(combinedData));
-        document.getElementById('industry-filter').addEventListener('change', () => renderTable(combinedData));
-
         window.addEventListener('click', (e) => {
             if (e.target === document.getElementById('detail-modal')) closeModal();
         });
