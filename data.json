@@ -53,7 +53,7 @@
     "TCB": {
         "symbol": "TCB",
         "industry": "Ngân hàng",
-        "close": 21.95,
+        "close": 21.9,
         "pe": 8.3,
         "pb": 1.27,
         "roe": 0,
@@ -70,7 +70,7 @@
     "MBB": {
         "symbol": "MBB",
         "industry": "Ngân hàng",
-        "close": 19.55,
+        "close": 19.5,
         "pe": 6.59,
         "pb": 1.26,
         "roe": 0,
@@ -87,7 +87,7 @@
     "STB": {
         "symbol": "STB",
         "industry": "Ngân hàng",
-        "close": 66.8,
+        "close": 66.9,
         "pe": 82.69,
         "pb": 1.97,
         "roe": 0,
@@ -155,7 +155,7 @@
     "TPB": {
         "symbol": "TPB",
         "industry": "Ngân hàng",
-        "close": 12.75,
+        "close": 12.8,
         "pe": 5.43,
         "pb": 0.93,
         "roe": 0,
@@ -172,7 +172,7 @@
     "SHB": {
         "symbol": "SHB",
         "industry": "Ngân hàng",
-        "close": 10.55,
+        "close": 10.6,
         "pe": 4.3,
         "pb": 0.69,
         "roe": 0,
@@ -189,7 +189,7 @@
     "SSB": {
         "symbol": "SSB",
         "industry": "Ngân hàng",
-        "close": 15.3,
+        "close": 15.4,
         "pe": 18.13,
         "pb": 1.28,
         "roe": 0,
@@ -206,7 +206,7 @@
     "LPB": {
         "symbol": "LPB",
         "industry": "Ngân hàng",
-        "close": 36.35,
+        "close": 36.45,
         "pe": 9.21,
         "pb": 2.39,
         "roe": 0,
@@ -274,7 +274,7 @@
     "SSI": {
         "symbol": "SSI",
         "industry": "Chứng khoán",
-        "close": 19.6,
+        "close": 19.55,
         "pe": 12.25,
         "pb": 1.54,
         "roe": 0,
@@ -308,7 +308,7 @@
     "HCM": {
         "symbol": "HCM",
         "industry": "Chứng khoán",
-        "close": 23.05,
+        "close": 23.1,
         "pe": 26.8,
         "pb": 2.18,
         "roe": 0,
@@ -359,7 +359,7 @@
     "FTS": {
         "symbol": "FTS",
         "industry": "Chứng khoán",
-        "close": 18.75,
+        "close": 18.8,
         "pe": 17.88,
         "pb": 1.61,
         "roe": 0,
@@ -393,7 +393,7 @@
     "CTS": {
         "symbol": "CTS",
         "industry": "Chứng khoán",
-        "close": 21.6,
+        "close": 21.65,
         "pe": 52.67,
         "pb": 2.05,
         "roe": 0,
@@ -410,7 +410,7 @@
     "ORS": {
         "symbol": "ORS",
         "industry": "VN100",
-        "close": 14.05,
+        "close": 14.0,
         "pe": 26.5,
         "pb": 1.17,
         "roe": 0,
@@ -427,7 +427,7 @@
     "VHM": {
         "symbol": "VHM",
         "industry": "Bất động sản",
-        "close": 61.2,
+        "close": 60.9,
         "pe": 6.38,
         "pb": 1.94,
         "roe": 0,
@@ -444,7 +444,7 @@
     "VIC": {
         "symbol": "VIC",
         "industry": "Bất động sản",
-        "close": 237.0,
+        "close": 235.2,
         "pe": 87.19,
         "pb": 10.86,
         "roe": 0,
@@ -495,7 +495,7 @@
     "PDR": {
         "symbol": "PDR",
         "industry": "Bất động sản",
-        "close": 11.25,
+        "close": 11.2,
         "pe": 18.57,
         "pb": 0.9,
         "roe": 0,
@@ -512,7 +512,7 @@
     "DIG": {
         "symbol": "DIG",
         "industry": "Bất động sản",
-        "close": 9.71,
+        "close": 9.75,
         "pe": 10.78,
         "pb": 0.82,
         "roe": 0,
@@ -529,7 +529,7 @@
     "NLG": {
         "symbol": "NLG",
         "industry": "Bất động sản",
-        "close": 22.65,
+        "close": 22.7,
         "pe": 18.08,
         "pb": 0.89,
         "roe": 0,
@@ -597,7 +597,7 @@
     "TCH": {
         "symbol": "TCH",
         "industry": "VN100",
-        "close": 12.3,
+        "close": 12.35,
         "pe": 40.99,
         "pb": 1.05,
         "roe": 0,
@@ -648,7 +648,7 @@
     "KBC": {
         "symbol": "KBC",
         "industry": "VN100",
-        "close": 26.2,
+        "close": 26.1,
         "pe": 14.25,
         "pb": 0.96,
         "roe": 0,
@@ -665,7 +665,7 @@
     "IDC": {
         "symbol": "IDC",
         "industry": "VN100",
-        "close": 34.6,
+        "close": 34.4,
         "pe": 6.84,
         "pb": 2.05,
         "roe": 0,
@@ -682,7 +682,7 @@
     "SZC": {
         "symbol": "SZC",
         "industry": "VN100",
-        "close": 19.35,
+        "close": 19.4,
         "pe": 21.77,
         "pb": 1.14,
         "roe": 0,
@@ -699,7 +699,7 @@
     "BCM": {
         "symbol": "BCM",
         "industry": "VN100",
-        "close": 39.65,
+        "close": 39.5,
         "pe": 21.03,
         "pb": 1.87,
         "roe": 0,
@@ -716,7 +716,7 @@
     "PHR": {
         "symbol": "PHR",
         "industry": "VN100",
-        "close": 31.9,
+        "close": 31.85,
         "pe": 8.4,
         "pb": 1.68,
         "roe": 0,
@@ -767,7 +767,7 @@
     "NKG": {
         "symbol": "NKG",
         "industry": "Thép & VLXD",
-        "close": 11.8,
+        "close": 11.85,
         "pe": 35.76,
         "pb": 0.77,
         "roe": 0,
@@ -784,7 +784,7 @@
     "VLB": {
         "symbol": "VLB",
         "industry": "VN100",
-        "close": 52.9,
+        "close": 53.0,
         "pe": 3.71,
         "pb": 2.09,
         "roe": 0,
@@ -801,7 +801,7 @@
     "CTD": {
         "symbol": "CTD",
         "industry": "VN100",
-        "close": 65.5,
+        "close": 65.4,
         "pe": 9.18,
         "pb": 0.75,
         "roe": 0,
@@ -818,7 +818,7 @@
     "VCG": {
         "symbol": "VCG",
         "industry": "VN100",
-        "close": 15.2,
+        "close": 15.25,
         "pe": 2.61,
         "pb": 0.98,
         "roe": 0,
@@ -835,7 +835,7 @@
     "HHV": {
         "symbol": "HHV",
         "industry": "VN100",
-        "close": 9.44,
+        "close": 9.42,
         "pe": 8.64,
         "pb": 0.48,
         "roe": 0,
@@ -852,7 +852,7 @@
     "C4G": {
         "symbol": "C4G",
         "industry": "VN100",
-        "close": 4.6,
+        "close": 4.7,
         "pe": 41.49,
         "pb": 0.43,
         "roe": 0,
@@ -869,7 +869,7 @@
     "FPT": {
         "symbol": "FPT",
         "industry": "Công nghệ",
-        "close": 53.0,
+        "close": 53.1,
         "pe": 9.94,
         "pb": 2.32,
         "roe": 0,
@@ -886,7 +886,7 @@
     "MWG": {
         "symbol": "MWG",
         "industry": "Bán lẻ",
-        "close": 74.5,
+        "close": 74.4,
         "pe": 10.01,
         "pb": 2.45,
         "roe": 0,
@@ -903,7 +903,7 @@
     "PNJ": {
         "symbol": "PNJ",
         "industry": "Bán lẻ",
-        "close": 16.2,
+        "close": 16.15,
         "pe": 3.36,
         "pb": 0.61,
         "roe": 0,
@@ -920,7 +920,7 @@
     "FRT": {
         "symbol": "FRT",
         "industry": "Bán lẻ",
-        "close": 147.3,
+        "close": 146.8,
         "pe": 23.23,
         "pb": 5.5,
         "roe": 0,
@@ -937,7 +937,7 @@
     "VNM": {
         "symbol": "VNM",
         "industry": "Tiêu dùng",
-        "close": 57.3,
+        "close": 57.4,
         "pe": 11.0,
         "pb": 3.78,
         "roe": 0,
@@ -954,7 +954,7 @@
     "MSN": {
         "symbol": "MSN",
         "industry": "Tiêu dùng",
-        "close": 71.3,
+        "close": 71.4,
         "pe": 11.63,
         "pb": 2.53,
         "roe": 0,
@@ -988,7 +988,7 @@
     "GAS": {
         "symbol": "GAS",
         "industry": "Dầu khí",
-        "close": 75.6,
+        "close": 75.5,
         "pe": 14.42,
         "pb": 2.67,
         "roe": 0,
@@ -1005,7 +1005,7 @@
     "PVD": {
         "symbol": "PVD",
         "industry": "Dầu khí",
-        "close": 18.15,
+        "close": 18.05,
         "pe": 15.3,
         "pb": 0.98,
         "roe": 0,
@@ -1022,7 +1022,7 @@
     "PVS": {
         "symbol": "PVS",
         "industry": "VN100",
-        "close": 30.4,
+        "close": 30.5,
         "pe": 8.92,
         "pb": 1.19,
         "roe": 0,
@@ -1039,7 +1039,7 @@
     "BSR": {
         "symbol": "BSR",
         "industry": "VN100",
-        "close": 27.75,
+        "close": 27.85,
         "pe": 6.96,
         "pb": 1.9,
         "roe": 0,
@@ -1090,7 +1090,7 @@
     "PC1": {
         "symbol": "PC1",
         "industry": "VN100",
-        "close": 18.8,
+        "close": 18.7,
         "pe": 6.71,
         "pb": 1.16,
         "roe": 0,
@@ -1107,7 +1107,7 @@
     "NT2": {
         "symbol": "NT2",
         "industry": "VN100",
-        "close": 22.35,
+        "close": 22.4,
         "pe": 4.52,
         "pb": 1.28,
         "roe": 0,
@@ -1124,7 +1124,7 @@
     "GMD": {
         "symbol": "GMD",
         "industry": "Cảng biển & Logistics",
-        "close": 52.1,
+        "close": 52.2,
         "pe": 13.19,
         "pb": 2.47,
         "roe": 0,
@@ -1158,7 +1158,7 @@
     "PVT": {
         "symbol": "PVT",
         "industry": "VN100",
-        "close": 21.2,
+        "close": 21.3,
         "pe": 7.72,
         "pb": 1.12,
         "roe": 0,
@@ -1175,7 +1175,7 @@
     "VJC": {
         "symbol": "VJC",
         "industry": "VN100",
-        "close": 131.3,
+        "close": 131.4,
         "pe": 46.49,
         "pb": 3.84,
         "roe": 0,
@@ -1192,7 +1192,7 @@
     "HVN": {
         "symbol": "HVN",
         "industry": "VN100",
-        "close": 20.9,
+        "close": 20.8,
         "pe": 14.44,
         "pb": 6.93,
         "roe": 0,
@@ -1226,7 +1226,7 @@
     "ANV": {
         "symbol": "ANV",
         "industry": "VN100",
-        "close": 16.45,
+        "close": 16.4,
         "pe": 5.71,
         "pb": 1.11,
         "roe": 0,
@@ -1260,7 +1260,7 @@
     "BAF": {
         "symbol": "BAF",
         "industry": "VN100",
-        "close": 30.0,
+        "close": 29.95,
         "pe": 131.7,
         "pb": 2.82,
         "roe": 0,
