@@ -122,16 +122,11 @@
                     <div><span class="text-[10px] text-slate-500 block">ROE</span><span id="modal-roe" class="text-sm font-bold text-blue-400">--</span></div>
                     <div><span class="text-[10px] text-slate-500 block">Cổ tức</span><span id="modal-div" class="text-sm font-bold text-amber-400">--</span></div>
                 </div>
-                <div class="bg-indigo-500/10 border border-indigo-500/30 p-4 rounded-xl">
-                    <h4 class="text-xs font-bold uppercase tracking-wider text-indigo-400 mb-2"><i class="fa-solid fa-bullseye mr-1.5"></i> Khuyến nghị của AI</h4>
-                    <p id="modal-ai-rec" class="text-lg font-black text-white mb-2">--</p>
-                    <div class="bg-slate-900/50 p-2.5 rounded border border-indigo-500/20">
-                        <span class="text-[10px] text-slate-400 block mb-1">Chiến lược hành động:</span>
-                        <p id="modal-ai-price" class="text-sm text-emerald-300 font-medium">--</p>
-                    </div>
-                </div>
+                
+                <!-- Đã xóa khối KHUYẾN N-emGHỊ CỦA AI thừa thãi ở đây -->
+
                 <div>
-                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-file-invoice-dollar text-emerald-500 mr-1.5"></i> Đánh giá BCTC</h4>
+                    <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-file-invoice-dollar texterald-500 mr-1.5"></i> Đánh giá BCTC</h4>
                     <p id="modal-bctc" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
                 </div>
                 <div>
@@ -215,98 +210,66 @@
             let roe = item.roe || 0;
             let div = item.dividend_yield || 0;
 
-            // 1. NHÓM TÀI CHÍNH (Ngân hàng, Chứng khoán) - Ưu tiên P/B và ROE
             if (sector === "NH" || sector === "CK") {
-                // P/B (40đ): Định giá tài sản
                 if (pb > 0 && pb < 1.5) score += 40;
                 else if (pb > 0 && pb < 2.0) score += 25;
                 else if (pb > 0) score += 10;
-                
-                // ROE (40đ): Hiệu quả sử dụng vốn
                 if (roe > 18) score += 40;
                 else if (roe > 12) score += 25;
                 else if (roe > 8) score += 10;
-
-                // P/E (20đ)
                 if (pe > 0 && pe < 10) score += 20;
                 else if (pe > 0 && pe < 15) score += 10;
             } 
-            
-            // 2. NHÓM BẤT ĐỘNG SẢN (BĐS Dân dụng, BĐS KCN, Xây dựng) - Ưu tiên P/B và Cổ tức
             else if (sector === "BDS" || sector === "BDS_KCN" || sector === "XAYDUNG") {
-                // P/B (40đ): Định giá quỹ đất
                 if (pb > 0 && pb < 1.0) score += 40;
                 else if (pb > 0 && pb < 1.5) score += 25;
                 else if (pb > 0) score += 10;
-
-                // P/E (30đ): Thường BĐS có P/E cao vào đáy chu kỳ
                 if (pe > 0 && pe < 10) score += 30;
                 else if (pe > 0 && pe < 15) score += 20;
                 else if (pe > 0 && pe < 25) score += 10;
-                
-                // ROE (30đ)
                 if (roe > 15) score += 30;
                 else if (roe > 10) score += 20;
                 else if (roe > 5) score += 10;
             } 
-
-            // 3. NHÓM TĂNG TRƯỞNG (Công nghệ, Bán lẻ) - Chấp nhận P/E cao, ưu tiên ROE
             else if (sector === "CONGNGHE" || sector === "BANLE") {
-                // ROE (50đ): Yếu tố sống còn của ngành tăng trưởng
                 if (roe > 25) score += 50;
                 else if (roe > 18) score += 35;
                 else if (roe > 12) score += 20;
                 else score += 5;
-
-                // P/E (30đ): Chấp nhận mức P/E cao hơn (đến 30)
                 if (pe > 0 && pe < 15) score += 30;
                 else if (pe > 0 && pe < 25) score += 20;
                 else if (pe > 0 && pe < 35) score += 10;
-
-                // P/B (20đ)
                 if (pb > 0 && pb < 3.0) score += 20;
                 else if (pb > 0 && pb < 5.0) score += 10;
             } 
-            
-            // 4. NHÓM PHÒNG THỦ / CHU KỲ (Thép, Dầu khí, Thực phẩm, Vận tải)
             else {
-                // P/E (40đ)
                 if (pe > 0 && pe < 8) score += 40;
                 else if (pe > 0 && pe < 12) score += 30;
                 else if (pe > 0 && pe < 18) score += 15;
-
-                // Cổ tức (30đ): Rất quan trọng với nhà đầu tư phòng thủ
                 if (div >= 6) score += 30;
                 else if (div >= 4) score += 20;
                 else if (div >= 2) score += 10;
-
-                // ROE (30đ)
                 if (roe > 15) score += 30;
                 else if (roe > 10) score += 20;
                 else if (roe > 5) score += 10;
             }
 
-            return Math.min(score, 100); // Đảm bảo tối đa 100
+            return Math.min(score, 100);
         }
 
-        // ==========================================
-        // THUẬT TOÁN CHẤM ĐIỂM KỸ THUẬT & KẾT HỢP
-        // ==========================================
         function scoreTechnical(item) {
             let score = 0;
             let rec = (item.ai_recommendation || item.recommendation || "").toUpperCase();
-            
             if (rec.includes("MUA TÍCH SẢN") || rec.includes("BREAKOUT")) score += 100;
             else if (rec.includes("MUA") || rec.includes("GOM")) score += 80;
             else if (rec.includes("CHỜ TEST LẠI") || rec.includes("CẠN CUNG")) score += 60;
             else if (rec.includes("TÍCH LŨY")) score += 40;
             else score += 10;
-            
             return score;
         }
 
         function scoreCombined(item) {
-            const fund = scoreFundamental(item); // Đã tính theo đặc thù ngành
+            const fund = scoreFundamental(item);
             const tech = scoreTechnical(item);
             return Math.round((fund * 0.5) + (tech * 0.5));
         }
@@ -325,7 +288,6 @@
                 return matchSearch && matchSector;
             });
 
-            // XỬ LÝ XẾP HẠNG
             if (rankingMode === "FUNDAMENTAL") {
                 filtered.forEach(item => { item._score = scoreFundamental(item); });
                 filtered.sort((a, b) => b._score - a._score);
@@ -391,6 +353,7 @@
                 card.className = `relative bg-slate-900 rounded-xl border ${borderColor} ${cardGlow} p-4 shadow-lg hover:bg-slate-800/80 transition cursor-pointer w-full flex flex-col justify-between mt-2`;
                 card.onclick = () => openModal(item.symbol);
                 
+                // Đã xóa dòng "Bấm xem AI phân tích" ở đây
                 card.innerHTML = `
                     ${topBadge}
                     <div>
@@ -410,17 +373,13 @@
 
                         <div class="grid grid-cols-4 gap-2 mb-3 bg-slate-950/50 p-2 rounded-lg border border-slate-800/50">
                             <div class="text-center"><span class="block text-[10px] text-slate-500 mb-0.5">P/E</span><span class="text-xs font-semibold text-slate-200">${item.pe > 0 ? item.pe.toFixed(1) : '—'}</span></div>
-                            <div class="text-center border-l border-slate-800"><span class="block text-[10px] text-slate-500 mb-0.5">P/B</span><span class="text-xs font-semibold text-slate-200">${item.pb > 0 ? item.pb.toFixed(1) : '—'}</span></div>
-                            <div class="text-center border-l border-slate-800"><span class="block text-[10px] text-slate-500 mb-0.5">ROE</span><span class="text-xs font-semibold text-blue-400">${formatPercent(item.roe)}</span></div>
+                            <div class="text-center border-l border-slate-800"><span class="block text-[10px] text-slate-500 mb-0.5">P/B</span><span class="text-xs font-semibold text-slate-200">${item.pb-[ > 0 ? item.pb.toFixed(101) : '—'}</span></div>
+px                           ] <div class="text-center border-l border-s textlate-800"><span class="block-s textlate-500 mb-0.5">ROE</span><span class="text-xs font-semibold text-blue-400">${formatPercent(item.roe)}</span></div>
                             <div class="text-center border-l border-slate-800"><span class="block text-[10px] text-slate-500 mb-0.5">Cổ tức</span><span class="text-xs font-semibold text-amber-400">${formatPercent(item.dividend_yield)}</span></div>
                         </div>
                     </div>
                     
                     ${scoreHtml}
-
-                    <div class="text-[11px] text-indigo-400 font-semibold text-center mt-2 pt-2 border-t border-slate-800/50">
-                        <i class="fa-solid fa-robot mr-1"></i> Bấm xem AI phân tích
-                    </div>
                 `;
                 container.appendChild(card);
             });
@@ -439,8 +398,7 @@
             document.getElementById('modal-roe').innerText = formatPercent(item.roe);
             document.getElementById('modal-div').innerText = formatPercent(item.dividend_yield);
 
-            document.getElementById('modal-ai-rec').innerText = item.ai_recommendation || "Chưa có phân tích AI";
-            document.getElementById('modal-ai-price').innerText = item.ai_price_zone || item.price_zone || "Đang cập nhật...";
+            // Không gán giá trị modal-ai-rec và modal-ai-price nữa vì đã xóa khỏi HTML
             document.getElementById('modal-bctc').innerText = item.bctc || "AI chưa phân tích dữ liệu BCTC cho mã này.";
             document.getElementById('modal-outlook').innerText = item.outlook || "Chưa có đánh giá định giá & kỹ thuật.";
             document.getElementById('modal-macro').innerText = item.macro_view || "Chưa có đánh giá vĩ mô.";
