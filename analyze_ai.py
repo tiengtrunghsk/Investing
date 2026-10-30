@@ -2,20 +2,40 @@ import os
 import time
 import requests
 import re
-import json  # Đã bổ sung import thư viện json
+import json
 
 DATA_FILE = "data.json"
 
-# Lấy API Key từ biến môi trường (hoặc bạn có thể điền trực tiếp vào đây nếu chạy local)
 ALIBABA_API_KEY = os.getenv("ALIBABA_API_KEY", "").strip()
 API_URL = "https://ws-8lcqaxwxdv0h9xzy.ap-southeast-1.maas.aliyuncs.com/compatible-mode/v1/chat/completions"
+
+def check_if_analysis_needed(stock_db):
+    """
+    Kiểm tra xem có cần gọi API AI hay không:
+    Cần chạy khi có ít nhất 1 mã cổ phiếu thỏa mãn:
+    1. Chưa từng được AI phân tích (ai_updated_at bị trống/thiếu).
+    2. Dữ liệu giá mới cào từ PC mới hơn lần phân tích AI gần nhất (updated_at > ai_updated_at).
+    """
+    for symbol, data in stock_db.items():
+        if data.get('close', 0) <= 0:
+            continue
+            
+        updated_at = data.get("updated_at", "")
+        ai_updated_at = data.get("ai_updated_at", "")
+        ai_recommendation = data.get("ai_recommendation", "")
+        
+        # Nếu chưa phân tích AI hoặc dữ liệu giá mới hơn thời điểm AI quét
+        if not ai_recommendation or not ai_updated_at or updated_at > ai_updated_at:
+            print(f"🔍 Phát hiện dữ liệu mới cần phân tích tại mã: {symbol}")
+            return True
+            
+    return False
 
 def analyze_stock_with_ai(symbol, data):
     if not ALIBABA_API_KEY:
         print(f"❌ LỖI: Biến ALIBABA_API_KEY đang bị trống!")
         return None
 
-    # Prompt nâng cấp: Phân tích đa chiều (Cơ bản + Kỹ thuật)
     prompt = f"""
     Bạn là một Chuyên gia Phân tích Đầu tư (Portfolio Manager) kết hợp cả trường phái Cơ bản (Fundamental) và Dòng tiền lớn (Smart Money / Price Action & Volume).
     Hãy phân tích toàn diện mã cổ phiếu: {symbol}.
@@ -57,7 +77,6 @@ def analyze_stock_with_ai(symbol, data):
         if response.status_code == 200:
             res_json = response.json()
             content = res_json["choices"][0]["message"]["content"].strip()
-            # Làm sạch JSON (đề phòng AI trả về kèm markdown)
             content = re.sub(r"^```json\s*", "", content)
             content = re.sub(r"^```\s*", "", content)
             content = re.sub(r"\s*```$", "", content)
@@ -71,25 +90,34 @@ def analyze_stock_with_ai(symbol, data):
 
 def main():
     if not os.path.exists(DATA_FILE):
-        print("❌ Không tìm thấy file data.json! Hãy chạy fetch_data.py trước.")
+        print("❌ Không tìm thấy file data.json! Bỏ qua phân tích.")
         return
 
     # Đọc dữ liệu gốc
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         stock_db = json.load(f)
 
-    print(f"🤖 Bắt đầu Phân tích Toàn diện bằng AI cho {len(stock_db)} mã...")
+    # Kiểm tra điều kiện trước khi chạy
+    if not check_if_analysis_needed(stock_db):
+        print("💤 Dữ liệu không thay đổi hoặc đã được phân tích mới nhất. Dừng lại để tiết kiệm API Alibaba!")
+        return
+
+    print(f"🤖 Bắt đầu Phân tích Toàn diện bằng AI cho các mã chưa có/có dữ liệu mới...")
     count = 0
     
     for i, (symbol, data) in enumerate(stock_db.items()):
-        print(f"[{i+1}/{len(stock_db)}] Đang xử lý: {symbol}...")
+        if data.get('close', 0) <= 0:
+            continue
+            
+        updated_at = data.get("updated_at", "")
+        ai_updated_at = data.get("ai_updated_at", "")
         
-        # Chỉ phân tích những mã có dữ liệu giá hợp lệ
-        if data.get('close', 0) > 0:
+        # Chỉ gọi API cho mã nào chưa phân tích hoặc có dữ liệu mới hơn AI cũ
+        if not data.get("ai_recommendation") or updated_at > ai_updated_at:
+            print(f"[{i+1}/{len(stock_db)}] Đang xử lý AI cho: {symbol}...")
             ai_result = analyze_stock_with_ai(symbol, data)
             
             if ai_result:
-                # Ghi đè/cập nhật các trường từ AI (Sửa lại key 'recommendation' cho khớp với prompt)
                 data["bctc"] = ai_result.get("bctc", "")
                 data["outlook"] = ai_result.get("outlook", "")
                 data["ai_recommendation"] = ai_result.get("recommendation", "")
@@ -100,17 +128,18 @@ def main():
                 print(f"  -> ✅ Thành công")
             else:
                 print(f"  -> ❌ Thất bại (Bỏ qua)")
-        else:
-            print("  -> ⚠️ Không có dữ liệu giá, bỏ qua.")
             
-        # Nghỉ 1.2s để tránh bị rate limit từ API của Alibaba
-        time.sleep(1.2)
+            time.sleep(1.2)
+        else:
+            print(f"[{i+1}/{len(stock_db)}] Bỏ qua {symbol} (Đã có phân tích AI mới nhất)")
 
     # Ghi lại file data.json
-    with open(DATA_FILE, "w", encoding="utf-8") as f:
-        json.dump(stock_db, f, ensure_ascii=False, indent=4)
-
-    print(f"\n✅ Đã phân tích AI xong {count} mã! File data.json đã được cập nhật.")
+    if count > 0:
+        with open(DATA_FILE, "w", encoding="utf-8") as f:
+            json.dump(stock_db, f, ensure_ascii=False, indent=4)
+        print(f"\n✅ Đã phân tích AI xong {count} mã! File data.json đã được cập nhật.")
+    else:
+        print("\nℹ️ Không có cập nhật mới nào được thực hiện.")
 
 if __name__ == "__main__":
     main()
