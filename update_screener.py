@@ -29,60 +29,46 @@ INDUSTRY_MAP = {
     "POW": "Năng lượng", "DGC": "Hóa chất", "DCM": "Phân bón", "DPM": "Phân bón", "GMD": "Cảng biển & Logistics"
 }
 
+# Endpoint API công khai của TCBS
+TCBS_PRICE_URL = "https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker={symbol}"
+TCBS_RATIO_URL = "https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker={symbol}"
+
 def fetch_stock_data(symbol):
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
-    }
-    close, pe, pb, dividend_yield = 0, 0, 0, 0
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
+    close, pe, pb, roe, dividend_yield = 0, 0, 0, 0, 0
 
-    # 1. Lấy giá đóng cửa thực tế từ DChart API
+    # 1. Lấy giá từ TCBS Price Board
     try:
-        end = int(time.time())
-        start = end - (10 * 86400)
-        url_price = f"https://dchart-api.vndirect.com.vn/dchart/history?resolution=D&symbol={symbol}&from={start}&to={end}"
-        res = requests.get(url_price, headers=headers, timeout=8).json()
-        if res.get("s") == "ok" and res.get("c"):
-            close = res["c"][-1]
+        r_price = requests.get(TCBS_PRICE_URL.format(symbol=symbol), headers=headers, timeout=8)
+        if r_price.status_code == 200:
+            data = r_price.json().get("data", [])
+            if data:
+                close = data[0].get("matchPrice", 0) or data[0].get("refPrice", 0)
     except Exception as e:
-        print(f"Lỗi giá {symbol}: {e}")
+        print(f"⚠️ Lỗi lấy giá {symbol}: {e}")
 
-    # 2. Lấy các chỉ số cơ bản cốt lõi mà API hỗ trợ tốt nhất
+    # 2. Lấy P/E, P/B, ROE từ TCBS Financial Ratio
     try:
-        ratio_codes = "PRICE_TO_EARNINGS,PRICE_TO_BOOK,DIVIDEND_YIELD"
-        url_ratio = f"https://api-finfo.vndirect.com.vn/v4/ratios?q=code:{symbol}~ratioCode:{ratio_codes}&size=10&sort=reportDate:desc"
-        res = requests.get(url_ratio, headers=headers, timeout=8).json()
-        if res.get("data"):
-            for item in res["data"]:
-                code = str(item.get("ratioCode", "")).upper()
-                val_raw = item.get("value")
-                if val_raw is None:
-                    continue
+        r_ratio = requests.get(TCBS_RATIO_URL.format(symbol=symbol), headers=headers, timeout=8)
+        if r_ratio.status_code == 200:
+            data = r_ratio.json().get("data", [])
+            if data:
+                ratio_data = data[0]
+                pe = ratio_data.get("priceToEarning", 0) or 0
+                pb = ratio_data.get("priceToBook", 0) or 0
+                roe = ratio_data.get("roe", 0) or 0
                 
-                try:
-                    val = float(val_raw)
-                except ValueError:
-                    continue
-
-                if val == 0:
-                    continue
-
-                if "PRICE_TO_EARNINGS" in code and pe == 0:
-                    pe = val
-                elif "PRICE_TO_BOOK" in code and pb == 0:
-                    pb = val
-                elif "DIVIDEND_YIELD" in code and dividend_yield == 0:
-                    dividend_yield = val * 100 if 0 < val < 1 else val
+                # Chuẩn hóa đơn vị ROE nếu trả về dạng thập phân (0.2 -> 20%)
+                if 0 < roe < 1:
+                    roe *= 100
     except Exception as e:
-        print(f"Lỗi chỉ số {symbol}: {e}")
+        print(f"⚠️ Lỗi lấy chỉ số tài chính {symbol}: {e}")
 
     return {
         "close": close,
         "pe": round(pe, 2),
         "pb": round(pb, 2),
-        "roe": 0,  # Bỏ qua các trường API không cấp phát để tránh dữ liệu rác
-        "roa": 0,
-        "eps": 0,
-        "debtEquity": 0,
+        "roe": round(roe, 2),
         "dividendYield": round(dividend_yield, 2)
     }
 
@@ -95,7 +81,7 @@ def main():
         except Exception:
             pass
 
-    print("🚀 Bắt đầu quá trình cào thông số cốt lõi cho VN100...")
+    print("🚀 Bắt đầu quá trình cào thông số từ TCBS cho VN100...")
     new_data = {}
 
     for symbol in VN100_SYMBOLS:
@@ -109,7 +95,7 @@ def main():
             "close": live["close"] or prev.get("close", 0),
             "pe": live["pe"] or prev.get("pe", 0),
             "pb": live["pb"] or prev.get("pb", 0),
-            "roe": prev.get("roe", 0),
+            "roe": live["roe"] or prev.get("roe", 0),
             "roa": prev.get("roa", 0),
             "eps": prev.get("eps", 0),
             "debtEquity": prev.get("debtEquity", 0),
@@ -120,12 +106,12 @@ def main():
             "price_zone": prev.get("price_zone", "Chưa có vùng giá"),
             "macro_view": prev.get("macro_view", "Chưa có vĩ mô")
         }
-        time.sleep(0.15)
+        time.sleep(0.3)
 
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(new_data, f, ensure_ascii=False, indent=4)
 
-    print("✅ Đã cập nhật thành công dữ liệu cốt lõi vào file data.json!")
+    print("✅ Đã cập nhật thành công dữ liệu từ TCBS vào file data.json!")
 
 if __name__ == "__main__":
     main()
