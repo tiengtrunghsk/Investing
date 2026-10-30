@@ -22,13 +22,13 @@
                 </div>
                 <div>
                     <h1 class="text-lg font-bold text-white tracking-tight">Pro Quant Screener</h1>
-                    <p class="text-[11px] text-slate-400">Tự động lấy toàn bộ thông số & Đọc AI từ data.json</p>
+                    <p class="text-[11px] text-slate-400">Trình cào thông số PTCB Real-time + Tích hợp AI</p>
                 </div>
             </div>
             <div class="flex items-center gap-2.5 w-full sm:w-auto">
                 <div id="statusBadge" class="text-xs font-mono bg-blue-500/10 text-blue-400 border border-blue-500/20 px-3.5 py-2 rounded-xl flex items-center gap-2">
                     <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span>
-                    <span id="statusText">Đang tải dữ liệu từ API...</span>
+                    <span id="statusText">Đang khởi tạo dữ liệu...</span>
                 </div>
                 <button onclick="downloadJsonFile()" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold rounded-xl transition-all flex items-center gap-1.5 shadow-lg shadow-emerald-600/20">
                     <i class="fa-solid fa-download"></i> Tải data.json mới
@@ -68,7 +68,7 @@
                         </tr>
                     </thead>
                     <tbody id="stockTableBody" class="divide-y divide-slate-800/60 text-slate-200 text-xs">
-                        <tr><td colspan="7" class="py-12 text-center text-slate-500"><i class="fa-solid fa-spinner fa-spin text-xl mb-2 block"></i>Đang gọi API lấy thông số VN100...</td></tr>
+                        <tr><td colspan="7" class="py-12 text-center text-slate-500"><i class="fa-solid fa-spinner fa-spin text-xl mb-2 block"></i>Đang lấy toàn bộ thông số VN100 từ API...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -95,6 +95,14 @@
                 <div class="border-l border-slate-800"><span class="text-[10px] text-slate-400 uppercase block mb-1">P/E</span><span id="mPe" class="font-mono font-bold text-blue-400 text-sm">--</span></div>
                 <div class="border-l border-slate-800"><span class="text-[10px] text-slate-400 uppercase block mb-1">P/B</span><span id="mPb" class="font-mono font-bold text-amber-400 text-sm">--</span></div>
                 <div class="border-l border-slate-800"><span class="text-[10px] text-slate-400 uppercase block mb-1">ROE</span><span id="mRoe" class="font-mono font-bold text-purple-400 text-sm">--</span></div>
+            </div>
+
+            <!-- Các chỉ số PTCB mở rộng -->
+            <div class="grid grid-cols-4 gap-2 bg-slate-950/60 p-3.5 rounded-2xl border border-slate-800/80 text-center text-xs">
+                <div><span class="text-[10px] text-slate-400 uppercase block mb-1">EPS</span><span id="mEps" class="font-mono font-semibold text-slate-200">--</span></div>
+                <div class="border-l border-slate-800"><span class="text-[10px] text-slate-400 uppercase block mb-1">ROA</span><span id="mRoa" class="font-mono font-semibold text-slate-200">--</span></div>
+                <div class="border-l border-slate-800"><span class="text-[10px] text-slate-400 uppercase block mb-1">Nợ/VCSH</span><span id="mDebt" class="font-mono font-semibold text-slate-200">--</span></div>
+                <div class="border-l border-slate-800"><span class="text-[10px] text-slate-400 uppercase block mb-1">Cổ Tức</span><span id="mDiv" class="font-mono font-semibold text-slate-200">--</span></div>
             </div>
 
             <div class="space-y-3">
@@ -151,11 +159,11 @@
             return num.toLocaleString('vi-VN') + suf;
         }
 
-        // Hàm gọi API lấy Giá và Chỉ số tài chính trực tiếp trên trình duyệt
+        // Cào toàn bộ thông số PTCB & Giá trực tiếp từ API VNDirect
         async function fetchStockParameters(symbol) {
-            let close = 0, pe = 0, pb = 0, roe = 0;
+            let close = 0, pe = 0, pb = 0, roe = 0, roa = 0, eps = 0, debtEquity = 0, profitMargin = 0, dividendYield = 0;
             
-            // 1. Lấy giá đóng cửa
+            // 1. Lấy giá đóng cửa thực tế
             try {
                 const end = Math.floor(Date.now() / 1000);
                 const start = end - (10 * 86400);
@@ -166,18 +174,32 @@
                 }
             } catch (e) {}
 
-            // 2. Lấy P/E, P/B, ROE từ API Finfo VNDirect
+            // 2. Lấy trọn bộ chỉ số PTCB từ API Finfo VNDirect
             try {
-                const resRatio = await fetch(`https://api-finfo.vndirect.com.vn/v4/ratios?q=code:${symbol}~ratioCode:PRICE_TO_EARNINGS,PRICE_TO_BOOK,ROAE_TR_AVG5Q&size=5&sort=reportDate:desc`);
+                const ratioCodes = "PRICE_TO_EARNINGS,PRICE_TO_BOOK,ROE,ROAE,ROAE_TR_AVG5Q,ROA,ROAA,EPS,DEBT_TO_EQUITY,PROFIT_MARGIN,DIVIDEND_YIELD";
+                const resRatio = await fetch(`https://api-finfo.vndirect.com.vn/v4/ratios?q=code:${symbol}~ratioCode:${ratioCodes}&size=20&sort=reportDate:desc`);
                 const dataRatio = await resRatio.json();
+                
                 if (dataRatio && dataRatio.data) {
                     dataRatio.data.forEach(item => {
                         const code = item.ratioCode;
                         const val = parseFloat(item.value || 0);
+                        
                         if (code === "PRICE_TO_EARNINGS" && pe === 0) pe = val;
                         if (code === "PRICE_TO_BOOK" && pb === 0) pb = val;
-                        if (code === "ROAE_TR_AVG5Q" && roe === 0) {
+                        if ((code === "ROE" || code === "ROAE" || code === "ROAE_TR_AVG5Q") && roe === 0) {
                             roe = (val > 0 && val < 1) ? val * 100 : val;
+                        }
+                        if ((code === "ROA" || code === "ROAA") && roa === 0) {
+                            roa = (val > 0 && val < 1) ? val * 100 : val;
+                        }
+                        if (code === "EPS" && eps === 0) eps = val;
+                        if (code === "DEBT_TO_EQUITY" && debtEquity === 0) debtEquity = val;
+                        if (code === "PROFIT_MARGIN" && profitMargin === 0) {
+                            profitMargin = (val > 0 && val < 1) ? val * 100 : val;
+                        }
+                        if (code === "DIVIDEND_YIELD" && dividendYield === 0) {
+                            dividendYield = (val > 0 && val < 1) ? val * 100 : val;
                         }
                     });
                 }
@@ -187,21 +209,25 @@
                 close,
                 pe: parseFloat(pe.toFixed(2)),
                 pb: parseFloat(pb.toFixed(2)),
-                roe: parseFloat(roe.toFixed(2))
+                roe: parseFloat(roe.toFixed(2)),
+                roa: parseFloat(roa.toFixed(2)),
+                eps: parseFloat(eps.toFixed(2)),
+                debtEquity: parseFloat(debtEquity.toFixed(2)),
+                profitMargin: parseFloat(profitMargin.toFixed(2)),
+                dividendYield: parseFloat(dividendYield.toFixed(2))
             };
         }
 
         async function initDashboard() {
             document.getElementById("statusText").innerText = "Đang đọc đánh giá AI từ data.json...";
             
-            // Đọc file data.json sẵn có để lấy các phần nhận định AI
             let aiDb = {};
             try {
                 const res = await fetch('data.json?v=' + Date.now());
                 if (res.ok) aiDb = await res.json();
             } catch (e) {}
 
-            document.getElementById("statusText").innerText = "Đang lấy toàn bộ thông số từ API VNDirect...";
+            document.getElementById("statusText").innerText = "Đang cào toàn bộ thông số PTCB từ API...";
             let html = "";
             masterData = {};
 
@@ -209,7 +235,6 @@
                 const symbol = VN100[i];
                 const industry = INDUSTRY_MAP[symbol] || "VN100";
                 
-                // Lấy thông số trực tiếp từ API
                 const liveParams = await fetchStockParameters(symbol);
                 const prevInfo = aiDb[symbol] || {};
 
@@ -220,6 +245,11 @@
                     pe: liveParams.pe || prevInfo.pe || 0,
                     pb: liveParams.pb || prevInfo.pb || 0,
                     roe: liveParams.roe || prevInfo.roe || 0,
+                    roa: liveParams.roa || prevInfo.roa || 0,
+                    eps: liveParams.eps || prevInfo.eps || 0,
+                    debtEquity: liveParams.debtEquity || prevInfo.debtEquity || 0,
+                    profitMargin: liveParams.profitMargin || prevInfo.profitMargin || 0,
+                    dividendYield: liveParams.dividendYield || prevInfo.dividendYield || 0,
                     bctc: prevInfo.bctc || "Đang chờ phân tích AI...",
                     outlook: prevInfo.outlook || "Đang cập nhật triển vọng...",
                     recommendation: prevInfo.recommendation || "CHỜ ĐỢI",
@@ -244,7 +274,7 @@
                 document.getElementById("stockTableBody").innerHTML = html;
             }
 
-            document.getElementById("statusText").innerText = "Đã cập nhật toàn bộ thông số thành công!";
+            document.getElementById("statusText").innerText = "Hoàn tất cập nhật toàn bộ thông số!";
             document.getElementById("statusBadge").className = "text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-3.5 py-2 rounded-xl flex items-center gap-2";
         }
 
@@ -268,6 +298,13 @@
             document.getElementById("mPe").innerText = fmt(d.pe, 'x');
             document.getElementById("mPb").innerText = fmt(d.pb, 'x');
             document.getElementById("mRoe").innerText = fmt(d.roe, '%');
+            
+            // Gán thông số PTCB mở rộng lên modal
+            document.getElementById("mEps").innerText = fmt(d.eps);
+            document.getElementById("mRoa").innerText = fmt(d.roa, '%');
+            document.getElementById("mDebt").innerText = fmt(d.debtEquity);
+            document.getElementById("mDiv").innerText = fmt(d.dividendYield, '%');
+
             document.getElementById("mBctc").innerText = d.bctc;
             document.getElementById("mOutlook").innerText = d.outlook;
             document.getElementById("mRec").innerText = d.recommendation;
