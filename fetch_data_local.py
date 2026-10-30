@@ -58,7 +58,7 @@ def auto_git_push():
         print(f"⚠️ Lỗi Git push: {e}")
 
 def main():
-    print("🚀 Bắt đầu cào dữ liệu thị trường trên PC...")
+    print("🚀 Bắt đầu cào dữ liệu thị trường và lịch sử nến trên PC...")
     
     stock_db = {}
     if os.path.exists(DATA_FILE):
@@ -73,18 +73,36 @@ def main():
         print(f"[{i+1}/{total}] Đang xử lý: {symbol}...")
         closes, volumes = [], []
         close_price, volume = 0, 0
+        history_data = []
+        
         try:
             end_date = datetime.datetime.now().strftime("%Y-%m-%d")
-            start_date = (datetime.datetime.now() - datetime.timedelta(days=60)).strftime("%Y-%m-%d")
+            start_date = (datetime.datetime.now() - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
             quote = Quote(source='VCI', symbol=symbol)
             df = quote.history(start=start_date, end=end_date)
-            if not df.empty:
+            
+            if df is not None and not df.empty:
                 closes = df['close'].tolist()
                 volumes = df['volume'].tolist()
                 close_price = closes[-1]
                 volume = volumes[-1]
-        except Exception:
-            pass
+                
+                # Định dạng dữ liệu lịch sử phục vụ vẽ biểu đồ TradingView
+                for _, row in df.iterrows():
+                    # Xử lý chuẩn định dạng ngày 'YYYY-MM-DD'
+                    time_val = row['time']
+                    time_str = time_val.strftime('%Y-%m-%d') if hasattr(time_val, 'strftime') else str(time_val)[:10]
+                    
+                    history_data.append({
+                        "time": time_str,
+                        "open": float(row.get('open', row['close'])),
+                        "high": float(row.get('high', row['close'])),
+                        "low": float(row.get('low', row['close'])),
+                        "close": float(row['close']),
+                        "volume": int(row.get('volume', 0))
+                    })
+        except Exception as e:
+            print(f"⚠️ Lỗi lấy lịch sử {symbol}: {e}")
 
         if close_price <= 0:
             continue
@@ -129,6 +147,7 @@ def main():
             "recommendation": status,
             "price_zone": detail,
             "updated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "history": history_data, # 👈 Bổ sung mảng lịch sử nến phục vụ vẽ biểu đồ web
             # Kế thừa dữ liệu AI tuần trước
             "bctc": old_data.get("bctc", ""),
             "outlook": old_data.get("outlook", ""),
@@ -142,7 +161,7 @@ def main():
     # Ghi file data.json
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(stock_db, f, ensure_ascii=False, indent=4)
-    print("✅ Đã cập nhật xong file data.json trên PC!")
+    print("✅ Đã cập nhật xong file data.json trên PC kèm lịch sử nến!")
 
     # Tự động push lên GitHub
     auto_git_push()
