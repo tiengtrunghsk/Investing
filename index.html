@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - VN100 & AI Intelligence</title>
+    <title>Pro Quant Screener - Price Action & Volume (D1)</title>
     <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
     <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
 
@@ -16,18 +16,31 @@
         <div class="max-w-7xl mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center gap-4">
             <div class="flex items-center space-x-3">
                 <div class="bg-blue-600 text-white p-2.5 rounded-xl shadow-lg shadow-blue-500/30">
-                    <i class="fa-solid fa-chart-line text-xl"></i>
+                    <i class="fa-solid fa-chart-candlestick text-xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener</h1>
-                    <p class="text-xs text-slate-400">Hệ thống Lọc cổ phiếu VN100 & Định giá thông minh bằng AI</p>
+                    <h1 class="text-xl font-bold tracking-wide text-white">Pro Quant Screener <span class="text-xs bg-blue-500/20 text-blue-400 px-2 py-0.5 rounded border border-blue-500/30">Price & Volume (D1)</span></h1>
+                    <p class="text-xs text-slate-400">Hệ thống lọc Tích lũy nền, Breakout Volume & Định giá AI</p>
                 </div>
             </div>
-            <!-- Thống kê nhanh -->
-            <div id="stats-bar" class="flex items-center gap-3 text-xs text-slate-300 bg-slate-800/60 px-4 py-2 rounded-lg border border-slate-700/50">
-                <span><i class="fa-solid fa-database text-blue-400 mr-1"></i> Tổng mã: <strong id="total-stocks" class="text-white">0</strong></span>
-                <span class="text-slate-600">|</span>
-                <span><i class="fa-solid fa-robot text-emerald-400 mr-1"></i> AI phân tích: <strong id="ai-stocks" class="text-emerald-400">0</strong></span>
+            
+            <!-- Thống kê nhanh & Nút Tác vụ -->
+            <div class="flex flex-wrap items-center gap-2.5">
+                <div class="flex items-center gap-2 text-xs text-slate-300 bg-slate-800/60 px-3 py-2 rounded-lg border border-slate-700/50">
+                    <span><i class="fa-solid fa-database text-blue-400 mr-1"></i> Tổng: <strong id="total-stocks" class="text-white">0</strong></span>
+                    <span class="text-slate-600">|</span>
+                    <span><i class="fa-solid fa-robot text-emerald-400 mr-1"></i> AI: <strong id="ai-stocks" class="text-emerald-400">0</strong></span>
+                </div>
+                
+                <!-- Nút Refresh -->
+                <button onclick="refreshData()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg text-xs font-medium transition border border-slate-700 flex items-center gap-1.5 shadow" title="Làm mới dữ liệu">
+                    <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span class="hidden sm:inline">Làm mới</span>
+                </button>
+
+                <!-- Nút Quét Nền & Gửi Telegram -->
+                <button onclick="scanAndSendTelegram()" id="btn-telegram" class="px-3.5 py-2 bg-emerald-600 hover:bg-emerald-500 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2 shadow-lg shadow-emerald-600/20">
+                    <i class="fa-brands fa-telegram text-sm"></i> <span>Quét Nền & Báo Telegram</span>
+                </button>
             </div>
         </div>
     </header>
@@ -37,7 +50,6 @@
         
         <!-- Bộ lọc & Tìm kiếm -->
         <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 shadow-sm mb-6 flex flex-col md:flex-row gap-4 justify-between items-center">
-            <!-- Tìm kiếm theo mã -->
             <div class="relative w-full md:w-72">
                 <span class="absolute inset-y-0 left-0 flex items-center pl-3 text-slate-400">
                     <i class="fa-solid fa-magnifying-glass"></i>
@@ -46,41 +58,40 @@
                     class="w-full pl-10 pr-4 py-2 bg-slate-950 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition">
             </div>
 
-            <!-- Bộ lọc ngành và khuyến nghị -->
             <div class="flex flex-wrap w-full md:w-auto gap-3">
                 <select id="industry-filter" class="bg-slate-950 border border-slate-700 text-slate-300 text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
                     <option value="">Tất cả Nhóm ngành</option>
                 </select>
                 <select id="rec-filter" class="bg-slate-950 border border-slate-700 text-slate-300 text-sm rounded-lg px-3 py-2 focus:outline-none focus:border-blue-500">
-                    <option value="">Tất cả Khuyến nghị</option>
+                    <option value="">Tất cả Trạng thái</option>
+                    <option value="SẴN SÀNG BREAKOUT">SẴN SÀNG BREAKOUT</option>
+                    <option value="ĐANG TÍCH LŨY NỀN">ĐANG TÍCH LŨY NỀN</option>
                     <option value="GOM TÍCH SẢN">GOM TÍCH SẢN</option>
-                    <option value="NẮM GIỮ CHẶT">NẮM GIỮ CHẶT</option>
-                    <option value="CHỜ ĐỢI">CHỜ ĐỢI</option>
-                    <option value="HẠ TỶ TRỌNG">HẠ TỶ TRỌNG</option>
+                    <option value="CHỜ TEST LẠI">CHỜ TEST LẠI</option>
                 </select>
             </div>
         </div>
 
         <!-- Bảng Dữ liệu -->
         <div class="bg-slate-900 rounded-xl border border-slate-800 shadow-lg overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
+            <div class="overflow-x-auto w-full">
+                <table class="w-full text-left border-collapse min-w-[850px]">
                     <thead>
-                        <tr class="bg-slate-950/80 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
-                            <th class="py-3.5 px-4 font-semibold">Mã</th>
-                            <th class="py-3.5 px-4 font-semibold">Ngành</th>
-                            <th class="py-3.5 px-4 font-semibold text-right">Giá (VNĐ) <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Trực tiếp từ TCBS API"></i></th>
-                            <th class="py-3.5 px-4 font-semibold text-right">P/E <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Trực tiếp từ TCBS API"></i></th>
-                            <th class="py-3.5 px-4 font-semibold text-right">P/B <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Trực tiếp từ TCBS API"></i></th>
-                            <th class="py-3.5 px-4 font-semibold text-center">Khuyến nghị AI</th>
-                            <th class="py-3.5 px-4 font-semibold">Vùng mua đề xuất</th>
-                            <th class="py-3.5 px-4 font-semibold text-center">Chi tiết</th>
+                        <tr class="bg-slate-950/90 border-b border-slate-800 text-slate-400 text-xs uppercase tracking-wider">
+                            <th class="py-3.5 px-4 font-semibold w-24">Mã</th>
+                            <th class="py-3.5 px-4 font-semibold w-36">Ngành</th>
+                            <th class="py-3.5 px-4 font-semibold text-right w-28">Giá D1 <i class="fa-solid fa-bolt text-amber-400 text-[10px]" title="Live TCBS"></i></th>
+                            <th class="py-3.5 px-4 font-semibold text-right w-20">P/E</th>
+                            <th class="py-3.5 px-4 font-semibold text-right w-20">P/B</th>
+                            <th class="py-3.5 px-4 font-semibold text-center w-36">Trạng thái (D1)</th>
+                            <th class="py-3.5 px-4 font-semibold w-56">Nền giá & Vùng Breakout</th>
+                            <th class="py-3.5 px-4 font-semibold text-center w-24">Chi tiết</th>
                         </tr>
                     </thead>
                     <tbody id="stock-table-body" class="divide-y divide-slate-800/60 text-sm">
                         <tr>
-                            <td colspan="8" class="text-center py-8 text-slate-500">
-                                <i class="fa-solid fa-spinner fa-spin mr-2"></i> Đang tải dữ liệu thời gian thực từ TCBS API & JSON...
+                            <td colspan="8" class="text-center py-12 text-slate-500">
+                                <i class="fa-solid fa-spinner fa-spin mr-2 text-blue-500"></i> Đang tải dữ liệu đồ thị D1...
                             </td>
                         </tr>
                     </tbody>
@@ -89,16 +100,15 @@
         </div>
     </main>
 
-    <!-- Modal Chi tiết AI -->
+    <!-- Modal Chi tiết -->
     <div id="detail-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden p-4">
         <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-150">
-            <!-- Modal Header -->
             <div class="bg-slate-950 px-6 py-4 border-b border-slate-800 flex justify-between items-center">
                 <div class="flex items-center space-x-3">
                     <span id="modal-symbol" class="text-xl font-black text-blue-400 bg-blue-500/10 px-3 py-1 rounded-lg border border-blue-500/20">--</span>
                     <div>
                         <h3 id="modal-industry" class="text-sm font-semibold text-slate-300">--</h3>
-                        <p class="text-xs text-slate-500">Phân tích chuyên sâu từ AI & Vĩ mô</p>
+                        <p class="text-xs text-slate-500">Phân tích Cấu trúc Nền & Dòng tiền lớn (D1)</p>
                     </div>
                 </div>
                 <button onclick="closeModal()" class="text-slate-400 hover:text-white text-lg p-2 rounded-lg hover:bg-slate-800 transition">
@@ -106,11 +116,10 @@
                 </button>
             </div>
             
-            <!-- Modal Body -->
             <div class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
                 <div class="grid grid-cols-2 gap-3 bg-slate-950/50 p-3 rounded-xl border border-slate-800 text-center">
                     <div>
-                        <span class="text-xs text-slate-500 block">Giá hiện tại (Live API)</span>
+                        <span class="text-xs text-slate-500 block">Giá D1 hiện tại (Live API)</span>
                         <span id="modal-price" class="text-base font-bold text-white">--</span>
                     </div>
                     <div>
@@ -120,27 +129,26 @@
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-shield-halved text-blue-400 mr-1.5"></i> Sức khỏe tài chính & BCTC</h4>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-shield-halved text-blue-400 mr-1.5"></i> Sức khỏe tài chính & Cơ bản</h4>
                     <p id="modal-bctc" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-chart-pie text-purple-400 mr-1.5"></i> Triển vọng doanh nghiệp</h4>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-chart-candlestick text-purple-400 mr-1.5"></i> Vận động Nền giá & Dòng tiền</h4>
                     <p id="modal-outlook" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
                 </div>
 
                 <div>
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-globe text-emerald-400 mr-1.5"></i> Góc nhìn Vĩ mô & Dòng tiền</h4>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-1"><i class="fa-solid fa-globe text-emerald-400 mr-1.5"></i> Góc nhìn Vĩ mô & Sóng ngành</h4>
                     <p id="modal-macro" class="text-sm bg-slate-950 p-3 rounded-lg border border-slate-800 text-slate-300 leading-relaxed">--</p>
                 </div>
 
                 <div class="bg-amber-500/10 border border-amber-500/30 p-4 rounded-xl">
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-1"><i class="fa-solid fa-crosshairs mr-1.5"></i> Chiến lược & Vùng mua gom</h4>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-amber-400 mb-1"><i class="fa-solid fa-crosshairs mr-1.5"></i> Cấu trúc nền & Điểm mua Breakout</h4>
                     <p id="modal-buyzone" class="text-sm font-medium text-amber-200">--</p>
                 </div>
             </div>
 
-            <!-- Modal Footer -->
             <div class="bg-slate-950 px-6 py-3 border-t border-slate-800 flex justify-between items-center text-xs text-slate-500">
                 <span id="modal-time">Cập nhật: --</span>
                 <button onclick="closeModal()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-white rounded-lg transition font-medium">Đóng</button>
@@ -148,28 +156,23 @@
         </div>
     </div>
 
-    <!-- JavaScript Xử lý dữ liệu song song (TCBS API + data.json) -->
+    <!-- JavaScript Xử lý -->
     <script>
         let combinedData = {};
 
-        // Hàm gọi API TCBS để lấy Giá, P/E, P/B trực tiếp theo thời gian thực
+        const TELEGRAM_BOT_TOKEN = "7969018440:AAExxxxxxxx"; 
+        const TELEGRAM_CHAT_ID = "6238381831";            
+
         async function fetchLiveTcbsData(symbol) {
             let close = 0, pe = 0, pb = 0;
-            const headers = { "User-Agent": "Mozilla/5.0" };
-
             try {
-                // 1. Lấy giá
-                const rPrice = await fetch(`https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=${symbol}`);
+                const rPrice = await fetch(`[https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=$](https://apipubaws.tcbs.com.vn/stock-insight/v1/stock/price-board?ticker=$){symbol}`);
                 if (rPrice.ok) {
                     const jsonPrice = await rPrice.json();
                     const data = jsonPrice.data || [];
-                    if (data.length > 0) {
-                        close = data[0].matchPrice || data[0].refPrice || 0;
-                    }
+                    if (data.length > 0) close = data[0].matchPrice || data[0].refPrice || 0;
                 }
-
-                // 2. Lấy P/E, P/B
-                const rRatio = await fetch(`https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=${symbol}`);
+                const rRatio = await fetch(`[https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=$](https://apipubaws.tcbs.com.vn/tcanalysis/v1/finance/ratio?ticker=$){symbol}`);
                 if (rRatio.ok) {
                     const jsonRatio = await rRatio.json();
                     const data = jsonRatio.data || [];
@@ -179,27 +182,21 @@
                     }
                 }
             } catch (err) {
-                console.warn(`Không thể lấy live API cho ${symbol}:`, err);
+                console.warn(`Lỗi API ${symbol}:`, err);
             }
-
             return { close, pe, pb };
         }
 
         async function loadData() {
             try {
-                // 1. Đọc nội dung nhận định định tính từ file data.json
                 const response = await fetch('data.json?t=' + new Date().getTime());
-                if (!response.ok) throw new Error('Không thể tải file data.json');
-                const jsonData = await response.json();
+                if (!response.ok) throw new Error('Không thể tải data.json');
+                combinedData = await response.json();
                 
-                combinedData = jsonData;
                 initFilters();
                 renderTable(combinedData);
                 updateStats();
-
-                // 2. Sau khi render cơ bản xong, tiến hành gọi API TCBS ngầm để cập nhật Giá, P/E, P/B realtime
                 updateLiveMarketData();
-
             } catch (error) {
                 console.error("Lỗi:", error);
                 document.getElementById('stock-table-body').innerHTML = `
@@ -209,6 +206,13 @@
             }
         }
 
+        async function refreshData() {
+            const icon = document.getElementById('refresh-icon');
+            icon.classList.add('fa-spin');
+            await loadData();
+            setTimeout(() => icon.classList.remove('fa-spin'), 600);
+        }
+
         async function updateLiveMarketData() {
             const symbols = Object.keys(combinedData);
             for (let symbol of symbols) {
@@ -216,8 +220,6 @@
                 if (live.close > 0) combinedData[symbol].close = live.close;
                 if (live.pe > 0) combinedData[symbol].pe = live.pe;
                 if (live.pb > 0) combinedData[symbol].pb = live.pb;
-                
-                // Cập nhật lại giao diện từng dòng sau khi có dữ liệu live từ API
                 updateRowElement(symbol);
             }
         }
@@ -250,6 +252,7 @@
             });
 
             const industrySelect = document.getElementById('industry-filter');
+            industrySelect.innerHTML = '<option value="">Tất cả Nhóm ngành</option>';
             Array.from(industries).sort().forEach(ind => {
                 const opt = document.createElement('option');
                 opt.value = ind;
@@ -260,12 +263,12 @@
 
         function getRecommendationBadge(rec) {
             let color = "bg-slate-800 text-slate-300 border-slate-700";
-            if (rec.includes("GOM") || rec.includes("TÍCH SẢN")) color = "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
-            else if (rec.includes("NẮM GIỮ")) color = "bg-blue-500/10 text-blue-400 border-blue-500/30";
+            if (rec.includes("BREAKOUT") || rec.includes("SẴN SÀNG")) color = "bg-emerald-500/10 text-emerald-400 border-emerald-500/30";
+            else if (rec.includes("TÍCH LŨY") || rec.includes("GOM")) color = "bg-blue-500/10 text-blue-400 border-blue-500/30";
             else if (rec.includes("CHỜ")) color = "bg-amber-500/10 text-amber-400 border-amber-500/30";
-            else if (rec.includes("HẠ") || rec.includes("BÁN")) color = "bg-rose-500/10 text-rose-400 border-rose-500/30";
+            else if (rec.includes("NGOÀI")) color = "bg-rose-500/10 text-rose-400 border-rose-500/30";
             
-            return `<span class="px-2.5 py-1 rounded-full text-xs font-semibold border ${color}">${rec}</span>`;
+            return `<span class="inline-block whitespace-nowrap px-2.5 py-1 rounded-full text-xs font-semibold border ${color}">${rec}</span>`;
         }
 
         function renderTable(data) {
@@ -298,14 +301,14 @@
                 const pbVal = item.pb ? item.pb.toFixed(1) : '—';
 
                 tr.innerHTML = `
-                    <td class="py-3 px-4 font-bold text-white">${item.symbol}</td>
-                    <td class="py-3 px-4 text-slate-400 text-xs">${item.industry || 'VN100'}</td>
-                    <td class="py-3 px-4 text-right font-semibold text-slate-200 col-price">${closePrice}</td>
-                    <td class="py-3 px-4 text-right text-slate-300 col-pe">${peVal}</td>
-                    <td class="py-3 px-4 text-right text-slate-300 col-pb">${pbVal}</td>
-                    <td class="py-3 px-4 text-center">${getRecommendationBadge(item.recommendation || 'CHỜ ĐỢI')}</td>
-                    <td class="py-3 px-4 text-amber-300 text-xs font-medium truncate max-w-xs" title="${item.price_zone || ''}">${item.price_zone || 'Chưa có vùng giá'}</td>
-                    <td class="py-3 px-4 text-center">
+                    <td class="py-3 px-4 font-bold text-white whitespace-nowrap">${item.symbol}</td>
+                    <td class="py-3 px-4 text-slate-400 text-xs whitespace-nowrap">${item.industry || 'VN100'}</td>
+                    <td class="py-3 px-4 text-right font-semibold text-slate-200 col-price whitespace-nowrap">${closePrice}</td>
+                    <td class="py-3 px-4 text-right text-slate-300 col-pe whitespace-nowrap">${peVal}</td>
+                    <td class="py-3 px-4 text-right text-slate-300 col-pb whitespace-nowrap">${pbVal}</td>
+                    <td class="py-3 px-4 text-center whitespace-nowrap">${getRecommendationBadge(item.recommendation || 'ĐANG TÍCH LŨY NỀN')}</td>
+                    <td class="py-3 px-4 text-amber-300 text-xs font-medium whitespace-nowrap" title="${item.price_zone || ''}">${item.price_zone || 'Chưa xác định nền'}</td>
+                    <td class="py-3 px-4 text-center whitespace-nowrap">
                         <button onclick='openDetail("${item.symbol}")' class="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white rounded-lg text-xs font-medium transition border border-blue-500/30">
                             <i class="fa-solid fa-eye mr-1"></i> Xem
                         </button>
@@ -313,6 +316,64 @@
                 `;
                 tbody.appendChild(tr);
             });
+        }
+
+        // Quét cổ phiếu chuẩn Price Action / Breakout nền D1 & Gửi Telegram
+        async function scanAndSendTelegram() {
+            const btn = document.getElementById('btn-telegram');
+            const originalText = btn.innerHTML;
+            btn.disabled = true;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Đang quét D1...`;
+
+            const breakoutStocks = Object.values(combinedData).filter(item => {
+                const rec = item.recommendation || "";
+                return rec.includes("BREAKOUT") || rec.includes("TÍCH LŨY") || rec.includes("GOM");
+            }).slice(0, 5);
+
+            if (breakoutStocks.length === 0) {
+                alert("Không tìm thấy mã đạt tiêu chí cấu trúc nền D1.");
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+                return;
+            }
+
+            let message = `📊 <b>[PRICE ACTION D1] TÍN HIỆU TÍCH LŨY & BREAKOUT</b>\n`;
+            message += `------------------------------------\n\n`;
+
+            breakoutStocks.forEach((item, idx) => {
+                message += `<b>${idx + 1}. Mã ${item.symbol} (${item.industry})</b>\n`;
+                message += `• Giá D1: <b>${item.close ? item.close.toLocaleString('vi-VN') : '—'} VNĐ</b>\n`;
+                message += `• Định giá: P/E: ${item.pe ? item.pe.toFixed(1) : '—'}x | P/B: ${item.pb ? item.pb.toFixed(1) : '—'}x\n`;
+                message += `• Trạng thái D1: <b>${item.recommendation}</b>\n`;
+                message += `• Cấu trúc nền: <i>${item.price_zone}</i>\n\n`;
+            });
+
+            message += `⏰ <i>Thời gian quét khung D1: ${new Date().toLocaleString('vi-VN')}</i>`;
+
+            try {
+                const teleUrl = `[https://api.telegram.org/bot$](https://api.telegram.org/bot$){TELEGRAM_BOT_TOKEN}/sendMessage`;
+                const res = await fetch(teleUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (res.ok) {
+                    alert("✅ Đã gửi báo cáo cấu trúc nền D1 thành công về Telegram!");
+                } else {
+                    alert("⚠️ Gửi Telegram thất bại. Kiểm tra lại Bot Token và Chat ID.");
+                }
+            } catch (err) {
+                console.error("Lỗi:", err);
+                alert("Lỗi kết nối khi gửi Telegram!");
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = originalText;
+            }
         }
 
         function openDetail(symbol) {
@@ -324,11 +385,11 @@
             document.getElementById('modal-price').innerText = item.close ? item.close.toLocaleString('vi-VN') + ' VNĐ' : '—';
             document.getElementById('modal-valuation').innerText = `${item.pe ? item.pe.toFixed(1) : '—'}x / ${item.pb ? item.pb.toFixed(1) : '—'}x`;
             
-            document.getElementById('modal-bctc').innerText = item.bctc || 'Đang chờ phân tích...';
-            document.getElementById('modal-outlook').innerText = item.outlook || 'Đang cập nhật triển vọng...';
-            document.getElementById('modal-macro').innerText = item.macro_view || 'Chưa có phân tích vĩ mô...';
-            document.getElementById('modal-buyzone').innerText = item.price_zone || 'Chưa có vùng giá gom cụ thể...';
-            document.getElementById('modal-time').innerText = item.ai_updated_at ? `Cập nhật AI: ${item.ai_updated_at}` : 'Chưa có thông tin cập nhật';
+            document.getElementById('modal-bctc').innerText = item.bctc || 'Đang cập nhật...';
+            document.getElementById('modal-outlook').innerText = item.outlook || 'Đang cập nhật vận động D1...';
+            document.getElementById('modal-macro').innerText = item.macro_view || 'Đang cập nhật...';
+            document.getElementById('modal-buyzone').innerText = item.price_zone || 'Đang cập nhật...';
+            document.getElementById('modal-time').innerText = item.ai_updated_at ? `Cập nhật D1: ${item.ai_updated_at}` : 'Chưa cập nhật';
 
             document.getElementById('detail-modal').classList.remove('hidden');
         }
@@ -342,11 +403,9 @@
         document.getElementById('rec-filter').addEventListener('change', () => renderTable(combinedData));
 
         window.addEventListener('click', (e) => {
-            const modal = document.getElementById('detail-modal');
-            if (e.target === modal) closeModal();
+            if (e.target === document.getElementById('detail-modal')) closeModal();
         });
 
-        // Bắt đầu tải dữ liệu
         loadData();
     </script>
 </body>
