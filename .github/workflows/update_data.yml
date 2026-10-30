@@ -1,9 +1,9 @@
-name: VN100 Screener & Telegram Alert
+name: VN100 Screener Data Updater
 
 on:
-  workflow_dispatch: # Cho phép bấm nút chạy thủ công trên giao diện GitHub Actions
+  workflow_dispatch:
   schedule:
-    - cron: '0 1 * * 1-5' # Chạy tự động lúc 8:00 sáng (giờ VN) từ Thứ 2 đến Thứ 6
+    - cron: '0 1 * * 1-5' # Chạy lúc 8h sáng (giờ VN) các ngày từ Thứ 2 đến Thứ 6
 
 jobs:
   run-screener:
@@ -24,10 +24,10 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests numpy
 
-      - name: Run update_screener.py (Cập nhật giá, P/E, P/B định lượng)
+      - name: Run update_screener.py
         run: python update_screener.py
 
-      - name: Run scanner.py (Quét tín hiệu D1: Cạn cung, Breakout & Gửi Telegram)
+      - name: Run scanner.py
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
