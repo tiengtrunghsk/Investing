@@ -481,59 +481,67 @@
         }
 
         function openChartModal(symbol) {
-            const item = stockData[symbol];
-            if (!item) return;
+    const item = stockData[symbol];
+    if (!item) return;
 
-            document.getElementById('chart-modal-symbol').innerText = symbol;
-            
-            document.getElementById('btn-view-ai').onclick = () => {
-                closeChartModal();
-                openModal(symbol);
-            };
+    document.getElementById('chart-modal-symbol').innerText = symbol;
+    
+    // Gắn sự kiện chuyển sang xem bảng AI chi tiết từ trong modal biểu đồ
+    document.getElementById('btn-view-ai').onclick = () => {
+        closeChartModal();
+        openModal(symbol);
+    };
 
-            document.getElementById('chart-modal').classList.remove('hidden');
+    // Hiển thị modal trước để khung div có kích thước hiển thị
+    const modal = document.getElementById('chart-modal');
+    modal.classList.remove('hidden');
 
-            const container = document.getElementById('tv-chart-container');
-            container.innerHTML = '';
+    const container = document.getElementById('tv-chart-container');
+    container.innerHTML = '';
 
-            chartInstance = LightweightCharts.createChart(container, {
-                width: container.clientWidth,
-                height: 420,
-                layout: { background: { color: '#0f172a' }, textColor: '#94a3b8' },
-                grid: { vertLines: { color: '#1e293b' }, horzLines: { color: '#1e293b' } },
-                timeScale: { borderColor: '#334155' }
-            });
+    // Khởi tạo biểu đồ Lightweight Charts dựa theo kích thước thực tế của khung chứa
+    chartInstance = LightweightCharts.createChart(container, {
+        width: container.clientWidth,
+        height: 420,
+        layout: { background: { color: '#0f172a' }, textColor: '#94a3b8' },
+        grid: { vertLines: { color: '#1e293b' }, horzLines: { color: '#1e293b' } },
+        timeScale: { borderColor: '#334155' }
+    });
 
-            const candleSeries = chartInstance.addCandlestickSeries({
-                upColor: '#10b981', downColor: '#f43f5e',
-                borderUpColor: '#10b981', borderDownColor: '#f43f5e',
-                wickUpColor: '#10b981', wickDownColor: '#f43f5e',
-            });
+    const candleSeries = chartInstance.addCandlestickSeries({
+        upColor: '#10b981', downColor: '#f43f5e',
+        borderUpColor: '#10b981', borderDownColor: '#f43f5e',
+        wickUpColor: '#10b981', wickDownColor: '#f43f5e',
+    });
 
-            const volumeSeries = chartInstance.addHistogramSeries({
-                priceFormat: { type: 'volume' },
-                priceScaleId: '',
-            });
+    const volumeSeries = chartInstance.addHistogramSeries({
+        priceFormat: { type: 'volume' },
+        priceScaleId: '',
+    });
 
-            chartInstance.priceScale('').applyOptions({
-                scaleMargins: { top: 0.75, bottom: 0 },
-            });
+    chartInstance.priceScale('').applyOptions({
+        scaleMargins: { top: 0.75, bottom: 0 },
+    });
 
-            if (item.history && item.history.length > 0) {
-                candleSeries.setData(item.history);
-                
-                const volumeData = item.history.map(row => ({
-                    time: row.time,
-                    value: row.volume,
-                    color: row.close >= row.open ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)'
-                }));
-                volumeSeries.setData(volumeData);
+    if (item.history && item.history.length > 0) {
+        candleSeries.setData(item.history);
+        
+        const volumeData = item.history.map(row => ({
+            time: row.time,
+            value: row.volume,
+            color: row.close >= row.open ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)'
+        }));
+        volumeSeries.setData(volumeData);
 
-                chartInstance.timeScale().fitContent();
-            } else {
-                container.innerHTML = `<div class="flex items-center justify-center h-full text-slate-500 text-xs">Chưa có dữ liệu lịch sử giá. Hãy chạy script cào dữ liệu trên PC để cập nhật!</div>`;
-            }
-        }
+        // Đảm bảo biểu đồ tự động fit lại khung nhìn ngay sau khi render
+        setTimeout(() => {
+            chartInstance.timeScale().fitContent();
+        }, 50);
+    } else {
+        container.innerHTML = `<div class="flex items-center justify-center h-full text-slate-500 text-xs">Chưa có dữ liệu lịch sử giá cho mã này.</div>`;
+    }
+}
+
 
         function closeChartModal() {
             document.getElementById('chart-modal').classList.add('hidden');
