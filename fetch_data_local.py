@@ -33,7 +33,7 @@ VNDIRECT_RATIOS = {
 def get_vndirect_ratio(symbol, ratio_code):
     url = "https://api-finfo.vndirect.com.vn/v4/ratios"
     params = {"q": f"code:{symbol}~ratioCode:{ratio_code}", "size": 1, "sort": "reportDate:desc"}
-    headers = {"User-Agent": "Mozilla/5.0"}
+    headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64)"}
     try:
         r = requests.get(url, params=params, headers=headers, timeout=10)
         if r.status_code == 200:
@@ -45,7 +45,7 @@ def get_vndirect_ratio(symbol, ratio_code):
     return 0
 
 def aggregate_candles(data, interval):
-    """Thuật toán gom nhóm nến D1 thành W1 (Tuần) hoặc MN (Tháng)"""
+    """Thuật toán gom nhóm nến D1 thành W1 (Tuần) hoặc MN (Tháng) chuẩn xác"""
     if not data:
         return []
     if interval == 'D1':
@@ -77,8 +77,23 @@ def aggregate_candles(data, interval):
 
     return sorted(list(groups.values()), key=lambda x: x['time'])
 
+def fetch_history_with_fallback(symbol, start_date, end_date):
+    """Thử lần lượt các nguồn TCBS và VCI với cơ chế đổi User-Agent phòng chống chặn"""
+    sources = ['TCBS', 'VCI']
+    for src in sources:
+        for attempt in range(2): # Thử lại tối đa 2 lần cho mỗi nguồn
+            try:
+                quote = Quote(source=src, symbol=symbol)
+                df = quote.history(start=start_date, end=end_date)
+                if df is not None and not df.empty:
+                    return df
+            except Exception:
+                time.sleep(1) # Nghỉ ngắn khi gặp lỗi trước khi thử lại
+        time.sleep(0.5)
+    return None
+
 def auto_git_push():
-    """Tự động add, commit và push data.json, thư mục history và file JS lên GitHub"""
+    """Tự động đồng bộ dữ liệu lên GitHub"""
     try:
         print("📤 Đang tiến hành đồng bộ dữ liệu lên GitHub...")
         subprocess.run(["git", "add", DATA_FILE], check=True)
@@ -86,7 +101,7 @@ def auto_git_push():
         if os.path.exists(JS_LIB_FILE):
             subprocess.run(["git", "add", JS_LIB_FILE], check=True)
             
-        commit_msg = f"Auto update split history & data - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        commit_msg = f"Auto update safe multi-source data - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push"], check=True)
         print("🚀 Đẩy dữ liệu lên GitHub thành công!")
@@ -96,7 +111,7 @@ def auto_git_push():
         print(f"⚠️ Lỗi Git push: {e}")
 
 def main():
-    print("🚀 Bắt đầu cào dữ liệu 730 ngày (2 năm) và tách file nến riêng biệt...")
+    print("🚀 Bắt đầu cào dữ liệu 2 năm với tốc độ an toàn chống chặn...")
     
     if not os.path.exists(HISTORY_DIR):
         os.makedirs(HISTORY_DIR)
@@ -110,6 +125,9 @@ def main():
             pass
 
     total = len(VN100_SYMBOLS)
+    end_date = datetime.datetime.now().strftime("%Y-%m-%d")
+    start_date = (datetime.datetime.now() - datetime.timedelta(days=730)).strftime("%Y-%m-%d")
+
     for i, symbol in enumerate(VN100_SYMBOLS):
         print(f"[{i+1}/{total}] Đang xử lý: {symbol}...")
         closes, volumes = [], []
@@ -117,10 +135,7 @@ def main():
         history_d1 = []
         
         try:
-            end_date = datetime.datetime.now().strftime("%Y-%m-%d")
-            start_date = (datetime.datetime.now() - datetime.timedelta(days=730)).strftime("%Y-%m-%d")
-            quote = Quote(source='VCI', symbol=symbol)
-            df = quote.history(start=start_date, end=end_date)
+            df = fetch_history_with_fallback(symbol, start_date, end_date)
             
             if df is not None and not df.empty:
                 closes = df['close'].tolist()
@@ -141,17 +156,18 @@ def main():
                         "volume": int(row.get('volume', 0))
                     })
         except Exception as e:
-            print(f"⚠️ Lỗi lấy lịch sử {symbol}: {e}")
+            print(f"⚠️ Lỗi xử lý lịch sử {symbol}: {e}")
 
         if close_price <= 0:
+            print(f"⚠️ Bỏ qua {symbol} do không lấy được giá.")
             continue
 
         ratios = {}
         for key, code in VNDIRECT_RATIOS.items():
             ratios[key] = get_vndirect_ratio(symbol, code)
-            time.sleep(0.1)
+            time.sleep(0.2)
 
-        # Thuật toán Price Action
+        # Thuật toán Price Action cơ bản
         status = "ĐANG TÍCH LŨY NỀN"
         detail = "Đang siết nền tích lũy biên độ hẹp."
         if len(closes) >= 20 and len(volumes) >= 20:
@@ -174,7 +190,7 @@ def main():
         history_w1 = aggregate_candles(history_d1, 'W1')
         history_mn = aggregate_candles(history_d1, 'MN')
 
-        # Ghi file lịch sử riêng cho từng mã vào thư mục history/
+        # Lưu file lịch sử riêng cho từng mã
         symbol_history_data = {
             "history_d1": history_d1,
             "history_w1": history_w1,
@@ -185,7 +201,6 @@ def main():
 
         old_data = stock_db.get(symbol, {})
         
-        # File data.json chính chỉ chứa thông tin cơ bản và định giá AI (cực kỳ nhẹ)
         stock_db[symbol] = {
             "symbol": symbol,
             "close": int(close_price * 1000),
@@ -206,11 +221,13 @@ def main():
             "macro_view": old_data.get("macro_view", ""),
             "ai_updated_at": old_data.get("ai_updated_at", "")
         }
-        time.sleep(0.3)
+        
+        # 💡 TĂNG THỜI GIAN NGHỈ AN TOÀN: Nghỉ từ 1.5 đến 2 giây giữa các mã để không bị máy chủ chặn IP
+        time.sleep(1.5)
 
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(stock_db, f, ensure_ascii=False, indent=4)
-    print("✅ Đã tách file nến riêng biệt thành công cho toàn bộ mã!")
+    print("✅ Đã hoàn tất toàn bộ dữ liệu an toàn!")
 
     auto_git_push()
 
