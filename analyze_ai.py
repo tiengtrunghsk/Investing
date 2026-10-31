@@ -33,9 +33,14 @@ def analyze_stock_with_ai(symbol, data):
         print(f"❌ LỖI: Biến môi trường ALIBABA_API_KEY đang bị trống!")
         return None
 
-    # Prompt hoàn toàn mở, để AI tự do phân tích toàn diện định giá đắt/rẻ và kỹ thuật không qua bất kỳ ràng buộc cứng nào
+    # Prompt thông minh: Hướng dẫn AI tự linh hoạt nhận diện đặc thù từng nhóm ngành để định giá đắt/rẻ chuẩn xác
     prompt = f"""
     Bạn là một Chuyên gia Quản lý Quỹ Đầu tư (Portfolio Manager) hàng đầu. Hãy dùng toàn bộ tư duy tài chính, kinh tế vĩ mô và phân tích kỹ thuật của bạn để đánh giá toàn diện mã cổ phiếu: {symbol}.
+
+    LƯU Ý QUAN TRỌNG VỀ ĐẶC THÙ NGÀNH:
+    - Nếu là NGÂN HÀNG hoặc CHỨNG KHOÁN: Phải đánh giá chủ đạo qua chỉ số P/B, chất lượng tài sản (nợ xấu, NIM) thay vì P/E đơn thuần.
+    - Nếu là BẤT ĐỘNG SẢN: Phải chú ý đến tài sản dở dang, người mua trả tiền trước và định giá P/B, NAV.
+    - Nếu là SẢN XUẤT / BÁN LẺ / CÔNG NGHỆ: Đánh giá qua P/E, biên lợi nhuận gộp, ROE và tốc độ tăng trưởng.
 
     DỮ LIỆU THỊ TRƯỜNG & TÀI CHÍNH HIỆN TẠI:
     - Giá đóng cửa hiện tại: {data.get('close', 0)} VNĐ
@@ -47,11 +52,11 @@ def analyze_stock_with_ai(symbol, data):
     - Vùng giá/VCP thô: {data.get('price_zone', 'Chưa có')}
 
     YÊU CẦU PHÂN TÍCH (Trả về JSON thuần túy, không định dạng markdown):
-    1. "bctc": Đánh giá sức khỏe tài chính và chất lượng nội tại của doanh nghiệp dựa trên các con số trên. (2-3 câu).
-    2. "outlook": Phân tích chuyên sâu xem **mức giá hiện tại đang ĐẮT hay RẺ**, có biên an toàn chưa, dựa trên P/E, P/B so với hiệu quả sinh lời ROE. (2-3 câu).
-    3. "recommendation": Đưa ra quyết định đầu tư thuần túy từ AI, chọn 1 trong các trạng thái: "MUA TÍCH SẢN", "MUA BREAKOUT", "CHỜ TEST LẠI", "CẠN CUNG", "THEO DÕI THÊM", "BỎ QUA".
+    1. "bctc": Đánh giá sức khỏe tài chính dựa trên các chỉ số phù hợp nhất với đặc thù ngành của mã này (ví dụ: dùng P/B, nợ xấu cho Ngân hàng; Biên lợi nhuận, ROE cho Bán lẻ/Sản xuất). (2-3 câu).
+    2. "outlook": Phân tích chuyên sâu xem **mức giá hiện tại đang ĐẮT hay RẺ** theo đúng tiêu chuẩn định giá đặc thù của ngành đó, đã có biên an toàn chưa? (2-3 câu).
+    3. "recommendation": Đưa ra quyết định đầu tư thuần túy từ AI, chọn 1 trong các trạng thái chuẩn: "MUA TÍCH SẢN", "MUA BREAKOUT", "CHỜ TEST LẠI", "CẠN CUNG", "THEO DÕI THÊM", "BỎ QUA".
     4. "price_zone": Xác định rõ vùng giá mua gom hợp lý / vùng định giá rẻ và ngưỡng hành động giá.
-    5. "macro_view": Đánh giá góc nhìn vĩ mô và dòng tiền lớn với ngành chứa cổ phiếu này. (2 câu).
+    5. "macro_view": Đánh giá góc nhìn vĩ mô và sóng ngành chứa cổ phiếu này. (2 câu).
 
     BẮT BUỘC TRẢ VỀ ĐỐI TƯỢNG JSON THUẦN TÚY với các khóa chính xác: "bctc", "outlook", "recommendation", "price_zone", "macro_view".
     """
@@ -96,7 +101,7 @@ def main():
         print("💤 Dữ liệu không thay đổi. Không cần gọi AI để tiết kiệm tài nguyên.")
         return
 
-    print(f"🤖 Đang để AI tự động phân tích và định giá toàn bộ thị trường...")
+    print(f"🤖 Đang để AI tự động phân tích và định giá toàn bộ thị trường theo đặc thù ngành...")
     count = 0
     
     for i, (symbol, data) in enumerate(stock_db.items()):
@@ -106,8 +111,7 @@ def main():
         updated_at = data.get("updated_at", "")
         ai_updated_at = data.get("ai_updated_at", "")
         
-        # Nhờ AI phân tích hoàn toàn dựa trên dữ liệu mới
-        if not data.get("ai_recommendation") or updated_at > ai_updated_ai if 'ai_updated_ai' in locals() else not data.get("ai_recommendation") or updated_at > ai_updated_at:
+        if not data.get("ai_recommendation") or updated_at > ai_updated_at:
             print(f"[{i+1}/{len(stock_db)}] AI đang đánh giá mã: {symbol}...")
             ai_result = analyze_stock_with_ai(symbol, data)
             
