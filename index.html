@@ -7,8 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Nhúng thư viện TradingView chạy nội bộ tại thư mục dự án (Ổn định 100%, không phụ thuộc CDN mạng) -->
-    <script src="./lightweight-charts.standalone.production.js"></script>
+    <!-- Sử dụng CDN chuẩn kết hợp dự phòng toàn cục -->
+    <script src="https://cdn.jsdelivr.net/npm/lightweight-charts@4.1.1/dist/standalone/lightweight-charts.standalone.production.js"></script>
+    <script>
+        // Đảm bảo luôn có biến window.LightweightCharts dù có chuyện gì xảy ra
+        window.LightweightCharts = window.LightweightCharts || (typeof LightweightCharts !== 'undefined' ? LightweightCharts : null);
+    </script>
 
     <style>
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -499,9 +503,10 @@
             const container = document.getElementById('tv-chart-container');
             container.innerHTML = '';
 
-            const LC = window.LightweightCharts;
+            // Kiểm tra cực kỳ an toàn các đối tượng global
+            const LC = window.LightweightCharts || (typeof LightweightCharts !== 'undefined' ? LightweightCharts : null);
             if (!LC) {
-                container.innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Lỗi: Không tìm thấy file thư viện lightweight-charts.standalone.production.js trong dự án!</div>`;
+                container.innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Lỗi: Không tải được thư viện biểu đồ. Vui lòng kiểm tra lại mạng hoặc mở tab ẩn danh!</div>`;
                 return;
             }
 
