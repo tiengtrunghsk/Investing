@@ -61,7 +61,7 @@
                 </div>
             </div>
             
-            <button onclick="loadData()" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2">
+            <button onclick="loadData(true)" class="px-3 py-2 bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white rounded-lg text-xs font-semibold transition flex items-center gap-2">
                 <i class="fa-solid fa-rotate" id="refresh-icon"></i> <span class="hidden md:inline">Làm mới</span>
             </button>
         </div>
@@ -281,21 +281,23 @@
             return num.toFixed(1) + '%';
         }
 
-        async function loadData() {
+        async function loadData(showSpinner = false) {
             const icon = document.getElementById('refresh-icon');
-            icon.classList.add('spinner');
+            if (showSpinner) icon.classList.add('spinner');
             try {
                 const response = await fetch('data.json?t=' + new Date().getTime());
                 if (!response.ok) throw new Error('Lỗi tải file');
                 stockData = await response.json();
                 renderCards();
             } catch (error) {
-                document.getElementById('stock-container').innerHTML = `
-                    <div class="col-span-full text-center py-8 text-rose-400 font-semibold bg-rose-500/10 rounded-xl border border-rose-500/30">
-                        <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi tải file data.json!
-                    </div>`;
+                if (showSpinner) {
+                    document.getElementById('stock-container').innerHTML = `
+                        <div class="col-span-full text-center py-8 text-rose-400 font-semibold bg-rose-500/10 rounded-xl border border-rose-500/30">
+                            <i class="fa-solid fa-triangle-exclamation mr-1"></i> Lỗi tải file data.json!
+                        </div>`;
+                }
             } finally {
-                icon.classList.remove('spinner');
+                if (showSpinner) icon.classList.remove('spinner');
             }
         }
 
@@ -396,7 +398,7 @@
 
         function renderCards() {
             const container = document.getElementById('stock-container');
-            container.innerHTML = '';
+            if (!container) return;
 
             const searchTerm = document.getElementById('search-input').value.toUpperCase();
             const selectedSector = document.getElementById('sector-filter').value;
@@ -435,6 +437,7 @@
                 return;
             }
 
+            container.innerHTML = '';
             filtered.forEach((item, index) => {
                 let statusColor = "text-slate-400 bg-slate-800";
                 let borderColor = "border-slate-700";
@@ -861,7 +864,13 @@
             if (e.target === chartModal) closeChartModal();
         });
 
-        loadData();
+        // Tải dữ liệu lần đầu
+        loadData(true);
+
+        // Tự động làm mới dữ liệu ngầm sau mỗi 30 phút (1800000 milliseconds)
+        setInterval(() => {
+            loadData(false);
+        }, 1800000);
     </script>
 </body>
 </html>
