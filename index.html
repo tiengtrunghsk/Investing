@@ -7,8 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Nhúng trực tiếp mã nguồn chuẩn LightweightCharts để triệt tiêu hoàn toàn lỗi mạng/thiếu file -->
-    <script src="https://unpkg.com/lightweight-charts@4.1.1/dist/standalone/lightweight-charts.standalone.production.js"></script>
+    <!-- Nhúng đúng tên file nội bộ đang có trên GitHub -->
+    <script src="./lightweight-charts.js"></script>
 
     <style>
         ::-webkit-scrollbar { width: 6px; height: 6px; }
@@ -499,9 +499,9 @@
             const container = document.getElementById('tv-chart-container');
             container.innerHTML = '';
 
-            const LC = window.LightweightCharts || (typeof LightweightCharts !== 'undefined' ? LightweightCharts : null);
+            const LC = window.LightCategory || window.LightweightCharts;
             if (!LC) {
-                container.innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Lỗi: Không tải được thư viện biểu đồ.</div>`;
+                container.innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Lỗi: Không tìm thấy file lightweight-charts.js!</div>`;
                 return;
             }
 
