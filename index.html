@@ -628,4 +628,53 @@
 
             let chartData = [];
             if (currentInterval === 'D1') chartData = historyDataObj.history_d1 || [];
-            else if (currentInterval === 'W1') chart
+            else if (currentInterval === 'W1') chartData = historyDataObj.history_w1 || [];
+            else if (currentInterval === 'MN') chartData = historyDataObj.history_mn || [];
+
+            if (chartData && chartData.length > 0) {
+                candleSeries.setData(chartData);
+                
+                const volumeData = chartData.map(row => ({
+                    time: row.time,
+                    value: row.volume,
+                    color: row.close >= row.open ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)'
+                }));
+                volumeSeries.setData(volumeData);
+
+                setTimeout(() => {
+                    chartInstance.timeScale().fitContent();
+                }, 50);
+            } else {
+                container.innerHTML = `<div class="flex items-center justify-center h-full text-slate-500 text-xs">Chưa có dữ liệu cho khung này.</div>`;
+            }
+        }
+
+        function closeChartModal() {
+            const modalBox = document.getElementById('chart-modal-box');
+            if (modalBox.classList.contains('fullscreen')) {
+                toggleFullscreen();
+            }
+
+            document.getElementById('chart-modal').classList.add('hidden');
+            if (chartInstance) {
+                chartInstance.remove();
+                chartInstance = null;
+            }
+            currentSymbolHistory = null;
+        }
+
+        document.getElementById('search-input').addEventListener('input', renderCards);
+        document.getElementById('sector-filter').addEventListener('change', renderCards);
+        document.getElementById('ranking-filter').addEventListener('change', renderCards);
+        
+        window.addEventListener('click', (e) => {
+            const aiModal = document.getElementById('ai-modal');
+            const chartModal = document.getElementById('chart-modal');
+            if (e.target === aiModal) closeModal();
+            if (e.target === chartModal) closeChartModal();
+        });
+
+        loadData();
+    </script>
+</body>
+</html>
