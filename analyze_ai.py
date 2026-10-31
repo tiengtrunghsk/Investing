@@ -33,17 +33,25 @@ def analyze_stock_with_ai(symbol, data):
         print(f"❌ LỖI: Biến môi trường ALIBABA_API_KEY đang bị trống!")
         return None
 
-    # Prompt đỉnh cao: Kết hợp đặc thù ngành, vĩ mô toàn cầu và BẮT BUỘC DẪN CHỨNG TÊN DỰ ÁN THỰC TẾ
+    # Prompt chuyên sâu: Tự động đổi lăng kính phân tích tùy thuộc vào mô hình kinh doanh cốt lõi của từng doanh nghiệp
     prompt = f"""
-    Bạn là một Chuyên gia Phân tích Tài chính Cấp cao kiêm Quản lý Quỹ Đầu tư (Portfolio Manager) xuất sắc. Hãy thực hiện một bản **đánh giá phân tích chiến lược chuyên sâu, đầy đủ ý và có dẫn chứng thực tế** đối với mã cổ phiếu: {symbol}.
+    Bạn là một Chuyên gia Phân tích Tài chính Cấp cao kiêm Quản lý Quỹ Đầu tư (Portfolio Manager) xuất sắc. Hãy thực hiện một bản **đánh giá phân tích chiến lược chuyên sâu, bám sát bản chất kinh doanh cốt lõi** đối với mã cổ phiếu: {symbol}.
 
-    NGUYÊN TẮC BÓC TÁCH CHUYÊN SÂU & DẪN CHỨNG DỰ ÁN THỰC TẾ (BẮT BUỘC ÁP DỤNG):
-    1. **Móc nối dự án thực tế đang triển khai:** 
-       - Bạn **PHẢI GỌI TÊN CỤ THỂ CÁC DỰ ÁN TRỌNG ĐIỂM** mà doanh nghiệp này đang làm (ví dụ: các đại dự án BĐS, các gói thầu hạ tầng/đầu tư công lớn, các mỏ dầu khí/dự án điện, hay các khu công nghiệp mới) để làm bằng chứng thực tế cho luận điểm tăng trưởng.
-       - Đánh giá rõ tiến độ pháp lý, thời điểm điểm rơi hạch toán doanh thu/lợi nhuận của từng dự án đó.
-    2. **Đặc thù ngành & Định giá:** 
-       - Ngân hàng (P/B, Nợ xấu, NIM); Chứng khoán (Tự doanh FVTPL, Margin); BĐS/Hạ tầng (Tiến độ dự án, Người mua trả tiền trước); Sản xuất/Thép (Hàng tồn kho, Giá hàng hóa thế giới).
-    3. **Bối cảnh vĩ mô toàn cầu & Tiềm năng tương lai:** Gắn liền với lãi suất, tỷ giá USD/VND, chu kỳ hàng hóa thế giới, chiến tranh/địa chính trị và các xu hướng lớn (xe điện, năng lượng sạch, chuyển đổi số).
+    NGUYÊN TẮC BÓC TÁCH ĐỘNG LỰC TĂNG TRƯỞNG CỐT LÕI THEO TỪNG MÔ HÌNH KINH DOANH:
+    1. **Nếu là BẤT ĐỘNG SẢN / HẠ TẦNG / KHU CÔNG NGHIỆP:** 
+       - Bắt buộc gọi tên các dự án trọng điểm đang triển khai, pháp lý, tiến độ giải phóng mặt bằng, quỹ đất gối đầu và khoản tiền "Người mua trả tiền trước".
+    2. **Nếu là BÁN LẺ & TIÊU DÙNG:** 
+       - Tập trung vào tốc độ mở rộng chuỗi cửa hàng, hiệu suất hoạt động trên mỗi điểm bán, biên lợi nhuận gộp và sức mua vĩ mô.
+    3. **Nếu là SẢN XUẤT / THÉP / HÓA CHẤT / VẬT LIỆU:** 
+       - Tập trung vào công suất nhà máy, chu kỳ vòng quay hàng tồn kho, biên lợi nhuận gộp và biến động giá nguyên liệu đầu vào trên thị trường thế giới.
+    4. **Nếu là NGÂN HÀNG & CHỨNG KHOÁN:** 
+       - Ngân hàng tập trung vào P/B, nợ xấu (NPL), NIM; Chứng khoán tập trung vào danh mục Tự doanh (FVTPL), dư nợ Margin và thị phần môi giới.
+    5. **Nếu là ĐIỆN & NĂNG LƯỢNG / DẦU KHÍ:** 
+       - Tập trung vào sản lượng phát điện, hiệu suất giàn khoan/khai thác, và giá dầu thô/khí thế giới.
+    6. **Nếu là CÔNG NGHỆ:** 
+       - Tập trung vào doanh thu dịch vụ công nghệ thị trường nước ngoài và biên lợi nhuận cao từ các hợp đồng lớn.
+
+    BỐI CẢNH VĨ MÔ & TẦM NHÌN: Gắn liền với mặt bằng lãi suất, tỷ giá USD/VND, lạm phát và các xu hướng lớn (chuyển đổi số, năng lượng sạch, chuỗi cung ứng).
 
     DỮ LIỆU THỊ TRƯỜNG & TÀI CHÍNH HIỆN TẠI:
     - Giá đóng cửa hiện tại: {data.get('close', 0)} VNĐ | Khối lượng: {data.get('volume', 0)}
@@ -53,11 +61,11 @@ def analyze_stock_with_ai(symbol, data):
     - Trạng thái kỹ thuật/nến thô: {data.get('recommendation', 'Chưa xác định')} | Vùng giá thô: {data.get('price_zone', 'Chưa có')}
 
     YÊU CẦU TRẢ VỀ BẢN PHÂN TÍCH CHI TIẾT (Dạng JSON thuần túy, tuyệt đối không dùng định dạng markdown như ```json):
-    1. "bctc": Phân tích sức khỏe tài chính chiều sâu (Viết chi tiết từ 4-6 câu): Đánh giá cấu trúc vốn, đòn bẩy và chất lượng dòng tiền cốt lõi. **Phải lồng ghép dẫn chứng về các khoản người mua trả tiền trước hoặc vốn đầu tư đang đổ vào các dự án chính.**
-    2. "outlook": Đánh giá triển vọng định giá và biên an toàn (Viết chi tiết từ 4-6 câu): Phân tích xem mức giá hiện tại so với giá trị thực tế của các dự án đang triển khai và hiệu quả sinh lời (ROE/ROA) đang là ĐẮT hay RẺ, đã có biên an toàn chưa?
+    1. "bctc": Phân tích sức khỏe tài chính chiều sâu (Viết chi tiết từ 4-6 câu): Đánh giá cấu trúc vốn, đòn bẩy và chất lượng dòng tiền. **Phải xoáy sâu vào mảng kinh doanh cốt lõi phù hợp nhất với mô hình của doanh nghiệp này** (Ví dụ: Dự án/Người mua trả tiền trước với BĐS; Hàng tồn kho/Biên gộp với Sản xuất; Hoặc Mở rộng chuỗi với Bán lẻ).
+    2. "outlook": Đánh giá triển vọng định giá và biên an toàn (Viết chi tiết từ 4-6 câu): Phân tích xem mức giá hiện tại so với giá trị thực tế của động lực kinh doanh chính đang là ĐẮT hay RẺ, đã có biên an toàn chưa?
     3. "recommendation": Đưa ra khuyến nghị hành động sắc bén, chuẩn mực của Quản lý quỹ (Ngắn gọn từ 3-6 từ, ví dụ: "Tích sản dài hạn giá hấp dẫn", "Định giá quá cao - Chờ chiết khấu", "Breakout dòng tiền lớn - Mua gia tăng").
     4. "price_zone": Vạch rõ chiến lược hành động giá chi tiết: Xác định rõ vùng giá gom hợp lý / vùng định giá rẻ, kèm theo mốc chặn lỗ hoặc điểm gia tăng tỷ trọng khi có dòng tiền lớn xác nhận.
-    5. "macro_view": Phân tích bức tranh vĩ mô toàn cầu & triển vọng dự án tương lai (Viết chi tiết từ 5-7 câu): Đan xen hài hòa giữa vĩ mô hiện tại (lãi suất, tỷ giá, chu kỳ hàng hóa thế giới, địa chính trị) với **tầm nhìn từ tiến độ các dự án trọng điểm và xu hướng ngành** đang tác động trực tiếp ra sao đến dư địa tăng trưởng dài hạn của doanh nghiệp.
+    5. "macro_view": Phân tích bức tranh vĩ mô toàn cầu & triển vọng ngành tương lai (Viết chi tiết từ 5-7 câu): Đan xen hài hòa giữa vĩ mô hiện tại (lãi suất, tỷ giá, chu kỳ hàng hóa thế giới, địa chính trị) với **tầm nhìn từ mô hình kinh doanh và động lực cốt lõi** tác động trực tiếp ra sao đến dư địa tăng trưởng dài hạn của doanh nghiệp.
 
     BẮT BUỘC TRẢ VỀ ĐỐI TƯỢNG JSON THUẦN TÚY với các khóa chính xác: "bctc", "outlook", "recommendation", "price_zone", "macro_view".
     """
@@ -102,7 +110,7 @@ def main():
         print("💤 Dữ liệu không thay đổi. Không cần gọi AI để tiết kiệm tài nguyên.")
         return
 
-    print(f"🤖 Chuyên gia AI đang tiến hành viết bản phân tích chuyên sâu có dẫn chứng dự án thực tế...")
+    print(f"🤖 Chuyên gia AI đang tiến hành viết bản phân tích chuyên sâu bám sát động lực cốt lõi của từng doanh nghiệp...")
     count = 0
     
     for i, (symbol, data) in enumerate(stock_db.items()):
@@ -114,7 +122,7 @@ def main():
         
         # Chỉ gọi AI khi chưa phân tích hoặc dữ liệu giá/cơ bản mới hơn lần quét trước
         if not data.get("ai_recommendation") or updated_at > ai_updated_at:
-            print(f"[{i+1}/{len(stock_db)}] Đang phân tích chi tiết kèm dự án cho mã: {symbol}...")
+            print(f"[{i+1}/{len(stock_db)}] Đang phân tích chiến lược cốt lõi cho mã: {symbol}...")
             ai_result = analyze_stock_with_ai(symbol, data)
             
             if ai_result:
@@ -136,7 +144,7 @@ def main():
     if count > 0:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(stock_db, f, ensure_ascii=False, indent=4)
-        print(f"\n🎉 Hoàn thành! Đã cập nhật các bản phân tích chiến lược có dẫn chứng dự án cho {count} mã vào data.json.")
+        print(f"\n🎉 Hoàn thành! Đã cập nhật bản phân tích chuyên sâu theo đúng bản chất từng ngành cho {count} mã vào data.json.")
     else:
         print("\nℹ️ Không có dữ liệu mới cần chạy.")
 
