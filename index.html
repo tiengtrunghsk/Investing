@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- Thư viện biểu đồ TradingView Lightweight Charts nội bộ -->
     <script src="./lightweight-charts.js"></script>
 
     <style>
@@ -21,7 +20,7 @@
         .glow-top2 { box-shadow: 0 0 10px rgba(148, 163, 184, 0.3); border-color: #94a3b8; }
         .glow-top3 { box-shadow: 0 0 10px rgba(180, 83, 9, 0.3); border-color: #b45309; }
 
-        /* CSS cho chế độ Full màn hình biểu đồ */
+        /* CSS Tối ưu cho chế độ Fullscreen & Xoay ngang trên Mobile */
         #chart-modal-box.fullscreen {
             position: fixed !important;
             inset: 0 !important;
@@ -33,7 +32,8 @@
             z-index: 9999 !important;
         }
         #chart-modal-box.fullscreen #tv-chart-container {
-            height: calc(100vh - 130px) !important;
+            height: calc(100vh - 120px) !important;
+            width: 100% !important;
         }
     </style>
 </head>
@@ -173,14 +173,13 @@
         </div>
     </div>
 
-    <!-- MODAL HIỂN THỊ BIỂU ĐỒ TRADINGVIEW (CÓ NÚT CHỌN KHUNG & NÚT FULLSCREEN) -->
+    <!-- MODAL HIỂN THỊ BIỂU ĐỒ TRADINGVIEW -->
     <div id="chart-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm hidden p-2 md:p-4">
         <div id="chart-modal-box" class="bg-slate-900 border border-slate-700 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300">
             <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex justify-between items-center gap-2">
                 <div class="flex items-center space-x-2">
                     <span id="chart-modal-symbol" class="text-lg font-black text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">--</span>
                     
-                    <!-- THANH CHỌN KHUNG THỜI GIAN (D1, W1, MN) -->
                     <div class="flex items-center bg-slate-900 p-0.5 rounded-lg border border-slate-800 gap-0.5">
                         <button onclick="switchInterval('D1')" id="btn-d1" class="px-2.5 py-1 text-[11px] font-bold rounded bg-emerald-600 text-white transition">D1</button>
                         <button onclick="switchInterval('W1')" id="btn-w1" class="px-2.5 py-1 text-[11px] font-bold rounded text-slate-400 hover:text-white transition">W1</button>
@@ -189,8 +188,7 @@
                 </div>
 
                 <div class="flex items-center gap-2">
-                    <!-- NÚT PHÓNG TO FULL MÀN HÌNH -->
-                    <button onclick="toggleFullscreen()" id="fullscreen-btn" class="text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" title="Phóng to toàn màn hình">
+                    <button onclick="toggleFullscreen()" id="fullscreen-btn" class="text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" title="Phóng to toàn màn hình & Xoay ngang">
                         <i class="fa-solid fa-expand text-xs"></i>
                     </button>
                     
@@ -200,7 +198,10 @@
                 </div>
             </div>
 
-            <div class="p-2 md:p-4 bg-slate-900 flex-grow">
+            <div class="p-2 md:p-4 bg-slate-900 flex-grow relative">
+                <div id="chart-loading" class="absolute inset-0 flex items-center justify-center bg-slate-900/80 z-10 text-emerald-400 text-xs hidden">
+                    <i class="fa-solid fa-spinner spinner mr-2"></i> Đang tải dữ liệu biểu đồ...
+                </div>
                 <div id="tv-chart-container" style="width: 100%; height: 420px;"></div>
             </div>
 
@@ -215,6 +216,7 @@
 
     <script>
         let stockData = {};
+        let currentSymbolHistory = null;
         let chartInstance = null;
         let currentSymbol = null;
         let currentInterval = 'D1';
@@ -527,12 +529,12 @@
                 }
             });
 
-            if (currentSymbol) {
-                drawChart(currentSymbol);
+            if (currentSymbolHistory) {
+                renderChartInstance(currentSymbolHistory);
             }
         }
 
-        // HÀM BẬT/TẮT CHẾ ĐỘ FULLSCREEN CHO BIỂU ĐỒ
+        // HÀM BẬT/TẮT FULLSCREEN & TỰ ĐỘNG XOAY NGANG MÀN HÌNH (LANDSCAPE)
         function toggleFullscreen() {
             const modalBox = document.getElementById('chart-modal-box');
             const fsBtnIcon = document.querySelector('#fullscreen-btn i');
@@ -542,18 +544,27 @@
             if (modalBox.classList.contains('fullscreen')) {
                 fsBtnIcon.className = "fa-solid fa-compress text-xs";
                 document.getElementById('fullscreen-btn').title = "Thu nhỏ màn hình";
+                
+                // Tự động yêu cầu trình duyệt xoay ngang màn hình trên mobile (nếu thiết bị hỗ trợ)
+                if (screen.orientation && screen.orientation.lock) {
+                    screen.orientation.lock('landscape').catch(() => {});
+                }
             } else {
                 fsBtnIcon.className = "fa-solid fa-expand text-xs";
-                document.getElementById('fullscreen-btn').title = "Phóng to toàn màn hình";
+                document.getElementById('fullscreen-btn').title = "Phóng to toàn màn hình & Xoay ngang";
+                
+                // Trả lại hướng màn hình mặc định
+                if (screen.orientation && screen.orientation.unlock) {
+                    try { screen.orientation.unlock(); } catch (e) {}
+                }
             }
 
-            // Vẽ lại biểu đồ để tự động co giãn theo kích thước khung mới
             setTimeout(() => {
-                if (currentSymbol) drawChart(currentSymbol);
-            }, 100);
+                if (currentSymbolHistory) renderChartInstance(currentSymbolHistory);
+            }, 150);
         }
 
-        function openChartModal(symbol) {
+        async function openChartModal(symbol) {
             currentSymbol = symbol;
             currentInterval = 'D1';
             switchInterval('D1');
@@ -565,23 +576,30 @@
             };
 
             document.getElementById('chart-modal').classList.remove('hidden');
-            drawChart(symbol);
+            document.getElementById('chart-loading').classList.remove('hidden');
+
+            try {
+                const res = await fetch(`history/${symbol}.json?t=` + new Date().getTime());
+                if (!res.ok) throw new Error('Không tìm thấy file lịch sử');
+                currentSymbolHistory = await res.json();
+                renderChartInstance(currentSymbolHistory);
+            } catch (err) {
+                document.getElementById('tv-chart-container').innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Chưa có dữ liệu lịch sử cho mã này. Hãy chạy lại script Python!</div>`;
+            } finally {
+                document.getElementById('chart-loading').classList.add('hidden');
+            }
         }
 
-        function drawChart(symbol) {
-            const item = stockData[symbol];
-            if (!item) return;
-
+        function renderChartInstance(historyDataObj) {
             const container = document.getElementById('tv-chart-container');
             container.innerHTML = '';
 
             const LC = window.LightCategory || window.LightweightCharts;
             if (!LC) {
-                container.innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Lỗi: Không tìm thấy thư viện biểu đồ lightweight-charts.js!</div>`;
+                container.innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Lỗi thư viện biểu đồ!</div>`;
                 return;
             }
 
-            // Lấy kích thước thực tế của container theo chế độ màn hình thường hay fullscreen
             const width = container.clientWidth || 600;
             const height = container.clientHeight || 420;
 
@@ -608,56 +626,6 @@
                 scaleMargins: { top: 0.75, bottom: 0 },
             });
 
-            // Lấy dữ liệu 3 khung thời gian đã được Python tính sẵn trong data.json
             let chartData = [];
-            if (currentInterval === 'D1') chartData = item.history_d1 || [];
-            else if (currentInterval === 'W1') chartData = item.history_w1 || [];
-            else if (currentInterval === 'MN') chartData = item.history_mn || [];
-
-            if (chartData && chartData.length > 0) {
-                candleSeries.setData(chartData);
-                
-                const volumeData = chartData.map(row => ({
-                    time: row.time,
-                    value: row.volume,
-                    color: row.close >= row.open ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)'
-                }));
-                volumeSeries.setData(volumeData);
-
-                setTimeout(() => {
-                    chartInstance.timeScale().fitContent();
-                }, 50);
-            } else {
-                container.innerHTML = `<div class="flex items-center justify-center h-full text-slate-500 text-xs">Chưa có dữ liệu cho khung này.</div>`;
-            }
-        }
-
-        function closeChartModal() {
-            // Đảm bảo khi đóng modal thì trạng thái full màn hình cũng được reset
-            const modalBox = document.getElementById('chart-modal-box');
-            if (modalBox.classList.contains('fullscreen')) {
-                toggleFullscreen();
-            }
-
-            document.getElementById('chart-modal').classList.add('hidden');
-            if (chartInstance) {
-                chartInstance.remove();
-                chartInstance = null;
-            }
-        }
-
-        document.getElementById('search-input').addEventListener('input', renderCards);
-        document.getElementById('sector-filter').addEventListener('change', renderCards);
-        document.getElementById('ranking-filter').addEventListener('change', renderCards);
-        
-        window.addEventListener('click', (e) => {
-            const aiModal = document.getElementById('ai-modal');
-            const chartModal = document.getElementById('chart-modal');
-            if (e.target === aiModal) closeModal();
-            if (e.target === chartModal) closeChartModal();
-        });
-
-        loadData();
-    </script>
-</body>
-</html>
+            if (currentInterval === 'D1') chartData = historyDataObj.history_d1 || [];
+            else if (currentInterval === 'W1') chart
