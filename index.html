@@ -598,7 +598,6 @@
                         width: container.clientWidth,
                         height: container.clientHeight
                     });
-                    chartInstance.timeScale().fitContent();
                 }
             }
         }
@@ -752,7 +751,6 @@
             else if (currentInterval === 'MN') chartData = historyDataObj.history_mn || [];
 
             if (chartData && chartData.length > 0) {
-                // Tự động phân bổ diện tích giữa cửa sổ Giá và cửa sổ RSI nếu RSI được bật
                 if (activeIndicators.RSI) {
                     chartInstance.priceScale('right').applyOptions({
                         scaleMargins: { top: 0.05, bottom: 0.35 },
@@ -774,7 +772,6 @@
                 }));
                 volumeSeries.setData(volumeData);
 
-                // Đường MA nét mỏng (lineWidth: 1)
                 if (activeIndicators.MA20) {
                     const ma20Series = chartInstance.addLineSeries({
                         color: '#3b82f6',
@@ -795,7 +792,6 @@
                     ma50Series.setData(calculateMA(chartData, 50));
                 }
 
-                // Cửa sổ phụ RSI độc lập ở góc dưới (Pane riêng từ 0 - 100)
                 if (activeIndicators.RSI) {
                     const rsiSeries = chartInstance.addLineSeries({
                         color: '#a855f7',
@@ -808,7 +804,6 @@
                         scaleMargins: { top: 0.7, bottom: 0.02 },
                     });
 
-                    // Vẽ đường tham chiếu 70 (Quá mua)
                     rsiSeries.createPriceLine({
                         price: 70,
                         color: 'rgba(244, 63, 94, 0.6)',
@@ -818,7 +813,6 @@
                         title: '70 (Quá mua)',
                     });
 
-                    // Vẽ đường tham chiếu 30 (Quá bán)
                     rsiSeries.createPriceLine({
                         price: 30,
                         color: 'rgba(16, 185, 129, 0.6)',
@@ -831,8 +825,27 @@
                     rsiSeries.setData(calculateRSI(chartData, 14));
                 }
 
+                // TỰ ĐỘNG TÍNH SỐ LƯỢNG NẾN THEO ĐỘ RỘNG MÀN HÌNH (MOBILE / NGANG / PC)
                 setTimeout(() => {
-                    chartInstance.timeScale().fitContent();
+                    const totalBars = chartData.length;
+                    
+                    let visibleBarsCount = 50;
+                    if (width > 1200) {
+                        visibleBarsCount = 120; // PC màn hình lớn
+                    } else if (width > 768) {
+                        visibleBarsCount = 90;  // Màn hình ngang hoặc Tablet
+                    } else {
+                        visibleBarsCount = 50;  // Mobile dọc
+                    }
+
+                    if (totalBars > visibleBarsCount) {
+                        chartInstance.timeScale().setVisibleLogicalRange({
+                            from: totalBars - visibleBarsCount,
+                            to: totalBars - 1,
+                        });
+                    } else {
+                        chartInstance.timeScale().fitContent();
+                    }
                 }, 50);
             } else {
                 container.innerHTML = `<div class="flex items-center justify-center h-full text-slate-500 text-xs">Chưa có dữ liệu cho khung này.</div>`;
@@ -867,7 +880,7 @@
         // Tải dữ liệu lần đầu
         loadData(true);
 
-        // Tự động làm mới dữ liệu ngầm sau mỗi 30 phút (1800000 milliseconds)
+        // Tự động làm mới dữ liệu ngầm sau mỗi 30 phút
         setInterval(() => {
             loadData(false);
         }, 1800000);
