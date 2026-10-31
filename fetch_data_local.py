@@ -8,6 +8,7 @@ import requests
 from vnstock import Quote
 
 DATA_FILE = "data.json"
+HISTORY_DIR = "history"
 JS_LIB_FILE = "lightweight-charts.js"
 
 VN100_SYMBOLS = [
@@ -30,7 +31,6 @@ VNDIRECT_RATIOS = {
 }
 
 def get_vndirect_ratio(symbol, ratio_code):
-    """Lấy chỉ số tài chính từ VNDirect"""
     url = "https://api-finfo.vndirect.com.vn/v4/ratios"
     params = {"q": f"code:{symbol}~ratioCode:{ratio_code}", "size": 1, "sort": "reportDate:desc"}
     headers = {"User-Agent": "Mozilla/5.0"}
@@ -45,7 +45,7 @@ def get_vndirect_ratio(symbol, ratio_code):
     return 0
 
 def aggregate_candles(data, interval):
-    """Thuật toán gom nhóm nến D1 thành W1 (Tuần) hoặc MN (Tháng) chuẩn xác"""
+    """Thuật toán gom nhóm nến D1 thành W1 (Tuần) hoặc MN (Tháng)"""
     if not data:
         return []
     if interval == 'D1':
@@ -55,11 +55,9 @@ def aggregate_candles(data, interval):
     for bar in data:
         date = datetime.datetime.strptime(bar['time'], '%Y-%m-%d')
         if interval == 'W1':
-            # Lấy ngày Thứ Hai đầu tuần làm mốc thời gian đại diện cho cây nến tuần
             start_of_week = date - datetime.timedelta(days=date.weekday())
             key = start_of_week.strftime('%Y-%m-%d')
         elif interval == 'MN':
-            # Lấy ngày mùng 1 đầu tháng làm mốc thời gian đại diện cho cây nến tháng
             key = date.strftime('%Y-%m-01')
 
         if key not in groups:
@@ -74,20 +72,21 @@ def aggregate_candles(data, interval):
         else:
             groups[key]['high'] = max(groups[key]['high'], bar['high'])
             groups[key]['low'] = min(groups[key]['low'], bar['low'])
-            groups[key]['close'] = bar['close']  # Giá đóng cửa của phiên cuối kỳ
+            groups[key]['close'] = bar['close']
             groups[key]['volume'] += bar['volume']
 
     return sorted(list(groups.values()), key=lambda x: x['time'])
 
 def auto_git_push():
-    """Tự động add, commit và push data.json và file thư viện JS lên GitHub"""
+    """Tự động add, commit và push data.json, thư mục history và file JS lên GitHub"""
     try:
         print("📤 Đang tiến hành đồng bộ dữ liệu lên GitHub...")
         subprocess.run(["git", "add", DATA_FILE], check=True)
+        subprocess.run(["git", "add", HISTORY_DIR], check=True)
         if os.path.exists(JS_LIB_FILE):
             subprocess.run(["git", "add", JS_LIB_FILE], check=True)
             
-        commit_msg = f"Auto update 730 days multi-timeframe data - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        commit_msg = f"Auto update split history & data - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push"], check=True)
         print("🚀 Đẩy dữ liệu lên GitHub thành công!")
@@ -97,8 +96,11 @@ def auto_git_push():
         print(f"⚠️ Lỗi Git push: {e}")
 
 def main():
-    print("🚀 Bắt đầu cào dữ liệu 730 ngày (2 năm) cho D1, W1, MN...")
+    print("🚀 Bắt đầu cào dữ liệu 730 ngày (2 năm) và tách file nến riêng biệt...")
     
+    if not os.path.exists(HISTORY_DIR):
+        os.makedirs(HISTORY_DIR)
+
     stock_db = {}
     if os.path.exists(DATA_FILE):
         try:
@@ -116,7 +118,6 @@ def main():
         
         try:
             end_date = datetime.datetime.now().strftime("%Y-%m-%d")
-            # Cào đúng 730 ngày (2 năm lịch sử)
             start_date = (datetime.datetime.now() - datetime.timedelta(days=730)).strftime("%Y-%m-%d")
             quote = Quote(source='VCI', symbol=symbol)
             df = quote.history(start=start_date, end=end_date)
@@ -150,7 +151,7 @@ def main():
             ratios[key] = get_vndirect_ratio(symbol, code)
             time.sleep(0.1)
 
-        # Thuật toán Price Action cơ bản
+        # Thuật toán Price Action
         status = "ĐANG TÍCH LŨY NỀN"
         detail = "Đang siết nền tích lũy biên độ hẹp."
         if len(closes) >= 20 and len(volumes) >= 20:
@@ -169,12 +170,22 @@ def main():
                 status = "ĐANG GOM HÀNG"
                 detail = "Dòng tiền duy trì ổn định trên MA20."
 
-        # Tự động tạo sẵn dữ liệu nến Tuần (W1) và nến Tháng (MN) ngay trong Python
+        # Gom nhóm nến Tuần và Tháng
         history_w1 = aggregate_candles(history_d1, 'W1')
         history_mn = aggregate_candles(history_d1, 'MN')
 
+        # Ghi file lịch sử riêng cho từng mã vào thư mục history/
+        symbol_history_data = {
+            "history_d1": history_d1,
+            "history_w1": history_w1,
+            "history_mn": history_mn
+        }
+        with open(os.path.join(HISTORY_DIR, f"{symbol}.json"), "w", encoding="utf-8") as sf:
+            json.dump(symbol_history_data, sf, ensure_ascii=False)
+
         old_data = stock_db.get(symbol, {})
         
+        # File data.json chính chỉ chứa thông tin cơ bản và định giá AI (cực kỳ nhẹ)
         stock_db[symbol] = {
             "symbol": symbol,
             "close": int(close_price * 1000),
@@ -188,11 +199,6 @@ def main():
             "recommendation": status,
             "price_zone": detail,
             "updated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            # Lưu trữ đầy đủ 3 khung thời gian được tính sẵn
-            "history_d1": history_d1,
-            "history_w1": history_w1,
-            "history_mn": history_mn,
-            # Kế thừa dữ liệu AI cũ
             "bctc": old_data.get("bctc", ""),
             "outlook": old_data.get("outlook", ""),
             "ai_recommendation": old_data.get("ai_recommendation", ""),
@@ -202,10 +208,9 @@ def main():
         }
         time.sleep(0.3)
 
-    # Ghi file data.json
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(stock_db, f, ensure_ascii=False, indent=4)
-    print("✅ Đã cào xong dữ liệu 2 năm và gom nhóm thành công cho toàn bộ mã!")
+    print("✅ Đã tách file nến riêng biệt thành công cho toàn bộ mã!")
 
     auto_git_push()
 
