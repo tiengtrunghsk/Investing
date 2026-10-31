@@ -44,17 +44,50 @@ def get_vndirect_ratio(symbol, ratio_code):
         pass
     return 0
 
+def aggregate_candles(data, interval):
+    """Thuật toán gom nhóm nến D1 thành W1 (Tuần) hoặc MN (Tháng) chuẩn xác"""
+    if not data:
+        return []
+    if interval == 'D1':
+        return data
+
+    groups = {}
+    for bar in data:
+        date = datetime.datetime.strptime(bar['time'], '%Y-%m-%d')
+        if interval == 'W1':
+            # Lấy ngày Thứ Hai đầu tuần làm mốc thời gian đại diện cho cây nến tuần
+            start_of_week = date - datetime.timedelta(days=date.weekday())
+            key = start_of_week.strftime('%Y-%m-%d')
+        elif interval == 'MN':
+            # Lấy ngày mùng 1 đầu tháng làm mốc thời gian đại diện cho cây nến tháng
+            key = date.strftime('%Y-%m-01')
+
+        if key not in groups:
+            groups[key] = {
+                "time": key,
+                "open": bar['open'],
+                "high": bar['high'],
+                "low": bar['low'],
+                "close": bar['close'],
+                "volume": bar['volume']
+            }
+        else:
+            groups[key]['high'] = max(groups[key]['high'], bar['high'])
+            groups[key]['low'] = min(groups[key]['low'], bar['low'])
+            groups[key]['close'] = bar['close']  # Giá đóng cửa của phiên cuối kỳ
+            groups[key]['volume'] += bar['volume']
+
+    return sorted(list(groups.values()), key=lambda x: x['time'])
+
 def auto_git_push():
     """Tự động add, commit và push data.json và file thư viện JS lên GitHub"""
     try:
         print("📤 Đang tiến hành đồng bộ dữ liệu lên GitHub...")
         subprocess.run(["git", "add", DATA_FILE], check=True)
-        
-        # Nếu có file thư viện JS trong thư mục, tiến hành add luôn lên Git
         if os.path.exists(JS_LIB_FILE):
             subprocess.run(["git", "add", JS_LIB_FILE], check=True)
             
-        commit_msg = f"Auto update data & lib from PC - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        commit_msg = f"Auto update 730 days multi-timeframe data - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push"], check=True)
         print("🚀 Đẩy dữ liệu lên GitHub thành công!")
@@ -64,7 +97,7 @@ def auto_git_push():
         print(f"⚠️ Lỗi Git push: {e}")
 
 def main():
-    print("🚀 Bắt đầu cào dữ liệu thị trường và lịch sử nến trên PC...")
+    print("🚀 Bắt đầu cào dữ liệu 730 ngày (2 năm) cho D1, W1, MN...")
     
     stock_db = {}
     if os.path.exists(DATA_FILE):
@@ -79,11 +112,12 @@ def main():
         print(f"[{i+1}/{total}] Đang xử lý: {symbol}...")
         closes, volumes = [], []
         close_price, volume = 0, 0
-        history_data = []
+        history_d1 = []
         
         try:
             end_date = datetime.datetime.now().strftime("%Y-%m-%d")
-            start_date = (datetime.datetime.now() - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
+            # Cào đúng 730 ngày (2 năm lịch sử)
+            start_date = (datetime.datetime.now() - datetime.timedelta(days=730)).strftime("%Y-%m-%d")
             quote = Quote(source='VCI', symbol=symbol)
             df = quote.history(start=start_date, end=end_date)
             
@@ -93,12 +127,11 @@ def main():
                 close_price = closes[-1]
                 volume = volumes[-1]
                 
-                # Định dạng dữ liệu lịch sử phục vụ vẽ biểu đồ TradingView
                 for _, row in df.iterrows():
                     time_val = row['time']
                     time_str = time_val.strftime('%Y-%m-%d') if hasattr(time_val, 'strftime') else str(time_val)[:10]
                     
-                    history_data.append({
+                    history_d1.append({
                         "time": time_str,
                         "open": float(row.get('open', row['close'])),
                         "high": float(row.get('high', row['close'])),
@@ -115,7 +148,7 @@ def main():
         ratios = {}
         for key, code in VNDIRECT_RATIOS.items():
             ratios[key] = get_vndirect_ratio(symbol, code)
-            time.sleep(0.2)
+            time.sleep(0.1)
 
         # Thuật toán Price Action cơ bản
         status = "ĐANG TÍCH LŨY NỀN"
@@ -136,7 +169,10 @@ def main():
                 status = "ĐANG GOM HÀNG"
                 detail = "Dòng tiền duy trì ổn định trên MA20."
 
-        # Giữ lại toàn bộ thông tin đánh giá AI cũ (nếu có)
+        # Tự động tạo sẵn dữ liệu nến Tuần (W1) và nến Tháng (MN) ngay trong Python
+        history_w1 = aggregate_candles(history_d1, 'W1')
+        history_mn = aggregate_candles(history_d1, 'MN')
+
         old_data = stock_db.get(symbol, {})
         
         stock_db[symbol] = {
@@ -152,8 +188,11 @@ def main():
             "recommendation": status,
             "price_zone": detail,
             "updated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "history": history_data, 
-            # Kế thừa dữ liệu AI tuần trước
+            # Lưu trữ đầy đủ 3 khung thời gian được tính sẵn
+            "history_d1": history_d1,
+            "history_w1": history_w1,
+            "history_mn": history_mn,
+            # Kế thừa dữ liệu AI cũ
             "bctc": old_data.get("bctc", ""),
             "outlook": old_data.get("outlook", ""),
             "ai_recommendation": old_data.get("ai_recommendation", ""),
@@ -161,14 +200,13 @@ def main():
             "macro_view": old_data.get("macro_view", ""),
             "ai_updated_at": old_data.get("ai_updated_at", "")
         }
-        time.sleep(1.0)
+        time.sleep(0.3)
 
     # Ghi file data.json
     with open(DATA_FILE, "w", encoding="utf-8") as f:
         json.dump(stock_db, f, ensure_ascii=False, indent=4)
-    print("✅ Đã cập nhật xong file data.json trên PC kèm lịch sử nến!")
+    print("✅ Đã cào xong dữ liệu 2 năm và gom nhóm thành công cho toàn bộ mã!")
 
-    # Tự động push lên GitHub
     auto_git_push()
 
 if __name__ == "__main__":
