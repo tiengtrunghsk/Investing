@@ -174,7 +174,7 @@
         </div>
     </div>
 
-    <!-- MODAL BIỂU ĐỒ TÍCH HỢP BỘ CHỈ BÁO & FULLSCREEN DYNAMIC -->
+    <!-- MODAL BIỂU ĐỒ TÍCH HỢP NÚT VOL ĐẬM & CHỈ BÁO -->
     <div id="chart-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm hidden p-2 md:p-4">
         <div id="chart-modal-box" class="bg-slate-900 border border-slate-700 w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300">
             <div class="bg-slate-950 px-3 py-2.5 border-b border-slate-800 flex flex-wrap justify-between items-center gap-2">
@@ -188,9 +188,9 @@
                         <button onclick="switchInterval('MN')" id="btn-mn" class="px-2 py-0.5 text-[11px] font-bold rounded text-slate-400 hover:text-white transition">MN</button>
                     </div>
 
-                    <!-- Nút Bật/Tắt Chỉ Báo Kỹ Thuật -->
+                    <!-- Nút Bật/Tắt Chỉ Báo Kỹ Thuật & Vol đậm -->
                     <div class="flex items-center bg-slate-900 p-0.5 rounded-lg border border-slate-800 gap-1 pl-2">
-                        <span class="text-[10px] text-slate-500 font-medium hidden sm:inline"><i class="fa-solid fa-sliders mr-1"></i>Chỉ báo:</span>
+                        <button onclick="toggleBoldVol()" id="btn-bold-vol" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition" title="Làm đậm cột khối lượng">VOL ĐẬM</button>
                         <button onclick="toggleIndicator('MA20')" id="btn-ind-ma20" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">MA20</button>
                         <button onclick="toggleIndicator('MA50')" id="btn-ind-ma50" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">MA50</button>
                         <button onclick="toggleIndicator('RSI')" id="btn-ind-rsi" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">RSI</button>
@@ -231,7 +231,8 @@
         let currentSymbol = null;
         let currentInterval = 'D1';
 
-        // Trạng thái các chỉ báo
+        // Trạng thái các chỉ báo & Vol đậm
+        let isBoldVol = false;
         let activeIndicators = {
             MA20: false,
             MA50: false,
@@ -551,6 +552,20 @@
             }
         }
 
+        // Bật/tắt chế độ làm đậm cột Volume
+        function toggleBoldVol() {
+            isBoldVol = !isBoldVol;
+            const btn = document.getElementById('btn-bold-vol');
+            if (isBoldVol) {
+                btn.className = "px-2 py-0.5 text-[10px] font-bold rounded bg-emerald-600 text-white border border-emerald-400 transition";
+            } else {
+                btn.className = "px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition";
+            }
+            if (currentSymbolHistory) {
+                renderChartInstance(currentSymbolHistory);
+            }
+        }
+
         // Bật/tắt các đường chỉ báo kỹ thuật
         function toggleIndicator(name) {
             activeIndicators[name] = !activeIndicators[name];
@@ -705,10 +720,13 @@
             if (chartData && chartData.length > 0) {
                 candleSeries.setData(chartData);
                 
+                // Nếu bật chế độ "Vol đậm", tăng độ đậm đặc của màu sắc (opacity cao hơn) để cột khối lượng nổi bật rõ nét
                 const volumeData = chartData.map(row => ({
                     time: row.time,
                     value: row.volume,
-                    color: row.close >= row.open ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)'
+                    color: row.close >= row.open 
+                        ? (isBoldVol ? 'rgba(16, 185, 129, 0.9)' : 'rgba(16, 185, 129, 0.5)') 
+                        : (isBoldVol ? 'rgba(244, 63, 94, 0.9)' : 'rgba(244, 63, 94, 0.5)')
                 }));
                 volumeSeries.setData(volumeData);
 
