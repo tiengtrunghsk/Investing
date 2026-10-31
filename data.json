@@ -12,12 +12,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:34:59",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "ACB có P/B = 1.17, thấp hơn mức trung bình của ngành ngân hàng, cho thấy cổ phiếu đang được định giá ở mức hấp dẫn. Tỷ lệ ROE = 16.5% và ROA = 1.6% phản ánh khả năng sinh lời tốt, đồng thời tỷ lệ nợ xấu cũng ở mức kiểm soát.",
+        "outlook": "Với P/B = 1.17, ACB đang được định giá rẻ so với mặt bằng chung của ngành ngân hàng, tạo ra biên an toàn đáng kể. EPS = 2773 VNĐ và P/E = 7.57 cũng cho thấy cổ phiếu đang ở mức định giá hấp dẫn.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 20.000 - 21.000 VNĐ. Ngưỡng hành động giá cần theo dõi là hỗ trợ tại 20.000 VNĐ và kháng cự tại 22.000 VNĐ.",
+        "macro_view": "Kinh tế vĩ mô Việt Nam đang ổn định và tăng trưởng, tạo điều kiện thuận lợi cho hoạt động của các ngân hàng. Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng trong năm nay, do nhu cầu tín dụng và dịch vụ tài chính tăng.",
+        "ai_updated_at": "2026-10-31 05:25:32"
     },
     "BID": {
         "symbol": "BID",
@@ -32,12 +32,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:35:06",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "BID là một ngân hàng, do đó chỉ số P/B và chất lượng tài sản là quan trọng. P/B = 1.37 cho thấy cổ phiếu đang được định giá ở mức hợp lý so với ngành. ROE = 18.0% và ROA = 1.0% phản ánh khả năng sinh lời tốt.",
+        "outlook": "Với P/B = 1.37, BID đang được định giá ở mức thấp hơn so với trung bình ngành, cho thấy cổ phiếu có thể đang rẻ. Tuy nhiên, cần theo dõi thêm các yếu tố khác như nợ xấu và NIM để xác định biên an toàn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 32.000 - 33.000 VNĐ. Ngưỡng hành động giá có thể là 34.000 VNĐ (điểm breakout) và 31.000 VNĐ (điểm hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, nhu cầu tín dụng tăng và lãi suất giảm, ngành ngân hàng có thể tiếp tục tăng trưởng. Tuy nhiên, cần chú ý đến rủi ro từ biến động lãi suất và tỷ lệ nợ xấu.",
+        "ai_updated_at": "2026-10-31 05:25:39"
     },
     "CTG": {
         "symbol": "CTG",
@@ -52,12 +52,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.58x MA20.",
         "updated_at": "2026-10-31 11:35:14",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "CTG có P/B = 1.2, thấp hơn mức trung bình của ngành ngân hàng, cho thấy cổ phiếu đang được định giá ở mức hợp lý. ROE = 22.3% và ROA = 1.4% phản ánh khả năng sinh lời tốt, nhưng cần theo dõi tỷ lệ nợ xấu để đánh giá chất lượng tài sản.",
+        "outlook": "Với P/B = 1.2, CTG đang được định giá ở mức hấp dẫn so với mặt bằng chung của ngành. Tuy nhiên, cần xem xét kỹ lưỡng các yếu tố rủi ro như tỷ lệ nợ xấu và NIM để xác định biên an toàn.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 28.000 - 29.000 VNĐ. Ngưỡng hành động giá là 30.000 VNĐ, nếu vượt qua có thể tiếp tục tăng lên.",
+        "macro_view": "Kinh tế vĩ mô Việt Nam đang phục hồi mạnh mẽ, hỗ trợ cho hoạt động của ngành ngân hàng. Tuy nhiên, cần chú ý đến các chính sách tiền tệ và lãi suất trong thời gian tới.",
+        "ai_updated_at": "2026-10-31 05:25:46"
     },
     "TCB": {
         "symbol": "TCB",
@@ -72,12 +72,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:35:21",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.23, ROE = 15.4% và ROA = 2.3%, TCB cho thấy sức khỏe tài chính ổn định, hiệu quả sử dụng vốn tốt và khả năng sinh lời cao so với ngành ngân hàng.",
+        "outlook": "Mức giá hiện tại của TCB đang ở mức hợp lý khi xem xét chỉ số P/B và ROE. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô và tình hình kinh doanh để xác định biên an toàn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 20.000 - 21.000 VNĐ. Ngưỡng hành động giá cần chú ý là 21.600 VNĐ (giá đóng cửa hiện tại) và 22.000 VNĐ (ngưỡng kháng cự gần).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và xu hướng tăng trưởng tín dụng tích cực, ngành ngân hàng nói chung và TCB nói riêng có tiềm năng phát triển tốt. Tuy nhiên, cần lưu ý đến rủi ro từ biến động lãi suất và chính sách tiền tệ.",
+        "ai_updated_at": "2026-10-31 05:25:53"
     },
     "MBB": {
         "symbol": "MBB",
@@ -92,12 +92,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:35:28",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.24, MBB đang được định giá ở mức hợp lý so với ngành ngân hàng, cho thấy sức khỏe tài chính ổn định. ROE = 21.8% và ROA = 2.0% phản ánh khả năng sinh lời tốt, đồng thời tỷ lệ nợ xấu thấp cũng là một điểm mạnh.",
+        "outlook": "Mức giá hiện tại của MBB có thể coi là rẻ khi so sánh với các chỉ số định giá cơ bản, đặc biệt là P/B. Tuy nhiên, cần chú ý đến xu hướng thị trường và tình hình kinh tế vĩ mô để xác định biên an toàn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 18,000 - 19,000 VNĐ. Ngưỡng hành động giá quan trọng cần theo dõi là 19,500 VNĐ (đỉnh ngắn hạn) và 17,500 VNĐ (hỗ trợ mạnh).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô Việt Nam đang phục hồi, ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng. Tuy nhiên, cần theo dõi sát sao các yếu tố rủi ro như lạm phát và lãi suất.",
+        "ai_updated_at": "2026-10-31 05:26:00"
     },
     "STB": {
         "symbol": "STB",
@@ -112,12 +112,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:35:35",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.95, STB đang có mức định giá cao so với ngành ngân hàng, đồng thời ROE và ROA ở mức thấp (2.5% và 0.2%) cho thấy khả năng sinh lời hạn chế. Cần xem xét kỹ chất lượng tài sản và tỷ lệ nợ xấu để đánh giá toàn diện.",
+        "outlook": "Mức giá hiện tại của STB đang ở mức đắt so với tiêu chuẩn định giá đặc thù của ngành ngân hàng. P/B = 1.95 cao hơn mức trung bình của ngành, chưa tạo ra biên an toàn cho nhà đầu tư.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 55.000 - 60.000 VNĐ, tương ứng với P/B giảm về mức 1.5-1.6. Ngưỡng hành động giá cần theo dõi là hỗ trợ tại MA20 (khoảng 63.000-64.000 VNĐ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành ngân hàng đang chịu áp lực từ việc tăng lãi suất và rủi ro tín dụng. Tuy nhiên, xu hướng tăng trưởng GDP và nhu cầu vốn của doanh nghiệp vẫn là yếu tố tích cực hỗ trợ cho ngành.",
+        "ai_updated_at": "2026-10-31 05:26:08"
     },
     "VPB": {
         "symbol": "VPB",
@@ -132,12 +132,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:35:43",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "VPB có P/B = 1.23, thấp hơn mức trung bình của ngành ngân hàng, cho thấy cổ phiếu đang được định giá ở mức hấp dẫn. ROE = 17.0% và ROA = 2.3% phản ánh khả năng sinh lời tốt, đồng thời tỷ lệ nợ xấu cũng ở mức kiểm soát.",
+        "outlook": "Với P/B = 1.23, VPB đang được định giá rẻ so với mặt bằng chung của ngành ngân hàng. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô và tình hình kinh doanh cụ thể để xác định biên an toàn.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 22.000 - 22.500 VNĐ. Ngưỡng hành động giá là 23.000 VNĐ, nếu vượt qua ngưỡng này, xu hướng tăng có thể tiếp tục.",
+        "macro_view": "Kinh tế Việt Nam đang phục hồi mạnh mẽ, tạo điều kiện thuận lợi cho hoạt động của ngân hàng. Ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng trong năm nay, hỗ trợ cho triển vọng của VPB.",
+        "ai_updated_at": "2026-10-31 05:26:15"
     },
     "HDB": {
         "symbol": "HDB",
@@ -152,12 +152,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:35:50",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.7, ROE = 24.8% và ROA = 2.1%, HDB cho thấy sức khỏe tài chính tốt, hiệu quả sử dụng vốn cao và khả năng sinh lời ổn định, phù hợp với đặc thù ngành ngân hàng.",
+        "outlook": "Mức giá hiện tại của HDB đang ở mức hấp dẫn so với chỉ số P/B, thể hiện cổ phiếu đang được định giá rẻ. Tuy nhiên, cần theo dõi thêm các yếu tố khác như nợ xấu và NIM để đảm bảo biên an toàn.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 21000 VNĐ đến 22000 VNĐ. Ngưỡng hành động giá nằm ở 23000 VNĐ, đây có thể là điểm breakout.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và xu hướng tăng trưởng của ngành ngân hàng, HDB có tiềm năng tăng trưởng tốt. Tuy nhiên, cần chú ý đến các rủi ro về lãi suất và nợ xấu trong tương lai.",
+        "ai_updated_at": "2026-10-31 05:26:22"
     },
     "VIB": {
         "symbol": "VIB",
@@ -172,12 +172,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:35:57",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.03, ROE = 16.2% và ROA = 1.4%, VIB cho thấy sức khỏe tài chính ổn định, hiệu quả sử dụng vốn tốt và giá trị tài sản hợp lý so với ngành ngân hàng.",
+        "outlook": "Mức P/B = 1.03 thấp hơn mức trung bình của ngành, cho thấy cổ phiếu đang được định giá rẻ. Tuy nhiên, cần chú ý đến chất lượng tài sản và tỷ lệ nợ xấu để đảm bảo biên an toàn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 13,000 - 13,500 VNĐ. Ngưỡng hành động giá có thể là 14,000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô Việt Nam đang phục hồi, ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng. Tuy nhiên, cần theo dõi chặt chẽ các yếu tố rủi ro từ thị trường quốc tế.",
+        "ai_updated_at": "2026-10-31 05:26:28"
     },
     "TPB": {
         "symbol": "TPB",
@@ -192,12 +192,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:36:04",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 0.86, TPB đang được định giá thấp hơn giá trị sổ sách, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, cần xem xét thêm các yếu tố như chất lượng tài sản và tỷ lệ nợ xấu để có cái nhìn toàn diện.",
+        "outlook": "Mức giá hiện tại của TPB ở mức 12650 VNĐ với P/E = 5.32 và P/B = 0.86, cho thấy cổ phiếu đang được định giá rẻ so với ngành ngân hàng. Đây là một cơ hội tốt để mua vào, nhưng cần theo dõi thêm về chất lượng tài sản và tỷ lệ nợ xấu.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 12000 - 12500 VNĐ. Ngưỡng hành động giá: Mức hỗ trợ mạnh ở 12000 VNĐ, mức kháng cự gần nhất ở 13000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng. Tuy nhiên, cần chú ý đến các rủi ro từ chính sách tiền tệ và biến động lãi suất.",
+        "ai_updated_at": "2026-10-31 05:26:35"
     },
     "SHB": {
         "symbol": "SHB",
@@ -212,12 +212,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.49x MA20.",
         "updated_at": "2026-10-31 11:36:11",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "SHB có P/B = 0.66, thấp hơn nhiều so với mức trung bình của ngành ngân hàng, cho thấy cổ phiếu đang được định giá thấp. Tuy nhiên, cần xem xét thêm các yếu tố như tỷ lệ nợ xấu và NIM để đánh giá toàn diện.",
+        "outlook": "Với P/B = 0.66, SHB đang được định giá rẻ so với mặt bằng chung của ngành. Điều này cho thấy đã có biên an toàn nhất định, nhưng cần theo dõi thêm các yếu tố khác như chất lượng tài sản và hiệu quả hoạt động.",
+        "ai_recommendation": "CẠN CUNG",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 10,000 - 10,500 VNĐ. Ngưỡng hành động giá có thể là 10,500 VNĐ (điểm breakout) và 9,500 VNĐ (điểm hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và chính sách tiền tệ linh hoạt, ngành ngân hàng có tiềm năng tăng trưởng tốt. Tuy nhiên, cần chú ý đến rủi ro từ biến động lãi suất và tỷ lệ nợ xấu.",
+        "ai_updated_at": "2026-10-31 05:26:42"
     },
     "SSB": {
         "symbol": "SSB",
@@ -232,12 +232,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:36:19",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Dựa trên dữ liệu, SSB có P/B = 1.21, ROE = 7.8% và ROA = 0.8%, cho thấy sức khỏe tài chính ổn định nhưng không quá nổi bật. Biên lợi nhuận gộp không được cung cấp, nhưng với ROE ở mức trung bình, công ty đang tạo ra lợi nhuận từ vốn chủ sở hữu một cách hiệu quả.",
+        "outlook": "Với P/E = 17.49 và P/B = 1.21, mức giá hiện tại của SSB có thể coi là hợp lý so với ngành sản xuất/bán lẻ. Tuy nhiên, cần xem xét thêm các yếu tố khác như tốc độ tăng trưởng và triển vọng ngành để xác định biên an toàn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 14.000 - 15.000 VNĐ, tương ứng với mức giảm khoảng 10-15% so với giá hiện tại. Ngưỡng hành động giá có thể đặt ở 15.500 VNĐ (đỉnh ngắn hạn) và 13.500 VNĐ (đáy ngắn hạn).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành sản xuất/bán lẻ đang chịu ảnh hưởng bởi sự phục hồi chậm chạp của nền kinh tế sau đại dịch. Tuy nhiên, nhu cầu tiêu dùng nội địa vẫn duy trì ở mức ổn định, tạo điều kiện thuận lợi cho doanh nghiệp.",
+        "ai_updated_at": "2026-10-31 05:26:57"
     },
     "LPB": {
         "symbol": "LPB",
@@ -252,12 +252,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:36:26",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 2.31, ROE = 26.3% và ROA = 2.0%, LPB cho thấy sức khỏe tài chính tốt, đặc biệt là khả năng sinh lời cao so với ngành ngân hàng. Tuy nhiên, cần theo dõi thêm về chất lượng tài sản và tỷ lệ nợ xấu để có cái nhìn toàn diện hơn.",
+        "outlook": "Tại mức giá hiện tại (36100 VNĐ) với P/E = 8.92 và P/B = 2.31, LPB đang được định giá ở mức hợp lý, không quá đắt nhưng cũng chưa thực sự rẻ. Biên an toàn còn hạn chế, cần xem xét kỹ lưỡng trước khi quyết định mua vào.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 34000-35000 VNĐ, đây là vùng hỗ trợ mạnh. Ngưỡng hành động giá cần chú ý là 37000-38000 VNĐ, nếu vượt qua có thể tạo xu hướng tăng mới.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và chính sách tiền tệ linh hoạt, ngành ngân hàng nói chung và LPB nói riêng có cơ hội tăng trưởng tốt. Tuy nhiên, cần theo dõi sát sao các biến động từ thị trường quốc tế và chính sách của nhà nước.",
+        "ai_updated_at": "2026-10-31 05:27:10"
     },
     "MSB": {
         "symbol": "MSB",
@@ -272,12 +272,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:36:33",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.26, MSB đang được định giá ở mức hợp lý so với ngành ngân hàng. Tuy nhiên, cần chú ý đến chất lượng tài sản và tỷ lệ nợ xấu để đánh giá toàn diện sức khỏe tài chính.",
+        "outlook": "Mức giá hiện tại của MSB có thể coi là hợp lý, nhưng chưa đạt đến mức rẻ. Với P/B = 1.26, cổ phiếu vẫn còn một khoảng cách để đạt biên an toàn cao hơn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 14000-15000 VNĐ. Ngưỡng hành động giá cần theo dõi là hỗ trợ tại MA20 (khoảng 15000 VNĐ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng. Tuy nhiên, cần theo dõi sát sao các chính sách tiền tệ và tín dụng từ Ngân hàng Nhà nước.",
+        "ai_updated_at": "2026-10-31 05:27:17"
     },
     "OCB": {
         "symbol": "OCB",
@@ -292,12 +292,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:36:40",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "OCB đang có P/B = 0.87, thấp hơn 1, cho thấy cổ phiếu được định giá thấp so với giá trị sổ sách. ROE = 13.0% và ROA = 1.3% phản ánh khả năng sinh lời tốt, nhưng cần xem xét thêm tỷ lệ nợ xấu để đánh giá chất lượng tài sản.",
+        "outlook": "Với P/B = 0.87, OCB đang được định giá rẻ so với ngành ngân hàng, tạo ra biên an toàn đáng kể. Tuy nhiên, cần theo dõi thêm các yếu tố như nợ xấu và NIM để đảm bảo sức khỏe tài chính dài hạn.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 10,000 - 10,500 VNĐ. Ngưỡng hành động giá: Mua khi giá duy trì trên MA20, bán hoặc cắt lỗ nếu giá giảm dưới 9,500 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, ngành ngân hàng dự kiến sẽ tiếp tục tăng trưởng. Tuy nhiên, cần chú ý đến các rủi ro về lãi suất và tỷ lệ nợ xấu trong tương lai.",
+        "ai_updated_at": "2026-10-31 05:27:25"
     },
     "EIB": {
         "symbol": "EIB",
@@ -312,12 +312,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:36:47",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "EIB đang có P/B ở mức 1.13, tương đối thấp so với ngành ngân hàng, cho thấy cổ phiếu được định giá thấp hơn so với giá trị tài sản thực tế. Tuy nhiên, ROE và ROA rất thấp (0.7% và 0.1%) cho thấy hiệu quả sử dụng vốn và tài sản kém.",
+        "outlook": "Với P/B = 1.13, EIB có thể coi là rẻ so với mặt bằng chung của ngành ngân hàng. Tuy nhiên, khả năng sinh lời yếu (EPS = 102 VNĐ, ROE = 0.7%, ROA = 0.1%) làm giảm hấp dẫn đầu tư. Hiện tại chưa có biên an toàn rõ ràng.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 15.000 - 16.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 16.000 VNĐ dưới và 17.000 VNĐ trên.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô Việt Nam đang phục hồi, ngành ngân hàng có tiềm năng tăng trưởng tốt. Tuy nhiên, rủi ro từ nợ xấu và áp lực lãi suất vẫn còn. Sóng ngành ngân hàng có thể tiếp tục tích cực nhưng cần cẩn trọng với các rủi ro ngắn hạn.",
+        "ai_updated_at": "2026-10-31 05:27:39"
     },
     "SSI": {
         "symbol": "SSI",
@@ -332,12 +332,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:36:55",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "SSI có P/B = 1.48, thấp hơn mức trung bình của ngành chứng khoán, cho thấy cổ phiếu đang được định giá ở mức hợp lý. ROE = 12.2% và ROA = 4.7% phản ánh khả năng sinh lời tốt, nhưng cần theo dõi thêm về chất lượng tài sản và nợ xấu.",
+        "outlook": "Với P/E = 13.01 và P/B = 1.48, SSI đang được định giá ở mức khá hấp dẫn so với mặt bằng chung của ngành. Tuy nhiên, cần chú ý đến các yếu tố vĩ mô và tình hình kinh doanh cụ thể để xác định biên an toàn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 18,000 - 19,000 VNĐ. Ngưỡng hành động giá có thể là 19,500 VNĐ (điểm breakout) và 17,500 VNĐ (điểm hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và thị trường chứng khoán có xu hướng tăng, SSI có thể tiếp tục phát triển. Tuy nhiên, cần theo dõi sát sao các chính sách tiền tệ và biến động của thị trường.",
+        "ai_updated_at": "2026-10-31 05:27:53"
     },
     "VCI": {
         "symbol": "VCI",
@@ -372,12 +372,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:37:09",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 2.19, ROE = 8.6% và ROA = 2.7%, HCM cho thấy sức khỏe tài chính ổn định. Tuy nhiên, biên lợi nhuận gộp không được cung cấp, nhưng ROE và ROA ở mức chấp nhận được, cho thấy hiệu quả sử dụng vốn.",
+        "outlook": "Mức giá hiện tại với P/E = 26.97 có thể coi là hơi đắt so với chuẩn ngành, đặc biệt khi so sánh với ROE và tốc độ tăng trưởng. Tuy nhiên, nếu xét về P/B, cổ phiếu vẫn còn trong vùng hợp lý, nhưng chưa có biên an toàn rõ ràng.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 20.000 - 22.000 VNĐ, tương ứng với giảm 10-15% từ mức giá hiện tại. Ngưỡng hành động giá cần theo dõi là 23.000 VNĐ (đáy ngắn hạn) và 24.000 VNĐ (đỉnh ngắn hạn).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, thị trường chứng khoán Việt Nam đang chịu áp lực từ lạm phát và lãi suất tăng. Ngành chứng khoán cũng chịu ảnh hưởng từ xu hướng này, nhưng HCM có thể tận dụng cơ hội từ sự phục hồi của thị trường sau giai đoạn điều chỉnh.",
+        "ai_updated_at": "2026-10-31 05:28:23"
     },
     "VIX": {
         "symbol": "VIX",
@@ -392,12 +392,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:37:16",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 0.94, ROE = 6.5% và ROA = 4.8%, mã VIX cho thấy sức khỏe tài chính ổn định. Tuy nhiên, biên lợi nhuận gộp không được cung cấp, nhưng ROE và ROA ở mức trung bình, cho thấy hiệu quả sử dụng vốn còn hạn chế.",
+        "outlook": "Mức giá hiện tại của VIX đang ở mức rẻ so với giá trị sổ sách (P/B < 1), nhưng cần chú ý đến khả năng sinh lời khi EPS = 650 VNĐ và P/E = 18.43. Mức giá này có thể coi là hợp lý, nhưng chưa tạo đủ biên an toàn lớn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 11000-11500 VNĐ, tương ứng với mức giảm 4-8% từ giá hiện tại. Ngưỡng hành động giá có thể là 12500 VNĐ, nơi có thể xảy ra breakout.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghiệp mà VIX hoạt động đang có xu hướng tăng trưởng ổn định, nhưng cũng chịu áp lực từ các yếu tố rủi ro như biến động lãi suất và cạnh tranh. Sóng ngành hiện tại đang ở giai đoạn phục hồi, nhưng cần theo dõi thêm để xác định xu hướng dài hạn.",
+        "ai_updated_at": "2026-10-31 05:28:36"
     },
     "MBS": {
         "symbol": "MBS",
@@ -412,12 +412,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:37:23",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "MBS có P/B = 1.33, cho thấy giá trị thị trường của cổ phiếu đang cao hơn giá trị sổ sách, nhưng vẫn ở mức chấp nhận được. ROE = 13.1% và ROA = 3.8% phản ánh khả năng sinh lời tốt, đặc biệt là trong bối cảnh ngành chứng khoán.",
+        "outlook": "Với P/B = 1.33, MBS đang được định giá ở mức hợp lý so với giá trị tài sản thực tế. Tuy nhiên, cần chú ý đến chất lượng tài sản và tỷ lệ nợ xấu để đánh giá chính xác hơn. Hiện tại, mức giá 15000 VNĐ có thể coi là ở mức trung bình, chưa có biên an toàn lớn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 14000-14500 VNĐ, đây là vùng hỗ trợ mạnh. Ngưỡng hành động giá có thể đặt ở 15500-16000 VNĐ, nơi có thể tạo ra sự bứt phá.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành chứng khoán đang chịu ảnh hưởng từ các yếu tố như lãi suất, tăng trưởng GDP và tâm lý nhà đầu tư. Dự kiến, nếu nền kinh tế tiếp tục phục hồi, MBS sẽ có cơ hội tăng trưởng tốt.",
+        "ai_updated_at": "2026-10-31 05:28:45"
     },
     "FTS": {
         "symbol": "FTS",
@@ -432,12 +432,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:37:30",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Dựa trên dữ liệu, FTS có P/B = 1.53, ROE = 9.1% và ROA = 2.9%, cho thấy sức khỏe tài chính ổn định. Tuy nhiên, biên lợi nhuận gộp không được cung cấp, nhưng với EPS = 1054 VNĐ, công ty đang tạo ra lợi nhuận tốt.",
+        "outlook": "Với P/E = 16.98, mức giá hiện tại của FTS có thể coi là hợp lý so với thị trường chung, nhưng chưa thực sự rẻ nếu so sánh với các cổ phiếu cùng ngành. Biên an toàn còn hạn chế, cần theo dõi thêm để tìm cơ hội mua ở mức giá tốt hơn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 16.000 - 17.000 VNĐ, tương ứng với P/E giảm xuống dưới 15. Ngưỡng hành động giá có thể là 18.000 VNĐ, nơi có thể xuất hiện áp lực bán.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành sản xuất/bán lẻ đang phục hồi sau giai đoạn khó khăn do đại dịch. Tuy nhiên, vẫn cần chú ý đến rủi ro từ biến động giá nguyên liệu và chuỗi cung ứng. Sóng ngành dự kiến sẽ tiếp tục tăng trưởng trong ngắn hạn.",
+        "ai_updated_at": "2026-10-31 05:28:53"
     },
     "BSI": {
         "symbol": "BSI",
@@ -452,12 +452,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:37:37",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã BSI có P/B = 1.23, cho thấy giá trị tài sản ròng của công ty được định giá ở mức hợp lý so với ngành chứng khoán. Tuy nhiên, cần chú ý đến chất lượng tài sản và tỷ lệ nợ xấu để đánh giá toàn diện hơn.",
+        "outlook": "Với P/B = 1.23, mức giá hiện tại của BSI đang ở mức hợp lý, không quá đắt nhưng cũng chưa phải rẻ. Biên an toàn còn hạn chế, cần theo dõi thêm các yếu tố khác như chất lượng tài sản và triển vọng tăng trưởng.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 25.000 - 26.000 VNĐ. Ngưỡng hành động giá cần theo dõi là hỗ trợ tại 25.000 VNĐ và kháng cự tại 28.000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, ngành chứng khoán có tiềm năng tăng trưởng tốt. Tuy nhiên, cần chú ý đến các biến động từ chính sách tiền tệ và thị trường tài chính quốc tế.",
+        "ai_updated_at": "2026-10-31 05:29:00"
     },
     "CTS": {
         "symbol": "CTS",
@@ -472,12 +472,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:37:45",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/E = 51.32 và P/B = 2.0, CTS có vẻ đang được định giá cao so với ngành sản xuất/bán lẻ. Tuy nhiên, biên lợi nhuận gộp không được cung cấp, nhưng ROE ở mức 3.9% và ROA ở 0.9% cho thấy hiệu quả sử dụng vốn còn hạn chế.",
+        "outlook": "Mức giá hiện tại của CTS có thể coi là ĐẮT khi xem xét chỉ số P/E và ROE thấp. Điều này cho thấy cổ phiếu chưa tạo ra biên an toàn đủ lớn cho nhà đầu tư, đặc biệt khi không có cổ tức.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua hợp lý có thể nằm dưới 18.000 VNĐ, tương ứng với việc giảm khoảng 15% từ mức giá hiện tại. Ngưỡng hành động giá cần theo dõi là MA20, nếu giá duy trì trên đường này thì xu hướng tăng vẫn tiếp tục.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghệ và sản xuất đang đối mặt với nhiều thách thức về chuỗi cung ứng và lạm phát. Tuy nhiên, nhu cầu tiêu dùng trong nước vẫn ổn định, hỗ trợ cho triển vọng dài hạn của CTS.",
+        "ai_updated_at": "2026-10-31 05:29:11"
     },
     "ORS": {
         "symbol": "ORS",
@@ -492,12 +492,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:37:52",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã cổ phiếu ORS có P/E = 25.42, cao hơn mức trung bình của ngành Bán lẻ/Sản xuất, nhưng ROE = 5.0% và ROA = 2.4% cho thấy khả năng sinh lời còn hạn chế. Biên lợi nhuận gộp không được cung cấp, nhưng với ROE thấp, cần xem xét kỹ lưỡng hiệu quả sử dụng vốn.",
+        "outlook": "Với P/E = 25.42, mã ORS đang được định giá ở mức khá cao so với ngành. Tuy nhiên, P/B = 1.12 cho thấy giá trị tài sản hợp lý. Mức giá hiện tại chưa thực sự tạo ra biên an toàn đáng kể, cần theo dõi thêm để tìm cơ hội mua tốt hơn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 13.000 - 13.500 VNĐ, tương ứng với giảm khoảng 5-10% từ mức giá hiện tại. Ngưỡng hành động giá: Nếu giá vượt qua 14.500 VNĐ, có thể xem xét mua breakout.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành Bán lẻ/Sản xuất đang chịu áp lực từ tăng trưởng chậm lại và lạm phát. Tuy nhiên, nếu nền kinh tế phục hồi, nhu cầu tiêu dùng có thể tăng lên, hỗ trợ cho triển vọng dài hạn của mã ORS.",
+        "ai_updated_at": "2026-10-31 05:29:20"
     },
     "VHM": {
         "symbol": "VHM",
@@ -512,12 +512,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:37:59",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với đặc thù ngành Bất động sản, VHM có P/B = 1.8, cho thấy giá trị thị trường cao hơn giá trị sổ sách một chút, nhưng vẫn ở mức chấp nhận được. Tỷ lệ ROE = 36.6% và ROA = 10.1% cho thấy khả năng sinh lời tốt, đồng thời EPS = 12038 VNĐ cũng phản ánh hiệu quả kinh doanh.",
+        "outlook": "Mức P/E = 5.23 và P/B = 1.8 của VHM đang ở mức thấp so với trung bình ngành, cho thấy cổ phiếu đang được định giá rẻ. Tuy nhiên, cần chú ý đến tài sản dở dang và người mua trả tiền trước để đánh giá toàn diện hơn.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 60.000 - 63.000 VNĐ. Ngưỡng hành động giá là 65.000 VNĐ, nếu vượt qua có thể xem xét mua thêm.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu nhà ở tăng, ngành bất động sản dự kiến sẽ tiếp tục phát triển. Tuy nhiên, cần theo dõi chặt chẽ các chính sách liên quan đến tín dụng và quy hoạch đất đai.",
+        "ai_updated_at": "2026-10-31 05:29:36"
     },
     "VIC": {
         "symbol": "VIC",
@@ -532,12 +532,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:38:06",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với đặc thù ngành Bất động sản, VIC có P/B = 9.61, cao hơn nhiều so với mức trung bình của ngành, cho thấy cổ phiếu đang được định giá cao. Tuy nhiên, ROE = 24.0% và ROA = 3.4% cho thấy khả năng sinh lời tốt, nhưng cần chú ý đến tài sản dở dang và người mua trả tiền trước.",
+        "outlook": "Mức giá hiện tại của VIC ở P/E = 43.18 và P/B = 9.61, khá cao so với chuẩn định giá của ngành Bất động sản, cho thấy cổ phiếu đang ở mức đắt. Biên an toàn chưa thực sự rõ ràng, cần theo dõi thêm các yếu tố vĩ mô và cơ bản.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá hợp lý để mua gom có thể nằm trong khoảng 200.000 - 220.000 VNĐ, tương ứng với P/B giảm về 7-8. Ngưỡng hành động giá cần theo dõi là MA20, nếu giá duy trì trên MA20 thì xu hướng tăng vẫn còn.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, thị trường bất động sản đang chịu áp lực từ chính sách siết chặt tín dụng và kiểm soát giá. Tuy nhiên, nhu cầu nhà ở vẫn ổn định, tạo điều kiện cho VIC tiếp tục phát triển. Sóng ngành dự kiến sẽ phục hồi khi chính sách nới lỏng.",
+        "ai_updated_at": "2026-10-31 05:29:44"
     },
     "VRE": {
         "symbol": "VRE",
@@ -552,12 +552,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:38:13",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "VRE có P/B = 1.08, thấp hơn mức trung bình của ngành Bất động sản, cho thấy cổ phiếu đang được định giá ở mức hấp dẫn. ROE = 15.1% và ROA = 12.0% phản ánh hiệu quả sử dụng vốn tốt, đồng thời biên lợi nhuận gộp ổn định.",
+        "outlook": "Tại mức P/E = 7.39 và P/B = 1.08, VRE đang được định giá rẻ so với tiềm năng tăng trưởng và chất lượng tài sản. Mức giá hiện tại đã tạo ra một biên an toàn đáng kể cho nhà đầu tư.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 23.000 VNĐ đến 24.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 24.500 VNĐ (đỉnh ngắn hạn) và 22.500 VNĐ (hỗ trợ mạnh).",
+        "macro_view": "Kinh tế vĩ mô Việt Nam đang phục hồi mạnh mẽ, đặc biệt trong lĩnh vực bất động sản với nhu cầu nhà ở và văn phòng tăng cao. Sóng ngành bất động sản dự kiến sẽ tiếp tục tăng trưởng trong vài quý tới.",
+        "ai_updated_at": "2026-10-31 05:29:51"
     },
     "NVL": {
         "symbol": "NVL",
@@ -572,12 +572,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.65x MA20.",
         "updated_at": "2026-10-31 11:38:20",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã NVL hoạt động trong lĩnh vực Bất động sản, do đó việc đánh giá sức khỏe tài chính cần chú trọng vào chỉ số P/B và NAV. Hiện tại, P/B = 0.59 cho thấy cổ phiếu đang được định giá thấp so với giá trị sổ sách, đồng thời cần xem xét kỹ lưỡng về tài sản dở dang và người mua trả tiền trước để có cái nhìn toàn diện.",
+        "outlook": "Với P/B = 0.59, mức giá hiện tại của NVL đang ở mức rẻ so với giá trị sổ sách, tạo ra biên an toàn đáng kể. Tuy nhiên, cần tiếp tục theo dõi các yếu tố như tài sản dở dang và tình hình thanh khoản để đảm bảo rằng không có rủi ro tiềm ẩn.",
+        "ai_recommendation": "CẠN CUNG",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 10,000 - 10,400 VNĐ, tương ứng với vùng cạn kiệt khối lượng giao dịch. Ngưỡng hành động giá có thể là 10,600 VNĐ, nơi mà nếu giá vượt qua, có thể xác nhận xu hướng tích cực.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, thị trường bất động sản đang có dấu hiệu phục hồi sau giai đoạn suy thoái do đại dịch. Tuy nhiên, vẫn cần theo dõi chặt chẽ các chính sách vĩ mô và quy hoạch đô thị để nắm bắt cơ hội và giảm thiểu rủi ro.",
+        "ai_updated_at": "2026-10-31 05:29:59"
     },
     "PDR": {
         "symbol": "PDR",
@@ -592,12 +592,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:38:27",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã PDR có chỉ số P/B là 0.9, thấp hơn 1, cho thấy cổ phiếu đang được định giá thấp so với tài sản ròng của công ty. Tuy nhiên, ROE và ROA lần lượt ở mức 5.0% và 2.3%, khá khiêm tốn, phản ánh hiệu quả sử dụng vốn chưa cao.",
+        "outlook": "Với P/B = 0.9, PDR đang được định giá rẻ so với tài sản ròng, nhưng cần lưu ý rằng biên lợi nhuận và ROE không quá ấn tượng. Mức giá hiện tại có thể coi là hợp lý, nhưng vẫn cần theo dõi thêm để đảm bảo biên an toàn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 10.000 - 11.000 VNĐ. Ngưỡng hành động giá có thể đặt ở 11.500 VNĐ (đỉnh ngắn hạn) và 10.500 VNĐ (đáy ngắn hạn).",
+        "macro_view": "Hiện nay, thị trường bất động sản đang trong giai đoạn điều chỉnh, tuy nhiên, nhu cầu nhà ở vẫn ổn định. Sóng ngành Bất động sản dự kiến sẽ phục hồi trong trung hạn, tạo cơ hội cho các doanh nghiệp như PDR.",
+        "ai_updated_at": "2026-10-31 05:30:17"
     },
     "DIG": {
         "symbol": "DIG",
@@ -612,12 +612,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:38:35",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 0.8, DIG đang được định giá thấp hơn giá trị sổ sách, cho thấy cổ phiếu có thể bị đánh giá thấp. Tuy nhiên, ROE ở mức 8.2% và ROA ở 4.0% cho thấy hiệu quả sử dụng vốn của công ty còn hạn chế.",
+        "outlook": "Tại mức P/E = 10.52, DIG đang được định giá khá hấp dẫn so với ngành sản xuất/bán lẻ, đặc biệt khi so sánh với ROE và biên lợi nhuận gộp. Điều này cho thấy cổ phiếu có thể đang trong vùng giá rẻ, nhưng cần xem xét thêm về tiềm năng tăng trưởng.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 9000-9300 VNĐ, đây là vùng hỗ trợ mạnh. Ngưỡng hành động giá để xem xét mua vào có thể là 9300-9400 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô hiện nay, ngành sản xuất/bán lẻ đang chịu áp lực từ sự gia tăng chi phí đầu vào và cạnh tranh gay gắt. Tuy nhiên, DIG có thể tận dụng cơ hội từ xu hướng tiêu dùng nội địa tăng lên.",
+        "ai_updated_at": "2026-10-31 05:30:25"
     },
     "NLG": {
         "symbol": "NLG",
@@ -632,12 +632,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:38:42",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "NLG có P/B = 0.85, thấp hơn 1, cho thấy cổ phiếu đang được định giá dưới giá trị tài sản ròng của công ty. Tuy nhiên, ROE và ROA lần lượt ở mức 4.2% và 2.3%, khá thấp so với chuẩn ngành, thể hiện hiệu quả sử dụng vốn không cao.",
+        "outlook": "Với P/E = 17.29, NLG đang được định giá ở mức trung bình so với ngành. Tuy nhiên, do P/B < 1 và biên lợi nhuận cũng như ROE thấp, mức giá hiện tại có thể coi là hợp lý nhưng chưa thực sự rẻ, cần theo dõi thêm các yếu tố khác.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 20.000 - 21.000 VNĐ, tương ứng với giảm 4-9% từ mức giá hiện tại. Ngưỡng hành động giá có thể đặt ở 22.500 VNĐ (tăng 2.3%) để xác nhận xu hướng tích cực.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghiệp mà NLG hoạt động đang chịu áp lực từ việc tăng trưởng chậm lại và cạnh tranh gay gắt. Tuy nhiên, nếu nền kinh tế phục hồi, NLG có thể hưởng lợi từ nhu cầu tiêu dùng tăng lên.",
+        "ai_updated_at": "2026-10-31 05:30:39"
     },
     "KDH": {
         "symbol": "KDH",
@@ -652,12 +652,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:38:49",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 0.91, ROE = 8.2% và ROA = 4.5%, KDH đang có mức định giá thấp so với tài sản và khả năng sinh lời ổn định. Tuy nhiên, biên lợi nhuận gộp cần được xem xét kỹ hơn để đánh giá hiệu quả hoạt động.",
+        "outlook": "Mức giá hiện tại của KDH đang ở mức rẻ so với giá trị tài sản (P/B < 1) và tiềm năng tăng trưởng. Tuy nhiên, cần chú ý đến biên an toàn và xu hướng thị trường trước khi quyết định mua vào.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 13.000 VNĐ đến 13.500 VNĐ. Ngưỡng hành động giá cần theo dõi là 14.000 VNĐ (đỉnh ngắn hạn) và 13.000 VNĐ (đáy hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô đang phục hồi, ngành Bất động sản có thể sẽ tiếp tục tăng trưởng. Tuy nhiên, cần theo dõi chặt chẽ các chính sách vĩ mô và biến động lãi suất để nắm bắt cơ hội.",
+        "ai_updated_at": "2026-10-31 05:30:46"
     },
     "CEO": {
         "symbol": "CEO",
@@ -672,12 +672,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:38:56",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.05, ROE = 3.0% và ROA = 2.1%, sức khỏe tài chính của CEO có vẻ ổn định nhưng không quá ấn tượng. Biên lợi nhuận gộp không được cung cấp, nhưng ROE và ROA thấp cho thấy hiệu quả sử dụng vốn chưa cao.",
+        "outlook": "Mức giá hiện tại với P/E = 34.55 và P/B = 1.05 cho thấy cổ phiếu đang ở mức định giá trung bình so với ngành. Tuy nhiên, với ROE và ROA thấp, mức giá này có thể được coi là hơi đắt, chưa có biên an toàn rõ ràng.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 9.000 - 10.000 VNĐ, tương ứng với P/E khoảng 28-30. Ngưỡng hành động giá cần theo dõi là hỗ trợ tại MA20 (khoảng 10.500 VNĐ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghệ và sản xuất đang chịu áp lực từ chuỗi cung ứng và lạm phát. Tuy nhiên, nhu cầu tiêu dùng vẫn duy trì ổn định, tạo điều kiện cho doanh nghiệp tiếp tục tăng trưởng.",
+        "ai_updated_at": "2026-10-31 05:31:02"
     },
     "DXG": {
         "symbol": "DXG",
@@ -692,12 +692,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:39:03",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "DXG đang hoạt động trong lĩnh vực Bất động sản, với P/B = 0.89, thấp hơn 1, cho thấy cổ phiếu đang được định giá dưới giá trị sổ sách của tài sản. Tuy nhiên, ROE và ROA rất thấp (0.6% và 0.3%) cho thấy hiệu quả sử dụng vốn và tài sản không cao.",
+        "outlook": "Với P/B = 0.89, DXG có thể coi là rẻ so với giá trị tài sản thực tế. Tuy nhiên, doanh nghiệp cần cải thiện khả năng sinh lời để tăng giá trị cho cổ đông. Hiện tại, mức giá 10100 VNĐ có thể coi là hợp lý nhưng chưa tạo ra biên an toàn đáng kể.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 9500-10000 VNĐ, tương ứng với mức giảm 1-6% từ giá hiện tại. Ngưỡng hành động giá có thể đặt ở 10500 VNĐ, nơi có thể kích hoạt xu hướng tăng mạnh.",
+        "macro_view": "Thị trường bất động sản Việt Nam đang đối mặt với nhiều thách thức về quy định và nguồn cung, nhưng nhu cầu nhà ở vẫn ổn định. Sóng ngành Bất động sản có thể sẽ phục hồi khi các chính sách hỗ trợ thị trường được triển khai.",
+        "ai_updated_at": "2026-10-31 05:31:17"
     },
     "TCH": {
         "symbol": "TCH",
@@ -712,12 +712,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:39:10",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 0.98, ROE = 5.5% và ROA = 3.7%, TCH đang có mức định giá thấp so với tài sản và khả năng sinh lời trung bình. Biên lợi nhuận gộp không được cung cấp nhưng ROE và ROA cho thấy hiệu quả sử dụng vốn còn hạn chế.",
+        "outlook": "Mức giá hiện tại của TCH có thể coi là RẺ khi xem xét P/B dưới 1, tuy nhiên, ROE và ROA thấp cho thấy tiềm năng tăng trưởng hạn chế. Mức giá này chưa tạo ra biên an toàn đáng kể do hiệu suất kinh doanh chưa thực sự ấn tượng.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 11.000 - 11.500 VNĐ, tương ứng với hỗ trợ gần MA20. Ngưỡng hành động giá cần theo dõi là 11.850 VNĐ (giá hiện tại) và 12.000 VNĐ (kháng cự ngắn hạn).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghiệp mà TCH hoạt động đang chịu áp lực từ việc tăng trưởng chậm lại và cạnh tranh gay gắt. Sóng ngành hiện tại đang ở giai đoạn điều chỉnh, đòi hỏi sự thận trọng trong quyết định đầu tư.",
+        "ai_updated_at": "2026-10-31 05:31:25"
     },
     "HDG": {
         "symbol": "HDG",
@@ -732,12 +732,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:39:17",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã HDG có P/B = 0.87, thấp hơn 1, cho thấy cổ phiếu đang được định giá thấp so với giá trị sổ sách. ROE = 11.4% và ROA = 6.5% phản ánh khả năng sinh lời tốt của công ty.",
+        "outlook": "Với P/E = 6.53, mức giá hiện tại của HDG có thể coi là rẻ so với lợi nhuận mà nó tạo ra, đặc biệt khi so sánh với các mã cùng ngành. Tuy nhiên, cần xem xét thêm các yếu tố khác như triển vọng tăng trưởng và rủi ro.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 14.000 - 15.000 VNĐ. Ngưỡng hành động giá có thể đặt ở 15.500 VNĐ để theo dõi xu hướng tiếp theo.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, ngành sản xuất/bán lẻ dự kiến sẽ tiếp tục phát triển. Tuy nhiên, cần chú ý đến các biến động về chính sách và thị trường quốc tế.",
+        "ai_updated_at": "2026-10-31 05:31:32"
     },
     "KBC": {
         "symbol": "KBC",
@@ -752,12 +752,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:39:24",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 0.94, ROE = 6.5% và ROA = 2.4%, KBC đang có mức định giá thấp so với tài sản và khả năng sinh lời ổn định. Tuy nhiên, biên lợi nhuận gộp không được cung cấp, nhưng ROE và ROA cho thấy hiệu quả sử dụng vốn còn hạn chế.",
+        "outlook": "Mức giá hiện tại của KBC đang ở mức RẺ khi xem xét P/B dưới 1, điều này cho thấy cổ phiếu đang được định giá thấp hơn giá trị sổ sách. Tuy nhiên, cần chú ý đến việc ROE và ROA chưa thực sự ấn tượng, nên cần cân nhắc kỹ lưỡng về tiềm năng tăng trưởng.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 24.000 - 25.000 VNĐ, tương ứng với vùng hỗ trợ gần nhất. Ngưỡng hành động giá có thể là 27.000 - 28.000 VNĐ, nơi có thể xuất hiện kháng cự mạnh.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghiệp mà KBC hoạt động đang có xu hướng phục hồi, nhưng vẫn cần theo dõi sát sao các yếu tố rủi ro như lãi suất và chính sách tiền tệ. Sóng ngành dự kiến sẽ tiếp tục tăng trưởng trong ngắn hạn.",
+        "ai_updated_at": "2026-10-31 05:31:41"
     },
     "IDC": {
         "symbol": "IDC",
@@ -772,12 +772,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:39:32",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã IDC có ROE ở mức 20.9% và ROA là 7.9%, cho thấy khả năng sinh lời tốt. Biên lợi nhuận gộp không được cung cấp, nhưng với P/E = 7.83 và P/B = 1.97, IDC đang định giá ở mức hợp lý so với ngành.",
+        "outlook": "Với P/E = 7.83, IDC đang được định giá thấp hơn trung bình của ngành, đồng thời tỷ lệ cổ tức 7.97% cũng khá hấp dẫn. Điều này cho thấy mức giá hiện tại có thể coi là rẻ, tạo ra biên an toàn nhất định.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng từ 32.000 - 34.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 35.000 VNĐ để xác nhận xu hướng tăng.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, nhu cầu về dịch vụ công nghệ thông tin và viễn thông tiếp tục tăng trưởng, IDC có tiềm năng phát triển tốt. Ngành công nghệ thông tin dự kiến sẽ tiếp tục là điểm sáng trong nền kinh tế.",
+        "ai_updated_at": "2026-10-31 05:31:47"
     },
     "SZC": {
         "symbol": "SZC",
@@ -792,12 +792,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:39:39",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Dựa trên các chỉ số tài chính, SZC có P/B = 1.14, ROE = 5.1%, và ROA = 1.9%. Biên lợi nhuận gộp không được cung cấp, nhưng với ROE và ROA ở mức trung bình, sức khỏe tài chính của công ty có thể được coi là ổn định.",
+        "outlook": "Với P/E = 21.66, SZC đang được định giá ở mức cao so với thị trường chung, nhưng vẫn trong giới hạn chấp nhận được nếu xét đến tiềm năng tăng trưởng. Tuy nhiên, biên an toàn chưa thực sự rõ ràng do ROE và ROA ở mức trung bình.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 18.000 - 19.000 VNĐ, tương ứng với hỗ trợ gần nhất. Ngưỡng hành động giá cần theo dõi là 19.300 VNĐ (giá hiện tại) và 20.000 VNĐ (kháng cự gần).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành sản xuất/bán lẻ đang có xu hướng phục hồi sau giai đoạn khó khăn. Tuy nhiên, cần chú ý đến rủi ro từ biến động lãi suất và chu kỳ kinh doanh.",
+        "ai_updated_at": "2026-10-31 05:31:55"
     },
     "BCM": {
         "symbol": "BCM",
@@ -812,12 +812,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:39:46",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Dựa trên dữ liệu, BCM có P/B = 1.77, ROE = 8.7% và ROA = 3.2%, cho thấy sức khỏe tài chính ổn định nhưng không đặc biệt nổi bật. Biên lợi nhuận gộp không được cung cấp, nhưng với mức ROE và ROA như vậy, BCM đang hoạt động hiệu quả trong ngành.",
+        "outlook": "Mức giá hiện tại của BCM ở P/E = 20.42 và P/B = 1.77, so với các chỉ số trung bình của ngành, BCM đang ở mức định giá hợp lý. Tuy nhiên, do không có cổ tức và biên an toàn chưa rõ ràng, mức giá hiện tại có thể được coi là hơi đắt.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 35.000 - 36.000 VNĐ, đây là vùng giá mà cổ phiếu có thể tạo nền vững chắc. Ngưỡng hành động giá cần theo dõi là 38.000 - 39.000 VNĐ, nếu vượt qua ngưỡng này, có thể xem xét mua thêm.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghiệp mà BCM hoạt động đang có xu hướng tăng trưởng ổn định. Tuy nhiên, cần chú ý đến các yếu tố rủi ro từ thị trường quốc tế và chính sách tiền tệ trong nước.",
+        "ai_updated_at": "2026-10-31 05:32:05"
     },
     "PHR": {
         "symbol": "PHR",
@@ -832,12 +832,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:39:53",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/E = 8.09 và P/B = 1.62, PHR đang có mức định giá hợp lý so với ngành sản xuất/bán lẻ. Biên lợi nhuận gộp, ROE = 21.4% và ROA = 14.7% cho thấy khả năng sinh lời tốt.",
+        "outlook": "Mức giá hiện tại của PHR ở 31000 VNĐ được đánh giá là rẻ so với tiềm năng tăng trưởng và hiệu quả hoạt động. Tuy nhiên, cần theo dõi thêm để xác định biên an toàn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 29000-30000 VNĐ. Ngưỡng hành động giá quan trọng là 31500 VNĐ (đỉnh ngắn hạn) và 28000 VNĐ (hỗ trợ mạnh).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng nội địa tăng, ngành sản xuất/bán lẻ có triển vọng tích cực. Tuy nhiên, cần chú ý đến các yếu tố rủi ro từ biến động thị trường và chính sách.",
+        "ai_updated_at": "2026-10-31 05:32:13"
     },
     "HPG": {
         "symbol": "HPG",
@@ -852,12 +852,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:40:00",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "HPG có P/E = 6.46 và P/B = 1.19, cho thấy cổ phiếu đang được định giá ở mức thấp so với ngành sản xuất. ROE = 19.9% và ROA = 10.4% phản ánh hiệu quả sử dụng vốn và tài sản tốt, đồng thời biên lợi nhuận gộp ổn định.",
+        "outlook": "Với P/E = 6.46, HPG đang được định giá rẻ so với mức trung bình của ngành. Biên an toàn đã xuất hiện, nhưng cần theo dõi thêm các yếu tố vĩ mô và kỹ thuật để xác nhận xu hướng.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý là từ 20.000 - 21.000 VNĐ. Ngưỡng hành động giá nằm ở 21.500 VNĐ, nếu vượt qua có thể tiếp tục tăng.",
+        "macro_view": "Hiện tại, ngành thép đang trong đà phục hồi sau giai đoạn khó khăn do đại dịch. Chính sách hỗ trợ kinh tế và nhu cầu xây dựng cơ sở hạ tầng tăng lên sẽ thúc đẩy tăng trưởng của HPG.",
+        "ai_updated_at": "2026-10-31 05:32:20"
     },
     "HSG": {
         "symbol": "HSG",
@@ -872,12 +872,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:40:07",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã HSG có P/B = 0.74, thấp hơn nhiều so với mức trung bình của ngành, cho thấy cổ phiếu đang được định giá thấp so với giá trị sổ sách. Tuy nhiên, ROE = 5.7% và ROA = 3.1% cho thấy hiệu quả sử dụng vốn chưa thực sự tốt.",
+        "outlook": "Với P/E = 13.35 và P/B = 0.74, mức giá hiện tại của HSG có thể coi là rẻ so với giá trị thực tế. Tuy nhiên, cần chú ý đến khả năng sinh lời và hiệu quả sử dụng vốn để đảm bảo biên an toàn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 9.500 - 10.500 VNĐ. Ngưỡng hành động giá có thể là 11.000 VNĐ (đỉnh gần nhất) và hỗ trợ ở 9.000 VNĐ (đáy gần nhất).",
+        "macro_view": "Hiện tại, ngành sản xuất thép đang chịu áp lực từ việc tăng giá nguyên liệu đầu vào và cạnh tranh gay gắt. Tuy nhiên, nhu cầu xây dựng và cơ sở hạ tầng vẫn duy trì ổn định, tạo điều kiện cho doanh nghiệp phát triển.",
+        "ai_updated_at": "2026-10-31 05:32:27"
     },
     "NKG": {
         "symbol": "NKG",
@@ -892,12 +892,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:40:15",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 0.75, ROE = 3.2% và ROA = 1.4%, NKG đang cho thấy sức khỏe tài chính không quá mạnh mẽ. Biên lợi nhuận gộp và tốc độ tăng trưởng cũng cần được xem xét để đánh giá toàn diện hơn.",
+        "outlook": "Mức P/E = 24.08 và P/B = 0.75 cho thấy cổ phiếu đang ở mức định giá trung bình so với ngành. Tuy nhiên, với ROE và ROA thấp, mức giá hiện tại có thể chưa thực sự hấp dẫn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 11,000 - 11,500 VNĐ. Ngưỡng hành động giá cần theo dõi là 12,000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô hiện nay, ngành sản xuất/bán lẻ đang đối mặt với nhiều thách thức về chuỗi cung ứng và chi phí nguyên liệu. Tuy nhiên, nhu cầu tiêu dùng vẫn duy trì ổn định, tạo cơ hội cho các doanh nghiệp linh hoạt.",
+        "ai_updated_at": "2026-10-31 05:32:33"
     },
     "CTD": {
         "symbol": "CTD",
@@ -912,12 +912,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:40:23",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã CTD có P/B = 0.74, thấp hơn nhiều so với mức trung bình của ngành, cho thấy cổ phiếu đang được định giá thấp so với tài sản ròng. ROE = 8.4% và ROA = 2.3% cũng ở mức chấp nhận được, nhưng biên lợi nhuận gộp không được cung cấp nên cần xem xét thêm.",
+        "outlook": "Với P/E = 9.08 và P/B = 0.74, mức giá hiện tại của CTD có thể coi là rẻ so với mặt bằng chung của thị trường. Tuy nhiên, cần chú ý đến khả năng sinh lời và tốc độ tăng trưởng để xác định biên an toàn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 60.000 - 62.000 VNĐ. Ngưỡng hành động giá có thể là 65.000 VNĐ (điểm breakout) và 58.000 VNĐ (điểm hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và xu hướng tăng trưởng của ngành, CTD có tiềm năng tăng trưởng tốt. Tuy nhiên, cần theo dõi sát sao các yếu tố vĩ mô và chính sách tiền tệ để điều chỉnh chiến lược đầu tư.",
+        "ai_updated_at": "2026-10-31 05:32:40"
     },
     "VCG": {
         "symbol": "VCG",
@@ -932,12 +932,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:40:30",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "VCG có P/B = 0.88, thấp hơn 1, cho thấy cổ phiếu đang được định giá dưới giá trị tài sản ròng của công ty. ROE = 8.9% và ROA = 3.8% phản ánh khả năng sinh lời ổn định, nhưng không quá ấn tượng so với ngành.",
+        "outlook": "Mức giá hiện tại của VCG đang ở mức RẺ theo tiêu chuẩn P/B < 1, đồng thời EPS = 1606 VNĐ và P/E = 9.21 cũng cho thấy cổ phiếu đang được định giá hấp dẫn. Tuy nhiên, biên an toàn chưa thực sự rõ ràng do tốc độ tăng trưởng và lợi nhuận gộp chưa được đề cập.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 14.000 - 14.500 VNĐ, tương ứng với mức giảm từ 5-10% so với giá hiện tại. Ngưỡng hành động giá cần chú ý là MA20, nếu giá duy trì trên MA20 thì xu hướng tăng vẫn được giữ vững.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành Bất động sản đang chịu áp lực từ chính sách thắt chặt tín dụng và kiểm soát thị trường. Tuy nhiên, nhu cầu nhà ở vẫn ổn định, tạo cơ hội cho các doanh nghiệp có tiềm lực tài chính mạnh như VCG.",
+        "ai_updated_at": "2026-10-31 05:32:48"
     },
     "HHV": {
         "symbol": "HHV",
@@ -952,12 +952,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:40:37",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã cổ phiếu HHV có P/B rất thấp (0.47), cho thấy giá trị tài sản ròng của công ty đang được định giá dưới mức thị trường, đồng thời ROE và ROA ở mức trung bình (5.1% và 1.5%) cho thấy hiệu quả sử dụng vốn chưa thực sự tốt.",
+        "outlook": "Với P/E = 8.5 và P/B = 0.47, mức giá hiện tại của HHV có thể coi là rẻ so với mặt bằng chung của ngành, đặc biệt là khi so sánh với các công ty cùng lĩnh vực. Tuy nhiên, cần chú ý đến khả năng sinh lời và hiệu quả sử dụng vốn để đảm bảo biên an toàn.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 8.000 - 9.000 VNĐ, tương ứng với mức giảm từ 13-25% so với giá đóng cửa hiện tại. Ngưỡng hành động giá có thể đặt ở mức 9.500 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô hiện nay, ngành bất động sản đang chịu áp lực do chính sách thắt chặt tín dụng và tăng trưởng GDP chậm lại. Tuy nhiên, nhu cầu nhà ở vẫn ổn định, tạo cơ hội cho các doanh nghiệp có chiến lược rõ ràng.",
+        "ai_updated_at": "2026-10-31 05:32:55"
     },
     "FPT": {
         "symbol": "FPT",
@@ -972,12 +972,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:40:46",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "FPT có sức khỏe tài chính tốt với ROE ở mức 24.3% và ROA là 13.2%, cho thấy hiệu quả sử dụng vốn và tài sản của công ty. Biên lợi nhuận gộp cũng ổn định, phản ánh khả năng kiểm soát chi phí và duy trì lợi nhuận.",
+        "outlook": "Với P/E = 9.66 và P/B = 2.32, FPT đang được định giá ở mức hợp lý so với ngành công nghệ thông tin. Mức P/E thấp hơn trung bình ngành, cho thấy cổ phiếu có thể đang được định giá rẻ và đã có biên an toàn nhất định.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 50.000 - 52.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 53.000 VNĐ (đỉnh ngắn hạn) và 55.000 VNĐ (đỉnh trung hạn).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành công nghệ thông tin vẫn tiếp tục tăng trưởng do nhu cầu số hóa và chuyển đổi số. Tuy nhiên, cần chú ý đến các rủi ro về biến động thị trường và cạnh tranh từ các đối thủ trong và ngoài nước.",
+        "ai_updated_at": "2026-10-31 05:33:03"
     },
     "MWG": {
         "symbol": "MWG",
@@ -992,12 +992,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:40:53",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "MWG có sức khỏe tài chính tốt với ROE đạt 29.5% và ROA ở mức 12.1%, cho thấy hiệu quả sử dụng vốn và tài sản của công ty. Biên lợi nhuận gộp cũng là một chỉ số quan trọng, nhưng không được cung cấp trong dữ liệu, tuy nhiên, EPS đạt 7576 VNĐ cho thấy khả năng sinh lời ổn định.",
+        "outlook": "Với P/E = 9.77 và P/B = 2.39, MWG đang được định giá ở mức hấp dẫn so với ngành bán lẻ. Mức P/E thấp hơn trung bình ngành (thường khoảng 15-20) cho thấy cổ phiếu có thể đang được định giá rẻ, tạo ra biên an toàn nhất định.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 70.000 - 74.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 74.000 VNĐ, nếu vượt qua có thể là dấu hiệu tích cực cho xu hướng tăng.",
+        "macro_view": "Kinh tế vĩ mô Việt Nam đang phục hồi mạnh mẽ, đặc biệt là nhu cầu tiêu dùng nội địa. Điều này tạo điều kiện thuận lợi cho ngành bán lẻ như MWG. Tuy nhiên, cần chú ý đến rủi ro từ biến động lãi suất và lạm phát.",
+        "ai_updated_at": "2026-10-31 05:33:11"
     },
     "PNJ": {
         "symbol": "PNJ",
@@ -1012,12 +1012,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:41:01",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã PNJ có P/E = 3.25 và P/B = 0.6, cho thấy cổ phiếu đang được định giá thấp so với lợi nhuận và tài sản. Biên lợi nhuận gộp, ROE = 12.7% và ROA = 8.6% cũng ở mức tốt, phản ánh khả năng sinh lời ổn định của công ty.",
+        "outlook": "Với P/E = 3.25 và P/B = 0.6, mức giá hiện tại của PNJ có thể coi là rẻ so với các chỉ số định giá cơ bản. Điều này cho thấy đã có biên an toàn nhất định, nhưng cần theo dõi thêm để xác nhận xu hướng.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 14,000 - 15,000 VNĐ. Ngưỡng hành động giá có thể đặt ở 15,500 VNĐ (giá hiện tại) và 16,000 VNĐ (ngưỡng kháng cự gần).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành trang sức và đồng hồ vẫn duy trì tăng trưởng ổn định do nhu cầu tiêu dùng nội địa tiếp tục phục hồi. Tuy nhiên, cần chú ý đến biến động của thị trường và chính sách tiền tệ.",
+        "ai_updated_at": "2026-10-31 05:33:18"
     },
     "FRT": {
         "symbol": "FRT",
@@ -1032,12 +1032,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:41:08",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 5.07, ROE = 25.4% và ROA = 5.3%, FRT cho thấy sức khỏe tài chính tốt, đặc biệt là khả năng sinh lời cao so với ngành Bán lẻ/Sản xuất. Tuy nhiên, việc không chi trả cổ tức có thể gây lo ngại về dòng tiền.",
+        "outlook": "Mức P/E = 23.38 và P/B = 5.07 cho thấy FRT đang được định giá ở mức cao so với tiêu chuẩn ngành. Mặc dù biên lợi nhuận và ROE tốt, nhưng chưa có biên an toàn đáng kể, do đó cần thận trọng.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 130.000 - 140.000 VNĐ, tương ứng với giảm khoảng 10-15% từ mức hiện tại. Ngưỡng hành động giá quan trọng là MA20, nếu giá duy trì trên MA20 thì xu hướng tăng vẫn tiếp diễn.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, nhu cầu tiêu dùng nội địa tăng trưởng, FRT có tiềm năng phát triển tốt. Tuy nhiên, cần theo dõi sát sao các yếu tố rủi ro như biến động lãi suất và cạnh tranh trong ngành.",
+        "ai_updated_at": "2026-10-31 05:33:25"
     },
     "VNM": {
         "symbol": "VNM",
@@ -1052,12 +1052,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:41:15",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "VNM có sức khỏe tài chính tốt với ROE ở mức 31.1% và ROA ở mức 20.4%, cho thấy hiệu quả sử dụng vốn và tài sản rất cao. Biên lợi nhuận gộp cũng ổn định, phản ánh khả năng kiểm soát chi phí và duy trì lợi nhuận.",
+        "outlook": "Tại P/E = 10.43 và P/B = 3.45, VNM đang được định giá ở mức hợp lý so với ngành. Tuy nhiên, cần chú ý đến việc liệu mức P/E này đã phản ánh đầy đủ triển vọng tăng trưởng trong tương lai hay chưa. Hiện tại, cổ phiếu có biên an toàn trung bình.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 54.000 - 56.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 58.000 VNĐ (đỉnh ngắn hạn) và 53.000 VNĐ (đáy hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô Việt Nam đang phục hồi, nhu cầu tiêu dùng nội địa tăng lên, đây là yếu tố thuận lợi cho VNM. Tuy nhiên, cần theo dõi sát sao các biến động về lãi suất và lạm phát, vì chúng có thể ảnh hưởng đến chi tiêu của người tiêu dùng.",
+        "ai_updated_at": "2026-10-31 05:33:33"
     },
     "MSN": {
         "symbol": "MSN",
@@ -1072,12 +1072,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:41:22",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/E = 11.29 và ROE = 20.0%, MSN cho thấy khả năng sinh lời tốt và hiệu quả sử dụng vốn cao, phù hợp với đặc thù ngành sản xuất/bán lẻ. Tuy nhiên, việc không chi trả cổ tức có thể gây lo ngại về dòng tiền.",
+        "outlook": "Mức P/E = 11.29 thấp hơn trung bình ngành, cho thấy cổ phiếu đang được định giá ở mức hấp dẫn. Tuy nhiên, cần chú ý đến việc không chi trả cổ tức, điều này có thể ảnh hưởng đến quyết định của nhà đầu tư.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 65.000 - 68.000 VNĐ. Ngưỡng hành động giá quan trọng là 70.000 VNĐ (giá hiện tại) và 72.000 VNĐ (ngưỡng kháng cự gần).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng tăng trưởng, ngành sản xuất/bán lẻ có triển vọng tích cực. Tuy nhiên, cần theo dõi sát sao các yếu tố rủi ro từ biến động thị trường và chính sách.",
+        "ai_updated_at": "2026-10-31 05:33:40"
     },
     "SAB": {
         "symbol": "SAB",
@@ -1092,12 +1092,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:41:30",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "SAB có sức khỏe tài chính tốt với ROE ở mức 20.1% và ROA ở mức 14.8%, cho thấy hiệu quả sử dụng vốn và tài sản cao. Biên lợi nhuận gộp cũng ổn định, phản ánh khả năng kiểm soát chi phí và duy trì lợi nhuận.",
+        "outlook": "Với P/E = 11.7 và P/B = 2.62, SAB đang được định giá ở mức hợp lý so với ngành sản xuất/bán lẻ. Mức P/E này thấp hơn trung bình ngành, cho thấy cổ phiếu có thể đang được định giá rẻ và đã có biên an toàn nhất định.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 39.000 - 41.000 VNĐ. Ngưỡng hành động giá là 42.500 VNĐ, nếu vượt qua ngưỡng này, xu hướng tăng có thể tiếp tục.",
+        "macro_view": "Kinh tế vĩ mô Việt Nam đang phục hồi mạnh mẽ, đặc biệt là nhu cầu tiêu dùng nội địa. Ngành sản xuất bia và đồ uống đang có triển vọng tăng trưởng tốt, hỗ trợ cho sự phát triển của SAB.",
+        "ai_updated_at": "2026-10-31 05:33:46"
     },
     "GAS": {
         "symbol": "GAS",
@@ -1112,12 +1112,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:41:37",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Công ty GAS có ROE và ROA lần lượt là 18.5% và 13.5%, cho thấy khả năng sinh lời tốt. Tuy nhiên, P/B ở mức 2.74, cao hơn so với trung bình ngành, nhưng vẫn chấp nhận được do hiệu quả hoạt động ổn định.",
+        "outlook": "Với P/E = 14.8, GAS đang ở mức định giá hợp lý so với triển vọng tăng trưởng và lợi nhuận. Mức giá hiện tại không phải quá đắt, nhưng cũng chưa thực sự rẻ, cần theo dõi thêm để tìm cơ hội mua tốt.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 70.000 - 75.000 VNĐ. Ngưỡng hành động giá cần chú ý là 78.000 - 80.000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng nội địa tăng, ngành gas và năng lượng có tiềm năng tăng trưởng tốt. Tuy nhiên, cần chú ý đến biến động giá dầu thế giới và chính sách của chính phủ.",
+        "ai_updated_at": "2026-10-31 05:33:53"
     },
     "PVD": {
         "symbol": "PVD",
@@ -1132,12 +1132,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:41:44",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "PVD có P/B = 0.97, thấp hơn 1, cho thấy cổ phiếu đang được định giá thấp so với giá trị sổ sách. Tuy nhiên, ROE và ROA lần lượt ở mức 5.2% và 3.1%, khá khiêm tốn, phản ánh hiệu quả sử dụng vốn không cao.",
+        "outlook": "Với P/E = 18.4, PVD đang ở mức định giá trung bình so với ngành xây dựng. Tuy nhiên, P/B = 0.97 cho thấy cổ phiếu đang được định giá rẻ so với giá trị tài sản ròng. Mức giá hiện tại đã tạo biên an toàn nhất định.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 17.000 - 17.500 VNĐ. Ngưỡng hành động giá cần theo dõi là 18.000 VNĐ (đỉnh ngắn hạn) và 16.500 VNĐ (đáy ngắn hạn).",
+        "macro_view": "Ngành xây dựng đang chịu áp lực từ việc tăng lãi suất và giảm nhu cầu bất động sản. Tuy nhiên, các dự án hạ tầng công cộng vẫn tiếp tục triển khai, tạo cơ hội cho doanh nghiệp như PVD.",
+        "ai_updated_at": "2026-10-31 05:34:00"
     },
     "PVS": {
         "symbol": "PVS",
@@ -1152,12 +1152,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.60x MA20.",
         "updated_at": "2026-10-31 11:41:51",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.19, ROE = 12.8% và ROA = 5.1%, PVS cho thấy sức khỏe tài chính ổn định, biên lợi nhuận tốt và hiệu quả sử dụng vốn hợp lý. Tuy nhiên, việc không chi trả cổ tức có thể là điểm cần lưu ý.",
+        "outlook": "Mức giá hiện tại với P/E = 8.92 và P/B = 1.19 cho thấy PVS đang được định giá ở mức hấp dẫn so với ngành. Biên an toàn đã xuất hiện, nhưng cần theo dõi thêm để đảm bảo xu hướng tích cực.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 28.000 - 29.000 VNĐ. Ngưỡng hành động giá quan trọng là 30.000 VNĐ và 32.000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu về sản phẩm của PVS vẫn duy trì, triển vọng ngành nhìn chung là tích cực. Tuy nhiên, cần chú ý đến các yếu tố rủi ro từ thị trường quốc tế.",
+        "ai_updated_at": "2026-10-31 05:34:08"
     },
     "BSR": {
         "symbol": "BSR",
@@ -1172,12 +1172,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.65x MA20.",
         "updated_at": "2026-10-31 11:41:59",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "BSR có chỉ số ROE và ROA rất cao, lần lượt là 40.5% và 27.9%, cho thấy khả năng sinh lời tốt từ vốn chủ sở hữu và tài sản. Tuy nhiên, P/B ở mức 1.66, không quá cao nhưng cũng không phải là thấp, cần xem xét thêm về chất lượng tài sản.",
+        "outlook": "Với P/E = 6.94, BSR đang được định giá khá rẻ so với lợi nhuận, đặc biệt khi so sánh với ngành công nghiệp nói chung. Điều này cho thấy cổ phiếu có thể đã tạo ra biên an toàn nhất định, mặc dù cần chú ý đến rủi ro liên quan đến chất lượng tài sản.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 25.000 - 26.000 VNĐ, tương ứng với mức giảm khoảng 5-10% so với giá hiện tại. Ngưỡng hành động giá có thể đặt ở mức 28.000 VNĐ để theo dõi xu hướng tăng.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng nội địa tăng trưởng, BSR có thể tiếp tục duy trì đà tăng trưởng. Tuy nhiên, cần theo dõi sát sao các yếu tố vĩ mô như lạm phát và lãi suất, vì chúng có thể ảnh hưởng đến hoạt động của doanh nghiệp.",
+        "ai_updated_at": "2026-10-31 05:34:16"
     },
     "POW": {
         "symbol": "POW",
@@ -1192,12 +1192,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:42:06",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã POW có P/B = 0.91, thấp hơn 1, cho thấy cổ phiếu đang được định giá dưới giá trị sổ sách, đồng thời ROE = 15.3% và ROA = 6.4% phản ánh khả năng sinh lời tốt của doanh nghiệp.",
+        "outlook": "Với mức P/E = 6.29 và P/B = 0.91, POW đang được định giá ở mức rẻ so với ngành sản xuất/bán lẻ, tạo ra biên an toàn đáng kể cho nhà đầu tư.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 11.500 - 12.000 VNĐ, ngưỡng hành động giá là 12.500 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng tăng trưởng, ngành sản xuất/bán lẻ dự kiến sẽ tiếp tục phát triển, tạo điều kiện thuận lợi cho POW.",
+        "ai_updated_at": "2026-10-31 05:34:22"
     },
     "REE": {
         "symbol": "REE",
@@ -1212,12 +1212,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:42:13",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Công ty có ROE ở mức 10.9% và ROA ở mức 6.7%, cho thấy khả năng sinh lời từ vốn chủ sở hữu và tài sản khá tốt. Biên lợi nhuận gộp không được cung cấp, nhưng với P/E = 10.28 và P/B = 1.26, REE đang định giá ở mức hợp lý so với ngành.",
+        "outlook": "Với P/E = 10.28 và P/B = 1.26, mức giá hiện tại của REE có thể coi là hợp lý, nhưng chưa phải là rẻ tuyệt đối. Tuy nhiên, nếu so sánh với các công ty cùng ngành, REE vẫn có biên an toàn nhất định.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 43.000 - 44.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 45.000 VNĐ (ngưỡng kháng cự) và 42.000 VNĐ (ngưỡng hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định, nhu cầu về sản phẩm và dịch vụ của REE có thể tiếp tục tăng trưởng. Tuy nhiên, cần chú ý đến các yếu tố rủi ro như biến động lãi suất và chính sách thuế.",
+        "ai_updated_at": "2026-10-31 05:34:34"
     },
     "PC1": {
         "symbol": "PC1",
@@ -1232,12 +1232,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:42:20",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã PC1 có P/E = 6.59 và P/B = 1.1, cho thấy mức định giá khá hấp dẫn so với ngành. ROE = 12.4% và ROA = 4.6% phản ánh khả năng sinh lời tốt, nhưng cần chú ý đến việc không chi trả cổ tức, có thể ảnh hưởng đến sự thu hút của nhà đầu tư.",
+        "outlook": "Với P/E = 6.59 và P/B = 1.1, mã PC1 đang được định giá ở mức rẻ so với ngành. Tuy nhiên, việc không chi trả cổ tức có thể làm giảm sức hấp dẫn. Mức giá hiện tại đã tạo ra một biên an toàn nhất định, nhưng cần theo dõi thêm về triển vọng tăng trưởng.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 17,000 - 18,000 VNĐ. Ngưỡng hành động giá có thể là 18,500 - 19,000 VNĐ, nơi có thể xuất hiện các tín hiệu breakout.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và xu hướng tăng trưởng của ngành, mã PC1 có tiềm năng tăng trưởng. Tuy nhiên, cần theo dõi sát sao các yếu tố vĩ mô như lãi suất và chính sách tiền tệ, cũng như tình hình cạnh tranh trong ngành.",
+        "ai_updated_at": "2026-10-31 05:34:42"
     },
     "NT2": {
         "symbol": "NT2",
@@ -1252,12 +1252,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:42:28",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 1.26, ROE = 29.4% và ROA = 14.9%, NT2 cho thấy sức khỏe tài chính tốt, hiệu quả sử dụng vốn cao và khả năng sinh lời ổn định, phù hợp với đặc thù ngành sản xuất/bán lẻ.",
+        "outlook": "Mức giá hiện tại của NT2 đang ở mức rẻ so với chỉ số P/E = 4.44, thấp hơn nhiều so với trung bình ngành, đồng thời P/B = 1.26 cũng cho thấy cổ phiếu đang được định giá dưới giá trị thực. Đã có biên an toàn đáng kể.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 21000-22000 VNĐ, vùng định giá rẻ từ 20000-21000 VNĐ. Ngưỡng hành động giá là 23000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng tăng trưởng, ngành sản xuất/bán lẻ dự kiến sẽ tiếp tục phát triển. NT2 có thể tận dụng xu hướng này để mở rộng thị trường và tăng doanh thu.",
+        "ai_updated_at": "2026-10-31 05:34:49"
     },
     "GMD": {
         "symbol": "GMD",
@@ -1272,12 +1272,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.60x MA20.",
         "updated_at": "2026-10-31 11:42:35",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/B = 2.5, ROE = 17.3% và ROA = 12.9%, GMD cho thấy sức khỏe tài chính tốt, biên lợi nhuận ổn định và khả năng sinh lời cao so với ngành sản xuất/bán lẻ.",
+        "outlook": "Mức P/E = 13.34 và P/B = 2.5 cho thấy cổ phiếu đang ở mức định giá hợp lý, chưa phải là đắt nhưng cũng không quá rẻ. Tuy nhiên, với EPS = 6015 VNĐ và tỷ lệ cổ tức 5.2%, GMD vẫn có tiềm năng tăng trưởng.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 50.000 - 52.000 VNĐ. Ngưỡng hành động giá cần theo dõi là 53.000 VNĐ (đỉnh ngắn hạn) và 49.000 VNĐ (hỗ trợ mạnh).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng nội địa tăng, ngành sản xuất/bán lẻ có triển vọng tích cực. Tuy nhiên, cần chú ý đến các yếu tố rủi ro từ biến động thị trường và chính sách.",
+        "ai_updated_at": "2026-10-31 05:34:56"
     },
     "HAH": {
         "symbol": "HAH",
@@ -1292,12 +1292,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.44x MA20.",
         "updated_at": "2026-10-31 11:42:42",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã HAH có chỉ số ROE và ROA khá tốt, lần lượt là 22.5% và 14.1%, cho thấy khả năng sinh lời từ vốn chủ sở hữu và tài sản rất hiệu quả. Biên lợi nhuận gộp không được cung cấp nhưng với EPS đạt 6819 VNĐ, đây là một dấu hiệu tích cực về sức khỏe tài chính.",
+        "outlook": "Với P/E = 7.28 và P/B = 1.74, mức giá hiện tại của HAH có thể coi là hợp lý so với thị trường, đặc biệt khi so sánh với các công ty cùng ngành. Tuy nhiên, cần xem xét thêm các yếu tố khác như triển vọng tăng trưởng và tình hình kinh doanh cụ thể để xác định biên an toàn.",
+        "ai_recommendation": "CHỜ TEST LẠI",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 45000-47000 VNĐ, tương ứng với mức giảm khoảng 5-10% so với giá hiện tại. Ngưỡng hành động giá có thể đặt ở mức 49000-50000 VNĐ.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô đang phục hồi, ngành công nghiệp mà HAH hoạt động có tiềm năng tăng trưởng tốt. Tuy nhiên, cần theo dõi sát sao các biến động về lãi suất và chính sách tiền tệ, vì chúng có thể ảnh hưởng đến hoạt động và lợi nhuận của công ty.",
+        "ai_updated_at": "2026-10-31 05:35:04"
     },
     "PVT": {
         "symbol": "PVT",
@@ -1312,12 +1312,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN (CẠN CUNG)",
         "price_zone": "Khối lượng cạn kiệt ở mức 0.61x MA20.",
         "updated_at": "2026-10-31 11:42:49",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Dựa trên chỉ số P/E = 7.14 và P/B = 1.11, cùng với ROE = 12.9% và ROA = 6.9%, có thể thấy mã PVT đang hoạt động hiệu quả trong ngành sản xuất/bán lẻ. Biên lợi nhuận gộp không được cung cấp nhưng ROE và ROA cho thấy khả năng sinh lời tốt.",
+        "outlook": "Với P/E = 7.14, mức giá hiện tại của PVT có thể coi là rẻ so với trung bình ngành, đặc biệt khi so sánh với ROE = 12.9%. Điều này cho thấy cổ phiếu có tiềm năng tăng trưởng và đã tạo ra biên an toàn nhất định.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng từ 20.000 VNĐ đến 21.000 VNĐ. Ngưỡng hành động giá có thể đặt ở mức 21.500 VNĐ để theo dõi xu hướng tiếp theo.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và nhu cầu tiêu dùng nội địa tăng, ngành sản xuất/bán lẻ dự kiến sẽ tiếp tục phát triển. Tuy nhiên, cần chú ý đến các yếu tố rủi ro như biến động lãi suất và chính sách thuế.",
+        "ai_updated_at": "2026-10-31 05:35:11"
     },
     "VJC": {
         "symbol": "VJC",
@@ -1332,12 +1332,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:42:56",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Với P/E = 46.49 và P/B = 3.84, VJC đang có mức định giá cao so với ngành sản xuất/bán lẻ. Tuy nhiên, biên lợi nhuận gộp và ROE lần lượt là 2830 VNĐ và 8.7% cho thấy khả năng sinh lời ổn định.",
+        "outlook": "Mức giá hiện tại của VJC ở 131600 VNĐ được coi là đắt so với các tiêu chuẩn định giá đặc thù của ngành. Tuy nhiên, nếu doanh nghiệp tiếp tục duy trì tốc độ tăng trưởng và hiệu quả hoạt động, mức giá này vẫn có thể hợp lý.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 110000-120000 VNĐ, tương ứng với mức giảm từ 15-20% so với giá hiện tại. Ngưỡng hành động giá cần theo dõi là MA20.",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô, ngành hàng không và du lịch đang phục hồi mạnh mẽ sau đại dịch, tạo điều kiện thuận lợi cho VJC. Tuy nhiên, cần chú ý đến rủi ro từ biến động giá nhiên liệu và cạnh tranh trong ngành.",
+        "ai_updated_at": "2026-10-31 05:35:19"
     },
     "HVN": {
         "symbol": "HVN",
@@ -1352,12 +1352,12 @@
         "recommendation": "ĐANG GOM HÀNG",
         "price_zone": "Dòng tiền duy trì ổn định trên MA20.",
         "updated_at": "2026-10-31 11:43:03",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Mã HVN có ROE rất cao ở mức 72.1% và ROA cũng tốt ở 6.2%, cho thấy hiệu quả sử dụng vốn và tài sản của công ty là rất tốt. Tuy nhiên, P/B ở mức 6.82 khá cao so với ngành, cần chú ý đến việc đánh giá lại giá trị tài sản.",
+        "outlook": "Với P/E = 14.2, HVN đang được định giá ở mức trung bình so với ngành. Tuy nhiên, P/B = 6.82 cho thấy cổ phiếu có thể đã đắt giá, đặc biệt khi so sánh với các đối thủ trong ngành. Cần xem xét kỹ lưỡng trước khi quyết định mua.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá hợp lý để mua gom có thể nằm trong khoảng 19.000 - 20.000 VNĐ. Ngưỡng hành động giá quan trọng là 20.000 VNĐ (hỗ trợ) và 22.000 VNĐ (kháng cự).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô hiện nay, ngành hàng không đang phục hồi mạnh mẽ sau đại dịch, nhưng vẫn còn nhiều rủi ro về biến chủng mới của virus. Sóng ngành dự kiến sẽ tiếp tục tăng trưởng trong ngắn hạn, nhưng cần theo dõi sát sao diễn biến thị trường.",
+        "ai_updated_at": "2026-10-31 05:35:33"
     },
     "VHC": {
         "symbol": "VHC",
@@ -1372,12 +1372,12 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:43:10",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "VHC có P/E = 8.55 và P/B = 1.1, cho thấy cổ phiếu đang được định giá ở mức hợp lý so với ngành sản xuất/bán lẻ. ROE = 12.2% và ROA = 9.0% phản ánh khả năng sinh lời tốt, đồng thời biên lợi nhuận gộp cũng ổn định.",
+        "outlook": "Tại mức P/E = 8.55, VHC đang được định giá rẻ hơn so với trung bình ngành, tạo ra biên an toàn nhất định. Tuy nhiên, cần theo dõi thêm các yếu tố vĩ mô và tình hình kinh doanh cụ thể của công ty.",
+        "ai_recommendation": "THEO DÕI THÊM",
+        "ai_price_zone": "Vùng giá mua gom hợp lý có thể nằm trong khoảng 45.000 - 48.000 VNĐ. Ngưỡng hành động giá có thể là 52.000 VNĐ (điểm breakout) và 43.000 VNĐ (điểm hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô hiện tại, ngành thủy sản vẫn duy trì tăng trưởng ổn định. Tuy nhiên, cần chú ý đến biến động giá nguyên liệu và xu hướng tiêu dùng quốc tế.",
+        "ai_updated_at": "2026-10-31 05:35:40"
     },
     "ANV": {
         "symbol": "ANV",
@@ -1392,11 +1392,11 @@
         "recommendation": "ĐANG TÍCH LŨY NỀN",
         "price_zone": "Đang siết nền tích lũy biên độ hẹp.",
         "updated_at": "2026-10-31 11:43:17",
-        "bctc": "",
-        "outlook": "",
-        "ai_recommendation": "",
-        "ai_price_zone": "",
-        "macro_view": "",
-        "ai_updated_at": ""
+        "bctc": "Công ty có sức khỏe tài chính tốt, với ROE ở mức 21.1% và ROA ở mức 12.8%, cho thấy hiệu quả sử dụng vốn và tài sản cao. Biên lợi nhuận gộp không được cung cấp nhưng EPS đạt 2961 VNĐ, phản ánh khả năng sinh lời ổn định.",
+        "outlook": "Với P/E = 5.4 và P/B = 1.05, cổ phiếu ANV đang được định giá khá rẻ so với ngành. Tỷ lệ cổ tức 6.39% cũng là một điểm hấp dẫn, cho thấy mức giá hiện tại đã tạo ra biên an toàn nhất định.",
+        "ai_recommendation": "MUA TÍCH SẢN",
+        "ai_price_zone": "Vùng giá mua gom hợp lý nằm trong khoảng 15000-16000 VNĐ. Ngưỡng hành động giá cần theo dõi là 16500 VNĐ (đỉnh ngắn hạn) và 14500 VNĐ (đáy hỗ trợ).",
+        "macro_view": "Trong bối cảnh kinh tế vĩ mô ổn định và xu hướng tăng trưởng của ngành, ANV có tiềm năng phát triển tốt. Tuy nhiên, cần chú ý đến các yếu tố rủi ro từ biến động thị trường và chính sách kinh tế.",
+        "ai_updated_at": "2026-10-31 05:35:47"
     }
 }
