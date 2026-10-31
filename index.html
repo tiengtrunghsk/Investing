@@ -36,10 +36,9 @@
             z-index: 9999 !important;
         }
         
-        /* Tự động tính toán lại chiều cao biểu đồ theo kích thước thực tế khi xoay ngang/dọc */
         #chart-modal-box:not(.fullscreen) #tv-chart-container {
             height: calc(92dvh - 120px) !important;
-            min-height: 250px;
+            min-height: 300px;
             width: 100% !important;
         }
         #chart-modal-box.fullscreen #tv-chart-container {
@@ -198,10 +197,10 @@
                         <button onclick="switchInterval('MN')" id="btn-mn" class="px-2 py-0.5 text-[11px] font-bold rounded text-slate-400 hover:text-white transition">MN</button>
                     </div>
 
-                    <!-- Nút Bật/Tắt VOL & Chỉ Báo Kỹ Thuật -->
+                    <!-- Nút Bật/Tắt VOL & Chỉ Báo Kỹ Thuật (Mặc định MA20 bật) -->
                     <div class="flex items-center bg-slate-900 p-0.5 rounded-lg border border-slate-800 gap-1 pl-1.5">
                         <button onclick="toggleBoldVol()" id="btn-bold-vol" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">VOL</button>
-                        <button onclick="toggleIndicator('MA20')" id="btn-ind-ma20" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">MA20</button>
+                        <button onclick="toggleIndicator('MA20')" id="btn-ind-ma20" class="px-2 py-0.5 text-[10px] font-bold rounded bg-indigo-600 text-white border border-indigo-400 transition">MA20</button>
                         <button onclick="toggleIndicator('MA50')" id="btn-ind-ma50" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">MA50</button>
                         <button onclick="toggleIndicator('RSI')" id="btn-ind-rsi" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">RSI</button>
                     </div>
@@ -242,8 +241,9 @@
         let currentInterval = 'D1';
 
         let isBoldVol = false;
+        // Mặc định bật MA20
         let activeIndicators = {
-            MA20: false,
+            MA20: true,
             MA50: false,
             RSI: false
         };
@@ -620,11 +620,9 @@
                 }
             }
 
-            // Ép biểu đồ cập nhật lại kích thước theo khung hiển thị mới
             setTimeout(resizeChart, 200);
         }
 
-        // Tự động lắng nghe sự kiện xoay màn hình (Orientation Change) hoặc thay đổi kích thước trình duyệt
         window.addEventListener('resize', () => {
             if (!document.getElementById('chart-modal').classList.contains('hidden')) {
                 setTimeout(resizeChart, 300);
@@ -727,18 +725,21 @@
                 timeScale: { borderColor: '#334155' }
             });
 
+            // 1. Khung nến chính
             const candleSeries = chartInstance.addCandlestickSeries({
                 upColor: '#10b981', downColor: '#f43f5e',
                 borderUpColor: '#10b981', borderDownColor: '#f43f5e',
                 wickUpColor: '#10b981', wickDownColor: '#f43f5e',
+                priceScaleId: 'right'
             });
 
+            // 2. Khối lượng Volume ở phần đáy nến
             const volumeSeries = chartInstance.addHistogramSeries({
                 priceFormat: { type: 'volume' },
-                priceScaleId: '',
+                priceScaleId: 'volumeScale',
             });
 
-            chartInstance.priceScale('').applyOptions({
+            chartInstance.priceScale('volumeScale').applyOptions({
                 scaleMargins: { top: 0.75, bottom: 0 },
             });
 
@@ -748,6 +749,17 @@
             else if (currentInterval === 'MN') chartData = historyDataObj.history_mn || [];
 
             if (chartData && chartData.length > 0) {
+                // Tự động phân bổ diện tích giữa cửa sổ Giá và cửa sổ RSI nếu RSI được bật
+                if (activeIndicators.RSI) {
+                    chartInstance.priceScale('right').applyOptions({
+                        scaleMargins: { top: 0.05, bottom: 0.35 },
+                    });
+                } else {
+                    chartInstance.priceScale('right').applyOptions({
+                        scaleMargins: { top: 0.05, bottom: 0.1 },
+                    });
+                }
+
                 candleSeries.setData(chartData);
                 
                 const volumeData = chartData.map(row => ({
@@ -759,11 +771,13 @@
                 }));
                 volumeSeries.setData(volumeData);
 
+                // Đường MA nét mỏng (lineWidth: 1)
                 if (activeIndicators.MA20) {
                     const ma20Series = chartInstance.addLineSeries({
                         color: '#3b82f6',
-                        lineWidth: 2,
-                        title: 'MA20'
+                        lineWidth: 1,
+                        title: 'MA20',
+                        priceScaleId: 'right'
                     });
                     ma20Series.setData(calculateMA(chartData, 20));
                 }
@@ -771,22 +785,46 @@
                 if (activeIndicators.MA50) {
                     const ma50Series = chartInstance.addLineSeries({
                         color: '#eab308',
-                        lineWidth: 2,
-                        title: 'MA50'
+                        lineWidth: 1,
+                        title: 'MA50',
+                        priceScaleId: 'right'
                     });
                     ma50Series.setData(calculateMA(chartData, 50));
                 }
 
+                // Cửa sổ phụ RSI độc lập ở góc dưới (Pane riêng từ 0 - 100)
                 if (activeIndicators.RSI) {
                     const rsiSeries = chartInstance.addLineSeries({
                         color: '#a855f7',
                         lineWidth: 1.5,
-                        priceScaleId: 'rsi',
+                        priceScaleId: 'rsiPane',
                         title: 'RSI(14)'
                     });
-                    chartInstance.priceScale('rsi').applyOptions({
-                        scaleMargins: { top: 0.8, bottom: 0 },
+
+                    chartInstance.priceScale('rsiPane').applyOptions({
+                        scaleMargins: { top: 0.7, bottom: 0.02 },
                     });
+
+                    // Vẽ đường tham chiếu 70 (Quá mua)
+                    rsiSeries.createPriceLine({
+                        price: 70,
+                        color: 'rgba(244, 63, 94, 0.6)',
+                        lineWidth: 1,
+                        lineStyle: LC.LineStyle.Dashed,
+                        axisLabelVisible: true,
+                        title: '70 (Quá mua)',
+                    });
+
+                    // Vẽ đường tham chiếu 30 (Quá bán)
+                    rsiSeries.createPriceLine({
+                        price: 30,
+                        color: 'rgba(16, 185, 129, 0.6)',
+                        lineWidth: 1,
+                        lineStyle: LC.LineStyle.Dashed,
+                        axisLabelVisible: true,
+                        title: '30 (Quá bán)',
+                    });
+
                     rsiSeries.setData(calculateRSI(chartData, 14));
                 }
 
