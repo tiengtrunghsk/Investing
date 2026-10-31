@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pro Quant Screener - Sector Specific Ranking</title>
+    <title>Pro Quant Screener - VN100</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -20,19 +20,20 @@
         .glow-top2 { box-shadow: 0 0 10px rgba(148, 163, 184, 0.3); border-color: #94a3b8; }
         .glow-top3 { box-shadow: 0 0 10px rgba(180, 83, 9, 0.3); border-color: #b45309; }
 
-        /* CSS Tối ưu cho chế độ Fullscreen & Xoay ngang trên Mobile */
+        /* Tối ưu chiều cao chuẩn khung hiển thị trình duyệt di động (Dynamic Viewport) */
         #chart-modal-box.fullscreen {
             position: fixed !important;
-            inset: 0 !important;
+            top: 0 !important;
+            left: 0 !important;
             width: 100vw !important;
-            height: 100vh !important;
+            height: 100dvh !important;
             max-width: none !important;
             max-height: none !important;
             border-radius: 0 !important;
             z-index: 9999 !important;
         }
         #chart-modal-box.fullscreen #tv-chart-container {
-            height: calc(100vh - 120px) !important;
+            height: calc(100dvh - 120px) !important;
             width: 100% !important;
         }
     </style>
@@ -173,22 +174,31 @@
         </div>
     </div>
 
-    <!-- MODAL HIỂN THỊ BIỂU ĐỒ TRADINGVIEW -->
+    <!-- MODAL BIỂU ĐỒ TÍCH HỢP BỘ CHỈ BÁO & FULLSCREEN DYNAMIC -->
     <div id="chart-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/85 backdrop-blur-sm hidden p-2 md:p-4">
-        <div id="chart-modal-box" class="bg-slate-900 border border-slate-700 w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300">
-            <div class="bg-slate-950 px-4 py-3 border-b border-slate-800 flex justify-between items-center gap-2">
+        <div id="chart-modal-box" class="bg-slate-900 border border-slate-700 w-full max-w-4xl rounded-2xl shadow-2xl overflow-hidden flex flex-col transition-all duration-300">
+            <div class="bg-slate-950 px-3 py-2.5 border-b border-slate-800 flex flex-wrap justify-between items-center gap-2">
                 <div class="flex items-center space-x-2">
                     <span id="chart-modal-symbol" class="text-lg font-black text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded-lg border border-emerald-500/20">--</span>
                     
+                    <!-- Nút chọn khung thời gian -->
                     <div class="flex items-center bg-slate-900 p-0.5 rounded-lg border border-slate-800 gap-0.5">
-                        <button onclick="switchInterval('D1')" id="btn-d1" class="px-2.5 py-1 text-[11px] font-bold rounded bg-emerald-600 text-white transition">D1</button>
-                        <button onclick="switchInterval('W1')" id="btn-w1" class="px-2.5 py-1 text-[11px] font-bold rounded text-slate-400 hover:text-white transition">W1</button>
-                        <button onclick="switchInterval('MN')" id="btn-mn" class="px-2.5 py-1 text-[11px] font-bold rounded text-slate-400 hover:text-white transition">MN</button>
+                        <button onclick="switchInterval('D1')" id="btn-d1" class="px-2 py-0.5 text-[11px] font-bold rounded bg-emerald-600 text-white transition">D1</button>
+                        <button onclick="switchInterval('W1')" id="btn-w1" class="px-2 py-0.5 text-[11px] font-bold rounded text-slate-400 hover:text-white transition">W1</button>
+                        <button onclick="switchInterval('MN')" id="btn-mn" class="px-2 py-0.5 text-[11px] font-bold rounded text-slate-400 hover:text-white transition">MN</button>
+                    </div>
+
+                    <!-- Nút Bật/Tắt Chỉ Báo Kỹ Thuật -->
+                    <div class="flex items-center bg-slate-900 p-0.5 rounded-lg border border-slate-800 gap-1 pl-2">
+                        <span class="text-[10px] text-slate-500 font-medium hidden sm:inline"><i class="fa-solid fa-sliders mr-1"></i>Chỉ báo:</span>
+                        <button onclick="toggleIndicator('MA20')" id="btn-ind-ma20" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">MA20</button>
+                        <button onclick="toggleIndicator('MA50')" id="btn-ind-ma50" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">MA50</button>
+                        <button onclick="toggleIndicator('RSI')" id="btn-ind-rsi" class="px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition">RSI</button>
                     </div>
                 </div>
 
-                <div class="flex items-center gap-2">
-                    <button onclick="toggleFullscreen()" id="fullscreen-btn" class="text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" title="Phóng to toàn màn hình & Xoay ngang">
+                <div class="flex items-center gap-2 ml-auto">
+                    <button onclick="toggleFullscreen()" id="fullscreen-btn" class="text-slate-300 hover:text-white p-2 rounded-lg bg-slate-800 hover:bg-slate-700 transition" title="Phóng to / Thu nhỏ">
                         <i class="fa-solid fa-expand text-xs"></i>
                     </button>
                     
@@ -198,14 +208,14 @@
                 </div>
             </div>
 
-            <div class="p-2 md:p-4 bg-slate-900 flex-grow relative">
+            <div class="p-2 md:p-3 bg-slate-900 flex-grow relative">
                 <div id="chart-loading" class="absolute inset-0 flex items-center justify-center bg-slate-900/80 z-10 text-emerald-400 text-xs hidden">
                     <i class="fa-solid fa-spinner spinner mr-2"></i> Đang tải dữ liệu biểu đồ...
                 </div>
                 <div id="tv-chart-container" style="width: 100%; height: 420px;"></div>
             </div>
 
-            <div class="bg-slate-950 px-4 py-3 border-t border-slate-800 flex justify-between items-center">
+            <div class="bg-slate-950 px-4 py-2.5 border-t border-slate-800 flex justify-between items-center">
                 <button id="btn-view-ai" onclick="" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg transition font-semibold text-xs flex items-center gap-1.5">
                     <i class="fa-solid fa-robot"></i> Xem AI chi tiết
                 </button>
@@ -220,6 +230,13 @@
         let chartInstance = null;
         let currentSymbol = null;
         let currentInterval = 'D1';
+
+        // Trạng thái các chỉ báo
+        let activeIndicators = {
+            MA20: false,
+            MA50: false,
+            RSI: false
+        };
 
         const SECTOR_MAPPING = {
             "NH": ["ACB", "BID", "CTG", "TCB", "MBB", "STB", "VPB", "HDB", "VIB", "TPB", "SHB", "SSB", "LPB", "MSB", "OCB", "EIB"],
@@ -523,9 +540,9 @@
             ['d1', 'w1', 'mn'].forEach(i => {
                 const btn = document.getElementById(`btn-${i}`);
                 if (i === interval.toLowerCase()) {
-                    btn.className = "px-2.5 py-1 text-[11px] font-bold rounded bg-emerald-600 text-white transition";
+                    btn.className = "px-2 py-0.5 text-[11px] font-bold rounded bg-emerald-600 text-white transition";
                 } else {
-                    btn.className = "px-2.5 py-1 text-[11px] font-bold rounded text-slate-400 hover:text-white transition";
+                    btn.className = "px-2 py-0.5 text-[11px] font-bold rounded text-slate-400 hover:text-white transition";
                 }
             });
 
@@ -534,7 +551,20 @@
             }
         }
 
-        // HÀM BẬT/TẮT FULLSCREEN & TỰ ĐỘNG XOAY NGANG MÀN HÌNH (LANDSCAPE)
+        // Bật/tắt các đường chỉ báo kỹ thuật
+        function toggleIndicator(name) {
+            activeIndicators[name] = !activeIndicators[name];
+            const btn = document.getElementById(`btn-ind-${name.toLowerCase()}`);
+            if (activeIndicators[name]) {
+                btn.className = "px-2 py-0.5 text-[10px] font-bold rounded bg-indigo-600 text-white border border-indigo-400 transition";
+            } else {
+                btn.className = "px-2 py-0.5 text-[10px] font-bold rounded bg-slate-800 text-slate-400 hover:text-white border border-slate-700 transition";
+            }
+            if (currentSymbolHistory) {
+                renderChartInstance(currentSymbolHistory);
+            }
+        }
+
         function toggleFullscreen() {
             const modalBox = document.getElementById('chart-modal-box');
             const fsBtnIcon = document.querySelector('#fullscreen-btn i');
@@ -544,16 +574,12 @@
             if (modalBox.classList.contains('fullscreen')) {
                 fsBtnIcon.className = "fa-solid fa-compress text-xs";
                 document.getElementById('fullscreen-btn').title = "Thu nhỏ màn hình";
-                
-                // Tự động yêu cầu trình duyệt xoay ngang màn hình trên mobile (nếu thiết bị hỗ trợ)
                 if (screen.orientation && screen.orientation.lock) {
                     screen.orientation.lock('landscape').catch(() => {});
                 }
             } else {
                 fsBtnIcon.className = "fa-solid fa-expand text-xs";
-                document.getElementById('fullscreen-btn').title = "Phóng to toàn màn hình & Xoay ngang";
-                
-                // Trả lại hướng màn hình mặc định
+                document.getElementById('fullscreen-btn').title = "Phóng to màn hình";
                 if (screen.orientation && screen.orientation.unlock) {
                     try { screen.orientation.unlock(); } catch (e) {}
                 }
@@ -584,10 +610,55 @@
                 currentSymbolHistory = await res.json();
                 renderChartInstance(currentSymbolHistory);
             } catch (err) {
-                document.getElementById('tv-chart-container').innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Chưa có dữ liệu lịch sử cho mã này. Hãy chạy lại script Python!</div>`;
+                document.getElementById('tv-chart-container').innerHTML = `<div class="flex items-center justify-center h-full text-rose-400 text-xs">Chưa có dữ liệu lịch sử cho mã này!</div>`;
             } finally {
                 document.getElementById('chart-loading').classList.add('hidden');
             }
+        }
+
+        // Thuật toán tính đường Moving Average (MA)
+        function calculateMA(data, period) {
+            let result = [];
+            for (let i = 0; i < data.length; i++) {
+                if (i < period - 1) continue;
+                let sum = 0;
+                for (let j = 0; j < period; j++) {
+                    sum += data[i - j].close;
+                }
+                result.push({ time: data[i].time, value: sum / period });
+            }
+            return result;
+        }
+
+        // Thuật toán tính RSI (14)
+        function calculateRSI(data, period = 14) {
+            let result = [];
+            if (data.length <= period) return result;
+
+            let gains = 0, losses = 0;
+            for (let i = 1; i <= period; i++) {
+                let change = data[i].close - data[i - 1].close;
+                if (change >= 0) gains += change;
+                else losses -= change;
+            }
+
+            let avgGain = gains / period;
+            let avgLoss = losses / period;
+
+            for (let i = period; i < data.length; i++) {
+                let change = data[i].close - data[i - 1].close;
+                let gain = change >= 0 ? change : 0;
+                let loss = change < 0 ? -change : 0;
+
+                avgGain = (avgGain * (period - 1) + gain) / period;
+                avgLoss = (avgLoss * (period - 1) + loss) / period;
+
+                let rs = avgLoss === 0 ? 100 : avgGain / avgLoss;
+                let rsi = 100 - (100 / (1 + rs));
+
+                result.push({ time: data[i].time, value: rsi });
+            }
+            return result;
         }
 
         function renderChartInstance(historyDataObj) {
@@ -640,6 +711,40 @@
                     color: row.close >= row.open ? 'rgba(16, 185, 129, 0.5)' : 'rgba(244, 63, 94, 0.5)'
                 }));
                 volumeSeries.setData(volumeData);
+
+                // Vẽ chỉ báo MA20
+                if (activeIndicators.MA20) {
+                    const ma20Series = chartInstance.addLineSeries({
+                        color: '#3b82f6',
+                        lineWidth: 2,
+                        title: 'MA20'
+                    });
+                    ma20Series.setData(calculateMA(chartData, 20));
+                }
+
+                // Vẽ chỉ báo MA50
+                if (activeIndicators.MA50) {
+                    const ma50Series = chartInstance.addLineSeries({
+                        color: '#eab308',
+                        lineWidth: 2,
+                        title: 'MA50'
+                    });
+                    ma50Series.setData(calculateMA(chartData, 50));
+                }
+
+                // Vẽ chỉ báo RSI (14) dưới cửa sổ phụ
+                if (activeIndicators.RSI) {
+                    const rsiSeries = chartInstance.addLineSeries({
+                        color: '#a855f7',
+                        lineWidth: 1.5,
+                        priceScaleId: 'rsi',
+                        title: 'RSI(14)'
+                    });
+                    chartInstance.priceScale('rsi').applyOptions({
+                        scaleMargins: { top: 0.8, bottom: 0 },
+                    });
+                    rsiSeries.setData(calculateRSI(chartData, 14));
+                }
 
                 setTimeout(() => {
                     chartInstance.timeScale().fitContent();
