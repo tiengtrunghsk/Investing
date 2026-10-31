@@ -8,6 +8,7 @@ import requests
 from vnstock import Quote
 
 DATA_FILE = "data.json"
+JS_LIB_FILE = "lightweight-charts.js"
 
 VN100_SYMBOLS = [
     "ACB", "BID", "CTG", "TCB", "MBB", "STB", "VPB", "HDB", "VIB", "TPB",
@@ -44,11 +45,16 @@ def get_vndirect_ratio(symbol, ratio_code):
     return 0
 
 def auto_git_push():
-    """Tự động add, commit và push file data.json lên GitHub"""
+    """Tự động add, commit và push data.json và file thư viện JS lên GitHub"""
     try:
         print("📤 Đang tiến hành đồng bộ dữ liệu lên GitHub...")
         subprocess.run(["git", "add", DATA_FILE], check=True)
-        commit_msg = f"Auto update data.json from PC - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
+        
+        # Nếu có file thư viện JS trong thư mục, tiến hành add luôn lên Git
+        if os.path.exists(JS_LIB_FILE):
+            subprocess.run(["git", "add", JS_LIB_FILE], check=True)
+            
+        commit_msg = f"Auto update data & lib from PC - {datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
         subprocess.run(["git", "commit", "-m", commit_msg], check=True)
         subprocess.run(["git", "push"], check=True)
         print("🚀 Đẩy dữ liệu lên GitHub thành công!")
@@ -89,7 +95,6 @@ def main():
                 
                 # Định dạng dữ liệu lịch sử phục vụ vẽ biểu đồ TradingView
                 for _, row in df.iterrows():
-                    # Xử lý chuẩn định dạng ngày 'YYYY-MM-DD'
                     time_val = row['time']
                     time_str = time_val.strftime('%Y-%m-%d') if hasattr(time_val, 'strftime') else str(time_val)[:10]
                     
@@ -147,7 +152,7 @@ def main():
             "recommendation": status,
             "price_zone": detail,
             "updated_at": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "history": history_data, # 👈 Bổ sung mảng lịch sử nến phục vụ vẽ biểu đồ web
+            "history": history_data, 
             # Kế thừa dữ liệu AI tuần trước
             "bctc": old_data.get("bctc", ""),
             "outlook": old_data.get("outlook", ""),
