@@ -11,10 +11,9 @@ API_URL = "https://ws-8lcqaxwxdv0h9xzy.ap-southeast-1.maas.aliyuncs.com/compatib
 
 def check_if_analysis_needed(stock_db):
     """
-    Kiểm tra xem có cần gọi API AI hay không:
-    Cần chạy khi có ít nhất 1 mã cổ phiếu thỏa mãn:
-    1. Chưa từng được AI phân tích (ai_updated_at bị trống/thiếu).
-    2. Dữ liệu giá mới cào từ PC mới hơn lần phân tích AI gần nhất (updated_at > ai_updated_at).
+    Kiểm tra tự động xem mã nào cần AI phân tích lại:
+    - Chưa có phân tích AI.
+    - Hoặc dữ liệu giá/thông số mới cào từ thị trường mới hơn thời điểm AI quét trước đó.
     """
     for symbol, data in stock_db.items():
         if data.get('close', 0) <= 0:
@@ -24,41 +23,37 @@ def check_if_analysis_needed(stock_db):
         ai_updated_at = data.get("ai_updated_at", "")
         ai_recommendation = data.get("ai_recommendation", "")
         
-        # Nếu chưa phân tích AI hoặc dữ liệu giá mới hơn thời điểm AI quét
         if not ai_recommendation or not ai_updated_at or updated_at > ai_updated_at:
-            print(f"🔍 Phát hiện dữ liệu mới cần phân tích tại mã: {symbol}")
             return True
             
     return False
 
 def analyze_stock_with_ai(symbol, data):
     if not ALIBABA_API_KEY:
-        print(f"❌ LỖI: Biến ALIBABA_API_KEY đang bị trống!")
+        print(f"❌ LỖI: Biến môi trường ALIBABA_API_KEY đang bị trống!")
         return None
 
+    # Prompt hoàn toàn mở, để AI tự do phân tích toàn diện định giá đắt/rẻ và kỹ thuật không qua bất kỳ ràng buộc cứng nào
     prompt = f"""
-    Bạn là một Chuyên gia Phân tích Đầu tư (Portfolio Manager) kết hợp cả trường phái Cơ bản (Fundamental) và Dòng tiền lớn (Smart Money / Price Action & Volume).
-    Hãy phân tích toàn diện mã cổ phiếu: {symbol}.
+    Bạn là một Chuyên gia Quản lý Quỹ Đầu tư (Portfolio Manager) hàng đầu. Hãy dùng toàn bộ tư duy tài chính, kinh tế vĩ mô và phân tích kỹ thuật của bạn để đánh giá toàn diện mã cổ phiếu: {symbol}.
 
-    DỮ LIỆU ĐỊNH GIÁ & CƠ BẢN (Từ VNDirect):
-    - P/E: {data.get('pe', 0)} | P/B: {data.get('pb', 0)}
-    - EPS: {data.get('eps', 0)} VNĐ | ROE: {data.get('roe', 0)}% | ROA: {data.get('roa', 0)}%
-    - Tỷ suất cổ tức: {data.get('dividend_yield', 0)}%
+    DỮ LIỆU THỊ TRƯỜNG & TÀI CHÍNH HIỆN TẠI:
+    - Giá đóng cửa hiện tại: {data.get('close', 0)} VNĐ
+    - Khối lượng giao dịch: {data.get('volume', 0)}
+    - Chỉ số định giá cơ bản: P/E = {data.get('pe', 0)} | P/B = {data.get('pb', 0)}
+    - Khả năng sinh lời: EPS = {data.get('eps', 0)} VNĐ | ROE = {data.get('roe', 0)}% | ROA = {data.get('roa', 0)}%
+    - Cổ tức: {data.get('dividend_yield', 0)}%
+    - Trạng thái nến/kỹ thuật thô: {data.get('recommendation', 'Chưa xác định')}
+    - Vùng giá/VCP thô: {data.get('price_zone', 'Chưa có')}
 
-    DỮ LIỆU KỸ THUẬT (Price Action D1):
-    - Giá hiện tại: {data.get('close', 0)} VNĐ
-    - Khối lượng hiện tại: {data.get('volume', 0)}
-    - Trạng thái nến: {data.get('recommendation', 'Chưa xác định')}
-    - Phân tích VCP: {data.get('price_zone', 'Chưa có')}
+    YÊU CẦU PHÂN TÍCH (Trả về JSON thuần túy, không định dạng markdown):
+    1. "bctc": Đánh giá sức khỏe tài chính và chất lượng nội tại của doanh nghiệp dựa trên các con số trên. (2-3 câu).
+    2. "outlook": Phân tích chuyên sâu xem **mức giá hiện tại đang ĐẮT hay RẺ**, có biên an toàn chưa, dựa trên P/E, P/B so với hiệu quả sinh lời ROE. (2-3 câu).
+    3. "recommendation": Đưa ra quyết định đầu tư thuần túy từ AI, chọn 1 trong các trạng thái: "MUA TÍCH SẢN", "MUA BREAKOUT", "CHỜ TEST LẠI", "CẠN CUNG", "THEO DÕI THÊM", "BỎ QUA".
+    4. "price_zone": Xác định rõ vùng giá mua gom hợp lý / vùng định giá rẻ và ngưỡng hành động giá.
+    5. "macro_view": Đánh giá góc nhìn vĩ mô và dòng tiền lớn với ngành chứa cổ phiếu này. (2 câu).
 
-    YÊU CẦU PHÂN TÍCH (Trả về JSON thuần túy):
-    1. "bctc": Đánh giá sức khỏe doanh nghiệp dựa trên EPS, ROE, ROA. Doanh nghiệp có đủ nội lực để dòng tiền lớn nắm giữ dài hạn không? (2-3 câu).
-    2. "outlook": Đánh giá mức độ hấp dẫn của định giá (P/E, P/B) kết hợp với trạng thái kỹ thuật hiện tại (Ví dụ: "Định giá P/E 8.x là hấp dẫn so với ngành, kết hợp nền giá đang cạn cung tạo điểm mua tốt").
-    3. "recommendation": Chọn 1 trong các trạng thái chuẩn: "MUA TÍCH SẢN", "MUA BREAKOUT", "CHỜ TEST LẠI", "THEO DÕI THÊM", "BỎ QUA".
-    4. "price_zone": Xác định rõ vùng nền giá tích lũy và điểm mua chuẩn (Ví dụ: "Mua tích lũy: 20.0 - 21.5 | Mua gia tăng khi Breakout > 23.5 kèm Vol lớn").
-    5. "macro_view": Đánh giá vĩ mô và sóng ngành (Ngân hàng, BĐS, Thép...) xem có đang ủng hộ dòng tiền lớn nhập cuộc không? (2 câu).
-
-    Yêu cầu trả về **BẮT BUỘC DƯỚI DẠNG MỘT ĐỐI TƯỢNG JSON THUẦN TÚY** (không markdown) với các khóa chính xác: "bctc", "outlook", "recommendation", "price_zone", "macro_view".
+    BẮT BUỘC TRẢ VỀ ĐỐI TƯỢNG JSON THUẦN TÚY với các khóa chính xác: "bctc", "outlook", "recommendation", "price_zone", "macro_view".
     """
 
     headers = {
@@ -77,6 +72,7 @@ def analyze_stock_with_ai(symbol, data):
         if response.status_code == 200:
             res_json = response.json()
             content = res_json["choices"][0]["message"]["content"].strip()
+            # Làm sạch chuỗi phản hồi để đảm bảo load JSON an toàn
             content = re.sub(r"^```json\s*", "", content)
             content = re.sub(r"^```\s*", "", content)
             content = re.sub(r"\s*```$", "", content)
@@ -84,25 +80,23 @@ def analyze_stock_with_ai(symbol, data):
         else:
             print(f"[{symbol}] Lỗi HTTP {response.status_code}: {response.text}")
     except Exception as e:
-        print(f"[{symbol}] Lỗi AI: {e}")
+        print(f"[{symbol}] Lỗi phân tích từ AI: {e}")
     
     return None
 
 def main():
     if not os.path.exists(DATA_FILE):
-        print("❌ Không tìm thấy file data.json! Bỏ qua phân tích.")
+        print("❌ Không tìm thấy file data.json!")
         return
 
-    # Đọc dữ liệu gốc
     with open(DATA_FILE, "r", encoding="utf-8") as f:
         stock_db = json.load(f)
 
-    # Kiểm tra điều kiện trước khi chạy
     if not check_if_analysis_needed(stock_db):
-        print("💤 Dữ liệu không thay đổi hoặc đã được phân tích mới nhất. Dừng lại để tiết kiệm API Alibaba!")
+        print("💤 Dữ liệu không thay đổi. Không cần gọi AI để tiết kiệm tài nguyên.")
         return
 
-    print(f"🤖 Bắt đầu Phân tích Toàn diện bằng AI cho các mã chưa có/có dữ liệu mới...")
+    print(f"🤖 Đang để AI tự động phân tích và định giá toàn bộ thị trường...")
     count = 0
     
     for i, (symbol, data) in enumerate(stock_db.items()):
@@ -112,9 +106,9 @@ def main():
         updated_at = data.get("updated_at", "")
         ai_updated_at = data.get("ai_updated_at", "")
         
-        # Chỉ gọi API cho mã nào chưa phân tích hoặc có dữ liệu mới hơn AI cũ
-        if not data.get("ai_recommendation") or updated_at > ai_updated_at:
-            print(f"[{i+1}/{len(stock_db)}] Đang xử lý AI cho: {symbol}...")
+        # Nhờ AI phân tích hoàn toàn dựa trên dữ liệu mới
+        if not data.get("ai_recommendation") or updated_at > ai_updated_ai if 'ai_updated_ai' in locals() else not data.get("ai_recommendation") or updated_at > ai_updated_at:
+            print(f"[{i+1}/{len(stock_db)}] AI đang đánh giá mã: {symbol}...")
             ai_result = analyze_stock_with_ai(symbol, data)
             
             if ai_result:
@@ -125,21 +119,20 @@ def main():
                 data["macro_view"] = ai_result.get("macro_view", "")
                 data["ai_updated_at"] = time.strftime("%Y-%m-%d %H:%M:%S")
                 count += 1
-                print(f"  -> ✅ Thành công")
+                print(f"  -> ✅ Phân tích thành công")
             else:
-                print(f"  -> ❌ Thất bại (Bỏ qua)")
+                print(f"  -> ❌ Lỗi gọi AI, bỏ qua mã này")
             
             time.sleep(1.2)
         else:
-            print(f"[{i+1}/{len(stock_db)}] Bỏ qua {symbol} (Đã có phân tích AI mới nhất)")
+            print(f"[{i+1}/{len(stock_db)}] Bỏ qua {symbol} (Đã có dữ liệu AI mới nhất)")
 
-    # Ghi lại file data.json
     if count > 0:
         with open(DATA_FILE, "w", encoding="utf-8") as f:
             json.dump(stock_db, f, ensure_ascii=False, indent=4)
-        print(f"\n✅ Đã phân tích AI xong {count} mã! File data.json đã được cập nhật.")
+        print(f"\n🎉 Đã hoàn thành! AI đã phân tích xong {count} mã và cập nhật vào data.json.")
     else:
-        print("\nℹ️ Không có cập nhật mới nào được thực hiện.")
+        print("\nℹ️ Không có mã nào cần phân tích mới.")
 
 if __name__ == "__main__":
     main()
