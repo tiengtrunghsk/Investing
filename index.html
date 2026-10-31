@@ -2,7 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Pro Quant Screener - VN100</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,6 +21,9 @@
         .glow-top3 { box-shadow: 0 0 10px rgba(180, 83, 9, 0.3); border-color: #b45309; }
 
         /* Tối ưu chiều cao chuẩn khung hiển thị trình duyệt di động (Dynamic Viewport) */
+        #chart-modal-box {
+            max-height: 92dvh;
+        }
         #chart-modal-box.fullscreen {
             position: fixed !important;
             top: 0 !important;
@@ -32,8 +35,15 @@
             border-radius: 0 !important;
             z-index: 9999 !important;
         }
+        
+        /* Tự động tính toán lại chiều cao biểu đồ theo kích thước thực tế khi xoay ngang/dọc */
+        #chart-modal-box:not(.fullscreen) #tv-chart-container {
+            height: calc(92dvh - 120px) !important;
+            min-height: 250px;
+            width: 100% !important;
+        }
         #chart-modal-box.fullscreen #tv-chart-container {
-            height: calc(100dvh - 115px) !important;
+            height: calc(100dvh - 110px) !important;
             width: 100% !important;
         }
     </style>
@@ -121,7 +131,7 @@
 
     <!-- MODAL CHI TIẾT AI -->
     <div id="ai-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm hidden p-3 md:p-4">
-        <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+        <div class="bg-slate-900 border border-slate-700 w-full max-w-2xl rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[90dvh]">
             <div class="bg-slate-950 px-5 py-4 border-b border-slate-800 flex justify-between items-center sticky top-0 z-10">
                 <div class="flex items-center space-x-3">
                     <span id="modal-symbol" class="text-2xl font-black text-indigo-400 bg-indigo-500/10 px-3 py-1 rounded-lg border border-indigo-500/20">--</span>
@@ -208,11 +218,11 @@
                 </div>
             </div>
 
-            <div class="p-2 md:p-3 bg-slate-900 flex-grow relative">
+            <div class="p-2 md:p-3 bg-slate-900 flex-grow relative overflow-hidden">
                 <div id="chart-loading" class="absolute inset-0 flex items-center justify-center bg-slate-900/80 z-10 text-emerald-400 text-xs hidden">
                     <i class="fa-solid fa-spinner spinner mr-2"></i> Đang tải dữ liệu biểu đồ...
                 </div>
-                <div id="tv-chart-container" style="width: 100%; height: 420px;"></div>
+                <div id="tv-chart-container"></div>
             </div>
 
             <div class="bg-slate-950 px-4 py-2 border-t border-slate-800 flex justify-between items-center">
@@ -577,6 +587,19 @@
             }
         }
 
+        function resizeChart() {
+            if (chartInstance) {
+                const container = document.getElementById('tv-chart-container');
+                if (container) {
+                    chartInstance.applyOptions({
+                        width: container.clientWidth,
+                        height: container.clientHeight
+                    });
+                    chartInstance.timeScale().fitContent();
+                }
+            }
+        }
+
         function toggleFullscreen() {
             const modalBox = document.getElementById('chart-modal-box');
             const fsBtnIcon = document.querySelector('#fullscreen-btn i');
@@ -597,31 +620,20 @@
                 }
             }
 
-            // Đợi khung trình duyệt cập nhật lại kích thước (đặc biệt khi xoay ngang) rồi resize biểu đồ
-            setTimeout(() => {
-                if (chartInstance) {
-                    const container = document.getElementById('tv-chart-container');
-                    chartInstance.applyOptions({
-                        width: container.clientWidth,
-                        height: container.clientHeight
-                    });
-                    chartInstance.timeScale().fitContent();
-                }
-            }, 200);
+            // Ép biểu đồ cập nhật lại kích thước theo khung hiển thị mới
+            setTimeout(resizeChart, 200);
         }
 
-        // Tự động lắng nghe sự kiện xoay màn hình thiết bị để tự scale lại biểu đồ đúng chuẩn trong khung trình duyệt
+        // Tự động lắng nghe sự kiện xoay màn hình (Orientation Change) hoặc thay đổi kích thước trình duyệt
         window.addEventListener('resize', () => {
-            if (chartInstance && !document.getElementById('chart-modal').classList.contains('hidden')) {
-                setTimeout(() => {
-                    const container = document.getElementById('tv-chart-container');
-                    if (container) {
-                        chartInstance.applyOptions({
-                            width: container.clientWidth,
-                            height: container.clientHeight
-                        });
-                    }
-                }, 150);
+            if (!document.getElementById('chart-modal').classList.contains('hidden')) {
+                setTimeout(resizeChart, 300);
+            }
+        });
+
+        window.addEventListener('orientationchange', () => {
+            if (!document.getElementById('chart-modal').classList.contains('hidden')) {
+                setTimeout(resizeChart, 400);
             }
         });
 
@@ -705,7 +717,7 @@
             }
 
             const width = container.clientWidth || 600;
-            const height = container.clientHeight || 420;
+            const height = container.clientHeight || 350;
 
             chartInstance = LC.createChart(container, {
                 width: width,
